@@ -1,9 +1,9 @@
-import { Project } from "@/models/ProjectModel";
+import { ProjectData } from "@/models/project-model";
 
-export const Projects:Project[] = [
+export const Projects:ProjectData[] = [
     {
-        imageURL: "/projects/Washtec2.jpg",
-        logoURL: "/logos/washtec-logo.png",
+        imageURL: "projects/Arburg.jpg",
+        logoURL: "logos/arburg-logo.png",
         productDescription: "Smart Care",
         productDescriptionEN: "Smart Care",
         productName: "Portalwaschanlage",

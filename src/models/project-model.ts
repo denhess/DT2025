@@ -1,4 +1,4 @@
-export interface Project {
+export interface ProjectData {
     // Basisinformationen
     imageURL: string;                // URL des Hauptbilds
     logoURL?: string;                // Optional: URL des Logos
