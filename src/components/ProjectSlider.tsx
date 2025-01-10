@@ -1,22 +1,225 @@
-/* projectSlider.tsx */
+"use client";
+// Fügen Sie diese CSS-Klassen am Anfang Ihrer Komponente hinzu
+const customNavigationStyles = `
+  .swiper-button-prev,
+  .swiper-button-next {
+    display: none;
+  }
+
+  .custom-navigation-button {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transition: opacity 0.3s;
+    cursor: pointer;
+    position: absolute;
+    right: 48px;
+    z-index: 20;
+  }
+
+  .custom-navigation-button:hover {
+    opacity: 0.7;
+  }
+`;
+import { useRef } from "react";
+import { Projects } from "@/data/projects/project-data";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Autoplay } from "swiper/modules";
+import { ChevronUp, ChevronDown, ChevronRight, ChevronLeft } from "lucide-react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import ScrollTrigger from "gsap/ScrollTrigger";
+import Image from "next/image";
+import "swiper/css";
+import "swiper/css/navigation";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export function ProjectSlider() {
-  const projects = [
-    { title: "Projekt 1", description: "Beschreibung 1", img: "/project1.jpg" },
-    { title: "Projekt 2", description: "Beschreibung 2", img: "/project2.jpg" },
-    // add more project objects here
-  ];
+  const sectionRef = useRef<HTMLElement>(null);
+  const swiperRef = useRef<any>(null);
+
+  useGSAP(() => {
+    if (!sectionRef.current) return;
+
+    ScrollTrigger.create({
+      trigger: sectionRef.current,
+      start: "top -50px",
+      onEnter: () => {
+        gsap.to(".header-color-change", {
+          color: "#ffffff",
+          duration: 0.3,
+        });
+      },
+      onLeaveBack: () => {
+        gsap.to(".header-color-change", {
+          color: "#000000",
+          duration: 0.3,
+        });
+      },
+    });
+  }, []);
+
+  const animateSlideContent = (index: number) => {
+    // Bild-Animation
+    gsap.to(`#slide-image-${index}`, {
+      scale: 1.1,
+      duration: 10,
+      ease: "none",
+    });
+
+    // Text-Animation Timeline
+    const timeline = gsap.timeline();
+
+    timeline.to(
+      [
+        `#slide-title-${index}`,
+        `#slide-description-${index}`,
+        `#slide-logo-${index}`,
+      ],
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        stagger: 0.1,
+        ease: "power3.out",
+      }
+    );
+  };
+
+  const handleSlideStart = () => {
+    // Blende alle Texte aus
+    gsap.to([".slide-content"], {
+      opacity: 0,
+      y: 20,
+      duration: 0.5,
+      ease: "power2.in",
+    });
+  };
+
+  const handleSlideEnd = (swiper: any) => {
+    // Reset Bildanimation
+    Projects.forEach((_, index) => {
+      gsap.set(`#slide-image-${index}`, { scale: 1 });
+    });
+
+    // Reset Textposition
+    gsap.set(
+      [
+        `#slide-title-${swiper.activeIndex}`,
+        `#slide-description-${swiper.activeIndex}`,
+        `#slide-logo-${swiper.activeIndex}`,
+      ],
+      {
+        opacity: 0,
+        y: 30,
+      }
+    );
+
+    // Starte neue Animation
+    animateSlideContent(swiper.activeIndex);
+  };
 
   return (
-    <section className="project-slider h-screen flex items-center justify-center">
-      <div className="slider-container max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {projects.map((project, index) => (
-          <div className="slider-item" key={index}>
-            <img src={project.img} alt={project.title} className="w-full h-64 object-cover rounded-md" />
-            <h3 className="text-2xl font-bold mt-4">{project.title}</h3>
-            <p className="text-lg">{project.description}</p>
-          </div>
+    <section
+      ref={sectionRef}
+      className="project-slider relative h-screen bg-black overflow-hidden"
+    >
+      {/* Fügen Sie die Styles hinzu */}
+      <style>{customNavigationStyles}</style>
+      <Swiper
+        modules={[Navigation, Autoplay]}
+        spaceBetween={0}
+        slidesPerView={1}
+        speed={800}
+        autoplay={{
+          delay: 5000,
+          disableOnInteraction: false,
+        }}
+        navigation={{
+          prevEl: '.custom-swiper-button-prev',
+          nextEl: '.custom-swiper-button-next',
+        }}
+        onSwiper={(swiper) => {
+          swiperRef.current = swiper;
+          animateSlideContent(0);
+        }}
+        onSlideChangeTransitionStart={handleSlideStart}
+        onSlideChangeTransitionEnd={(swiper) => handleSlideEnd(swiper)}
+        className="h-full"
+      >
+        {Projects.map((project, index) => (
+          <SwiperSlide key={index}>
+            <div className="absolute inset-0 overflow-hidden">
+              <div
+                id={`slide-image-${index}`}
+                className="relative w-full h-full"
+              >
+                <Image
+                  src={`/${project.img}`}
+                  alt=""
+                  fill
+                  className="object-cover"
+                  priority
+                />
+                <div className="absolute inset-0 bg-black/25" />
+              </div>
+            </div>
+
+            <div className="relative h-full grid grid-cols-12">
+              <div className="col-span-6 flex flex-col justify-center px-24">
+                <div className="flex-grow flex flex-col justify-center">
+                  <h2
+                    id={`slide-title-${index}`}
+                    className="slide-content text-white text-[2.5vw] font-extralight uppercase tracking-tighter mb-4 opacity-0"
+                  >
+                    {project.title || project.titleEn}
+                  </h2>
+
+                  <p
+                    id={`slide-description-${index}`}
+                    className="slide-content text-white text-[2.5vw] font-extralight uppercase tracking-tighter leading-tight opacity-0"
+                  >
+                    {project.description || project.descriptionEn}
+                  </p>
+                </div>
+
+                {project.logo && (
+                  <div
+                    id={`slide-logo-${index}`}
+                    className="slide-content relative w-32 h-12 mb-12 opacity-0"
+                  >
+                    <Image
+                      src={`/${project.logo}`}
+                      alt={project.copyright || "Company logo"}
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
+                )}
+              </div>
+            </div>
+          </SwiperSlide>
         ))}
+      </Swiper>
+
+     {/* Custom Navigation Buttons */}
+     <div className="absolute right-12 top-1/2 transform -translate-y-1/2 z-10">
+        <button 
+          className="custom-navigation-button custom-swiper-button-prev absolute -top-8"
+          aria-label="Previous project"
+        >
+          <ChevronLeft className="w-8 h-8 text-white" />
+        </button>
+        <button 
+          className="custom-navigation-button custom-swiper-button-next absolute top-8"
+          aria-label="Next project"
+        >
+          <ChevronRight className="w-8 h-8 text-white" />
+        </button>
       </div>
     </section>
   );

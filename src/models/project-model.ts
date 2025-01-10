@@ -1,12 +1,12 @@
 export interface ProjectData {
     // Basisinformationen
-    imageURL: string;                // URL des Hauptbilds
-    logoURL?: string;                // Optional: URL des Logos
-    videoURL?: string;               // Optional: URL des Videos
-    productName?: string;            // Name des Produkts (Deutsch)
-    productNameEN?: string;          // Name des Produkts (Englisch)
-    productDescription?: string;     // Beschreibung des Produkts (Deutsch)
-    productDescriptionEN?: string;   // Beschreibung des Produkts (Englisch)
+    img: string;                // URL des Hauptbilds
+    logo?: string;                // Optional: URL des Logos
+    vide?: string;               // Optional: URL des Videos
+    title?: string;            // Name des Produkts (Deutsch)
+    titleEn?: string;          // Name des Produkts (Englisch)
+    description?: string;     // Beschreibung des Produkts (Deutsch)
+    descriptionEn?: string;   // Beschreibung des Produkts (Englisch)
 
     // Veröffentlichungs- und Copyright-Informationen
     release?: boolean;               // Gibt an, ob das Projekt veröffentlicht ist

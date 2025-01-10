@@ -1,5 +1,4 @@
 "use client";
-
 import { useState } from "react";
 import Link from "next/link";
 import { DtLogo } from "./Dt-logo";
@@ -25,11 +24,11 @@ export function Header({ onMenuToggle }: HeaderProps) {
           <div className="flex justify-between items-center h-16">
             <div className="flex-shrink-0">
               <Link href="/">
-                <DtLogo 
+                <DtLogo
                   className={clsx(
-                    'z-50 w-80 cursor-pointer',
+                    'z-50 w-80 cursor-pointer header-color-change',
                     isMenuOpen ? 'text-black' : 'text-white'
-                  )} 
+                  )}
                 />
               </Link>
             </div>
@@ -40,17 +39,18 @@ export function Header({ onMenuToggle }: HeaderProps) {
               aria-expanded={isMenuOpen}
               aria-label="Hauptmenü"
             >
-              <span className={clsx(
-                'text-xl font-medium',
-                isMenuOpen ? 'text-black' : 'text-white'
-              )}>
+              <span
+                className={clsx(
+                  'text-xl font-medium header-color-change',
+                  isMenuOpen ? 'text-black' : 'text-white'
+                )}
+              >
                 {isMenuOpen ? "X" : "MENU"}
               </span>
             </button>
           </div>
         </div>
       </header>
-
       <MenuOverlay isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
     </>
   );

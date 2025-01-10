@@ -1,12 +1,15 @@
+// layout.tsx (angepasst)
 import type { Metadata } from "next";
 import { Header } from "@/components/Header";
+
 import "./globals.css";
+import { HeaderProvider } from "@/contexts/HeaderContext";
 
 export const metadata: Metadata = {
   title: "Design Tech - Maschinendesign",
   description: "Maschinendesign",
   icons: {
-    icon: "/favicon.png", // Pfad zum Favicon
+    icon: "/favicon.png",
   },
 };
 
@@ -18,8 +21,10 @@ export default function RootLayout({
   return (
     <html lang="de">
       <body>
-        <Header />
-        {children}
+        <HeaderProvider>
+          <Header />
+          {children}
+        </HeaderProvider>
       </body>
     </html>
   );
