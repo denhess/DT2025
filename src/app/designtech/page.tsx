@@ -1,14 +1,21 @@
+"use client"
+
 import React from 'react';
+
+import { HeroDesignTech } from "@/components/HeroDesignTech";
+import { About } from "@/components/About";
+import { ProjectSlider } from "@/components/ProjectSlider";
+import { Contact } from "@/components/Contact";
+import { Footer } from "@/components/Footer";
 
 export default function DesignTechPage() {
   return (
-    <div className="design-tech-page h-screen flex items-center justify-center">
-      <div className="content max-w-3xl text-center">
-        <h1 className="text-4xl font-bold mb-4">Design Tech</h1>
-        <p className="text-lg">
-          Details about Design Tech here...
-        </p>
-      </div>
-    </div>
+    <>
+          <HeroDesignTech />
+          <About />
+          <ProjectSlider />
+          <Contact />
+          <Footer />
+    </>
   );
 }

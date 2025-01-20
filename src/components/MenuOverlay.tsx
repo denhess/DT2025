@@ -50,8 +50,13 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
       ref={overlayRef}
       className="fixed inset-0 bg-[#FFFF00] text-black z-40 hidden opacity-0 flex-col items-center justify-center"
     >
+      
       <div ref={contentRef} className="text-center space-y-8">
-        <h1 className="text-5xl font-bold mb-12">DESIGN TECH</h1>
+      
+
+        <Link href="/designtech" onClick={handleLinkClick}>
+          <h2 className="text-4xl mb-12">DESIGN TECH</h2>
+        </Link>
 
         <Link href="/karriere" onClick={handleLinkClick}>
           <h2 className="text-4xl mb-12">KARRIERE</h2>
