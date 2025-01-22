@@ -5,9 +5,11 @@ import Link from 'next/link';
 import { Linkedin, Building2 } from 'lucide-react';
 import { DtLogo } from './Dt-logo';
 
+
 export function Footer() {
   return (
-    <footer className="bg-[#FFFF00] text-black">
+    <footer className="text-black">
+      
       {/* Horizontale Linie */}
 
         <div className="border-t border-black w-full"></div>

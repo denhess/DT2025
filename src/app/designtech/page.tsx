@@ -3,19 +3,24 @@
 import React from 'react';
 
 import { HeroDesignTech } from "@/components/HeroDesignTech";
-import { About } from "@/components/About";
-import { ProjectSlider } from "@/components/ProjectSlider";
-import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
+import { AboutDesignTech } from '@/components/AboutDesignTech';
+import { Clients } from '@/components/Clients';
+import { Awards } from '@/components/Awards';
+import { ClosingKarriere } from '@/components/ClosingKarriere';
+
 
 export default function DesignTechPage() {
   return (
     <>
+          
           <HeroDesignTech />
-          <About />
-          <ProjectSlider />
-          <Contact />
+          <AboutDesignTech />
+          <Clients />
+          <Awards />
+          <ClosingKarriere/>
           <Footer />
+           
     </>
   );
 }

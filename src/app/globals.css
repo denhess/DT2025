@@ -5,17 +5,55 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  font-size: 16px; /* Basis-Schriftgröße für Desktop */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  font-size: 16px; /* Schriftgröße für Dark Mode */
   }
 }
 
 body {
   color: var(--foreground);
-  background: var(--background);
+  {/*background: var(--background);*/}
   font-family: Arial, Helvetica, sans-serif;
+}
+h1 {
+  font-size: 2rem; /* 2 mal die Basis-Schriftgröße (32px) */
+}
+
+p {
+  font-size: 1rem; /* 1 mal die Basis-Schriftgröße (16px) */
+}
+
+/* Responsives Design: Schriftgrößen anpassen */
+@media (max-width: 1200px) {
+  :root {
+    font-size: 15px; /* Kleinere Basisgröße für größere Tablets */
+  }
+
+  h1 {
+    font-size: 1.8rem; /* Kleinere Schrift für h1 */
+  }
+
+  p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    font-size: 14px; /* Kleinere Basisgröße für mobile Geräte */
+  }
+
+  h1 {
+    font-size: 1.6rem; /* Noch kleinere Schrift für h1 */
+  }
+
+  p {
+    font-size: 0.9rem;
+  }
 }

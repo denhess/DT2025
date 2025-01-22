@@ -15,7 +15,7 @@ interface YellowBackgroundProps {
 export function YellowBackground({ onHeaderColor }: YellowBackgroundProps) {
   const sectionRef = useRef<HTMLElement>(null);
   const gradientRef = useRef<HTMLDivElement>(null);
-  
+
   useGSAP(() => {
     if (!gradientRef.current) return;
 

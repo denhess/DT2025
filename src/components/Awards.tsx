@@ -9,7 +9,7 @@ import { YellowBackground } from './BG/YellowBackground';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export function AboutKarriere() {
+export function Awards() {
   const sectionRef = useRef<HTMLElement>(null);
   const textRef = useRef<HTMLParagraphElement>(null);
   
@@ -42,7 +42,7 @@ export function AboutKarriere() {
             ref={textRef}
             className="text-gray-900 text-[5vw] md:text-[4vw] xl:text-[3vw] leading-tight tracking-[-0.02em]"
           >
-            „WER BEI UNS ARBEITET, ENTWICKELT SICH SCHNELL UND WEIT.”
+            Über 210 Awards belegen den Erfolg!
           </p>
         </div>
       </div>

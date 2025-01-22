@@ -48,7 +48,7 @@ export function HeroDesignTech() {
         loop 
         className="absolute inset-0 w-full h-full object-cover"
       >
-        <source src="" type="video/mp4" />
+        <source src="/DesignTechVideo.mp4" type="video/mp4" />
       </video>
       
       <div 

@@ -7,9 +7,10 @@ import { useGSAP } from '@gsap/react';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import { YellowBackground } from './BG/YellowBackground';
 
+
 gsap.registerPlugin(ScrollTrigger);
 
-export function AboutKarriere() {
+export function ClosingKarriere() {
   const sectionRef = useRef<HTMLElement>(null);
   const textRef = useRef<HTMLParagraphElement>(null);
   
@@ -42,7 +43,12 @@ export function AboutKarriere() {
             ref={textRef}
             className="text-gray-900 text-[5vw] md:text-[4vw] xl:text-[3vw] leading-tight tracking-[-0.02em]"
           >
-            „WER BEI UNS ARBEITET, ENTWICKELT SICH SCHNELL UND WEIT.”
+            Die besten Ergebnisse erzielen unsere Kunden, weil wir Lösungen individuell auf Ihr 
+            gesamtes Erfolgs-System abstimmen – von internen Prozessen über die Marke bis hin zu 
+            den spezifischen Anforderungen Ihres Marktes. 
+            Statt branchenübliche Standartlösungen zu bieten, entwickeln wir präzise Ansätze, die 
+            unsere Kunden voranbringen. Mit dieser bewährten Systematik und unserer tiefgreifenden, 
+            über Jahrzehnte gewachsenen Expertise führen wir auch Ihr Projekt gemeinsam zum Erfolg.
           </p>
         </div>
       </div>
