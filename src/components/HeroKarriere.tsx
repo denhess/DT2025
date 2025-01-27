@@ -5,15 +5,14 @@ import { useRef } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-
 export function HeroKarriere() {
   const containerRef = useRef<HTMLElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const imageRef = useRef<HTMLImageElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
-    // Parallax effect for video
-    gsap.to(videoRef.current, {
+    // Parallax effect for image
+    gsap.to(imageRef.current, {
       yPercent: 30,
       ease: "none",
       scrollTrigger: {
@@ -24,7 +23,7 @@ export function HeroKarriere() {
       },
     });
 
-    // Parallax effect for text (moving slower than video)
+    // Parallax effect for text (moving slower than image)
     gsap.to(textRef.current, {
       yPercent: -15,
       ease: "none",
@@ -39,24 +38,25 @@ export function HeroKarriere() {
 
   return (
     <section ref={containerRef} className="hero h-screen relative overflow-hidden">
-
-      <video 
-        ref={videoRef}
-        autoPlay 
-        muted 
-        loop 
-        className="absolute inset-0 w-full h-full object-cover"
-      >
-        <source src="" type="video/mp4" />
-      </video>
+      <picture>
+        <source
+          srcSet="pictures/hero-karriere.webp"
+          type="image/webp"
+        />
+        <img
+          ref={imageRef}
+          src="pictures/hero-karriere.png"  // Fallback für Browser ohne WebP-Unterstützung
+          alt="Karriere Hero Image"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+      </picture>
       
-      <div 
+      <div
         ref={textRef}
         className="absolute inset-0 flex flex-col justify-center px-8 md:px-16 lg:px-24"
       >
-        
         <h1 className="font-thin uppercase text-white z-10 text-[8vw] md:text-[9vw] xl:text-[9vw] leading-[0.9] tracking-[-0.02em]">
-        Karriere
+          Karriere
         </h1>
       </div>
     </section>

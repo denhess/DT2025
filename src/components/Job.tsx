@@ -41,26 +41,32 @@ export function Job() {
       {/* Positionierung der Jobbeschreibungen */}
       <div
         ref={contentRef}
-        className="absolute inset-0 flex flex-col justify-start items-start text-left p-8 mt-20"
+        className="absolute top-1/2 left-0 p-8 pl-8 md:pl-16 lg:pl-24 transform -translate-y-1/2 flex flex-col items-start"
       >
         {/* Senior Industrial Designer */}
         <Link href="/karriere/senior-industrial-designer" passHref>
-          <h2 className="text-gray-900 text-[5vw] md:text-[4vw] xl:text-[3vw] leading-tight tracking-[-0.02em] mb-4 hover:underline">
+          <h2 className="text-gray-900 text-[5vw] md:text-[4vw] xl:text-[3vw] leading-tight tracking-[-0.02em] mb-12 hover:underline">
             SENIOR INDUSTRIAL DESIGNER (W/M/D)
           </h2>
         </Link>
 
+        {/* Strich zwischen Jobbeschreibungen */}
+        <div className="border-b border-black w-full mb-12" />
+
         {/* Junior Industrial Designer */}
         <Link href="/karriere/junior-industrial-designer" passHref>
-          <h2 className="text-gray-900 text-[5vw] md:text-[4vw] xl:text-[3vw] leading-tight tracking-[-0.02em] mb-4 hover:underline">
+          <h2 className="text-gray-900 text-[5vw] md:text-[4vw] xl:text-[3vw] leading-tight tracking-[-0.02em] mb-12 hover:underline">
             JUNIOR INDUSTRIAL DESIGNER (W/M/D)
           </h2>
         </Link>
 
+        {/* Strich zwischen Jobbeschreibungen */}
+        <div className="border-b border-black w-full mb-12" />
+
         {/* Internship Industrial Designer */}
         <Link href="/karriere/industrial-design-internship" passHref>
-          <h2 className="text-gray-900 text-[5vw] md:text-[4vw] xl:text-[3vw] leading-tight tracking-[-0.02em] mb-4 hover:underline">
-          INDUSTRIAL DESIGN INTERNSHIP (W/M/D)
+          <h2 className="text-gray-900 text-[5vw] md:text-[4vw] xl:text-[3vw] leading-tight tracking-[-0.02em] mb-12 hover:underline">
+            INDUSTRIAL DESIGN INTERNSHIP (W/M/D)
           </h2>
         </Link>
       </div>

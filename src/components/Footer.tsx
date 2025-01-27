@@ -1,4 +1,3 @@
-// components/Footer.tsx
 'use client';
 
 import Link from 'next/link';
@@ -8,13 +7,13 @@ import { DtLogo } from './Dt-logo';
 
 export function Footer() {
   return (
-    <footer className="text-black">
+    
+
+    <footer className="text-black h-auto">
       
       {/* Horizontale Linie */}
+      <div className="border-t border-black w-full"></div>
 
-        <div className="border-t border-black w-full"></div>
-
-      
       <div className="py-6 px-8 md:px-16 lg:px-24">
         <div className="grid grid-cols-12 gap-8">
           {/* Linke Spalte - Logo und Copyright */}
@@ -29,17 +28,17 @@ export function Footer() {
 
           {/* Mittlere Spalte - Projekte & Navigation */}
           <div className="col-span-2 space-y-4">
+            <Link href="/uber-uns" className="block hover:opacity-70">
+              Design Tech
+            </Link>
+            <Link href="/jobs" className="block hover:opacity-70">
+              Karriere
+            </Link>
             <Link href="/maschine-2020" className="block hover:opacity-70">
               Maschine 2020
             </Link>
             <Link href="/werkzeug-der-zukunft" className="block hover:opacity-70">
               Werkzeug der Zukunft
-            </Link>
-            <Link href="/jobs" className="block hover:opacity-70">
-              Jobs
-            </Link>
-            <Link href="/uber-uns" className="block hover:opacity-70">
-              Über uns
             </Link>
           </div>
 
@@ -76,7 +75,10 @@ export function Footer() {
               <Building2 size={24} />
             </Link>
           </div>
+                {/* Copyright */}
+      
         </div>
+        
       </div>
     </footer>
   );

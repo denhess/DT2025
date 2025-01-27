@@ -38,6 +38,7 @@ export function ClosingKarriere() {
     >
       <YellowBackground />
       <div className="absolute inset-0 flex items-center">
+      <div className="absolute top-0 left-0 w-full h-[2px] bg-black z-10" />
         <div className="w-full px-8 md:px-16 lg:px-24">
           <p 
             ref={textRef}

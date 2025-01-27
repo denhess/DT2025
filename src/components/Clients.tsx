@@ -12,12 +12,12 @@ export function Clients() {
   const textRef = useRef<HTMLParagraphElement>(null);
 
   const clients = [
-    { logo: '/logos/logo-held-white.svg', website: 'https://www.client1.com' },
-    { logo: '/logos/logo-held-white.svg', website: 'https://www.client2.com' },
-    { logo: '/logos/logo-held-white.svg', website: 'https://www.client3.com' },
-    { logo: '/logos/logo-held-white.svg', website: 'https://www.client4.com' },
-    { logo: '/logos/logo-held-white.svg', website: 'https://www.client5.com' },
-    { logo: '/logos/logo-held-white.svg', website: 'https://www.client6.com' },
+    { logo: '/logos/logo-woehner-white.svg', website: 'https://www.client1.com' },
+    { logo: '/logos/logo-arburg-white.svg', website: 'https://www.client2.com' },
+    { logo: '/logos/logo-washtec-white.svg', website: 'https://www.client3.com' },
+    { logo: '/logos/logo-liebherr-white.svg', website: 'https://www.client4.com' },
+    { logo: '/logos/logo-trumpf-white.svg', website: 'https://www.client5.com' },
+    { logo: '/logos/logo-sew-eurodrive-white.svg', website: 'https://www.client6.com' },
   ];
 
   useGSAP(() => {
@@ -54,7 +54,7 @@ export function Clients() {
                   <img
                     src={client.logo}
                     alt={`Logo von ${client.website}`}
-                    className="max-w-[150px] max-h-[150px] object-contain mx-auto transition-all duration-300 ease-in-out"
+                    className="max-w-[250px] max-h-[250px] object-contain mx-auto transition-all duration-300 ease-in-out"
                   />
                 </a>
               </div>
