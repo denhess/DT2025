@@ -49,7 +49,7 @@ export function Contact() {
       <div className="absolute inset-0 flex items-center">
         <div
           ref={contentRef}
-          className="w-full max-w-[65vw] mx-auto px-8 md:px-16 lg:px-24 flex flex-col "
+          className="w-full max-w-[65vw] mx-auto px-8 md:px-16 lg:px-24 flex flex-col"
         >
           <div className="mt-40 lg:ml-60 mb-24 max-w-2xl">
             <p className="text-xl">
@@ -61,11 +61,18 @@ export function Contact() {
             </p>
           </div>
 
-          <button className="text-3xl px-16 py-6 rounded-full border-2 border-black hover:bg-black hover:text-[#FFFF00] transition-all duration-300">
-           <span className="font-thin uppercase z-10 text-[7vw] md:text-[8vw] xl:text-[8vw] leading-[0.9] tracking-[-0.02em]">VIDEOCALL</span> 
-          </button>
+          {/* Button */}
+          <div className="text-center">
+            <a
+              href="mailto:info@example.com?subject=Videocall%20Anfrage&body=Hallo,%0A%0Aich%20möchte%20einen%20Videocall%20vereinbaren.%20Bitte%20kontaktieren%20Sie%20mich.%0A%0AMit%20freundlichen%20Grüßen,%0A[Ihr%20Name]"
+              className="text-3xl px-16 py-6 rounded-full border-2 border-black hover:bg-black hover:text-[#FFFF00] transition-all duration-300"
+              style={{ backgroundColor: "transparent" }}
+            >
+              VIDEOCALL
+            </a>
+          </div>
 
-          <p className="mt-16 text-lg max-w-2xl lg:ml-60 ">
+          <p className="mt-16 text-lg max-w-2xl lg:ml-60">
             Damit wir uns gezielt auf Ihre Bedürfnisse vorbereiten können,
             erhalten Sie vorab eine kurze Online-Befragung. So stellen wir
             sicher, dass unser Gespräch direkt auf Ihre spezifischen
