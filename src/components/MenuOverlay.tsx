@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useRef, useState } from "react"; // useState hinzufügen
 import Link from "next/link";
 import gsap from "gsap";

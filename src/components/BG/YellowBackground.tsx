@@ -1,5 +1,5 @@
 // components/YellowBackground.tsx
-'use client';
+"use client";
 
 import { useRef } from 'react';
 import gsap from 'gsap';

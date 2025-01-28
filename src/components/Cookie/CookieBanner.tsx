@@ -1,4 +1,6 @@
 // CookieBanner.tsx
+"use client";
+
 import React, { useState } from "react";
 
 const CookieBanner: React.FC = () => {
