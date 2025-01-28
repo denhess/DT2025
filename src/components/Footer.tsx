@@ -4,15 +4,17 @@ import Link from 'next/link';
 import { Linkedin, Building2 } from 'lucide-react';
 import { DtLogo } from './Dt-logo';
 
-
 export function Footer() {
-  return (
-    
+  const handleLinkClick = () => {
+    // Hier kannst du logische Dinge tun, wenn auf einen externen Link geklickt wird
+    console.log('Link clicked');
+  };
 
+  return (
     <footer className="text-black h-auto">
       
-      {/* Horizontale Linie */}
-      <div className="border-t border-black w-full"></div>
+      {/* Entferne die horizontale Linie */}
+      {/* <div className="border-t border-black w-full"></div> */}
 
       <div className="py-6 px-8 md:px-16 lg:px-24">
         <div className="grid grid-cols-12 gap-8">
@@ -28,57 +30,68 @@ export function Footer() {
 
           {/* Mittlere Spalte - Projekte & Navigation */}
           <div className="col-span-2 space-y-4">
-            <Link href="/uber-uns" className="block hover:opacity-70">
-              Design Tech
+            <Link href="/designtech" className="block hover:underline hover:text-black">
+              DESIGN TECH
             </Link>
-            <Link href="/jobs" className="block hover:opacity-70">
-              Karriere
+            <Link href="/karriere" className="block hover:underline hover:text-black">
+              KARRIERE
             </Link>
-            <Link href="/maschine-2020" className="block hover:opacity-70">
+            <Link href="/maschine-2020" className="block hover:underline hover:text-black">
               Maschine 2020
             </Link>
-            <Link href="/werkzeug-der-zukunft" className="block hover:opacity-70">
+            <Link href="/werkzeug-der-zukunft" className="block hover:underline hover:text-black">
               Werkzeug der Zukunft
             </Link>
           </div>
 
           {/* Rechte Spalte - Rechtliches */}
           <div className="col-span-3 space-y-4">
-            <Link href="/impressum" className="block hover:opacity-70">
-              Impressum
+            <Link href="/impres" className="block hover:underline hover:text-black">
+              Impressum / Rechtlicher Hinweis
             </Link>
-            <Link href="/rechtlicher-hinweis" className="block hover:opacity-70">
-              Rechtlicher Hinweis
-            </Link>
-            <Link href="/datenschutz" className="block hover:opacity-70">
+            <Link href="/privacy-policy" className="block hover:underline hover:text-black">
               Datenschutzerklärung
             </Link>
-            <Link href="/privatsphare" className="block hover:opacity-70">
-              Privatsphäre Einstellungen
+            <Link href="/privacy-policy" className="block hover:underline hover:text-black">
+              Datenschutzeinstellungen
             </Link>
           </div>
 
           {/* Social Icons */}
           <div className="col-span-1 space-y-4">
-            <Link 
-              href="https://linkedin.com" 
-              className="block hover:opacity-70"
-              aria-label="LinkedIn"
+            <Link
+              href="https://www.linkedin.com/company/designtechschmid/posts/?feedView=all"
+              className="hover:opacity-75 transition-opacity"
+              onClick={handleLinkClick}
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              <Linkedin size={24} />
+              <img
+                src="/icon/icon-linkedin-black.svg"
+                alt="LinkedIn"
+                width={28}
+                height={28}
+                className="transition-opacity hover:opacity-75"
+              />
             </Link>
-            <Link 
-              href="https://kununu.com" 
-              className="block hover:opacity-70"
-              aria-label="Kununu"
+            <Link
+              href="https://www.kununu.com/de/design-tech1/kultur"
+              className="hover:opacity-75 transition-opacity"
+              onClick={handleLinkClick}
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              <Building2 size={24} />
+              <img
+                src="/icon/icon-kununu-black.svg"
+                alt="Kununu"
+                width={28}
+                height={28}
+                className="transition-opacity hover:opacity-75"
+              />
             </Link>
           </div>
-                {/* Copyright */}
-      
+
         </div>
-        
       </div>
     </footer>
   );

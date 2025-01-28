@@ -32,8 +32,8 @@ export function Clients() {
         trigger: sectionRef.current,
         start: 'top center',
         end: 'center center',
-        scrub: 1
-      }
+        scrub: 1,
+      },
     });
   }, []);
 
@@ -44,17 +44,22 @@ export function Clients() {
     >
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="w-full px-8 md:px-16 lg:px-24">
-          <div className="clients-container grid grid-cols-3 grid-rows-2 gap-8 mt-10">
+          <div className="clients-container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-10">
             {clients.map((client, index) => (
               <div
                 key={index}
                 className="client-logo p-6 flex justify-center items-center rounded-lg transition-all duration-300 ease-in-out"
               >
-                <a href={client.website} target="_blank" rel="noopener noreferrer" className="block w-full h-full">
+                <a
+                  href={client.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full h-full"
+                >
                   <img
                     src={client.logo}
                     alt={`Logo von ${client.website}`}
-                    className="max-w-[250px] max-h-[250px] object-contain mx-auto transition-all duration-300 ease-in-out"
+                    className="max-w-[150px] sm:max-w-[200px] md:max-w-[250px] max-h-[100px] object-contain mx-auto transition-all duration-300 ease-in-out"
                   />
                 </a>
               </div>
