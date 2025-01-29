@@ -1,16 +1,12 @@
-// headerContext.tsx
 "use client";
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState } from "react";
 
 interface HeaderContextType {
   isDark: boolean;
   setIsDark: (isDark: boolean) => void;
 }
 
-const HeaderContext = createContext<HeaderContextType>({
-  isDark: false,
-  setIsDark: () => {},
-});
+const HeaderContext = createContext<HeaderContextType | null>(null);
 
 export function HeaderProvider({ children }: { children: React.ReactNode }) {
   const [isDark, setIsDark] = useState(false);
@@ -22,4 +18,10 @@ export function HeaderProvider({ children }: { children: React.ReactNode }) {
   );
 }
 
-export const useHeader = () => useContext(HeaderContext);
+export const useHeader = () => {
+  const context = useContext(HeaderContext);
+  if (!context) {
+    throw new Error("useHeader must be used within a HeaderProvider");
+  }
+  return context;
+};

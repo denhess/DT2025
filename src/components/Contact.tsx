@@ -32,47 +32,50 @@ export function Contact() {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-screen w-full text-black"
+      className="relative min-h-screen w-full text-black flex flex-col justify-center items-center"
     >
       <YellowBackground />
-      <div className="absolute inset-0 flex flex-col justify-start items-start text-left p-8 mt-20">
-        {/* Absatz */}
-        <p className="text-3xl mb-4">
+
+      {/* Titel mit dynamischem Padding für verschiedene Bildschirmgrößen */}
+      <div className="absolute inset-0 flex flex-col justify-start mt-20">
+        <p className="text-3xl mb-4 w-full px-8 md:px-16 lg:px-24">
           Sind <span className="underline">Sie</span> bereit für
         </p>
-        {/* Überschrift */}
-        <h1 className="font-thin uppercase text-black z-10 text-[7vw] md:text-[7vw] xl:text-[8vw] leading-[0.9] tracking-[-0.02em]">
+        <h1 className="font-thin uppercase text-black z-10 text-[7vw] md:text-[7vw] xl:text-[8vw] leading-[0.9] w-full px-8 md:px-16 lg:px-24 whitespace-nowrap">
           DAS NÄCHSTE LEVEL?
         </h1>
       </div>
 
-      <div className="absolute inset-0 flex items-center">
+      {/* Haupttext mittig */}
+      <div className="absolute inset-0 flex justify-center items-center">
         <div
           ref={contentRef}
-          className="w-full max-w-[65vw] mx-auto px-8 md:px-16 lg:px-24 flex flex-col"
+          className="w-full max-w-3xl px-8 md:px-16 flex flex-col text-left"
         >
-          <div className="mt-40 lg:ml-60 mb-24 max-w-2xl">
+          <div className="mt-40 mb-16">
             <p className="text-xl">
-              Lassen Sie uns gemeinsam Ihren Erfolg gestalten.
-            </p>
-            <p className="text-xl">
-              Buchen Sie jetzt Ihren persönlichen Video Call und sichern Sie
-              sich den entscheidenden Vorsprung.
+              Lassen Sie uns gemeinsam Ihren Erfolg gestalten. Buchen Sie jetzt
+              Ihren persönlichen Video Call und sichern Sie sich den
+              entscheidenden Vorsprung.
             </p>
           </div>
 
-          {/* Button */}
-          <div className="text-center">
-            <a
-              href="mailto:info@example.com?subject=Videocall%20Anfrage&body=Hallo,%0A%0Aich%20möchte%20einen%20Videocall%20vereinbaren.%20Bitte%20kontaktieren%20Sie%20mich.%0A%0AMit%20freundlichen%20Grüßen,%0A[Ihr%20Name]"
-              className="text-3xl px-16 py-6 rounded-full border-2 border-black hover:bg-black hover:text-[#FFFF00] transition-all duration-300"
-              style={{ backgroundColor: "transparent" }}
-            >
-              VIDEOCALL
-            </a>
+          {/* Button mittig */}
+          <div className="flex justify-center">
+          <a
+  href="mailto:info@example.com?subject=Videocall%20Anfrage&body=Hallo,%0A%0Aich%20möchte%20einen%20Videocall%20vereinbaren.%20Bitte%20kontaktieren%20Sie%20mich.%0A%0AMit%20freundlichen%20Grüßen,%0A[Ihr%20Name]"
+  className="text-[7vw] md:text-[7vw] lg:text-[8vw] px-[10vw] py-1 rounded-full border-2 border-black bg-transparent hover:bg-black hover:text-white transition-all duration-300"
+>
+  VIDEOCALL
+</a>
+
+
+
+
+
           </div>
 
-          <p className="mt-16 text-lg max-w-2xl lg:ml-60">
+          <p className="mt-16 text-lg max-w-3xl">
             Damit wir uns gezielt auf Ihre Bedürfnisse vorbereiten können,
             erhalten Sie vorab eine kurze Online-Befragung. So stellen wir
             sicher, dass unser Gespräch direkt auf Ihre spezifischen
