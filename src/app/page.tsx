@@ -6,6 +6,7 @@ import { ProjectSlider } from "@/components/ProjectSlider";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 import CookieBanner from "@/components/Cookie/CookieBanner";
+import { VideoBody } from "@/components/VideoBody";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <Hero />
       <About />
       <ProjectSlider />
+      <VideoBody />
       <Contact />
       <Footer />
     </>
