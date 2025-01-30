@@ -9,7 +9,7 @@ export function Footer() {
   };
 
   return (
-    <footer className="text-black h-auto bg-gray-100">
+    <footer className="text-black h-auto bg-white">
       <div className="py-6 px-8 md:px-16 lg:px-24">
         <div className="grid grid-cols-12 gap-8">
           {/* Linke Spalte - Logo und Copyright */}
