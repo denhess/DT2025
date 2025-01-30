@@ -63,7 +63,7 @@ export function Contact() {
           {/* Button mittig */}
           <div className="flex justify-center">
           <a
-  href="mailto:info@example.com?subject=Videocall%20Anfrage&body=Hallo,%0A%0Aich%20möchte%20einen%20Videocall%20vereinbaren.%20Bitte%20kontaktieren%20Sie%20mich.%0A%0AMit%20freundlichen%20Grüßen,%0A[Ihr%20Name]"
+  href="mailto:info@designtech.eu?subject=Anfrage%20für%20ein%20Videocall&body=Sehr%20geehrte%20Frau%20Mayer,%0A%0A"
   className="text-[7vw] md:text-[7vw] lg:text-[8vw] px-[10vw] py-1 rounded-full border-2 border-black bg-transparent hover:bg-black hover:text-white transition-all duration-300"
 >
   VIDEOCALL

@@ -8,6 +8,7 @@ import { AboutDesignTech } from '@/components/AboutDesignTech';
 import { Clients } from '@/components/Clients';
 import { Awards } from '@/components/Awards';
 import { ClosingKarriere } from '@/components/ClosingKarriere';
+import { Industries } from '@/components/Industries';
 
 
 export default function DesignTechPage() {
@@ -19,6 +20,7 @@ export default function DesignTechPage() {
           <Clients />
           <Awards />
           <ClosingKarriere/>
+          <Industries />
           <Footer />
            
     </>

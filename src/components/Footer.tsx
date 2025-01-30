@@ -1,35 +1,29 @@
 'use client';
 
 import Link from 'next/link';
-import { Linkedin, Building2 } from 'lucide-react';
 import { DtLogo } from './Dt-logo';
 
 export function Footer() {
   const handleLinkClick = () => {
-    // Hier kannst du logische Dinge tun, wenn auf einen externen Link geklickt wird
     console.log('Link clicked');
   };
 
   return (
-    <footer className="text-black h-auto">
-      
-      {/* Entferne die horizontale Linie */}
-      {/* <div className="border-t border-black w-full"></div> */}
-
+    <footer className="text-black h-auto bg-gray-100">
       <div className="py-6 px-8 md:px-16 lg:px-24">
         <div className="grid grid-cols-12 gap-8">
           {/* Linke Spalte - Logo und Copyright */}
-          <div className="col-span-6">
+          <div className="col-span-12 md:col-span-6">
             <div className="mb-8">
               <Link href="/">
-                <DtLogo className="w-80 text-black" />
+                <DtLogo className="w-60 md:w-80 text-black" />
               </Link>
             </div>
-            <p className="bottom-4 text-sm">Design Tech 2025</p>
+            <p className="text-sm">Design Tech 2025</p>
           </div>
 
           {/* Mittlere Spalte - Projekte & Navigation */}
-          <div className="col-span-2 space-y-4">
+          <div className="col-span-6 md:col-span-2 space-y-4">
             <Link href="/designtech" className="block hover:underline hover:text-black">
               DESIGN TECH
             </Link>
@@ -45,7 +39,7 @@ export function Footer() {
           </div>
 
           {/* Rechte Spalte - Rechtliches */}
-          <div className="col-span-3 space-y-4">
+          <div className="col-span-6 md:col-span-3 space-y-4">
             <Link href="/impres" className="block hover:underline hover:text-black">
               Impressum / Rechtlicher Hinweis
             </Link>
@@ -58,7 +52,7 @@ export function Footer() {
           </div>
 
           {/* Social Icons */}
-          <div className="col-span-1 space-y-4">
+          <div className="col-span-12 md:col-span-1 flex md:flex-col space-x-4 md:space-x-0 md:space-y-4">
             <Link
               href="https://www.linkedin.com/company/designtechschmid/posts/?feedView=all"
               className="hover:opacity-75 transition-opacity"
@@ -90,7 +84,6 @@ export function Footer() {
               />
             </Link>
           </div>
-
         </div>
       </div>
     </footer>

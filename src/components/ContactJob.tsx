@@ -45,16 +45,15 @@ export function ContactJob() {
           <p className="text-gray-900 text-[5vw] md:text-[4vw] xl:text-[3vw] leading-tight tracking-[-0.02em] mb-12">LISA SCHMID</p>
           
           {/* Button */}
-          <div
-            className="inline-block border border-black rounded-full px-8 py-3 my-8 cursor-pointer hover:bg-black hover:text-[#FFFF00] transition-all duration-300 z-10"
-          >
-            <a
-              href="mailto:lschmid@designtech.eu?subject=Anfrage%20über%20Webseite&body=Sehr%20geehrte%20Frau%20Schmid,%0A%0Aich%20habe%20eine%20Frage%20zu%20Ihrem%20Produkt.%20Könnten%20Sie%20mir%20bitte%20weitere%20Informationen%20geben?%0A%0AMit%20freundlichen%20Grüßen%2C%0A[Dein%20Name]"
-              className="text-2xl"
-            >
-              JETZT BEWERBEN
-            </a>
-          </div>
+          
+          <div className="flex justify-left ">
+          <a
+          href="mailto:lschmid@designtech.eu?subject=Bewerbung%20als%20[Jobtitel]&body=Sehr%20geehrte%20Frau%20Schmid,%0A%0A"
+          className="text-2xl px-[1vw] py-1 rounded-full border-2 border-black bg-transparent hover:bg-black hover:text-white transition-all duration-300"
+        >
+        JETZT BEWERBEN
+        </a>
+        </div>
         </div>
       </div>
 

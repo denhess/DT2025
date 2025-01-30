@@ -42,7 +42,7 @@ export function AboutKarriere() {
             ref={textRef}
             className="text-gray-900 text-[5vw] md:text-[4vw] xl:text-[3vw] leading-tight tracking-[-0.02em]"
           >
-            „WER BEI UNS ARBEITET, ENTWICKELT SICH SCHNELL UND WEIT.”
+            „WER BEI UNS ARBEITET, ENTWICKELT SICH AUSSERORDENTLICH SCHNELL AUSSERORDENTLICH WEIT.”
           </p>
         </div>
       </div>

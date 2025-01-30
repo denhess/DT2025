@@ -9,21 +9,11 @@ gsap.registerPlugin(ScrollTrigger);
 
 export function HeroKarriere() {
   const containerRef = useRef<HTMLElement>(null);
-  const imageRef = useRef<HTMLImageElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
-    // Parallax effect for image
-    gsap.to(imageRef.current, {
-      yPercent: 30,
-      ease: "none",
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: "top top",
-        end: "bottom top",
-        scrub: true,
-      },
-    });
+    if (!containerRef.current || !textRef.current) return;
 
     // Parallax effect for text (moving slower than image)
     gsap.to(textRef.current, {
@@ -40,18 +30,17 @@ export function HeroKarriere() {
 
   return (
     <section ref={containerRef} className="hero h-screen relative overflow-hidden">
-      <picture>
-        <source
-          srcSet="pictures/hero-karriere.webp"
-          type="image/webp"
-        />
-        <img
-          ref={imageRef}
-          src="pictures/hero-karriere.png"  // Fallback für Browser ohne WebP-Unterstützung
-          alt="Karriere Hero Image"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-      </picture>
+      
+      <video 
+        ref={videoRef}
+        autoPlay 
+        muted 
+        loop 
+        className="absolute inset-0 w-full h-full object-cover"
+      >
+        <source src="/KarriereVideo.mp4" type="video/mp4" />
+      </video>
+     
       
       <div
         ref={textRef}

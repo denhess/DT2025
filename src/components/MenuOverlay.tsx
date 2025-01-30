@@ -60,35 +60,37 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
   return (
     <div
       ref={overlayRef}
-      className="fixed inset-0 bg-[#FFFF00] text-black z-40 hidden opacity-0 flex-col items-center justify-center"
+      className="fixed inset-0 z-40 hidden opacity-0 flex flex-col items-center justify-center"
+      style={{
+        background: 'radial-gradient(circle at center, #ffffff 0%, #FFFF00 100%)',
+        backgroundSize: '100% 100%',
+        backgroundPosition: 'center',
+      }}
     >
       <div ref={contentRef} className="text-center space-y-8">
         {/* Verkleinerter Abstand zwischen den Links */}
         <Link href="/designtech" onClick={handleLinkClick}>
-          <h2 className="text-4xl mb-8 hover:underline transition-all duration-300">DESIGN TECH</h2>
+          <h2 className="text-black text-4xl mb-8 hover:underline transition-all duration-300">DESIGN TECH</h2>
         </Link>
 
         {/* Karriere ohne Margin */}
         <Link href="/karriere" onClick={handleLinkClick}>
-          <h2 className="text-4xl hover:underline transition-all duration-300">KARRIERE</h2>
+          <h2 className="text-black text-4xl hover:underline transition-all duration-300">KARRIERE</h2>
         </Link>
 
         {/* Button mit gleichem Margin oben und unten wie bei den Links */}
-        <div
-          className="inline-block border border-black rounded-full px-8 py-3 my-8 cursor-pointer hover:bg-black hover:text-[#FFFF00] transition-all duration-300 z-10"
-          style={{ backgroundColor: bgColor }} // Dynamischer Style für den Button
-        >
+        <div className="flex justify-center ">
           <a
-            href="mailto:beispiel@email.com?subject=Anfrage%20über%20Webseite&body=Sehr%20geehrter%20Herr/Frau,%0A%0Aich%20habe%20eine%20Frage%20zu%20Ihrem%20Produkt.%20Könnten%20Sie%20mir%20bitte%20weitere%20Informationen%20geben?%0A%0AMit%20freundlichen%20Grüßen%2C%0A[Dein%20Name]"
-            className="text-2xl"
-          >
-            VIDEOCALL
-          </a>
+          href="mailto:info@designtech.eu?subject=Anfrage%20für%20ein%20Videocall&body=Sehr%20geehrte%20Frau%20Mayer,%0A%0A"
+          className="text-black text-2xl px-[1vw] py-1 rounded-full border-2 border-black bg-transparent hover:bg-black hover:text-white transition-all duration-300"
+        >
+        VIDEOCALL
+        </a>
         </div>
 
         <div className="space-y-4">
           {/* Links zu externen Seiten */}
-          <p className="cursor-pointer text-2xl hover:underline transition-all duration-300">
+          <p className="text-black cursor-pointer text-2xl hover:underline transition-all duration-300">
             <a
               href="http://werkzeugderzukunft.de"
               target="_blank"
@@ -97,7 +99,7 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
               Werkzeug der Zukunft
             </a>
           </p>
-          <p className="cursor-pointer text-2xl hover:underline transition-all duration-300">
+          <p className="text-black cursor-pointer text-2xl hover:underline transition-all duration-300">
             <a
               href="http://maschine2020.com/de_DE/"
               target="_blank"
@@ -108,7 +110,7 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
           </p>
         </div>
 
-        <div className="flex justify-center space-x-6 mt-12">
+        <div className="text-black flex justify-center space-x-6 mt-12">
           {/* LinkedIn SVG Icon als Bild */}
           <Link
             href="https://www.linkedin.com/company/designtechschmid/posts/?feedView=all"
