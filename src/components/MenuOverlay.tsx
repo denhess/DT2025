@@ -1,7 +1,8 @@
-"use client";
+'use client';
 
 import { useEffect, useRef, useState } from "react"; // useState hinzufügen
 import Link from "next/link";
+import Image from "next/image"; // Image importieren
 import gsap from "gsap";
 
 interface MenuOverlayProps {
@@ -81,11 +82,11 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
         {/* Button mit gleichem Margin oben und unten wie bei den Links */}
         <div className="flex justify-center ">
           <a
-          href="mailto:info@designtech.eu?subject=Anfrage%20für%20ein%20Videocall&body=Sehr%20geehrte%20Frau%20Mayer,%0A%0A"
-          className="text-black text-2xl px-[1vw] py-1 rounded-full border-2 border-black bg-transparent hover:bg-black hover:text-white transition-all duration-300"
-        >
-        VIDEOCALL
-        </a>
+            href="mailto:info@designtech.eu?subject=Anfrage%20für%20ein%20Videocall&body=Sehr%20geehrte%20Frau%20Mayer,%0A%0A"
+            className="text-black text-2xl px-[1vw] py-1 rounded-full border-2 border-black bg-transparent hover:bg-black hover:text-white transition-all duration-300"
+          >
+            VIDEOCALL
+          </a>
         </div>
 
         <div className="space-y-4">
@@ -111,7 +112,7 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
         </div>
 
         <div className="text-black flex justify-center space-x-6 mt-12">
-          {/* LinkedIn SVG Icon als Bild */}
+          {/* LinkedIn SVG Icon als Image */}
           <Link
             href="https://www.linkedin.com/company/designtechschmid/posts/?feedView=all"
             className="hover:opacity-75 transition-opacity"
@@ -119,7 +120,7 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img
+            <Image
               src="/icon/icon-linkedin-black.svg"
               alt="LinkedIn"
               width={28}
@@ -128,7 +129,7 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
             />
           </Link>
 
-          {/* Xing SVG Icon als Bild */}
+          {/* Xing SVG Icon als Image */}
           <Link
             href="https://www.kununu.com/de/design-tech1/kultur"
             className="hover:opacity-75 transition-opacity"
@@ -136,7 +137,7 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img
+            <Image
               src="/icon/icon-kununu-black.svg" // Sicherstellen, dass du auch das Xing-Icon dort gespeichert hast
               alt="Kununu"
               width={28}

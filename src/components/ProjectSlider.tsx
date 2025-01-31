@@ -37,11 +37,14 @@ import Image from "next/image";
 import "swiper/css";
 import "swiper/css/navigation";
 
+// Swiper-Typen importieren
+import { Swiper as SwiperInstance } from 'swiper/types';
+
 gsap.registerPlugin(ScrollTrigger);
 
 export function ProjectSlider() {
   const sectionRef = useRef<HTMLElement>(null);
-  const swiperRef = useRef<any>(null);
+  const swiperRef = useRef<SwiperInstance | null>(null);  // Hier den richtigen Typ verwenden
 
   useGSAP(() => {
     if (!sectionRef.current) return;
@@ -71,15 +74,11 @@ export function ProjectSlider() {
     gsap.to([".slide-content"], { opacity: 0, y: 20, duration: 0.5, ease: "power2.in" });
   };
 
-  const handleSlideEnd = (swiper: any) => {
+  const handleSlideEnd = (swiper: SwiperInstance) => {  // Den richtigen Typ für swiper verwenden
     Projects.forEach((_, index) => {
       gsap.set(`#slide-image-${index}`, { scale: 1 });
     });
-    gsap.set([
-      `#slide-title-${swiper.activeIndex}`,
-      `#slide-description-${swiper.activeIndex}`,
-      `#slide-logo-${swiper.activeIndex}`,
-    ], { opacity: 0, y: 30 });
+    gsap.set([`#slide-title-${swiper.activeIndex}`, `#slide-description-${swiper.activeIndex}`, `#slide-logo-${swiper.activeIndex}`], { opacity: 0, y: 30 });
     animateSlideContent(swiper.activeIndex);
   };
 

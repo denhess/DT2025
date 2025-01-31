@@ -1,11 +1,12 @@
 'use client';
 
-import Link from 'next/link';
-import { DtLogo } from './Dt-logo';
+import Link from "next/link";
+import Image from "next/image";
+import { DtLogo } from "./Dt-logo";
 
 export function Footer() {
   const handleLinkClick = () => {
-    console.log('Link clicked');
+    console.log("Link clicked");
   };
 
   return (
@@ -60,7 +61,7 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img
+              <Image
                 src="/icon/icon-linkedin-black.svg"
                 alt="LinkedIn"
                 width={28}
@@ -75,7 +76,7 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img
+              <Image
                 src="/icon/icon-kununu-black.svg"
                 alt="Kununu"
                 width={28}
