@@ -14,7 +14,7 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
   const overlayRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const [isClient, setIsClient] = useState(false);  // Zustand, um zu überprüfen, ob es der Client ist
-  const [bgColor, setBgColor] = useState("transparent"); // Dynamischer Style für den Button
+
 
   // useEffect, um sicherzustellen, dass der Code nur auf dem Client ausgeführt wird
   useEffect(() => {
