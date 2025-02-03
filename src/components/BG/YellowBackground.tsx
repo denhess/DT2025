@@ -1,4 +1,3 @@
-// components/YellowBackground.tsx
 "use client";
 
 import { useRef } from 'react';
@@ -8,11 +7,7 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-interface YellowBackgroundProps {
-  onHeaderColor?: (color: string) => void;
-}
-
-export function YellowBackground({ onHeaderColor }: YellowBackgroundProps) {
+export function YellowBackground() {
   const sectionRef = useRef<HTMLElement>(null);
   const gradientRef = useRef<HTMLDivElement>(null);
 
