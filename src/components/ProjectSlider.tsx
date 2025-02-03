@@ -1,55 +1,144 @@
 "use client";
 
-import { useEffect, useState } from "react";
+const customNavigationStyles = `
+  .swiper-button-prev,
+  .swiper-button-next {
+    display: none;
+  }
+
+  .custom-navigation-button {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transition: opacity 0.3s;
+    cursor: pointer;
+    position: absolute;
+    right: 48px;
+    z-index: 20;
+  }
+
+  .custom-navigation-button:hover {
+    opacity: 0.7;
+  }
+`;
+
+import { useRef } from "react";
+import { Projects } from "@/data/projects/project-data";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Autoplay } from "swiper/modules";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import ScrollTrigger from "gsap/ScrollTrigger";
+import Image from "next/image";
+import "swiper/css";
+import "swiper/css/navigation";
 
-const texts = [
-  "Text 1",
-  "Text 2",
-  "Text 3",
-  "Text 4"
-];
+// Swiper-Typen importieren
+import { Swiper as SwiperInstance } from 'swiper/types';
 
-export function Industries() {
-  const [currentTextIndex, setCurrentTextIndex] = useState(0);
+gsap.registerPlugin(ScrollTrigger);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentTextIndex((prevIndex) => (prevIndex + 1) % texts.length);
-    }, 8000); // Alle 8 Sekunden Text wechseln (4 Sekunden erscheinen + 4 Sekunden warten)
-    
-    return () => clearInterval(interval); // Aufräumen bei Komponenten-Unmount
+export function ProjectSlider() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const swiperRef = useRef<SwiperInstance | null>(null);  // Hier den richtigen Typ verwenden
+
+  useGSAP(() => {
+    if (!sectionRef.current) return;
+
+    ScrollTrigger.create({
+      trigger: sectionRef.current,
+      start: "top -50px",
+      onEnter: () => {
+        gsap.to(".header-color-change", { color: "#ffffff", duration: 0.3 });
+      },
+      onLeaveBack: () => {
+        gsap.to(".header-color-change", { color: "#000000", duration: 0.3 });
+      },
+    });
   }, []);
 
-  useEffect(() => {
-    const tl = gsap.timeline();
+  const animateSlideContent = (index: number) => {
+    gsap.to(`#slide-image-${index}`, { scale: 1.1, duration: 10, ease: "none" });
+    const timeline = gsap.timeline();
+    timeline.to(
+      [`#slide-title-${index}`, `#slide-description-${index}`, `#slide-logo-${index}`],
+      { opacity: 1, y: 0, duration: 0.6, stagger: 0.1, ease: "power3.out" }
+    );
+  };
 
-    // Text animiert rein (von rechts nach links)
-    tl.to(`#text-${currentTextIndex}`, { x: "0%", opacity: 1, duration: 1, ease: "power2.out" });
+  const handleSlideStart = () => {
+    gsap.to([".slide-content"], { opacity: 0, y: 20, duration: 0.5, ease: "power2.in" });
+  };
 
-    // Text bleibt 4 Sekunden sichtbar
-    tl.to(`#text-${currentTextIndex}`, { opacity: 1, duration: 0.5, delay: 4 });
-
-    // Text animiert raus (nach links)
-    tl.to(`#text-${currentTextIndex}`, { x: "-100%", opacity: 0, duration: 1, ease: "power2.in" });
-
-    // Nach der Animation wird der Text wieder unsichtbar und verschwindet
-    tl.set(`#text-${currentTextIndex}`, { opacity: 0 });
-
-  }, [currentTextIndex]);
+  const handleSlideEnd = (swiper: SwiperInstance) => {  // Den richtigen Typ für swiper verwenden
+    Projects.forEach((_, index) => {
+      gsap.set(`#slide-image-${index}`, { scale: 1 });
+    });
+    gsap.set([`#slide-title-${swiper.activeIndex}`, `#slide-description-${swiper.activeIndex}`, `#slide-logo-${swiper.activeIndex}`], { opacity: 0, y: 30 });
+    animateSlideContent(swiper.activeIndex);
+  };
 
   return (
-    <div className="relative w-full h-20 flex justify-center items-center overflow-hidden">
-      {texts.map((text, index) => (
-        <div
-          key={index}
-          id={`text-${index}`}
-          className="absolute opacity-0 text-xl font-bold"
-          style={{ left: "100%" }} // Startposition außerhalb des Bildschirms
-        >
-          {text}
-        </div>
-      ))}
-    </div>
+    <section ref={sectionRef} className="project-slider relative h-screen bg-black overflow-hidden">
+      <style>{customNavigationStyles}</style>
+      <Swiper
+        modules={[Navigation, Autoplay]}
+        spaceBetween={0}
+        slidesPerView={1}
+        speed={800}
+        autoplay={{ delay: 5000, disableOnInteraction: false }}
+        navigation={{ prevEl: '.custom-swiper-button-prev', nextEl: '.custom-swiper-button-next' }}
+        onSwiper={(swiper) => { swiperRef.current = swiper; animateSlideContent(0); }}
+        onSlideChangeTransitionStart={handleSlideStart}
+        onSlideChangeTransitionEnd={(swiper) => handleSlideEnd(swiper)}
+        className="h-full"
+      >
+        {Projects.map((project, index) => (
+          <SwiperSlide key={index}>
+            <div className="absolute inset-0 overflow-hidden">
+              <div id={`slide-image-${index}`} className="relative w-full h-full">
+                <Image src={`/${project.img}`} alt="" fill className="object-cover" priority />
+                <div className="absolute inset-0 bg-black/25" />
+              </div>
+            </div>
+            <div className="relative h-full grid grid-cols-12">
+              <div className="col-span-6 flex flex-col justify-center px-24">
+                <div className="flex-grow flex flex-col justify-center">
+                  <h2 id={`slide-title-${index}`} className="slide-content text-white text-[2.5vw] font-extralight uppercase tracking-tighter mb-4 opacity-0">
+                    {project.title || project.titleEn}
+                  </h2>
+                  <p id={`slide-description-${index}`} className="slide-content text-white text-[2.5vw] font-extralight uppercase tracking-tighter leading-tight opacity-0">
+                    {project.description || project.descriptionEn}
+                  </p>
+                </div>
+                {project.logo && (
+                  <div id={`slide-logo-${index}`} className="slide-content relative w-32 h-12 mb-12 opacity-0">
+                    <Image
+                      src={`/${project.logo}`}
+                      alt={project.copyright || "Company logo"}
+                      fill
+                      className="object-contain"
+                      style={{ filter: `invert(1) sepia(1) saturate(10000%) hue-rotate(${project.logoColor || '0deg'})` }}
+                    />
+                  </div>
+                )}
+              </div>
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+      <div className="absolute right-12 top-1/2 transform -translate-y-1/2 z-10">
+        <button className="custom-navigation-button custom-swiper-button-prev absolute -top-8" aria-label="Previous project">
+          <ChevronLeft className="w-8 h-8 text-white" />
+        </button>
+        <button className="custom-navigation-button custom-swiper-button-next absolute top-8" aria-label="Next project">
+          <ChevronRight className="w-8 h-8 text-white" />
+        </button>
+      </div>
+    </section>
   );
 }
