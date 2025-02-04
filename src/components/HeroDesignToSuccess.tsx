@@ -7,7 +7,7 @@ import { useRef } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export function HeroDesignTech() {
+export function HeroDesignToSuccess() {
   const containerRef = useRef<HTMLElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
@@ -48,7 +48,7 @@ export function HeroDesignTech() {
         className="absolute inset-0 flex flex-col justify-center px-8 md:px-16 lg:px-24"
       >
         <h1 className="font-thin uppercase text-white z-10 text-[8vw] md:text-[9vw] xl:text-[9vw] leading-[0.9] tracking-[-0.02em]">
-          IHR ERFOLG <br /> IST UNSER ANTRIEB
+          DESIGN TO SUCCESS
         </h1>
       </div>
     </section>

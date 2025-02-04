@@ -68,7 +68,7 @@ export function ContactJob() {
           alt="Lisa Schmid"
           width={600} // Feste Breite für optimierte Darstellung
           height={800} // Feste Höhe für optimierte Darstellung
-          className="w-full h-auto object-cover"
+          className="w-2x1 h-auto object-cover"
         />
       </div>
     </section>

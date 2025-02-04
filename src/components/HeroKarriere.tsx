@@ -35,7 +35,8 @@ export function HeroKarriere() {
         ref={videoRef}
         autoPlay 
         muted 
-        loop 
+        loop
+        playsInline 
         className="absolute inset-0 w-full h-full object-cover"
       >
         <source src="/KarriereVideo.mp4" type="video/mp4" />

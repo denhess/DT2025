@@ -71,12 +71,17 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
       <div ref={contentRef} className="text-center space-y-8">
         {/* Verkleinerter Abstand zwischen den Links */}
         <Link href="/designtech" onClick={handleLinkClick}>
-          <h2 className="text-black text-4xl mb-8 hover:underline transition-all duration-300">DESIGN TECH</h2>
+          <h2 className="text-black text-4xl mb-6 hover:underline transition-all duration-300">DESIGN TECH</h2>
         </Link>
 
         {/* Karriere ohne Margin */}
         <Link href="/karriere" onClick={handleLinkClick}>
-          <h2 className="text-black text-4xl hover:underline transition-all duration-300">KARRIERE</h2>
+          <h2 className="text-black text-4xl mb-6 hover:underline transition-all duration-300">KARRIERE</h2>
+        </Link>
+
+        {/* Karriere ohne Margin */}
+        <Link href="/designtosuccess" onClick={handleLinkClick}>
+          <h2 className="text-black text-4x1 hover:underline transition-all duration-300">DESIGN TO SUCCESS</h2>
         </Link>
 
         {/* Button mit gleichem Margin oben und unten wie bei den Links */}

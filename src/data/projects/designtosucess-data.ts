@@ -1,0 +1,58 @@
+import { DesigntosucessData } from "@/models/designtosuccess-model";
+
+export const Projects: DesigntosucessData[] = [
+    {
+        backgroundColor: "white",
+        title: "ZIEL",
+        titleEn: "ARBURG GESTICA",
+        description: "Unsere Produkte haben im Markt keine Wiedererkennbarkeit. Können wir das ändern?",
+        metaDescriptionEN: "Arburg Gestica HMI Design",
+        release: true,
+        copyright: "Arburg",
+    },
+    {
+        backgroundColor: "white",
+        title: "INNOVATION",
+        titleEn: "MACHINE DESIGN",
+        description: "Kann ein Experte beim Entwickeln zukunftsfähiger Innovationen Erfolg garantieren?",
+        metaDescriptionEN: "TCB BIOREACTOR CONTROL UNIT",
+        release: true,
+        copyright: "TCB",
+    },
+    {
+        backgroundColor: "white",
+        title: "FOKUS",
+        titleEn: "HMI DESIGN",
+        description: "Anwenderfreundlich sind unsere Maschinen bereits. Wie können wir weitere Vorteile für den Verkauf generieren?",
+        metaDescriptionEN: "double belt press",
+        release: true,
+        copyright: "Held",
+    },
+    {
+        backgroundColor: "white",
+        title: "MARKE",
+        titleEn: "HMI DESIGN",
+        description: "Unser Unternehmen steht für Tradition und Innovation. Kann mein Maschinendesign das zum Ausdruck bringen?",
+        metaDescriptionEN: "double belt press",
+        release: true,
+        copyright: "Held",
+    },
+    {
+        backgroundColor: "white",
+        title: "TEMPO",
+        titleEn: "HMI DESIGN",
+        description: "Kann man eine Design-Entwicklung heute starten und schon in zwei Monaten auf der Messe vorstellen?",
+        metaDescriptionEN: "double belt press",
+        release: true,
+        copyright: "Held",
+    },
+    {
+        backgroundColor: "white",
+        title: "KOSTEN",
+        titleEn: "HMI DESIGN",
+        description: "Kann man ein Design so entwickeln, dass es kostenneutral bleibt?",
+        metaDescriptionEN: "double belt press",
+        release: true,
+        copyright: "Held",
+    },
+];
