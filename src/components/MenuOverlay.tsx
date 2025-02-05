@@ -15,7 +15,6 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
   const contentRef = useRef<HTMLDivElement>(null);
   const [isClient, setIsClient] = useState(false);  // Zustand, um zu überprüfen, ob es der Client ist
 
-
   // useEffect, um sicherzustellen, dass der Code nur auf dem Client ausgeführt wird
   useEffect(() => {
     setIsClient(true); // Setzt den Zustand auf true, wenn der Client verfügbar ist
@@ -69,22 +68,19 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
       }}
     >
       <div ref={contentRef} className="text-center space-y-8">
-        {/* Verkleinerter Abstand zwischen den Links */}
+        {/* Alle Links haben jetzt die gleiche Schriftgröße */}
         <Link href="/designtech" onClick={handleLinkClick}>
           <h2 className="text-black text-4xl mb-6 hover:underline transition-all duration-300">DESIGN TECH</h2>
         </Link>
 
-        {/* Karriere ohne Margin */}
         <Link href="/karriere" onClick={handleLinkClick}>
           <h2 className="text-black text-4xl mb-6 hover:underline transition-all duration-300">KARRIERE</h2>
         </Link>
 
-        {/* Karriere ohne Margin */}
         <Link href="/designtosuccess" onClick={handleLinkClick}>
-          <h2 className="text-black text-4x1 mb-6 hover:underline transition-all duration-300">DESIGN TO SUCCESS</h2>
+          <h2 className="text-black text-4xl mb-6 hover:underline transition-all duration-300">DESIGN TO SUCCESS</h2>
         </Link>
 
-        {/* Button mit gleichem Margin oben und unten wie bei den Links */}
         <div className="flex justify-center ">
           <a
             href="mailto:info@designtech.eu?subject=Anfrage%20für%20ein%20Videocall&body=Sehr%20geehrte%20Frau%20Mayer,%0A%0A"

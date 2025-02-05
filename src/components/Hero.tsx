@@ -52,6 +52,8 @@ export function Hero() {
       >
         <source src="/HeaderVideo.mp4" type="video/mp4" />
       </video>
+      <div id="background-check" className="absolute top-0 w-full h-[100px]"></div>
+
       
       <div 
         ref={textRef}

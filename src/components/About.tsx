@@ -36,6 +36,7 @@ export function About() {
       ref={sectionRef}
       className="relative min-h-screen w-full"
     >
+      
       <YellowBackground />
       <div className="absolute inset-0 flex items-center">
         <div className="w-full px-8 md:px-16 lg:px-24">
@@ -47,6 +48,7 @@ export function About() {
           </p>
         </div>
       </div>
+      
     </section>
   );
 }

@@ -1,7 +1,6 @@
-// CookieBanner.tsx
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const CookieBanner: React.FC = () => {
   const [showBanner, setShowBanner] = useState(true);
@@ -9,23 +8,63 @@ const CookieBanner: React.FC = () => {
   const [analyticsCookies, setAnalyticsCookies] = useState(false);
   const [externalCookies, setExternalCookies] = useState(false);
 
+  // Prüfen, ob der Benutzer bereits eine Entscheidung getroffen hat
+  useEffect(() => {
+    const cookieConsent = localStorage.getItem("cookieConsent");
+
+    if (cookieConsent === "accepted" || cookieConsent === "saved") {
+      setShowBanner(false); // Banner ausblenden, wenn der Benutzer bereits zugestimmt hat
+    } else {
+      setShowBanner(true); // Banner anzeigen, wenn der Benutzer noch keine Entscheidung getroffen hat
+    }
+
+    // Wenn Präferenzen gespeichert wurden, die Einstellungen wiederherstellen
+    if (cookieConsent === "saved") {
+      const savedPreferences = localStorage.getItem("cookiePreferences");
+      if (savedPreferences) {
+        const { essential, analytics, external } = JSON.parse(savedPreferences);
+        setEssentialCookies(essential);
+        setAnalyticsCookies(analytics);
+        setExternalCookies(external);
+      }
+    }
+  }, []);
+
+  // Speichert die Entscheidung des Nutzers
   const handleAcceptAll = () => {
     setEssentialCookies(true);
     setAnalyticsCookies(true);
     setExternalCookies(true);
     setShowBanner(false);
-    // Hier kannst du die Cookie-Zustimmung speichern
+
+    localStorage.setItem("cookieConsent", "accepted"); // Speichert, dass der Nutzer alle Cookies akzeptiert hat
     console.log("Alle Cookies akzeptiert");
   };
 
+  // Speichert die individuellen Präferenzen
   const handleSavePreferences = () => {
     setShowBanner(false);
-    // Speichern der individuellen Präferenzen
+
+    // Speichern der Präferenzen
+    localStorage.setItem("cookieConsent", "saved");
+    localStorage.setItem(
+      "cookiePreferences",
+      JSON.stringify({
+        essential: essentialCookies,
+        analytics: analyticsCookies,
+        external: externalCookies,
+      })
+    );
     console.log("Präferenzen gespeichert", {
       essentialCookies,
       analyticsCookies,
       externalCookies,
     });
+  };
+
+  // Banner ausblenden, wenn es geschlossen wird
+  const handleCloseBanner = () => {
+    setShowBanner(false);
   };
 
   if (!showBanner) {
@@ -43,7 +82,7 @@ const CookieBanner: React.FC = () => {
         {/* Schließen-Button */}
         <button
           className="text-white text-xl font-bold ml-4"
-          onClick={() => setShowBanner(false)}
+          onClick={handleCloseBanner}
           aria-label="Schließen"
         >
           ×
