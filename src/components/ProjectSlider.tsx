@@ -1,50 +1,23 @@
 "use client";
 
-const customNavigationStyles = `
-  .swiper-button-prev,
-  .swiper-button-next {
-    display: none;
-  }
-
-  .custom-navigation-button {
-    width: 48px;
-    height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    transition: opacity 0.3s;
-    cursor: pointer;
-    position: absolute;
-    right: 48px;
-    z-index: 20;
-  }
-
-  .custom-navigation-button:hover {
-    opacity: 0.7;
-  }
-`;
-
 import { useRef } from "react";
 import { Projects } from "@/data/projects/project-data";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Autoplay } from "swiper/modules";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Autoplay, Pagination } from "swiper/modules";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Image from "next/image";
 import "swiper/css";
-import "swiper/css/navigation";
+import "swiper/css/pagination";
 
-// Swiper-Typen importieren
 import { Swiper as SwiperInstance } from 'swiper/types';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export function ProjectSlider() {
   const sectionRef = useRef<HTMLElement>(null);
-  const swiperRef = useRef<SwiperInstance | null>(null);  // Hier den richtigen Typ verwenden
+  const swiperRef = useRef<SwiperInstance | null>(null);
 
   useGSAP(() => {
     if (!sectionRef.current) return;
@@ -74,7 +47,7 @@ export function ProjectSlider() {
     gsap.to([".slide-content"], { opacity: 0, y: 20, duration: 0.5, ease: "power2.in" });
   };
 
-  const handleSlideEnd = (swiper: SwiperInstance) => {  // Den richtigen Typ für swiper verwenden
+  const handleSlideEnd = (swiper: SwiperInstance) => {
     Projects.forEach((_, index) => {
       gsap.set(`#slide-image-${index}`, { scale: 1 });
     });
@@ -84,14 +57,13 @@ export function ProjectSlider() {
 
   return (
     <section ref={sectionRef} className="project-slider relative h-screen bg-black overflow-hidden">
-      <style>{customNavigationStyles}</style>
       <Swiper
-        modules={[Navigation, Autoplay]}
+        modules={[Autoplay, Pagination]}
         spaceBetween={0}
         slidesPerView={1}
         speed={800}
         autoplay={{ delay: 5000, disableOnInteraction: false }}
-        navigation={{ prevEl: '.custom-swiper-button-prev', nextEl: '.custom-swiper-button-next' }}
+        pagination={{ clickable: true }}
         onSwiper={(swiper) => { swiperRef.current = swiper; animateSlideContent(0); }}
         onSlideChangeTransitionStart={handleSlideStart}
         onSlideChangeTransitionEnd={(swiper) => handleSlideEnd(swiper)}
@@ -106,17 +78,17 @@ export function ProjectSlider() {
               </div>
             </div>
             <div className="relative h-full grid grid-cols-12">
-              <div className="col-span-6 flex flex-col justify-center px-24">
+              <div className="col-span-12 md:col-span-6 flex flex-col justify-center px-6 md:px-24">
                 <div className="flex-grow flex flex-col justify-center">
-                  <h2 id={`slide-title-${index}`} className="slide-content text-white text-[2.5vw] font-extralight uppercase tracking-tighter mb-4 opacity-0">
+                  <h2 id={`slide-title-${index}`} className="slide-content text-white text-[5vw] md:text-[2.5vw] font-extralight uppercase tracking-tighter mb-4 opacity-0">
                     {project.title || project.titleEn}
                   </h2>
-                  <p id={`slide-description-${index}`} className="slide-content text-white text-[2.5vw] font-extralight uppercase tracking-tighter leading-tight opacity-0">
+                  <p id={`slide-description-${index}`} className="slide-content text-white text-[4.5vw] md:text-[2.5vw] font-extralight uppercase tracking-tighter leading-tight opacity-0">
                     {project.description || project.descriptionEn}
                   </p>
                 </div>
                 {project.logo && (
-                  <div id={`slide-logo-${index}`} className="slide-content relative w-32 h-12 mb-12 opacity-0">
+                  <div id={`slide-logo-${index}`} className="slide-content relative w-24 md:w-32 h-10 md:h-12 mb-12 opacity-0">
                     <Image
                       src={`/${project.logo}`}
                       alt={project.copyright || "Company logo"}
@@ -131,14 +103,6 @@ export function ProjectSlider() {
           </SwiperSlide>
         ))}
       </Swiper>
-      <div className="absolute right-12 top-1/2 transform -translate-y-1/2 z-10">
-        <button className="custom-navigation-button custom-swiper-button-prev absolute -top-8" aria-label="Previous project">
-          <ChevronLeft className="w-8 h-8 text-white" />
-        </button>
-        <button className="custom-navigation-button custom-swiper-button-next absolute top-8" aria-label="Next project">
-          <ChevronRight className="w-8 h-8 text-white" />
-        </button>
-      </div>
     </section>
   );
 }

@@ -39,7 +39,7 @@ export function HeroDesignToSuccess() {
         playsInline 
         className="absolute inset-0 w-full h-full object-cover"
       >
-        <source src="/DesignTechVideo.mp4" type="video/mp4" />
+        <source src="/DesignToSuccessVideo.mp4" type="video/mp4" />
       </video>
      
       

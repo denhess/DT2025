@@ -27,7 +27,7 @@ export function Header({ onMenuToggle }: HeaderProps) {
               <Link href="/">
                 <DtLogo
                   className={clsx(
-                    'z-50 w-80 cursor-pointer header-color-change',
+                    'z-50 w-60 sm:w-60 md:w-60 lg:w-80 cursor-pointer header-color-change',
                     isMenuOpen ? 'text-black' : 'text-white'
                   )}
                 />

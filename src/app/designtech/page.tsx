@@ -20,7 +20,6 @@ export default function DesignTechPage() {
           <Clients />
           <Awards />
           <ClosingKarriere/>
-          
           <Footer />
            
     </>

@@ -32,10 +32,10 @@ export function ContactJob() {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-screen w-full text-black flex"
+      className="relative min-h-screen w-full text-black flex flex-col md:flex-row items-center"
     >
       {/* Text Column */}
-      <div className="w-1/2 flex items-center justify-start p-8">
+      <div className="w-full md:w-1/2 flex items-center justify-start p-8 h-[50vh] md:h-full">
         <div
           ref={contentRef}
           className="max-w-[65vw] mx-auto px-8 md:px-16 lg:px-24 space-y-6"
@@ -62,13 +62,13 @@ export function ContactJob() {
       </div>
 
       {/* Image Column */}
-      <div className="w-1/2 flex items-center justify-center">
+      <div className="w-full md:w-1/2 flex items-center justify-center h-[50vh] md:h-full">
         <Image
           src="/pictures/contact-lisa-schmid.webp"
           alt="Lisa Schmid"
-          width={600} // Feste Breite für optimierte Darstellung
-          height={800} // Feste Höhe für optimierte Darstellung
-          className="w-2x1 h-auto object-cover"
+          width={600} // Größere Breite für größere Bildschirme
+          height={800} // Beibehalten des Seitenverhältnisses
+          className="w-auto md:w-[60%] h-full object-cover" // Vergrößern auf größeren Bildschirmen
         />
       </div>
     </section>

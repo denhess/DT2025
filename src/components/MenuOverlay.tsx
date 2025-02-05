@@ -81,7 +81,7 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
 
         {/* Karriere ohne Margin */}
         <Link href="/designtosuccess" onClick={handleLinkClick}>
-          <h2 className="text-black text-4x1 hover:underline transition-all duration-300">DESIGN TO SUCCESS</h2>
+          <h2 className="text-black text-4x1 mb-6 hover:underline transition-all duration-300">DESIGN TO SUCCESS</h2>
         </Link>
 
         {/* Button mit gleichem Margin oben und unten wie bei den Links */}

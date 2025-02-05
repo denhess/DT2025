@@ -13,12 +13,12 @@ export function Clients() {
   const textRef = useRef<HTMLParagraphElement>(null);
 
   const clients = [
-    { logo: "/logos/logo-woehner-white.svg", website: "https://www.client1.com" },
-    { logo: "/logos/logo-arburg-white.svg", website: "https://www.client2.com" },
-    { logo: "/logos/logo-washtec-white.svg", website: "https://www.client3.com" },
-    { logo: "/logos/logo-liebherr-white.svg", website: "https://www.client4.com" },
-    { logo: "/logos/logo-trumpf-white.svg", website: "https://www.client5.com" },
-    { logo: "/logos/logo-sew-eurodrive-white.svg", website: "https://www.client6.com" },
+    { logo: "/logos/logo-woehner-grey.svg", website: "https://www.woehner.de/de/" },
+    { logo: "/logos/logo-arburg-grey.svg", website: "https://www.arburg.com/de/de/" },
+    { logo: "/logos/logo-washtec-grey.svg", website: "https://www.washtec.de/" },
+    { logo: "/logos/logo-liebherr-grey.svg", website: "https://www.liebherr.com/de-de/firmengruppe/startseite-3705202" },
+    { logo: "/logos/logo-trumpf-grey.svg", website: "https://www.trumpf.com/de_DE/" },
+    { logo: "/logos/logo-sew-eurodrive-grey.svg", website: "https://www.sew-eurodrive.de/startseite.html" },
   ];
 
   useGSAP(() => {
@@ -41,7 +41,7 @@ export function Clients() {
     <section ref={sectionRef} className="bg-white relative min-h-screen w-full">
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="w-full px-8 md:px-16 lg:px-24">
-          <div className="clients-container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-10">
+          <div className="clients-container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-2 sm:gap-x-4 md:gap-x-6 gap-y-6 mt-10">
             {clients.map((client, index) => (
               <div
                 key={index}
