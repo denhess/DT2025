@@ -1,60 +1,44 @@
+// CookieBanner.tsx
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, forwardRef, useImperativeHandle } from "react";
 
-const CookieBanner: React.FC = () => {
+const CookieBanner = forwardRef((props, ref) => {
   const [showBanner, setShowBanner] = useState(true);
   const [essentialCookies, setEssentialCookies] = useState(true);
   const [analyticsCookies, setAnalyticsCookies] = useState(false);
   const [externalCookies, setExternalCookies] = useState(false);
 
-  // Prüfen, ob der Benutzer bereits eine Entscheidung getroffen hat
+  // Lade die Cookie-Einstellungen aus localStorage, falls vorhanden
   useEffect(() => {
-    const cookieConsent = localStorage.getItem("cookieConsent");
-
-    if (cookieConsent === "accepted" || cookieConsent === "saved") {
-      setShowBanner(false); // Banner ausblenden, wenn der Benutzer bereits zugestimmt hat
-    } else {
-      setShowBanner(true); // Banner anzeigen, wenn der Benutzer noch keine Entscheidung getroffen hat
-    }
-
-    // Wenn Präferenzen gespeichert wurden, die Einstellungen wiederherstellen
-    if (cookieConsent === "saved") {
-      const savedPreferences = localStorage.getItem("cookiePreferences");
-      if (savedPreferences) {
-        const { essential, analytics, external } = JSON.parse(savedPreferences);
-        setEssentialCookies(essential);
-        setAnalyticsCookies(analytics);
-        setExternalCookies(external);
-      }
+    const savedPreferences = JSON.parse(localStorage.getItem("cookiePreferences") || "{}");
+    if (savedPreferences) {
+      setEssentialCookies(savedPreferences.essentialCookies ?? true);
+      setAnalyticsCookies(savedPreferences.analyticsCookies ?? false);
+      setExternalCookies(savedPreferences.externalCookies ?? false);
+      setShowBanner(savedPreferences.showBanner ?? true);
     }
   }, []);
 
-  // Speichert die Entscheidung des Nutzers
+  // Verwende useImperativeHandle, um Methoden über den ref verfügbar zu machen
+  useImperativeHandle(ref, () => ({
+    openBanner: () => {
+      setShowBanner(true); // Zeige das Banner an, wenn openBanner aufgerufen wird
+    },
+  }));
+
   const handleAcceptAll = () => {
     setEssentialCookies(true);
     setAnalyticsCookies(true);
     setExternalCookies(true);
     setShowBanner(false);
-
-    localStorage.setItem("cookieConsent", "accepted"); // Speichert, dass der Nutzer alle Cookies akzeptiert hat
+    savePreferences(); // Speichern der Einstellungen in localStorage
     console.log("Alle Cookies akzeptiert");
   };
 
-  // Speichert die individuellen Präferenzen
   const handleSavePreferences = () => {
     setShowBanner(false);
-
-    // Speichern der Präferenzen
-    localStorage.setItem("cookieConsent", "saved");
-    localStorage.setItem(
-      "cookiePreferences",
-      JSON.stringify({
-        essential: essentialCookies,
-        analytics: analyticsCookies,
-        external: externalCookies,
-      })
-    );
+    savePreferences(); // Speichern der Einstellungen in localStorage
     console.log("Präferenzen gespeichert", {
       essentialCookies,
       analyticsCookies,
@@ -62,34 +46,40 @@ const CookieBanner: React.FC = () => {
     });
   };
 
-  // Banner ausblenden, wenn es geschlossen wird
-  const handleCloseBanner = () => {
-    setShowBanner(false);
+  // Speichern der Cookie-Einstellungen im localStorage
+  const savePreferences = () => {
+    localStorage.setItem(
+      "cookiePreferences",
+      JSON.stringify({
+        essentialCookies,
+        analyticsCookies,
+        externalCookies,
+        showBanner: false,
+      })
+    );
   };
 
+  // Banner nicht anzeigen, wenn der Nutzer es bereits geschlossen hat oder Präferenzen gespeichert wurden
   if (!showBanner) {
-    return null; // Banner ausblenden, wenn es geschlossen wurde
+    return null;
   }
 
   return (
     <div className="fixed bottom-0 left-0 w-full bg-gray-800 text-white p-6 z-50">
       <div className="flex justify-between items-start">
-        {/* Titel und Beschreibung */}
         <div>
           <h2 className="text-lg font-bold mb-2">DATENSCHUTZEINSTELLUNGEN</h2>
           <p className="text-sm mb-4">Diese Website nutzt Cookies.</p>
         </div>
-        {/* Schließen-Button */}
         <button
           className="text-white text-xl font-bold ml-4"
-          onClick={handleCloseBanner}
+          onClick={() => setShowBanner(false)}
           aria-label="Schließen"
         >
           ×
         </button>
       </div>
 
-      {/* Checkboxen für Cookies */}
       <div className="mb-4">
         <label className="flex items-center mb-2">
           <input
@@ -97,11 +87,10 @@ const CookieBanner: React.FC = () => {
             checked={essentialCookies}
             onChange={() => setEssentialCookies(!essentialCookies)}
             className="mr-2"
-            disabled // Essentielle Cookies können nicht deaktiviert werden
+            disabled
           />
           <span className="text-sm">
-            <strong>Essenzielle Cookies:</strong> Notwendig für die
-            Funktionalität der Website
+            <strong>Essenzielle Cookies:</strong> Notwendig für die Funktionalität der Website
           </span>
         </label>
         <label className="flex items-center mb-2">
@@ -112,8 +101,7 @@ const CookieBanner: React.FC = () => {
             className="mr-2"
           />
           <span className="text-sm">
-            <strong>Analyse Cookies:</strong> Diese Website verwendet Google
-            Analytics
+            <strong>Analyse Cookies:</strong> Diese Website verwendet Google Analytics
           </span>
         </label>
         <label className="flex items-center">
@@ -129,7 +117,6 @@ const CookieBanner: React.FC = () => {
         </label>
       </div>
 
-      {/* Buttons */}
       <div className="flex gap-4">
         <button
           onClick={handleAcceptAll}
@@ -146,6 +133,6 @@ const CookieBanner: React.FC = () => {
       </div>
     </div>
   );
-};
+});
 
 export default CookieBanner;

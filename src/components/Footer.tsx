@@ -3,9 +3,17 @@
 import Link from "next/link";
 import Image from "next/image";
 import { DtLogo } from "./Dt-logo";
+import { useRef } from "react";
+import CookieBanner from "@/components/Cookie/CookieBanner"; // Importiere CookieBanner
 
 export function Footer() {
+  const cookieBannerRef = useRef<any>(null); // Ref für das CookieBanner
+
+  // Funktion zum Öffnen des CookieBanners
   const handleLinkClick = () => {
+    if (cookieBannerRef.current) {
+      cookieBannerRef.current.openBanner(); // Banner öffnen, wenn der Link geklickt wird
+    }
     console.log("Link clicked");
   };
 
@@ -47,7 +55,11 @@ export function Footer() {
             <Link href="/privacy-policy" className="block hover:underline hover:text-black">
               Datenschutzerklärung
             </Link>
-            <Link href="/privacy-policy" className="block hover:underline hover:text-black">
+            <Link
+              href="#"
+              className="block hover:underline hover:text-black"
+              onClick={handleLinkClick} // Hier Link-Click zum Öffnen des Banners hinzufügen
+            >
               Datenschutzeinstellungen
             </Link>
           </div>
@@ -87,6 +99,9 @@ export function Footer() {
           </div>
         </div>
       </div>
+
+      {/* CookieBanner-Komponente */}
+      <CookieBanner ref={cookieBannerRef} />
     </footer>
   );
 }
