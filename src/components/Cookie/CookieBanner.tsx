@@ -3,7 +3,11 @@
 
 import React, { useState, useEffect, forwardRef, useImperativeHandle } from "react";
 
-const CookieBanner = forwardRef((props, ref) => {
+interface CookieBannerRef {
+  openBanner: () => void;
+}
+
+const CookieBanner = forwardRef<CookieBannerRef, unknown>((_, ref) => {
   const [showBanner, setShowBanner] = useState(true);
   const [essentialCookies, setEssentialCookies] = useState(true);
   const [analyticsCookies, setAnalyticsCookies] = useState(false);
@@ -134,5 +138,7 @@ const CookieBanner = forwardRef((props, ref) => {
     </div>
   );
 });
+
+CookieBanner.displayName = "CookieBanner";
 
 export default CookieBanner;

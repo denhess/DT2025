@@ -1,19 +1,20 @@
-'use client';
+"use client";
 
 import Link from "next/link";
 import Image from "next/image";
 import { DtLogo } from "./Dt-logo";
 import { useRef } from "react";
-import CookieBanner from "@/components/Cookie/CookieBanner"; // Importiere CookieBanner
+import CookieBanner from "@/components/Cookie/CookieBanner";
+
+interface CookieBannerRef {
+  openBanner: () => void;
+}
 
 export function Footer() {
-  const cookieBannerRef = useRef<any>(null); // Ref für das CookieBanner
+  const cookieBannerRef = useRef<CookieBannerRef | null>(null);
 
-  // Funktion zum Öffnen des CookieBanners
   const handleLinkClick = () => {
-    if (cookieBannerRef.current) {
-      cookieBannerRef.current.openBanner(); // Banner öffnen, wenn der Link geklickt wird
-    }
+    cookieBannerRef.current?.openBanner();
     console.log("Link clicked");
   };
 
@@ -39,6 +40,9 @@ export function Footer() {
             <Link href="/karriere" className="block hover:underline hover:text-black">
               KARRIERE
             </Link>
+            <Link href="/designtosuccess" className="block hover:underline hover:text-black">
+              DESIGN TO SUCCESS
+            </Link>
             <Link href="/maschine-2020" className="block hover:underline hover:text-black">
               Maschine 2020
             </Link>
@@ -58,7 +62,7 @@ export function Footer() {
             <Link
               href="#"
               className="block hover:underline hover:text-black"
-              onClick={handleLinkClick} // Hier Link-Click zum Öffnen des Banners hinzufügen
+              onClick={handleLinkClick}
             >
               Datenschutzeinstellungen
             </Link>
