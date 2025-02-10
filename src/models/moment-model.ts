@@ -1,4 +1,4 @@
-export interface ProjectData {
+export interface MomentData {
     // Basisinformationen
     img: string;                // URL des Hauptbilds
     logo?: string;              // Optional: URL des Logos
@@ -8,7 +8,6 @@ export interface ProjectData {
     titleEn?: string;           // Name des Produkts (Englisch)
     description?: string;        // Beschreibung des Produkts (Deutsch)
     descriptionEn?: string;      // Beschreibung des Produkts (Englisch)
-    textColor?: string;         // Optional: Schriftfarbe (Hex, RGB, etc.)
 
     // Veröffentlichungs- und Copyright-Informationen
     release?: boolean;          // Gibt an, ob das Projekt veröffentlicht ist

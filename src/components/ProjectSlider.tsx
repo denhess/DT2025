@@ -74,13 +74,15 @@ export function ProjectSlider() {
             <div className="absolute inset-0 overflow-hidden">
               <div id={`slide-image-${index}`} className="relative w-full h-full">
                 <Image src={`/${project.img}`} alt="" fill className="object-cover" priority />
-                <div className="absolute inset-0 bg-black/25" />
+                <div className="absolute inset-0" />
               </div>
             </div>
             <div className="relative h-full">
-              <div className="w-full justify-center">
-              {project.logo && (
-                  <div id={`slide-logo-${index}`} className=" relative w-24 md:w-32 h-10 md:h-12 mb-12 opacity-0">
+              <div className="absolute inset-0 flex flex-col justify-between px-8 md:px-16 lg:px-24">
+              <div className="pt-10">
+                {/* Logo links oben */}
+                {project.logo && (
+                  <div id={`slide-logo-${index}`} className="w-24 md:w-32 h-10 md:h-12 opacity-0">
                     <Image
                       src={`/${project.logo}`}
                       alt={project.copyright || "Company logo"}
@@ -90,11 +92,21 @@ export function ProjectSlider() {
                     />
                   </div>
                 )}
-                <div className="">
-                  <h2 id={`slide-title-${index}`} className=" text-white text-[5vw] md:text-[2.5vw] font-extralight uppercase tracking-tighter mb-4 opacity-0">
+                </div>
+                {/* Text links unten */}
+                <div className="pb-10">
+                  <h2 
+                    id={`slide-title-${index}`} 
+                    className="text-[5vw] md:text-[2.5vw] font-extralight uppercase tracking-tighter opacity-0"
+                    style={{ color: project.textColor }} // Hier wird die textColor angewendet
+                  >
                     {project.title || project.titleEn}
                   </h2>
-                  <p id={`slide-description-${index}`} className=" text-white text-[4.5vw] md:text-[2.5vw] font-extralight uppercase tracking-tighter leading-tight opacity-0">
+                  <p 
+                    id={`slide-description-${index}`} 
+                    className="text-[2,5vw] md:text-[1vw] font-extralight uppercase tracking-tighter leading-tight opacity-0"
+                    style={{ color: project.textColor }} // Hier wird die textColor angewendet
+                  >
                     {project.description || project.descriptionEn}
                   </p>
                 </div>
