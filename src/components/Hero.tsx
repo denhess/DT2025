@@ -84,7 +84,7 @@ export function Hero() {
 
       <div 
         ref={textRef}
-        className="absolute bottom-10 left-8 flex flex-col px-8 md:px-16 lg:px-24"
+        className="absolute bottom-10 sm:bottom-20 flex flex-col px-8 md:px-16 lg:px-24"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
