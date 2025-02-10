@@ -77,10 +77,7 @@ export function MomentSlider() {
                 <div className="absolute inset-0 bg-black/25" />
               </div>
             </div>
-            <div className="relative h-full grid grid-cols-12">
-              <div className="col-span-12 md:col-span-6 flex flex-col justify-center px-6 md:px-24">
-              </div>
-            </div>
+            
           </SwiperSlide>
         ))}
       </Swiper>

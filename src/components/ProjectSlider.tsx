@@ -77,18 +77,10 @@ export function ProjectSlider() {
                 <div className="absolute inset-0 bg-black/25" />
               </div>
             </div>
-            <div className="relative h-full grid grid-cols-12">
-              <div className="col-span-12 md:col-span-6 flex flex-col justify-center px-6 md:px-24">
-                <div className="flex-grow flex flex-col justify-center">
-                  <h2 id={`slide-title-${index}`} className="slide-content text-white text-[5vw] md:text-[2.5vw] font-extralight uppercase tracking-tighter mb-4 opacity-0">
-                    {project.title || project.titleEn}
-                  </h2>
-                  <p id={`slide-description-${index}`} className="slide-content text-white text-[4.5vw] md:text-[2.5vw] font-extralight uppercase tracking-tighter leading-tight opacity-0">
-                    {project.description || project.descriptionEn}
-                  </p>
-                </div>
-                {project.logo && (
-                  <div id={`slide-logo-${index}`} className="slide-content relative w-24 md:w-32 h-10 md:h-12 mb-12 opacity-0">
+            <div className="relative h-full">
+              <div className="w-full justify-center">
+              {project.logo && (
+                  <div id={`slide-logo-${index}`} className=" relative w-24 md:w-32 h-10 md:h-12 mb-12 opacity-0">
                     <Image
                       src={`/${project.logo}`}
                       alt={project.copyright || "Company logo"}
@@ -98,6 +90,14 @@ export function ProjectSlider() {
                     />
                   </div>
                 )}
+                <div className="">
+                  <h2 id={`slide-title-${index}`} className=" text-white text-[5vw] md:text-[2.5vw] font-extralight uppercase tracking-tighter mb-4 opacity-0">
+                    {project.title || project.titleEn}
+                  </h2>
+                  <p id={`slide-description-${index}`} className=" text-white text-[4.5vw] md:text-[2.5vw] font-extralight uppercase tracking-tighter leading-tight opacity-0">
+                    {project.description || project.descriptionEn}
+                  </p>
+                </div>
               </div>
             </div>
           </SwiperSlide>
