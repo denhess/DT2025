@@ -70,19 +70,22 @@ export function Hero() {
 
   return (
     <section ref={containerRef} className="hero h-screen relative overflow-hidden">
-      <video 
+      <video
         ref={videoRef}
-        autoPlay 
-        muted 
+        autoPlay
+        muted
         loop
-        playsInline 
+        playsInline
         className="absolute inset-0 w-full h-full object-cover"
+        preload="auto" // Ensures the video is preloaded for faster loading
       >
         <source src="/HeaderVideo.mp4" type="video/mp4" />
       </video>
-      <div id="background-check" className="absolute top-0 w-full h-[100px]"></div>
+      <div id="background-check" className="h-screen w-full bg-gray-900">
+        {/* This section defines a dark background */}
+      </div>
 
-      <div 
+      <div
         ref={textRef}
         className="absolute bottom-10 sm:bottom-20 flex flex-col px-8 md:px-16 lg:px-24"
         onMouseEnter={handleMouseEnter}

@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { Projects } from "@/data/projects/project-data";
+import { Projects } from "@/data/projects/moment-data";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import gsap from "gsap";
