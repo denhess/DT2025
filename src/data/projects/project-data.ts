@@ -7,6 +7,7 @@ export const Projects: ProjectData[] = [
         logoColor: "#FFFFFF", // SVG-Farbe
         title: "HMI Design",
         titleEn: "HMI Design",
+        textColor: "#EDEDED",
         description: "ARBURG GESTICA",
         metaDescriptionEN: "",
         release: true,
@@ -30,6 +31,7 @@ export const Projects: ProjectData[] = [
         logoColor: "#FFFFFF", // SVG-Farbe
         title: "Maschinendesign",
         titleEn: "Machine Design",
+        textColor: "#EDEDED",
         description: "Hybride Spritzgussmaschine Allrounder 1120 H",
         metaDescriptionEN: "",
         release: true,
@@ -53,6 +55,7 @@ export const Projects: ProjectData[] = [
         logoColor: "#FFFFFF", // SVG-Farbe
         title: "Maschinendesign",
         titleEn: "MACHINE DESIGN",
+        textColor: "#EDEDED",
         description: "BIOREACTOR CONTROL UNIT",
         metaDescriptionEN: "",
         release: true,
@@ -88,6 +91,7 @@ export const Projects: ProjectData[] = [
         logoColor: "#FFFFFF", // SVG-Farbe
         title: "UI/UX DESIGN",
         titleEn: "UI/UX DESIGN",
+        textColor: "#EDEDED",
         description: "Doppelbandpresse",
         metaDescriptionEN: "",
         release: true,
