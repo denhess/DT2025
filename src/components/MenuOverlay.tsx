@@ -94,6 +94,15 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
           {/* Links zu externen Seiten */}
           <p className="text-black cursor-pointer text-2xl hover:underline transition-all duration-300">
             <a
+              href="https://www.ammerbucher-design-talk.de/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Ammerbucher Design Talk
+            </a>
+          </p>
+          <p className="text-black cursor-pointer text-2xl hover:underline transition-all duration-300">
+            <a
               href="http://werkzeugderzukunft.de"
               target="_blank"
               rel="noopener noreferrer"

@@ -43,11 +43,14 @@ export function Footer() {
             <Link href="/designtosuccess" className="block hover:underline hover:text-black">
               DESIGN TO SUCCESS
             </Link>
-            <Link href="/maschine-2020" className="block hover:underline hover:text-black">
-              Maschine 2020
+            <Link href="https://www.ammerbucher-design-talk.de/" className="block hover:underline hover:text-black">
+              Ammerbucher Design Talk
             </Link>
-            <Link href="/werkzeug-der-zukunft" className="block hover:underline hover:text-black">
+            <Link href="http://werkzeugderzukunft.de" className="block hover:underline hover:text-black">
               Werkzeug der Zukunft
+            </Link>
+            <Link href="http://maschine2020.com/de_DE/" className="block hover:underline hover:text-black">
+              Maschine 2020
             </Link>
           </div>
 
