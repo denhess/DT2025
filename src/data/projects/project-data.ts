@@ -2,7 +2,7 @@ import { ProjectData } from "@/models/project-model";
 
 export const Projects: ProjectData[] = [
     {
-        img: "projects/slide-arburg-gestica-detail-mobile.webp",
+        img: "projects/slide-arburg-gestica-detail.webp",
         logo: "logos/logo-arburg-white.svg",
         logoColor: "#FFFFFF", // SVG-Farbe
         title: "HMI Design",
@@ -14,7 +14,7 @@ export const Projects: ProjectData[] = [
         copyright: "Arburg",
     },
     {
-        img: "projects/slide-elgan-honing-tool-mobile.webp",
+        img: "projects/slide-elgan-honing-tool.webp",
         logo: "logos/logo-elgan-black.svg",
         logoColor: "#FFFFFF", // SVG-Farbe
         title: "WERKZEUGDESIGN",
@@ -26,7 +26,7 @@ export const Projects: ProjectData[] = [
         copyright: "Elgan",
     },
     {
-        img: "projects/slide-arburg-cid-mobile.webp",
+        img: "projects/slide-arburg-cid.webp",
         logo: "logos/logo-arburg-black.svg",
         logoColor: "#FFFFFF", // SVG-Farbe
         title: "CORPORATE INDUSTRIAL DESIGN",
@@ -38,7 +38,7 @@ export const Projects: ProjectData[] = [
         copyright: "Arburg",
     },
     {
-        img: "projects/slide-liebherr-autokran-mobile.webp",
+        img: "projects/slide-liebherr-autokran.webp",
         logo: "logos/logo-liebherr-black.svg",
         logoColor: "#FFFFFF", // SVG-Farbe
         title: "BAUMASCHINENDESIGN",
@@ -50,7 +50,7 @@ export const Projects: ProjectData[] = [
         copyright: "Liebherr",
     },
     {
-        img: "projects/slide-kadia-cid-mobile.webp",
+        img: "projects/slide-kadia-cid.webp",
         logo: "logos/logo-kadia-black.svg",
         logoColor: "#FFFFFF", // SVG-Farbe
         title: "CORPORATE INDUSTRIAL DESIGN",
@@ -62,7 +62,7 @@ export const Projects: ProjectData[] = [
         copyright: "Kadia",
     },
     {
-        img: "projects/slide-tcb-detail-mobile.webp",
+        img: "projects/slide-tcb-detail.webp",
         logo: "logos/logo-cultivated-b-white.svg",
         logoColor: "#FFFFFF", // SVG-Farbe
         title: "Maschinendesign",
@@ -74,7 +74,7 @@ export const Projects: ProjectData[] = [
         copyright: "TCB",
     },
     {
-        img: "projects/slide-woehner-cid-mobile.webp",
+        img: "projects/slide-woehner-cid.webp",
         logo: "logos/logo-woehner-black.svg",
         logoColor: "#FFFFFF", // SVG-Farbe
         title: "CORPORATE INDUSTRIAL DESIGN",
@@ -86,7 +86,7 @@ export const Projects: ProjectData[] = [
         copyright: "TCB",
     },
     {
-        img: "projects/slide-held-hailey-mobile.webp",
+        img: "projects/slide-held-hailey.webp",
         logo: "logos/logo-held-black.svg",
         logoColor: "#FFFFFF", // SVG-Farbe
         title: "ANLAGENDESIGN",
@@ -98,7 +98,7 @@ export const Projects: ProjectData[] = [
         copyright: "Held",
     },
     {
-        img: "projects/slide-washtec-smartcare-mobile.webp",
+        img: "projects/slide-washtec-smartcare.webp",
         logo: "logos/logo-washtec-black.svg",
         logoColor: "#FFFFFF", // SVG-Farbe
         title: "MASCHINENDESIGN",
@@ -110,7 +110,7 @@ export const Projects: ProjectData[] = [
         copyright: "WashTec",
     },
     {
-        img: "projects/slide-bekum-cid-mobile.webp",
+        img: "projects/slide-bekum-cid.webp",
         logo: "logos/logo-bekum-black.svg",
         logoColor: "#FFFFFF", // SVG-Farbe
         title: "CORPORATE INDUSTRIAL DESIGN",
@@ -122,7 +122,7 @@ export const Projects: ProjectData[] = [
         copyright: "BEKUM",
     },
     {
-        img: "projects/slide-held-hmi-detail-mobile.webp",
+        img: "projects/slide-held-hmi-detail.webp",
         logo: "logos/logo-held-white.svg",
         logoColor: "#FFFFFF", // SVG-Farbe
         title: "UX DESIGN",

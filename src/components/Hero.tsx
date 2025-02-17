@@ -77,14 +77,12 @@ export function Hero() {
         loop
         playsInline
         className="absolute inset-0 w-full h-full object-cover"
-        preload="auto" // Ensures the video is preloaded for faster loading
+        preload="auto"
       >
-        <source src="/HeaderVideo.mp4" type="video/mp4" />
+        <source src="/HeaderVideo.mp4" media="(min-width: 768px)" type="video/mp4" />
+        <source src="/HeaderVideo-small.mp4" media="(max-width: 767px)" type="video/mp4" />
       </video>
-      <div id="background-check" className="h-screen w-full bg-gray-900">
-        {/* This section defines a dark background */}
-      </div>
-
+      <div id="background-check" className="h-screen w-full bg-gray-900" />
       <div
         ref={textRef}
         className="absolute bottom-10 sm:bottom-20 flex flex-col px-8 md:px-16 lg:px-24"

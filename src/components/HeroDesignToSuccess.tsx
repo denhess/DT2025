@@ -48,7 +48,7 @@ export function HeroDesignToSuccess() {
         className="absolute inset-0 flex flex-col justify-center px-8 md:px-16 lg:px-24"
       >
         <h1 className="font-thin uppercase text-white z-10 text-[8vw] md:text-[9vw] xl:text-[9vw] leading-[0.9] tracking-[-0.02em]">
-          DESIGN TO SUCCESS
+          DESIGN&nbsp;TO&nbsp;SUCCESS
         </h1>
       </div>
     </section>
