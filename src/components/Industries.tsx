@@ -1,35 +1,32 @@
 "use client";
 
-
-import { YellowBackground } from './BG/YellowBackground';
-import { useState } from "react";
-
-
+import { YellowBackground } from "./BG/YellowBackground";
+import { useEffect, useState } from "react";
 
 const industries = {
-  "Antriebstechnik": [
+  Antriebstechnik: [
     "Antriebssysteme",
     "Elektroantriebe",
     "Gleitlagertechnik",
     "Industrieantriebe",
     "Lineartechnik",
     "Maschinenlager",
-    "Servotechnik"
+    "Servotechnik",
   ],
-  "Holzindustrie": [
+  Holzindustrie: [
     "Forsttechnik",
     "Holzbearbeitungsmaschinen",
     "Spalttechnik",
-    "Sägewerk"
+    "Sägewerk",
   ],
-  "Medizintechnik": [
+  Medizintechnik: [
     "Beatmungstechnik",
     "Medizinische Gerätetechnik",
     "Medizinische Instrumente",
     "Medizinmessgeräte",
-    "Zahnmedizintechnik"
+    "Zahnmedizintechnik",
   ],
-  "Automationstechnik": [
+  Automationstechnik: [
     "Automaten",
     "Automationsgeräte",
     "Automatisierung",
@@ -39,16 +36,16 @@ const industries = {
     "Produktionsautomatisierung",
     "Steuergerät",
     "Steuerung",
-    "Steuerungstechnik"
+    "Steuerungstechnik",
   ],
-  "Anlagenbau": [
+  Anlagenbau: [
     "Anlagenbaukomponenten",
     "Anlagentechnik",
     "Fabrikationsanlage",
     "Industrieabsauganlagen",
-    "Industrieanlagentechnik"
+    "Industrieanlagentechnik",
   ],
-  "Messtechnik": [
+  Messtechnik: [
     "Analogmesstechnik",
     "Druckmesstechnik",
     "Elektromesstechnik",
@@ -59,9 +56,9 @@ const industries = {
     "Messgeräte",
     "Messmaschinen",
     "Mikromesstechnik",
-    "Sensormesstechnik"
+    "Sensormesstechnik",
   ],
-  "Drucktechnik": [
+  Drucktechnik: [
     "3D-Druck",
     "Digitaldruck",
     "Drucksysteme",
@@ -71,9 +68,9 @@ const industries = {
     "Textildruck",
     "Thermodruck",
     "Tiefdruck",
-    "Transferdruck"
+    "Transferdruck",
   ],
-  "Industrieroboter": [
+  Industrieroboter: [
     "Arbeitsroboter",
     "Bestückungsroboter",
     "Handhabungsroboter",
@@ -88,9 +85,9 @@ const industries = {
     "Robotersysteme",
     "Robotertechnik",
     "Schwerlastroboter",
-    "Sechsachsroboter"
+    "Sechsachsroboter",
   ],
-  "Oberflächentechnik": [
+  Oberflächentechnik: [
     "Beschichtungsanlagen",
     "Beschichtungsgeräte",
     "Beschichtungsmaschine",
@@ -101,25 +98,25 @@ const industries = {
     "Oberflächenreinigung",
     "Polieranlagen",
     "Poliermaschinen",
-    "Pulverbeschichtungen"
+    "Pulverbeschichtungen",
   ],
-  "Elektrotechnik": [
+  Elektrotechnik: [
     "Anzeigeeinheiten",
     "Elektrogeräte",
     "Industrieelektronik",
     "Steckdose",
     "Stecker",
     "Steckverbinder",
-    "Transformatoren"
+    "Transformatoren",
   ],
-  "Informationstechnik": [
+  Informationstechnik: [
     "Digitale Medien",
     "Informationselektronik",
     "Informationsleitsysteme",
     "Multimedia",
-    "Terminalsysteme"
+    "Terminalsysteme",
   ],
-  "Reinigung": [
+  Reinigung: [
     "Bodenreinigungsmaschinen",
     "Hochdruckreinigungstechnik",
     "Industriereinigungstechnik",
@@ -127,9 +124,9 @@ const industries = {
     "Reinigungsgeräte",
     "Reinigungsmaschinen",
     "Waschanlagen",
-    "Wasserstrahlen"
+    "Wasserstrahlen",
   ],
-  "Fahrzeuge": [
+  Fahrzeuge: [
     "Baufahrzeuge",
     "Elektrofahrzeuge",
     "Fahrzeugbau",
@@ -140,26 +137,26 @@ const industries = {
     "Schifffahrttechnik",
     "Schneefahrzeug",
     "Sonderfahrzeuge",
-    "Transportfahrzeuge"
+    "Transportfahrzeuge",
   ],
-  "Klimatechnik": [
+  Klimatechnik: [
     "Klimaanlagen",
     "Klimageräte",
     "Kältemaschinen",
     "Kühlanlagen",
     "Kühler",
     "Luftkühlsysteme",
-    "Lüftungsanlagen"
+    "Lüftungsanlagen",
   ],
-  "Schweissen": [
+  Schweissen: [
     "Handschweisstechnik",
     "Schweissaggregate",
     "Schweissanlagen",
     "Schweissgeräte",
     "Schweissmaschinen",
-    "Schweissroboter"
+    "Schweissroboter",
   ],
-  "Fluidtechnik": [
+  Fluidtechnik: [
     "Druckluftanlagen",
     "Druckluftwerkzeuge",
     "Hochdrucktechnik",
@@ -167,9 +164,9 @@ const industries = {
     "Hydraulikprodukte",
     "Hydraulikwerkzeuge",
     "Kompressoren",
-    "Pneumatik"
+    "Pneumatik",
   ],
-  "Labortechnik": [
+  Labortechnik: [
     "Laboranlagen",
     "Laborkühlgeräte",
     "Labormaschine",
@@ -179,16 +176,16 @@ const industries = {
     "Laborsysteme",
     "Labortrockenschrank",
     "Laborzentrifugen",
-    "Laboröfen"
+    "Laboröfen",
   ],
-  "Trocknungstechnik": [
+  Trocknungstechnik: [
     "Industrietrockner",
     "Trockenöfen",
     "Trocknungsanlagen",
     "Trocknungsgeräte",
-    "Trocknungsmaschinen"
+    "Trocknungsmaschinen",
   ],
-  "Fördertechnik": [
+  Fördertechnik: [
     "Fliessbandsysteme",
     "Flurförderzeuge",
     "Förderanlagen",
@@ -200,17 +197,17 @@ const industries = {
     "Transportanlage",
     "Transportbänder",
     "Vertikalfördertechnik",
-    "Werkstückfördersysteme"
+    "Werkstückfördersysteme",
   ],
-  "Lebensmitteltechnik": [
+  Lebensmitteltechnik: [
     "Backanlagen",
     "Bäckereimaschinen",
     "Fleischereimaschinen",
     "Konditoreimaschinen",
     "Lebensmittelanlagen",
-    "Lebensmittelmaschine"
+    "Lebensmittelmaschine",
   ],
-  "Werkzeuge": [
+  Werkzeuge: [
     "Elektrowerkzeuge",
     "Fräser",
     "Handwerkzeuge",
@@ -223,17 +220,17 @@ const industries = {
     "Spannwerkzeuge",
     "Verarbeitungswerkzeuge",
     "Werkzeuge",
-    "Zerspanungswerkzeuge"
+    "Zerspanungswerkzeuge",
   ],
-  "Gastechnik": [
+  Gastechnik: [
     "Gasdruckregelanlagen",
     "Gasgeräte",
     "Gasmanagementsysteme",
     "Gasreinigungssysteme",
     "Gasspeicher",
-    "Mikrogasgenerator"
+    "Mikrogasgenerator",
   ],
-  "Logistik": [
+  Logistik: [
     "Beladesystem",
     "Entladetechnik",
     "Kommissioniertechnik",
@@ -241,9 +238,9 @@ const industries = {
     "Transportgeräte",
     "Transportsicherung",
     "Transportwagen",
-    "Verladetechnik"
+    "Verladetechnik",
   ],
-  "Werkzeugmaschinen": [
+  Werkzeugmaschinen: [
     "Abschermaschinen",
     "Bandsägemaschine",
     "Bausägen",
@@ -283,14 +280,14 @@ const industries = {
     "Walzmaschine",
     "Wasserstrahlschneidmaschinen",
     "Werkzeugmaschinenbau",
-    "Zerspanungsmaschinen"
+    "Zerspanungsmaschinen",
   ],
-  "Giessereiindustrie": [
+  Giessereiindustrie: [
     "Giessereianlagen",
     "Giessereimaschine",
-    "Gussbearbeitung"
+    "Gussbearbeitung",
   ],
-  "Maschinenbau": [
+  Maschinenbau: [
     "Bearbeitungslinien",
     "Bearbeitungsmaschine",
     "Industriemaschinen",
@@ -300,9 +297,9 @@ const industries = {
     "Produktionsmaschinen",
     "Schneidemaschinen",
     "Sondermaschinenbau",
-    "Sortiertechnik"
+    "Sortiertechnik",
   ],
-  "Zerkleinerungstechnik": [
+  Zerkleinerungstechnik: [
     "Brecher",
     "Granuliertechnik",
     "Holzzerkleinerung",
@@ -316,9 +313,9 @@ const industries = {
     "Zementmühle",
     "Zerhacker",
     "Zerkleinerungsanlagen",
-    "Zerkleinerungsmaschinen"
+    "Zerkleinerungsmaschinen",
   ],
-  "Hebetechnik": [
+  Hebetechnik: [
     "Arbeitsbühnen",
     "Greifer",
     "Hallenkrane",
@@ -332,16 +329,16 @@ const industries = {
     "Kran",
     "Kranzubehör",
     "Portalheber",
-    "Vakuumhebetechnik"
+    "Vakuumhebetechnik",
   ],
-  "Maschinenbaukomponenten": [
+  Maschinenbaukomponenten: [
     "Energieführungen",
     "Greiferkomponenten",
     "Industriemaschinenteile",
     "Maschinenbedienteile",
     "Maschinenkomponenten",
     "Maschinenschutzsysteme",
-    "Rundtischsystem"
+    "Rundtischsystem",
   ],
   "UX Design": [
     "User Experience Consulting",
@@ -358,50 +355,69 @@ const industries = {
     "Service Design",
     "HMIs für Industrie",
     "Inspirierende UI Lösungen",
-    "User-Centered-Design"
-  ]
+    "User-Centered-Design",
+  ],
 };
 
 export function Industries() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Check for mobile viewport
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768); // 768px is the md breakpoint
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const toggleAccordion = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
+    if (!isMobile) {
+      setOpenIndex(openIndex === index ? null : index);
+    }
   };
 
   return (
-    <section 
-          
-          className="relative min-h-screen w-full"
-        >
-          <YellowBackground />
-          <div className="absolute inset-0 flex items-center">
-            <div className="w-full px-4 md:px-8 lg:px-16"> {/* Padding auf der X-Achse hinzugefügt */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {Object.entries(industries).map(([industry, items], index) => (
-                <div key={index} className="border rounded-lg overflow-hidden shadow-md">
+    <section data-background="light" className="relative min-h-screen w-full">
+      <YellowBackground />
+      <div className="absolute inset-0 overflow-hidden">
+        <h2 className="text-gray-900 text-[5vw] z-10 md:text-[9vw] xl:text-[9vw] leading-[0.9] tracking-[-0.02em] px-4 md:px-8 lg:px-16 pt-4 md:pt-8">
+          Branchen
+        </h2>
+        <div className="w-full px-2 md:px-8 lg:px-16 mt-4 md:mt-8 pb-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            {Object.entries(industries).map(([industry, items], index) => (
+              <div key={index}>
                 <button
-              className="w-full p-4 bg-gray-100 flex justify-between items-center text-left"
-              onClick={() => toggleAccordion(index)}
-              >
-                <span className="font-semibold text-gray-700">{industry}</span>
+                  className="w-full py-2 md:py-4 px-2 md:px-4 text-left text-black focus:outline-none flex items-center text-xl md:text-2xl lg:text-3xl"
+                  onClick={() => toggleAccordion(index)}
+                >
+                  {!isMobile && (
+                    <span className="mr-2 md:mr-4 text-2xl md:text-4xl lg:text-5xl font-bold">
+                      {openIndex === index ? '−' : '+'}
+                    </span>
+                  )}
+                  <span className="font-semibold">{industry}</span>
                 </button>
-                {openIndex === index && (
-              <div className="p-4 border-t bg-white">
-                <ul className="list-disc pl-5">
-                  {items.map((item, i) => (
-                    <li key={i} className="text-gray-700">{item}</li>
-                  ))}
-                </ul>
+                {!isMobile && openIndex === index && (
+                  <div className="px-8 md:px-16 py-2 md:py-4">
+                    <div className="space-y-1 md:space-y-3">
+                      {items.map((item, i) => (
+                        <div key={i} className="text-black text-base md:text-xl lg:text-2xl">
+                          {item}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
-            )}
+            ))}
           </div>
-        ))}
+        </div>
       </div>
-    </div>
-          </div>
-        </section>
-    
-    
+    </section>
   );
 }

@@ -38,7 +38,7 @@ export function Clients() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="bg-white relative min-h-screen w-full">
+    <section ref={sectionRef} data-background="light" className="bg-white relative min-h-screen w-full">
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="w-full px-8 md:px-16 lg:px-24">
           <div className="clients-container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-2 sm:gap-x-4 md:gap-x-6 gap-y-6 mt-10">
