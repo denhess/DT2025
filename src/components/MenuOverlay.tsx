@@ -90,6 +90,15 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
           </a>
         </div>
 
+        <div className="flex justify-center ">
+          <a
+            href="tel:+49707391890"
+            className="text-black text-2xl px-[1vw] py-1 rounded-full border-2 border-black bg-transparent hover:bg-black hover:text-white transition-all duration-300"
+          >
+            +49 7073 91 89 0
+          </a>
+        </div>
+
         <div className="space-y-4">
           {/* Links zu externen Seiten */}
           <p className="text-black cursor-pointer text-2xl hover:underline transition-all duration-300">

@@ -8,6 +8,7 @@ import { Footer } from "@/components/Footer";
 import { VideoBody } from "@/components/VideoBody";
 import { MomentSlider } from "@/components/MomentSlider";
 
+
 export default function Home() {
   return (
     <>

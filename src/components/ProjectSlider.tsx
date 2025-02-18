@@ -7,11 +7,10 @@ import { Autoplay, Pagination } from "swiper/modules";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import Image from "next/image";
 import "swiper/css";
 import "swiper/css/pagination";
 
-import { Swiper as SwiperInstance } from 'swiper/types';
+import { Swiper as SwiperInstance } from "swiper/types";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -51,7 +50,10 @@ export function ProjectSlider() {
     Projects.forEach((_, index) => {
       gsap.set(`#slide-image-${index}`, { scale: 1 });
     });
-    gsap.set([`#slide-title-${swiper.activeIndex}`, `#slide-description-${swiper.activeIndex}`, `#slide-logo-${swiper.activeIndex}`], { opacity: 0, y: 30 });
+    gsap.set(
+      [`#slide-title-${swiper.activeIndex}`, `#slide-description-${swiper.activeIndex}`, `#slide-logo-${swiper.activeIndex}`],
+      { opacity: 0, y: 30 }
+    );
     animateSlideContent(swiper.activeIndex);
   };
 
@@ -64,7 +66,10 @@ export function ProjectSlider() {
         speed={800}
         autoplay={{ delay: 5000, disableOnInteraction: false }}
         pagination={{ clickable: true }}
-        onSwiper={(swiper) => { swiperRef.current = swiper; animateSlideContent(0); }}
+        onSwiper={(swiper) => {
+          swiperRef.current = swiper;
+          animateSlideContent(0);
+        }}
         onSlideChangeTransitionStart={handleSlideStart}
         onSlideChangeTransitionEnd={(swiper) => handleSlideEnd(swiper)}
         className="h-full"
@@ -73,38 +78,39 @@ export function ProjectSlider() {
           <SwiperSlide key={index}>
             <div className="absolute inset-0 overflow-hidden">
               <div id={`slide-image-${index}`} className="relative w-full h-full">
-                <Image src={`/${project.img}`} alt="" fill className="object-cover" priority />
-                <div className="absolute inset-0" />
+                <picture>
+                  <source srcSet={`/${project.imgMobile}`} media="(max-width: 767px)" />
+                  <img src={`/${project.img}`} alt="" className="w-full h-full object-cover" />
+                </picture>
               </div>
             </div>
             <div className="relative h-full">
               <div className="absolute inset-0 flex flex-col justify-between px-8 md:px-16 lg:px-24">
-              <div className="pt-10">
-                {/* Logo links oben */}
-                {project.logo && (
-                  <div id={`slide-logo-${index}`} className="w-24 md:w-32 h-10 md:h-12 opacity-0">
-                    <Image
-                      src={`/${project.logo}`}
-                      alt={project.copyright || "Company logo"}
-                      fill
-                      className="object-contain"
-                      style={{ filter: `invert(1) sepia(1) saturate(10000%) hue-rotate(${project.logoColor || '0deg'})` }}
-                    />
-                  </div>
-                )}
+                <div className="pt-10">
+                  {/* Logo links oben */}
+                  {project.logo && (
+                    <div id={`slide-logo-${index}`} className="w-24 md:w-32 h-10 md:h-12 opacity-0">
+                      <img
+                        src={`/${project.logo}`}
+                        alt={project.copyright || "Company logo"}
+                        className="object-contain"
+                        style={{ filter: `invert(1) sepia(1) saturate(10000%) hue-rotate(${project.logoColor || '0deg'})` }}
+                      />
+                    </div>
+                  )}
                 </div>
                 {/* Text links unten */}
                 <div className="pb-10">
-                  <h2 
-                    id={`slide-title-${index}`} 
+                  <h2
+                    id={`slide-title-${index}`}
                     className="text-[5vw] md:text-[2.5vw] font-extralight uppercase tracking-tighter opacity-0"
                     style={{ color: project.textColor }} // Hier wird die textColor angewendet
                   >
                     {project.title || project.titleEn}
                   </h2>
-                  <p 
-                    id={`slide-description-${index}`} 
-                    className="text-[2,5vw] md:text-[1vw] font-extralight uppercase tracking-tighter leading-tight opacity-0"
+                  <p
+                    id={`slide-description-${index}`}
+                    className="text-[2.5vw] md:text-[1vw] font-extralight uppercase tracking-tighter leading-tight opacity-0"
                     style={{ color: project.textColor }} // Hier wird die textColor angewendet
                   >
                     {project.description || project.descriptionEn}

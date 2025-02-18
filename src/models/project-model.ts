@@ -1,6 +1,7 @@
 export interface ProjectData {
     // Basisinformationen
     img: string;                // URL des Hauptbilds
+    imgMobile?: string;         // Optional: URL des alternativen Bilds für Mobilgeräte
     logo?: string;              // Optional: URL des Logos
     logoColor?: string;         // Optional: Farbe des Logos (Hex, RGB, etc.)
     video?: string;             // Optional: URL des Videos

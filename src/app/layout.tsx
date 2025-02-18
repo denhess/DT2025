@@ -3,6 +3,8 @@
 import type { Metadata } from "next";
 import { Header } from "@/components/Header";
 
+import { SpeedInsights } from "@vercel/speed-insights/next"
+
 import "./globals.css";
 import { HeaderProvider } from "@/contexts/HeaderContext";
 
@@ -25,6 +27,7 @@ export default function RootLayout({
         <HeaderProvider>
           <Header />
           {children}
+          <SpeedInsights />
         </HeaderProvider>
       </body>
     </html>
