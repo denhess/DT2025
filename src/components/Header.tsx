@@ -57,7 +57,7 @@ export function Header({ onMenuToggle }: HeaderProps) {
                     isMenuOpen && "opacity-0" // Verstecken, wenn das Menü offen ist
                   )}
                 />
-              </Link>
+              
 
               {/* Fixes schwarzes Logo, das nur angezeigt wird, wenn das Menü offen ist */}
               {isMenuOpen && (
@@ -65,6 +65,7 @@ export function Header({ onMenuToggle }: HeaderProps) {
                   <DtLogo className="text-black w-60 sm:w-60 md:w-60 lg:w-80" />
                 </div>
               )}
+              </Link>
             </div>
 
             {/* Menü-Button bleibt dynamisch */}
