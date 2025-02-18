@@ -26,7 +26,7 @@ export function VideoBody() {
   }, []);
 
   return (
-    <section ref={containerRef} className="hero h-screen relative overflow-hidden">
+    <section data-background="dark" ref={containerRef} className="hero h-screen relative overflow-hidden">
       <video
         ref={videoRef}
         autoPlay

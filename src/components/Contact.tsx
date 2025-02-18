@@ -33,6 +33,7 @@ export function Contact() {
     <section
       ref={sectionRef}
       className="relative min-h-screen w-full text-black flex flex-col justify-center items-center"
+      data-background="light"
     >
       <YellowBackground />
 

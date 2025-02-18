@@ -58,7 +58,7 @@ export function DesignToSuccessSlider() {
   };
 
   return (
-    <section ref={sectionRef} className="project-slider relative h-screen overflow-hidden px-8 md:px-16">
+    <section ref={sectionRef} data-background="light" className="project-slider relative h-screen overflow-hidden px-8 md:px-16">
       <Swiper
         modules={[Autoplay, Pagination]}
         spaceBetween={0}

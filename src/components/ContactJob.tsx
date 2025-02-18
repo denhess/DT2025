@@ -33,6 +33,7 @@ export function ContactJob() {
     <section
       ref={sectionRef}
       className="relative min-h-screen w-full text-black flex flex-col md:flex-row items-center"
+      data-background="light"
     >
       {/* Text Column */}
       <div className="w-full md:w-1/2 flex items-center justify-start p-8 h-[50vh] md:h-full">

@@ -35,6 +35,7 @@ export function Job() {
     <section
       ref={sectionRef}
       className="relative min-h-screen w-full text-black"
+      data-background="light"
     >
       <YellowBackground />
 

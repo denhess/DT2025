@@ -35,6 +35,7 @@ export function TextDesignToSuccess() {
     <section 
       ref={sectionRef}
       className="relative min-h-screen w-full"
+      data-background="light"
     >
      <YellowBackground/>
       <div className="absolute inset-0 flex items-center">
