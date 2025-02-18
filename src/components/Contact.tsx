@@ -32,6 +32,7 @@ export function Contact() {
   return (
     <section
       ref={sectionRef}
+      data-background="light" // Hier wird das Attribut data-background mit dem Wert light hinzugefügt
       className="relative min-h-screen w-full text-black flex flex-col justify-center items-center"
     >
       <YellowBackground />

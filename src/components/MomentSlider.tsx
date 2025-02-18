@@ -16,6 +16,7 @@ import { Swiper as SwiperInstance } from 'swiper/types';
 gsap.registerPlugin(ScrollTrigger);
 
 export function MomentSlider() {
+  
   const sectionRef = useRef<HTMLElement>(null);
   const swiperRef = useRef<SwiperInstance | null>(null);
 

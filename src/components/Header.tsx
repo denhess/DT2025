@@ -2,13 +2,10 @@
 
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from 'next/navigation'; // Neu importiert
 import { DtLogo } from "./Dt-logo";
 import MenuOverlay from "./MenuOverlay";
 import clsx from "clsx";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 
 interface HeaderProps {
   onMenuToggle?: () => void;
@@ -17,7 +14,8 @@ interface HeaderProps {
 export function Header({ onMenuToggle }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDark, setIsDark] = useState(false);
-  const headerRef = useRef<HTMLElement>(null);
+  const headerRef = useRef(null);
+  const pathname = usePathname(); // Aktuelle Route
 
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -25,22 +23,49 @@ export function Header({ onMenuToggle }: HeaderProps) {
   };
 
   useEffect(() => {
-    const sections = document.querySelectorAll("[data-background]");
+    // Diese Funktion initialisiert den Observer
+    const setupObserver = () => {
+      // Initialer Check
+      const visibleSection = document.querySelector("[data-background]");
+      if (visibleSection) {
+        setIsDark(visibleSection.getAttribute("data-background") === "dark");
+      }
 
-    sections.forEach((section) => {
-      ScrollTrigger.create({
-        trigger: section,
-        start: "top 50%",
-        end: "bottom 50%",
-        onEnter: () => setIsDark(section.getAttribute("data-background") === "dark"),
-        onEnterBack: () => setIsDark(section.getAttribute("data-background") === "dark"),
-        onLeave: () => setIsDark(section.getAttribute("data-background") !== "dark"),
-        onLeaveBack: () => setIsDark(section.getAttribute("data-background") !== "dark"),
-      });
-    });
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const background = entry.target.getAttribute("data-background");
+              setIsDark(background === "dark");
+            }
+          });
+        },
+        {
+          threshold: 0.5,
+        }
+      );
 
-    return () => ScrollTrigger.getAll().forEach((t) => t.kill());
-  }, []);
+      // Alle Sections beobachten
+      const sections = document.querySelectorAll("[data-background]");
+      sections.forEach((section) => observer.observe(section));
+
+      return observer;
+    };
+
+    // Warten auf DOM-Update nach Routenwechsel
+    const timer = setTimeout(() => {
+      const observer = setupObserver();
+      
+      // Cleanup
+      return () => {
+        observer.disconnect();
+      };
+    }, 100);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [pathname]); // Effekt wird bei Routenwechsel neu ausgeführt
 
   return (
     <>
@@ -54,12 +79,11 @@ export function Header({ onMenuToggle }: HeaderProps) {
                   className={clsx(
                     "z-50 w-60 sm:w-60 md:w-60 lg:w-80 cursor-pointer transition-colors duration-300",
                     isDark ? "text-white" : "text-black",
-                    isMenuOpen && "opacity-0" // Verstecken, wenn das Menü offen ist
+                    isMenuOpen && "opacity-0"
                   )}
                 />
               </Link>
 
-              {/* Fixes schwarzes Logo, das nur angezeigt wird, wenn das Menü offen ist */}
               {isMenuOpen && (
                 <div className="absolute inset-0 flex items-center justify-center">
                   <DtLogo className="text-black w-60 sm:w-60 md:w-60 lg:w-80" />
@@ -67,14 +91,23 @@ export function Header({ onMenuToggle }: HeaderProps) {
               )}
             </div>
 
-            {/* Menü-Button bleibt dynamisch */}
+            {/* Menü-Button */}
             <button
               onClick={handleMenuToggle}
               className="p-2 z-50 transition-colors duration-300"
               aria-expanded={isMenuOpen}
               aria-label="Hauptmenü"
             >
-              <span className={clsx("text-xl font-medium transition-colors duration-300", isMenuOpen ? "text-black" : isDark ? "text-white" : "text-black")}>
+              <span
+                className={clsx(
+                  "text-xl font-medium transition-colors duration-300",
+                  isMenuOpen
+                    ? "text-black"
+                    : isDark
+                      ? "text-white"
+                      : "text-black"
+                )}
+              >
                 {isMenuOpen ? "X" : "MENU"}
               </span>
             </button>
@@ -82,7 +115,6 @@ export function Header({ onMenuToggle }: HeaderProps) {
         </div>
       </header>
 
-      {/* Menü Overlay */}
       <MenuOverlay isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
     </>
   );

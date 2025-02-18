@@ -13,7 +13,8 @@ import { YellowBackground } from '@/components/BG/YellowBackground';
 export default function IndustrialDesignInternshipPage() {
   return (
     <>
-                  <section className="relative min-h-screen w-full">
+                  <section className="relative min-h-screen w-full"
+                  data-background="light">
                           <YellowBackground />
                           <div className="absolute inset-0 flex items-center">
                             <div className="w-full px-8 md:px-16 lg:px-24">

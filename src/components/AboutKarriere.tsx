@@ -33,6 +33,7 @@ export function AboutKarriere() {
   return (
     <section 
       ref={sectionRef}
+      data-background="light"
       className="relative min-h-screen w-full"
     >
       <YellowBackground />

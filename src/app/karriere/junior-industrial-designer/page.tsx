@@ -11,7 +11,9 @@ import { YellowBackground } from '@/components/BG/YellowBackground';
 export default function JuniorIndustrialDesignerPage() {
   return (
     <>
-              <section className="relative min-h-screen w-full">
+              <section className="relative min-h-screen w-full"
+              data-background="light"
+              >
                       <YellowBackground />
                       <div className="absolute inset-0 flex items-center">
                         <div className="w-full px-8 md:px-16 lg:px-24">
@@ -22,7 +24,8 @@ export default function JuniorIndustrialDesignerPage() {
                       </div>
               </section>
               
-              <section>
+              <section
+              data-background="light">
                 <div className="text-black h-auto flex justify-center items-center">
                   <div className="w-full px-6 sm:px-8 md:px-16 lg:px-24 max-w-5xl pt-16 pb-16"> {/* Doppelt so viel Padding oben und unten */}
                     <div className="mb-8">

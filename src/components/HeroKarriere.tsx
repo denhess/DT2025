@@ -29,8 +29,11 @@ export function HeroKarriere() {
   }, []);
 
   return (
-    <section ref={containerRef} className="hero h-screen relative overflow-hidden">
-      
+    <section ref={containerRef} 
+
+    data-background="dark"
+    className="hero h-screen relative overflow-hidden">
+       data-background="light"
       <video 
         ref={videoRef}
         autoPlay 

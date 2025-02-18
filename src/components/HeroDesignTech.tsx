@@ -29,7 +29,9 @@ export function HeroDesignTech() {
   }, []);
 
   return (
-    <section ref={containerRef} data-background="dark" className="hero h-screen relative overflow-hidden">
+    <section ref={containerRef} 
+    data-background="dark" 
+    className="hero h-screen relative overflow-hidden">
       
       <video 
         ref={videoRef}
