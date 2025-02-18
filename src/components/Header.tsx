@@ -1,13 +1,12 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { DtLogo } from "./Dt-logo";
 import MenuOverlay from "./MenuOverlay";
 import clsx from "clsx";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react"; // useGSAP nutzen
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -17,6 +16,7 @@ interface HeaderProps {
 
 export function Header({ onMenuToggle }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isDark, setIsDark] = useState(false); // Steuert die Logo-Farbe
   const headerRef = useRef<HTMLElement>(null);
 
   const handleMenuToggle = () => {
@@ -24,49 +24,49 @@ export function Header({ onMenuToggle }: HeaderProps) {
     onMenuToggle?.();
   };
 
-  // useGSAP statt useEffect nutzen
-  useGSAP(() => {
-    ScrollTrigger.create({
-      trigger: "#background-check", // Das Element, das den Hintergrund definiert
-      start: "top 50%", // Startpunkt des Triggers
-      end: "bottom 50%", // Endpunkt des Triggers
-      onEnter: () => {}, // Kein Farbwechsel bei Hintergrund
-      onLeave: () => {}, // Kein Farbwechsel bei Hintergrund
-      onEnterBack: () => {},
-      onLeaveBack: () => {},
+  useEffect(() => {
+    const sections = document.querySelectorAll("[data-background]");
+
+    sections.forEach((section) => {
+      ScrollTrigger.create({
+        trigger: section,
+        start: "top 50%",
+        end: "bottom 50%",
+        onEnter: () => setIsDark(section.getAttribute("data-background") === "dark"),
+        onEnterBack: () => setIsDark(section.getAttribute("data-background") === "dark"),
+        onLeave: () => setIsDark(section.getAttribute("data-background") !== "dark"),
+        onLeaveBack: () => setIsDark(section.getAttribute("data-background") !== "dark"),
+      });
     });
-  });
+
+    return () => ScrollTrigger.getAll().forEach((t) => t.kill());
+  }, []);
 
   return (
     <>
       <header ref={headerRef} className="fixed top-0 left-0 right-0 z-50">
         <div className="w-full px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            {/* Logo mit immer schwarzer Farbe */}
+            {/* Dynamische Logo-Farbe */}
             <div className="flex-shrink-0">
               <Link href="/" onClick={() => setIsMenuOpen(false)}>
                 <DtLogo
                   className={clsx(
                     "z-50 w-60 sm:w-60 md:w-60 lg:w-80 cursor-pointer transition-colors duration-300",
-                    "text-black" // Immer schwarze Farbe für das Logo
+                    isDark ? "text-white" : "text-black"
                   )}
                 />
               </Link>
             </div>
 
-            {/* Menü-Button mit immer schwarzer Farbe */}
+            {/* Menü-Button mit dynamischer Farbe */}
             <button
               onClick={handleMenuToggle}
               className="p-2 z-50 transition-colors duration-300"
               aria-expanded={isMenuOpen}
               aria-label="Hauptmenü"
             >
-              <span
-                className={clsx(
-                  "text-xl font-medium transition-colors duration-300",
-                  "text-black" // Immer schwarze Farbe für den Menü-Button
-                )}
-              >
+              <span className={clsx("text-xl font-medium transition-colors duration-300", isDark ? "text-white" : "text-black")}>
                 {isMenuOpen ? "X" : "MENU"}
               </span>
             </button>

@@ -56,7 +56,7 @@ export function MomentSlider() {
   };
 
   return (
-    <section ref={sectionRef} className="project-slider relative h-screen bg-black overflow-hidden">
+    <section ref={sectionRef} data-background="dark" className="project-slider relative h-screen bg-black overflow-hidden">
       <Swiper
         modules={[Autoplay, Pagination]}
         spaceBetween={0}
