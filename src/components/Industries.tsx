@@ -392,7 +392,7 @@ export function Industries() {
             {Object.entries(industries).map(([industry, items], index) => (
               <div key={index}>
                 <button
-                  className="w-full py-2 md:py-4 px-2 md:px-4 text-left text-black focus:outline-none flex items-center text-xl md:text-2xl lg:text-3xl"
+                  className="w-full py-2 md:py-4 px-6 md:px-6 text-left text-black focus:outline-none flex items-center text-xl md:text-2xl lg:text-3xl"
                   onClick={() => toggleAccordion(index)}
                 >
                   {!isMobile && (

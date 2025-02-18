@@ -58,7 +58,7 @@ export function Clients() {
                     alt={`Logo von ${client.website}`}
                     width={250}
                     height={100}
-                    className="max-w-[150px] sm:max-w-[200px] md:max-w-[250px] object-contain transition-all duration-300 ease-in-out"
+                    className="max-w-[100px] sm:max-w-[150px] md:max-w-[250px] object-contain transition-all duration-300 ease-in-out"
                   />
                 </a>
               </div>

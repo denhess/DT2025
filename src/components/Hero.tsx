@@ -70,7 +70,7 @@ export function Hero() {
 
   return (
     <section ref={containerRef} data-background="dark" className="hero h-screen relative overflow-hidden">
-      <video
+      <video 
         ref={videoRef}
         autoPlay
         muted
@@ -78,6 +78,7 @@ export function Hero() {
         playsInline
         className="absolute inset-0 w-full h-full object-cover"
         preload="auto"
+        
       >
         <source src="/HeaderVideo.mp4" media="(min-width: 768px)" type="video/mp4" />
         <source src="/HeaderVideo-small.mp4" media="(max-width: 767px)" type="video/mp4" />

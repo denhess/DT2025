@@ -56,7 +56,7 @@ export function ContactJob() {
               href="mailto:lschmid@designtech.eu?subject=Bewerbung%20als%20[Jobtitel]&body=Sehr%20geehrte%20Frau%20Schmid,%0A%0A"
               className="text-2xl px-[1vw] py-1 rounded-full border-2 border-black bg-transparent hover:bg-black hover:text-white transition-all duration-300"
             >
-              JETZT BEWERBEN
+              JETZT&nbsp;BEWERBEN
             </a>
           </div>
         </div>
