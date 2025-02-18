@@ -41,9 +41,20 @@ export function ProjectSlider() {
     animateSlideContent(swiper.activeIndex);
   };
 
+  const handleSlideChange = (swiper: SwiperInstance) => {
+    if (sectionRef.current) {
+      // data-background Attribut dynamisch ändern
+      sectionRef.current.setAttribute(
+        'data-background',
+        swiper.activeIndex === 0 ? 'dark' : 'light'
+      );
+    }
+  };
+  
+
   return (
     <section ref={sectionRef} 
-    data-background="light" 
+    data-background="dark" 
     className="project-slider relative h-screen bg-black overflow-hidden">
       <Swiper
         modules={[Autoplay, Pagination]}
@@ -55,6 +66,7 @@ export function ProjectSlider() {
         onSwiper={(swiper) => { swiperRef.current = swiper; animateSlideContent(0); }}
         onSlideChangeTransitionStart={handleSlideStart}
         onSlideChangeTransitionEnd={(swiper) => handleSlideEnd(swiper)}
+        onSlideChange={handleSlideChange}
         className="h-full"
       >
         {Projects.map((project, index) => (
