@@ -32,7 +32,8 @@ export function About() {
   }, []);
 
   return (
-    <section 
+    <section
+    data-background="light" 
       ref={sectionRef}
       className="relative min-h-screen w-full"
     >

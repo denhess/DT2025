@@ -23,27 +23,11 @@ export function YellowBackground() {
       yoyo: true
     });
 
-    // ScrollTrigger für Header-Farbe
-    ScrollTrigger.create({
-      trigger: sectionRef.current,
-      start: 'top -50px',
-      onEnter: () => {
-        gsap.to('.header-color-change', {
-          color: '#000000',
-          duration: 0.3
-        });
-      },
-      onLeaveBack: () => {
-        gsap.to('.header-color-change', {
-          color: '#ffffff',
-          duration: 0.3
-        });
-      }
-    });
   }, []);
 
   return (
     <section 
+      data-background="light"
       ref={sectionRef}
       className="absolute inset-0 w-full overflow-hidden"
     >

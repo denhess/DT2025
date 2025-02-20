@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import React from "react";
 
@@ -10,8 +10,7 @@ import { ContactJob } from "@/components/ContactJob";
 export default function SeniorIndustrialDesignerPage() {
   return (
     <>
-                  <section className="relative min-h-screen w-full"
-                  data-background="light">
+                  <section className="relative min-h-screen w-full">
                           <YellowBackground />
                           <div className="absolute inset-0 flex items-center">
                             <div className="w-full px-8 md:px-16 lg:px-24">
@@ -22,7 +21,7 @@ export default function SeniorIndustrialDesignerPage() {
                           </div>
                   </section>
                   
-                  <section data-background="light">
+                  <section>
                       <div className="text-black h-auto flex justify-center items-center">
                         <div className="w-full px-6 sm:px-8 md:px-16 lg:px-24 max-w-5xl pt-16 pb-16"> {/* Doppelt so viel Padding oben und unten */}
                           <div className="mb-8">

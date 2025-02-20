@@ -1,11 +1,11 @@
 // components/About.tsx
 "use client";
 
-import { useRef } from 'react';
-import gsap from 'gsap';
-import { useGSAP } from '@gsap/react';
-import ScrollTrigger from 'gsap/ScrollTrigger';
-import { YellowBackground } from './BG/YellowBackground';
+import { useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import ScrollTrigger from "gsap/ScrollTrigger";
+import { YellowBackground } from "./BG/YellowBackground";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -23,18 +23,19 @@ export function Awards() {
       duration: 1.2,
       scrollTrigger: {
         trigger: sectionRef.current,
-        start: 'top center',
-        end: 'center center',
-        scrub: 1
-      }
+        start: "top center",
+        end: "center center",
+        scrub: 1,
+      },
     });
   }, []);
 
   return (
     <section 
+      data-background="light"
       ref={sectionRef}
       className="relative min-h-screen w-full"
-      data-background="light"
+ 
     >
       <YellowBackground />
       <div className="absolute inset-0 flex items-center">
