@@ -1,7 +1,7 @@
 "use client";
 
 import { YellowBackground } from "./BG/YellowBackground";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const industries = {
   Antriebstechnik: [
@@ -360,6 +360,7 @@ const industries = {
 };
 
 export function Industries() {
+  const containerRef = useRef<HTMLElement>(null);
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -381,7 +382,9 @@ export function Industries() {
   };
 
   return (
-    <section data-background="light" className="relative min-h-screen w-full">
+    <section 
+    ref={containerRef} 
+    data-background="light" className="relative min-h-screen w-full">
       <YellowBackground />
       <div className="absolute inset-0 overflow-hidden">
         {/* <h2 className="text-gray-900 text-[5vw] z-10 md:text-[9vw] xl:text-[9vw] leading-[0.9] tracking-[-0.02em] px-4 md:px-8 lg:px-16 pt-4 md:pt-8">

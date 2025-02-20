@@ -5,7 +5,7 @@ import { Projects } from "@/data/projects/moment-data";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
+
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Image from "next/image";
 import "swiper/css";
@@ -19,20 +19,7 @@ export function MomentSlider() {
   const sectionRef = useRef<HTMLElement>(null);
   const swiperRef = useRef<SwiperInstance | null>(null);
 
-  useGSAP(() => {
-    if (!sectionRef.current) return;
-
-    ScrollTrigger.create({
-      trigger: sectionRef.current,
-      start: "top -50px",
-      onEnter: () => {
-        gsap.to(".header-color-change", { color: "#ffffff", duration: 0.3 });
-      },
-      onLeaveBack: () => {
-        gsap.to(".header-color-change", { color: "#000000", duration: 0.3 });
-      },
-    });
-  }, []);
+  
 
   const animateSlideContent = (index: number) => {
     gsap.to(`#slide-image-${index}`, { scale: 1.1, duration: 10, ease: "none" });
@@ -56,7 +43,9 @@ export function MomentSlider() {
   };
 
   return (
-    <section ref={sectionRef} data-background="light" className="project-slider relative h-screen bg-black overflow-hidden">
+    <section ref={sectionRef} 
+    data-background="light" 
+    className="project-slider relative h-screen bg-black overflow-hidden">
       <Swiper
         modules={[Autoplay, Pagination]}
         spaceBetween={0}
