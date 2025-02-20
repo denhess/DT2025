@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Header } from "@/components/Header";
 
 import { SpeedInsights } from "@vercel/speed-insights/next";
-
+import { Analytics } from "@vercel/analytics/react"
 import { HeaderProvider } from "@/contexts/HeaderContext";
 
 import Script from 'next/script';
@@ -59,6 +59,7 @@ export default function RootLayout({
           <Header />
           {children}
           <SpeedInsights />
+          <Analytics />
         </HeaderProvider>
       </body>
     </html>
