@@ -2,13 +2,13 @@ import { ProjectData } from "@/models/project-model";
 
 export const Projects: ProjectData[] = [
     {
-        img: "projects/slide-arburg-gestica-detail.webp",
-        imgMobile: "projects/slide-arburg-gestica-detail-mobile.webp",
-        logo: "logos/logo-arburg-white.svg",
+        img: "projects/slide-arburg-gestica.webp",
+        imgMobile: "projects/slide-arburg-gestica-mobile.webp",
+        logo: "logos/logo-arburg-black.svg",
         logoColor: "#FFFFFF", // SVG-Farbe
         title: "HMI Design",
         titleEn: "HMI Design",
-        textColor: "#EDEDED",
+        textColor: "#1A1A1A",
         description: "ARBURG GESTICA",
         metaDescriptionEN: "",
         release: true,
@@ -67,21 +67,21 @@ export const Projects: ProjectData[] = [
         copyright: "Kadia",
     },
     {
-        img: "projects/slide-tcb-detail.webp",
-        imgMobile: "projects/slide-tcb-detail-mobile.webp",
-        logo: "logos/logo-cultivated-b-white.svg",
+        img: "projects/slide-tcb.webp",
+        imgMobile: "projects/slide-tcb-mobile.webp",
+        logo: "logos/logo-cultivated-b-black.svg",
         logoColor: "#FFFFFF", // SVG-Farbe
         title: "Maschinendesign",
         titleEn: "MACHINE DESIGN",
-        textColor: "#EDEDED",
+        textColor: "#1A1A1A",
         description: "BIOREACTOR CONTROL UNIT",
         metaDescriptionEN: "",
         release: true,
         copyright: "TCB",
     },
     {
-        img: "projects/slide-woehner-cid.webp",
-        imgMobile: "projects/slide-woehner-cid-mobile.webp",
+        img: "projects/slide-woehner-cid-.webp",
+        imgMobile: "projects/slide-woehner-cid-mobile-.webp",
         logo: "logos/logo-woehner-black.svg",
         logoColor: "#FFFFFF", // SVG-Farbe
         title: "CORPORATE INDUSTRIAL DESIGN",
@@ -130,18 +130,5 @@ export const Projects: ProjectData[] = [
         metaDescriptionEN: "",
         release: true,
         copyright: "BEKUM",
-    },
-    {
-        img: "projects/slide-held-hmi-detail.webp",
-        imgMobile: "projects/slide-held-hmi-detail-mobile.webp",
-        logo: "logos/logo-held-white.svg",
-        logoColor: "#FFFFFF", // SVG-Farbe
-        title: "UX DESIGN",
-        titleEn: "UX DESIGN",
-        textColor: "#EDEDED",
-        description: "Doppelbandpresse",
-        metaDescriptionEN: "",
-        release: true,
-        copyright: "Held",
     },
 ];

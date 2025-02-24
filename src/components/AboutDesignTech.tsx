@@ -48,8 +48,9 @@ export function AboutDesignTech() {
             die wirtschaftlich überzeugen und technisch machbar sind. 
             Mit jahrzehntelanger Erfahrung im Maschinenbau für Marktführer 
             wie <b>Liebherr</b>, <b>Arburg</b> und <b>WashTec AG</b> schaffen wir präzise, 
-            maßgeschneiderte Lösungen, perfekt abgestimmt auf Ihre Ziele – 
-            mit Leidenschaft und Hingabe, als wäre es unser eigenes Projekt.
+            maßgeschneiderte Lösungen – perfekt abgestimmt auf Ihre Ziele, 
+            mit der Ambition und dem Engagement, als wäre es unser eigenes Unternehmen.
+
 
           </p>
         </div>

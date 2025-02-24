@@ -26,7 +26,37 @@ export function HeroDesignToSuccess() {
         scrub: true,
       },
     });
+
+    // Opacity animation for text
+    gsap.to(textRef.current, {
+      opacity: 0.1,
+      delay: 6,
+      duration: 1.5,
+      onComplete: () => {
+        gsap.to(textRef.current, {
+          opacity: 0.1,
+          duration: 2,
+          ease: "power2.out",
+        });
+      }
+    });
   }, []);
+
+  const handleMouseEnter = () => {
+    gsap.to(textRef.current, {
+      opacity: 1,
+      duration: 0.5,
+      ease: "power2.out",
+    });
+  };
+
+  const handleMouseLeave = () => {
+    gsap.to(textRef.current, {
+      opacity: 0.1,
+      duration: 0.5,
+      ease: "power2.out",
+    });
+  };
 
   return (
     <section ref={containerRef} data-background="dark" className="hero h-screen relative overflow-hidden">
@@ -45,9 +75,11 @@ export function HeroDesignToSuccess() {
       
       <div
         ref={textRef}
-        className="absolute inset-0 flex flex-col justify-center px-8 md:px-16 lg:px-24"
+        className="absolute bottom-10 sm:bottom-20 flex flex-col px-8 md:px-16 lg:px-24"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
       >
-        <h1 className="font-thin uppercase text-white z-10 text-[8vw] md:text-[9vw] xl:text-[9vw] leading-[0.9] tracking-[-0.02em]">
+        <h1 className="font-thin uppercase text-white z-10 text-[8vw] md:text-[9vw] xl:text-[9vw] leading-[0.9] tracking-[-0.02em] text-left">
           DESIGN&nbsp;TO&nbsp;SUCCESS
         </h1>
       </div>

@@ -78,10 +78,10 @@ export function Contact() {
           </div>
 
           <p className="mt-16 text-lg max-w-3xl">
-            Damit wir uns gezielt auf Ihre Bedürfnisse vorbereiten können,
-            erhalten Sie vorab eine kurze Online-Befragung. So stellen wir
-            sicher, dass unser Gespräch direkt auf Ihre spezifischen
-            Herausforderungen und Ziele eingeht.
+          Damit unser Gespräch nicht nur irgendein Austausch wird, sondern der Startschuss für etwas Außergewöhnliches, 
+          laden wir Sie vorab zu einer kurzen Online-Befragung ein. So treffen wir uns nicht im Nebel, sondern genau dort, 
+          wo Ihre Vorstellungen, Ziele und Herausforderungen liegen. Stellen Sie sich vor, was möglich ist – und erwarten Sie mehr. 
+          Wir freuen uns sie kennen zu lernen.
           </p>
         </div>
       </div>
