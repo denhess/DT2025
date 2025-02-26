@@ -86,10 +86,20 @@ export function ProjectSlider() {
             </div>
             <div className="relative h-full">
               <div className="absolute inset-0 flex flex-col justify-between px-8 md:px-16 lg:px-24">
-                <div className="pt-10">
+              <div className="pb-5">
                   {/* Logo links oben */}
                   {project.logo && (
-                    <div id={`slide-logo-${index}`} className="w-24 md:w-32 h-10 md:h-12 opacity-0">
+                    <div className="w-24 md:w-32 h-10 md:h-12 opacity-0">
+                      
+                    </div>
+                  )}
+                </div>
+                {/* Text links unten */}
+                <div className="pb-10">
+                <div className="pb-5">
+                  {/* Logo links oben */}
+                  {project.logo && (
+                    <div id={`slide-logo-${index}`} className="w-24 md:w-28 h-8 md:h-10 opacity-0">
                       <img
                         src={`/${project.logo}`}
                         alt={project.copyright || "Company logo"}
@@ -99,8 +109,6 @@ export function ProjectSlider() {
                     </div>
                   )}
                 </div>
-                {/* Text links unten */}
-                <div className="pb-10">
                   <h2
                     id={`slide-title-${index}`}
                     className="text-[5vw] md:text-[2.5vw] font-extralight uppercase tracking-tighter opacity-0"

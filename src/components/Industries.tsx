@@ -395,15 +395,15 @@ export function Industries() {
             {Object.entries(industries).map(([industry, items], index) => (
               <div key={index}>
                 <button
-                  className="w-full py-2 md:py-4 px-6 md:px-6 text-left text-black focus:outline-none flex items-center text-xl md:text-2xl lg:text-3xl"
+                  className="w-full py-2 md:py-4 px-6 md:px-6 text-left text-black focus:outline-none flex items-center text-0.5xl md:text-1xl lg:text-2xl"
                   onClick={() => toggleAccordion(index)}
                 >
                   {!isMobile && (
-                    <span className="mr-2 md:mr-4 text-2xl md:text-4xl lg:text-5xl font-bold">
+                    <span className="mr-2 md:mr-4 text-1xl md:text-2xl lg:text-3xl font-thin">
                       {openIndex === index ? '−' : '+'}
                     </span>
                   )}
-                  <span className="font-semibold">{industry}</span>
+                  <span className="font-thind">{industry}</span>
                 </button>
                 {!isMobile && openIndex === index && (
                   <div className="px-8 md:px-16 py-2 md:py-4">

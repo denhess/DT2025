@@ -19,6 +19,9 @@ export function Clients() {
     { logo: "/logos/logo-liebherr-grey.svg", website: "https://www.liebherr.com/de-de/firmengruppe/startseite-3705202" },
     { logo: "/logos/logo-trumpf-grey.svg", website: "https://www.trumpf.com/de_DE/" },
     { logo: "/logos/logo-sew-eurodrive-grey.svg", website: "https://www.sew-eurodrive.de/startseite.html" },
+    { logo: "/logos/logo-kuka-grey.svg", website: "https://www.kuka.com/de-de" },
+    { logo: "/logos/logo-waldrichsiegen-grey.svg", website: "https://www.waldrichsiegen.de/" },
+    { logo: "/logos/logo-imagasti-grey.svg", website: "https://ima.it/foodanddairy/machine/combiseptic/" },
   ];
 
   useGSAP(() => {
@@ -39,13 +42,19 @@ export function Clients() {
 
   return (
     <section ref={sectionRef} data-background="light" className="bg-white relative min-h-screen w-full">
+      <div className="absolute inset-0 flex flex-col justify-start mt-20">
+        <p className="mb-4 w-full px-8 md:px-16 lg:px-24 text-gray-900 text-[5vw] md:text-[4vw] xl:text-[3vw] leading-tight tracking-[-0.02em]">
+          Diese <b>Marktführer</b> vertrauen auf unser Design
+        </p>
+      </div>
+      
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="w-full px-8 md:px-16 lg:px-24">
           <div className="clients-container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-2 sm:gap-x-4 md:gap-x-6 gap-y-6 mt-10">
             {clients.map((client, index) => (
               <div
                 key={index}
-                className="client-logo p-6 flex justify-center items-center rounded-lg transition-all duration-300 ease-in-out"
+                className="client-logo p-10 flex justify-center items-center rounded-lg transition-all duration-300 ease-in-out"
               >
                 <a
                   href={client.website}
@@ -58,7 +67,8 @@ export function Clients() {
                     alt={`Logo von ${client.website}`}
                     width={250}
                     height={100}
-                    className="max-w-[100px] sm:max-w-[150px] md:max-w-[250px] object-contain transition-all duration-300 ease-in-out"
+                    className="max-w-[180px] sm:max-w-[140px] md:max-w-[180
+                  px] object-contain transition-all duration-300 ease-in-out"
                   />
                 </a>
               </div>
