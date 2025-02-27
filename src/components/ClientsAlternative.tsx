@@ -16,12 +16,18 @@ export function ClientsAlternative() {
   return (
     <section ref={sectionRef} className="relative min-h-screen w-full">
       <Image
-        src="/pictures/clients-projects.webp" // Ersetze mit dem tatsächlichen Bildpfad
+        src="/pictures/clients-projects_2.webp" // Ersetze mit dem tatsächlichen Bildpfad
         alt="Fullscreen Background"
         layout="fill"
         objectFit="cover"
         priority
       />
+      
+      <div className="absolute inset-0 flex flex-col justify-end mb-20">
+        <p className="mb-4 w-full px-8 md:px-16 lg:px-24 text-gray-900 text-[5vw] md:text-[4vw] xl:text-[3vw] leading-tight tracking-[-0.02em]">
+          Diese <b>Marktführer</b> vertrauen auf unser Design
+        </p>
+      </div>
     </section>
   );
 }

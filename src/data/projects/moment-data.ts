@@ -19,4 +19,28 @@ export const Projects: MomentData[] = [
         release: true,
         copyright: "Design Tech",
     },
+    {
+        img: "moments/moment-event-5.webp",
+        metaDescriptionEN: "Event by Design Tech",
+        release: true,
+        copyright: "Design Tech",
+    },
+    {
+        img: "moments/moment-event-6.webp",
+        metaDescriptionEN: "Event by Design Tech",
+        release: true,
+        copyright: "Design Tech",
+    },
+    {
+        img: "moments/moment-event-7.webp",
+        metaDescriptionEN: "Event by Design Tech",
+        release: true,
+        copyright: "Design Tech",
+    },
+    {
+        img: "moments/moment-event-8.webp",
+        metaDescriptionEN: "Event by Design Tech",
+        release: true,
+        copyright: "Design Tech",
+    },
 ];
