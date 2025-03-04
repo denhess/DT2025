@@ -39,15 +39,15 @@ export function ContactJob() {
       <div className="w-full md:w-1/2 flex items-center justify-start p-8 h-[50vh] md:h-full">
         <div
           ref={contentRef}
-          className="max-w-[65vw] mx-auto px-8 md:px-16 lg:px-24 space-y-6"
+          className="max-w-[65vw] mx-auto px-8 md:px-16 lg:px-24 space-y-3"
         >
           {/* Title */}
-          <h2 className="text-gray-900 z-10 text-2xl md:text-3xl xl:text-4xl mb-6">
+          <h2 className="text-gray-900 z-10 text-[4vw] md:text-[3vw] xl:text-[2vw]">
             Ihr Kontakt
           </h2>
           {/* Subtitle */}
-          <p className="text-gray-900 text-[5vw] md:text-[4vw] xl:text-[3vw] leading-tight tracking-[-0.02em] mb-12">
-            LISA SCHMID
+          <p className="text-gray-900 text-[5vw] md:text-[4vw] xl:text-[3vw] leading-tight tracking-[-0.02em]">
+            LISA&nbsp;VALENTINA&nbsp;SCHMID
           </p>
 
           {/* Button */}
