@@ -92,7 +92,7 @@ export default function SeniorIndustrialDesignerPage() {
                                 Projekt-Referenzen und Arbeitsproben.
                               </b>
                               <br />
-                              Auf Deine Bewerbung freut sich Lisa Schmid.
+                              Auf Deine Bewerbung freut sich Lisa Valentina Schmid.
                               </p>
                           </div>
                         </div>
