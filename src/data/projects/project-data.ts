@@ -81,7 +81,7 @@ export const Projects: ProjectData[] = [
     },
     {
         img: "projects/slide-woehner-cid-.webp",
-        imgMobile: "projects/slide-woehner-cid-mobile-.webp",
+        imgMobile: "projects/slide-woehner-cid-mobile.webp",
         logo: "logos/logo-woehner-black.svg",
         logoColor: "#FFFFFF", // SVG-Farbe
         title: "CORPORATE INDUSTRIAL DESIGN",

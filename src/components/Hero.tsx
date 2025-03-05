@@ -76,6 +76,7 @@ export function Hero() {
         muted
         loop
         playsInline
+        poster="/HeaderVideo-thumbnail.png"
         className="absolute inset-0 w-full h-full object-cover"
         preload="auto"
         

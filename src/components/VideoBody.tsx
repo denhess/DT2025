@@ -36,7 +36,7 @@ export function VideoBody() {
         loop
         playsInline
         className="absolute inset-0 w-full h-full object-cover"
-        preload="auto"
+        preload="none"
       >
         {/* Video for larger screens */}
         <source src="/BodyVideo.mp4" media="(min-width: 768px)" type="video/mp4" />

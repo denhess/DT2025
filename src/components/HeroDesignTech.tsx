@@ -68,6 +68,7 @@ export function HeroDesignTech() {
         loop
         playsInline 
         className="absolute inset-0 w-full h-full object-cover"
+        preload="none"
       >
         <source src="/DesignTechVideo.mp4" type="video/mp4" />
       </video>
