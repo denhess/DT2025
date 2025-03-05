@@ -104,6 +104,7 @@ export function ProjectSlider() {
                         src={`/${project.logo}`}
                         alt={project.copyright || "Company logo"}
                         className="object-contain"
+                        loading="lazy"
                         style={{ filter: `invert(1) sepia(1) saturate(10000%) hue-rotate(${project.logoColor || '0deg'})` }}
                       />
                     </div>
