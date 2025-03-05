@@ -69,7 +69,7 @@ export function Hero() {
   };
 
   return (
-    <section ref={containerRef} data-background="dark" className="hero h-screen relative overflow-hidden">
+    <section ref={containerRef} data-background="dark" className="hero h-screen relative overflow-hidden" style={{ backgroundImage: "url('/HeaderVideo-thumbnail.png')" }}>
       <video 
         ref={videoRef}
         autoPlay
