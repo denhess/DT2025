@@ -76,9 +76,8 @@ export function Hero() {
         muted
         loop
         playsInline
-        poster="/HeaderVideo-thumbnail.png"
         className="absolute inset-0 w-full h-full object-cover"
-        preload="auto"
+        preload="none"
         
       >
         <source src="/HeaderVideo.mp4" media="(min-width: 768px)" type="video/mp4" />
