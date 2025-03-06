@@ -62,7 +62,7 @@ export function MomentSlider() {
           <SwiperSlide key={index}>
             <div className="absolute inset-0 overflow-hidden">
               <div id={`slide-image-${index}`} className="relative w-full h-full">
-                <Image src={`/${project.img}`} alt="" fill className="object-cover" priority loading="lazy"/>
+                <Image src={`/${project.img}`} alt="" fill className="object-cover" loading="lazy"/>
                 <div className="absolute inset-0 bg-black/25" />
               </div>
             </div>
