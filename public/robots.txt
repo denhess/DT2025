@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://designtech.eu
+
+# Sitemaps
+Sitemap: https://designtech.eu/sitemap.xml
