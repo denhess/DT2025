@@ -3,7 +3,7 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -11,6 +11,50 @@ export function HeroDesignToSuccess() {
   const containerRef = useRef<HTMLElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
+  const [videoLoaded, setVideoLoaded] = useState(false);
+
+  useEffect(() => {
+    // Funktion zum Starten des Videos
+    const playVideo = () => {
+      if (videoRef.current) {
+        // Video explizit laden
+        videoRef.current.load();
+        // Versuch, das Video zu spielen
+        const playPromise = videoRef.current.play();
+        
+        if (playPromise !== undefined) {
+          playPromise
+            .then(() => {
+              setVideoLoaded(true);
+              console.log("DesignToSuccessVideo started playing successfully");
+            })
+            .catch(error => {
+              console.error("Error playing DesignToSuccessVideo:", error);
+              // Versuch, nach einem Benutzerinteraktionsereignis erneut abzuspielen
+              document.addEventListener('touchstart', () => {
+                videoRef.current?.play();
+              }, { once: true });
+            });
+        }
+      }
+    };
+    
+    // Video nach dem Mounting neu laden und abspielen
+    playVideo();
+    
+    // Event-Listener für Seitenwechsel zurück
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'visible') {
+        playVideo();
+      }
+    };
+    
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+    };
+  }, []);
 
   useGSAP(() => {
     if (!containerRef.current || !textRef.current) return;
@@ -67,13 +111,14 @@ export function HeroDesignToSuccess() {
         muted 
         loop
         playsInline 
-        className="absolute inset-0 w-full h-full object-cover"
-        preload="none"
+        className={`absolute inset-0 w-full h-full object-cover ${videoLoaded ? 'opacity-100' : 'opacity-0'}`}
+        poster="/DesignToSuccessVideo-thumbnail.png"
+        preload="auto"
+        onCanPlay={() => setVideoLoaded(true)}
       >
         <source src="/DesignToSuccessVideo.mp4" type="video/mp4" />
       </video>
      
-      
       <div
         ref={textRef}
         className="absolute bottom-10 sm:bottom-20 flex flex-col px-8 md:px-16 lg:px-24"
