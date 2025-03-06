@@ -36,27 +36,27 @@ export function ContactJob() {
       data-background="light"
     >
       {/* Text Column */}
-      <div className="w-full md:w-1/2 flex items-center justify-start p-8 h-[50vh] md:h-full">
+      <div className="w-full md:w-1/2 flex items-center justify-start p-8 h-[50vh] md:h-full text-left">
         <div
           ref={contentRef}
-          className="max-w-[65vw] mx-auto px-8 md:px-16 lg:px-24 space-y-3"
+          className="max-w-[65vw] mx-0 md:mx-auto px-8 md:px-16 lg:px-24 space-y-3"
         >
           {/* Title */}
-          <h2 className="text-gray-900 z-10 text-[4vw] md:text-[3vw] xl:text-[2vw]">
+          <h3 className="z-10">
             Ihr Kontakt
-          </h2>
+          </h3>
           {/* Subtitle */}
-          <p className="text-gray-900 text-[5vw] md:text-[4vw] xl:text-[3vw] leading-tight tracking-[-0.02em]">
+          <h2 className="leading-tight tracking-[-0.02em]">
             LISA&nbsp;VALENTINA&nbsp;SCHMID
-          </p>
+          </h2>
 
           {/* Button */}
           <div className="flex justify-left">
             <a
               href="mailto:lschmid@designtech.eu?subject=Bewerbung%20als%20[Jobtitel]&body=Sehr%20geehrte%20Frau%20Schmid,%0A%0A"
-              className="text-2xl px-[1vw] py-1 rounded-full border-2 border-black bg-transparent hover:bg-black hover:text-white transition-all duration-300"
+              className="mt-5 px-[2vw] py-1 rounded-full border-2 border-black bg-transparent hover:bg-black hover:text-white transition-all duration-300"
             >
-              JETZT&nbsp;BEWERBEN
+              <h3>JETZT&nbsp;BEWERBEN</h3>
             </a>
           </div>
         </div>

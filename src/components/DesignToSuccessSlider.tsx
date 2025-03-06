@@ -83,16 +83,16 @@ export function DesignToSuccessSlider() {
             <div className="relative h-full flex flex-col justify-center items-start text-left px-8 md:px-16">
               <h2
                 id={`slide-title-${index}`}
-                className="slide-content text-black text-[5vw] md:text-[4vw] xl:text-[3vw] leading-tight tracking-[-0.02em] opacity-0 font-bold"
+                className="slide-content leading-tight tracking-[-0.02em] opacity-0 font-bold"
               >
                 {project.title || project.titleEn}
               </h2>
-              <p
+              <h3
                 id={`slide-description-${index}`}
-                className="slide-content text-black text-[5vw] md:text-[4vw] xl:text-[3vw] leading-tight tracking-[-0.02em] opacity-0"
+                className="mt-10 slide-content leading-tight tracking-[-0.02em] opacity-0"
               >
                 {project.description || project.descriptionEn}
-              </p>
+              </h3>
             </div>
           </SwiperSlide>
         ))}

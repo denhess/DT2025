@@ -70,21 +70,21 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
       <div ref={contentRef} className="text-center space-y-8">
         {/* Alle Links haben jetzt die gleiche Schriftgröße */}
         <Link href="/designtech" onClick={handleLinkClick}>
-          <h2 className="text-black text-4xl mb-6 hover:underline transition-all duration-300">DESIGN TECH</h2>
+          <h2 className="mb-4 hover:underline transition-all duration-300">DESIGN TECH</h2>
         </Link>
 
         <Link href="/karriere" onClick={handleLinkClick}>
-          <h2 className="text-black text-4xl mb-6 hover:underline transition-all duration-300">KARRIERE</h2>
+          <h2 className="mb-4 font-thin hover:underline transition-all duration-300">KARRIERE</h2>
         </Link>
 
         <Link href="/designtosuccess" onClick={handleLinkClick}>
-          <h2 className="text-black text-4xl mb-6 hover:underline transition-all duration-300">DESIGN TO SUCCESS</h2>
+          <h2 className="mb-4 hover:underline transition-all duration-300">DESIGN TO SUCCESS</h2>
         </Link>
 
         <div className="flex justify-center ">
           <a
             href="mailto:info@designtech.eu?subject=Anfrage%20für%20ein%20Videocall&body=Sehr%20geehrte%20Frau%20Mayer,%0A%0A"
-            className="text-black text-2xl px-[1vw] py-1 rounded-full border-2 border-black bg-transparent hover:bg-black hover:text-white transition-all duration-300"
+            className="text-black text-2xl px-[2vw] py-1 rounded-full border-2 border-black bg-transparent hover:bg-black hover:text-white transition-all duration-300"
           >
             VIDEOCALL
           </a>
@@ -93,7 +93,7 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
         <div className="flex justify-center ">
           <a
             href="tel:+49707391890"
-            className="text-black text-2xl px-[1vw] py-1 rounded-full border-2 border-black bg-transparent hover:bg-black hover:text-white transition-all duration-300"
+            className="text-black text-2xl px-[2vw] py-1 rounded-full border-2 border-black bg-transparent hover:bg-black hover:text-white transition-all duration-300"
           >
             +49 7073 91 89 0
           </a>

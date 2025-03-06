@@ -138,7 +138,7 @@ export function Hero() {
         <h5 className="font-thin text-white z-10 text-2xl md:text-3xl xl:text-4xl mb-6">
           Maßgeschneidertes
         </h5>
-        <h1 className="font-thin uppercase text-white z-10 text-[8vw] md:text-[9vw] xl:text-[9vw] leading-[0.9] tracking-[-0.02em] text-left">
+        <h1 className="font-thin uppercase text-white z-10 leading-[0.9] tracking-[-0.02em] text-left">
           Maschinendesign<br />und Innovation
         </h1>
       </div>

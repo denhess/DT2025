@@ -4,14 +4,14 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: ##212121;
   font-size: 16px; /* Basis-Schriftgröße für Desktop */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
   --background: #0a0a0a;
-  --foreground: #ededed;
+  --foreground: ##212121;
   font-size: 16px; /* Schriftgröße für Dark Mode */
   }
 }
@@ -22,7 +22,15 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 h1 {
-  font-size: 2rem; /* 2 mal die Basis-Schriftgröße (32px) */
+  font-size: 9vw; /* 2 mal die Basis-Schriftgröße (32px) */
+}
+
+h2 {
+  font-size: 3vw; /* 1.8 mal die Basis-Schriftgröße (28px) */
+}
+
+h3 {
+  font-size: 2vw; /* 1 mal die Basis-Schriftgröße (16px) */
 }
 
 p {
@@ -36,7 +44,16 @@ p {
   }
 
   h1 {
-    font-size: 1.8rem; /* Kleinere Schrift für h1 */
+    font-size: 9vw; /* Kleinere Schrift für h1 */
+  }
+
+  h2 {
+    font-size: 4vw; /* Kleinere Schrift für h2 */
+    ;
+  }
+
+  h3 {
+    font-size: 3vw; /* Kleinere Schrift für h3 */
   }
 
   p {
@@ -50,7 +67,15 @@ p {
   }
 
   h1 {
-    font-size: 1.6rem; /* Noch kleinere Schrift für h1 */
+    font-size: 9vw; /* Noch kleinere Schrift für h1 */
+  }
+
+  h2 {
+    font-size: 5vw; /* Noch kleinere Schrift für h2 */
+  }
+
+  h3 {
+    font-size: 4vw; /* Noch kleinere Schrift für h3 */
   }
 
   p {

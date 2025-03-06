@@ -66,9 +66,9 @@ export function Contact() {
           <div className="flex justify-center">
           <a
   href="mailto:info@designtech.eu?subject=Anfrage%20für%20ein%20Videocall&body=Sehr%20geehrte%20Frau%20Mayer,%0A%0A"
-  className="text-[7vw] md:text-[7vw] lg:text-[8vw] px-[10vw] py-1 rounded-full border-2 border-black bg-transparent hover:bg-black hover:text-white transition-all duration-300"
+  className="px-[10vw] py-1 rounded-full border-2 border-black bg-transparent hover:bg-black hover:text-white transition-all duration-300"
 >
-  VIDEOCALL
+  <h1> VIDEOCALL </h1>
 </a>
 
 

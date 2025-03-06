@@ -41,12 +41,12 @@ export function About() {
       <YellowBackground />
       <div className="absolute inset-0 flex items-center">
         <div className="w-full px-8 md:px-16 lg:px-24">
-          <p 
+          <h2 
             ref={textRef}
-            className="text-gray-900 text-[5vw] md:text-[4vw] xl:text-[3vw] leading-tight tracking-[-0.02em]"
+            className="leading-tight tracking-[-0.02em]"
           >
             Bei <strong>Design Tech</strong> entwickeln wir praxisorientierte, maßgeschneiderte Lösungen, die präzise auf die individuellen Bedürfnisse und strategischen Ziele Ihres Unternehmens sowie die Anforderungen Ihres Marktes abgestimmt sind. Mit unserer jahrzehntelangen Expertise im Maschinendesign und tiefem Branchenwissen unterstützen wir Sie dabei, Ihre Marktführerschaft nachhaltig zu sichern und weiter auszubauen.
-          </p>
+          </h2>
         </div>
       </div>
       

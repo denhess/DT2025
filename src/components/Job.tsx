@@ -46,7 +46,7 @@ export function Job() {
       >
         {/* Senior Industrial Designer */}
         <Link href="/karriere/senior-industrial-designer" passHref>
-          <h2 className="text-gray-900 text-[5vw] md:text-[4vw] xl:text-[3vw] leading-tight tracking-[-0.02em] mb-12 hover:underline">
+          <h2 className="leading-tight tracking-[-0.02em] mb-12 hover:underline">
             SENIOR INDUSTRIAL DESIGNER (W/M/D)
           </h2>
         </Link>
@@ -56,7 +56,7 @@ export function Job() {
 
         {/* Junior Industrial Designer */}
         <Link href="/karriere/junior-industrial-designer" passHref>
-          <h2 className="text-gray-900 text-[5vw] md:text-[4vw] xl:text-[3vw] leading-tight tracking-[-0.02em] mb-12 hover:underline">
+          <h2 className="leading-tight tracking-[-0.02em] mb-12 hover:underline">
             JUNIOR INDUSTRIAL DESIGNER (W/M/D)
           </h2>
         </Link>
@@ -66,7 +66,7 @@ export function Job() {
 
         {/* Internship Industrial Designer */}
         <Link href="/karriere/industrial-design-internship" passHref>
-          <h2 className="text-gray-900 text-[5vw] md:text-[4vw] xl:text-[3vw] leading-tight tracking-[-0.02em] mb-12 hover:underline">
+          <h2 className="leading-tight tracking-[-0.02em] mb-12 hover:underline">
             INDUSTRIAL DESIGN INTERNSHIP (W/M/D)
           </h2>
         </Link>
