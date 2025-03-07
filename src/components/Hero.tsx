@@ -57,7 +57,8 @@ export function Hero() {
   }, []);
 
   useGSAP(() => {
-    // Parallax effect for video
+    // Modify GSAP animations to work with snap scrolling
+    // Parallax effect for video (adjusted for snap scrolling)
     gsap.to(videoRef.current, {
       yPercent: 30,
       ease: "none",
@@ -65,11 +66,11 @@ export function Hero() {
         trigger: containerRef.current,
         start: "top top",
         end: "bottom top",
-        scrub: true,
+        scrub: 0.5,
       },
     });
 
-    // Parallax effect for text (moving slower than video)
+    // Parallax effect for text (adjusted for snap scrolling)
     gsap.to(textRef.current, {
       yPercent: -15,
       ease: "none",
@@ -77,7 +78,7 @@ export function Hero() {
         trigger: containerRef.current,
         start: "top top",
         end: "bottom top",
-        scrub: true,
+        scrub: 0.5,
       },
     });
 
