@@ -52,10 +52,10 @@ export function Contact() {
       <div className="absolute inset-0 flex justify-center items-center">
         <div
           ref={contentRef}
-          className="w-full max-w-3xl px-8 md:px-16 flex flex-col text-left"
+          className="w-full max-w-3xl flex flex-col text-left px-8 md:px-16 lg:px-24"
         >
           <div className="mt-40 mb-16">
-            <p className="text-xl">
+            <p className="">
               Lassen Sie uns gemeinsam Ihren Erfolg gestalten. Buchen Sie jetzt
               Ihren persönlichen Video Call und sichern Sie sich den
               entscheidenden Vorsprung.
@@ -77,7 +77,7 @@ export function Contact() {
 
           </div>
 
-          <p className="mt-16 text-lg max-w-3xl">
+          <p className="mt-16 ">
           Damit unser Gespräch nicht nur irgendein Austausch wird, sondern der Startschuss für etwas Außergewöhnliches, 
           laden wir Sie vorab zu einer kurzen Online-Befragung ein. So treffen wir uns nicht im Nebel, sondern genau dort, 
           wo Ihre Vorstellungen, Ziele und Herausforderungen liegen. Stellen Sie sich vor, was möglich ist – und erwarten Sie mehr. 
