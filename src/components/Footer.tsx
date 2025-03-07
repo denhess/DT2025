@@ -29,45 +29,45 @@ export function Footer() {
                 <DtLogo className="w-60 md:w-80 text-black" />
               </Link>
             </div>
-            <p className="text-sm">Design Tech 2025</p>
+            <p className="text-sm">&copy; 2025 Design Tech</p>
           </div>
 
           {/* Mittlere Spalte - Projekte & Navigation */}
           <div className="col-span-6 md:col-span-2 space-y-4">
             <Link href="/designtech" className="block hover:underline hover:text-black">
-              DESIGN TECH
+              <p>DESIGN TECH</p>
             </Link>
             <Link href="/karriere" className="block hover:underline hover:text-black">
-              KARRIERE
+            <p>KARRIERE</p>
             </Link>
             <Link href="/designtosuccess" className="block hover:underline hover:text-black">
-              DESIGN TO SUCCESS
+            <p>DESIGN TO SUCCESS</p>
             </Link>
             <Link href="https://www.ammerbucher-design-talk.de/" className="block hover:underline hover:text-black">
-              Ammerbucher Design Talk
+            <p>Ammerbucher Design Talk</p>
             </Link>
             <Link href="http://werkzeugderzukunft.de" className="block hover:underline hover:text-black">
-              Werkzeug der Zukunft
+            <p>Werkzeug der Zukunft</p>
             </Link>
             <Link href="http://maschine2020.com/de_DE/" className="block hover:underline hover:text-black">
-              Maschine 2020
+            <p>Maschine 2020</p>
             </Link>
           </div>
 
           {/* Rechte Spalte - Rechtliches */}
           <div className="col-span-6 md:col-span-3 space-y-4">
             <Link href="/impres" className="block hover:underline hover:text-black">
-              Impressum / Rechtlicher Hinweis
+            <p>Impressum / Rechtlicher Hinweis</p>
             </Link>
             <Link href="/privacy-policy" className="block hover:underline hover:text-black">
-              Datenschutzerklärung
+            <p>Datenschutzerklärung</p>
             </Link>
             <Link
               href="#"
               className="block hover:underline hover:text-black"
               onClick={handleLinkClick}
             >
-              Datenschutzeinstellungen
+              <p>Datenschutzeinstellungen</p>
             </Link>
           </div>
 

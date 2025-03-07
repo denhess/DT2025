@@ -4,81 +4,131 @@
 
 :root {
   --background: #ffffff;
-  --foreground: ##212121;
+  --foreground: #212121; /* Korrigiert: Doppeltes # entfernt */
   font-size: 16px; /* Basis-Schriftgröße für Desktop */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-  --background: #0a0a0a;
-  --foreground: ##212121;
-  font-size: 16px; /* Schriftgröße für Dark Mode */
+    --background: #ffffff;
+    --foreground: #212121; /* Korrigiert: Doppeltes # entfernt */
+    font-size: 16px;
   }
 }
 
 body {
   color: var(--foreground);
-  {/*background: var(--background);*/}
+  background: var(--background); /* Kommentar entfernt */
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Standardgrößen für Desktop (1201px und größer) */
 h1 {
-  font-size: 9vw; /* 2 mal die Basis-Schriftgröße (32px) */
+  font-size: 2.5rem; /* 40px bei 16px Basisgröße */
 }
 
 h2 {
-  font-size: 3vw; /* 1.8 mal die Basis-Schriftgröße (28px) */
+  font-size: 2rem; /* 32px bei 16px Basisgröße */
 }
 
 h3 {
-  font-size: 2vw; /* 1 mal die Basis-Schriftgröße (16px) */
+  font-size: 1.5rem; /* 24px bei 16px Basisgröße */
 }
 
 p {
-  font-size: 1rem; /* 1 mal die Basis-Schriftgröße (16px) */
+  font-size: 1rem; /* 16px */
 }
 
-/* Responsives Design: Schriftgrößen anpassen */
+/* Extra Large Screens: 1201px und größer (Standard oben) */
+
+/* Desktops/Large Laptops: 1025px - 1200px */
 @media (max-width: 1200px) {
   :root {
-    font-size: 15px; /* Kleinere Basisgröße für größere Tablets */
+    font-size: 15px;
   }
 
   h1 {
-    font-size: 9vw; /* Kleinere Schrift für h1 */
+    font-size: 2.5rem; /* 37.5px bei 15px Basisgröße */
   }
 
   h2 {
-    font-size: 4vw; /* Kleinere Schrift für h2 */
-    ;
+    font-size: 2rem; /* 30px */
   }
 
   h3 {
-    font-size: 3vw; /* Kleinere Schrift für h3 */
+    font-size: 1.5rem; /* 22.5px */
   }
 
   p {
-    font-size: 0.95rem;
+    font-size: 1rem; /* 15px */
   }
 }
 
-@media (max-width: 768px) {
+/* Small Laptops: 769px - 1024px */
+@media (max-width: 1024px) {
   :root {
-    font-size: 14px; /* Kleinere Basisgröße für mobile Geräte */
+    font-size: 15px;
   }
 
   h1 {
-    font-size: 9vw; /* Noch kleinere Schrift für h1 */
+    font-size: 2.4rem; /* 36px */
   }
 
   h2 {
-    font-size: 5vw; /* Noch kleinere Schrift für h2 */
+    font-size: 1.9rem; /* 28.5px */
   }
 
   h3 {
-    font-size: 4vw; /* Noch kleinere Schrift für h3 */
+    font-size: 1.4rem; /* 21px */
   }
 
   p {
-    font-size: 0.9rem;
+    font-size: 1rem; /* 15px */
+  }
+}
+
+/* Tablets: 481px - 768px */
+@media (max-width: 768px) {
+  :root {
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 2.3rem; /* 32.2px bei 14px Basisgröße */
+  }
+
+  h2 {
+    font-size: 1.8rem; /* 25.2px */
+  }
+
+  h3 {
+    font-size: 1.3rem; /* 18.2px */
+  }
+
+  p {
+    font-size: 1rem; /* 14px */
+  }
+}
+
+/* Mobile Geräte: 320px - 480px */
+@media (max-width: 480px) {
+  :root {
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 2rem; /* 28px */
+  }
+
+  h2 {
+    font-size: 1.6rem; /* 22.4px */
+  }
+
+  h3 {
+    font-size: 1.2rem; /* 16.8px */
+  }
+
+  p {
+    font-size: 1rem; /* 14px */
   }
 }

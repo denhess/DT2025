@@ -38,10 +38,10 @@ export function Clients() {
         priority
       />
       
-      <div className="absolute inset-0 flex flex-col justify-end mb-20">
-        <p className="mb-4 w-full px-8 md:px-16 lg:px-24 text-gray-900 text-[5vw] md:text-[4vw] xl:text-[3vw] leading-tight tracking-[-0.02em]">
+      <div className="absolute inset-0 flex flex-col justify-end">
+        <h2 className="pt-10 pb-10 w-full px-8 md:px-16 lg:px-24 leading-tight tracking-[-0.02em] bg-white">
           Diese <b>Marktführer</b> vertrauen auf unser Design
-        </p>
+        </h2>
       </div>
     </section>
   );

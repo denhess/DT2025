@@ -40,9 +40,9 @@ export function AboutDesignTech() {
      <YellowBackground/>
       <div className="absolute inset-0 flex items-center">
         <div className="w-full px-8 md:px-16 lg:px-24">
-          <p 
+          <h2 
             ref={textRef}
-            className="text-gray-900 text-[5vw] md:text-[4vw] xl:text-[3vw] leading-tight tracking-[-0.02em]"
+            className="leading-tight tracking-[-0.02em]"
           >
             Bei Design Tech entwickeln wir verkaufsstarke Produkte, 
             die wirtschaftlich überzeugen und technisch machbar sind. 
@@ -52,7 +52,7 @@ export function AboutDesignTech() {
             mit der Ambition und dem Engagement, als wäre es unser eigenes Unternehmen.
 
 
-          </p>
+          </h2>
         </div>
       </div>
     </section>

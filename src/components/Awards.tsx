@@ -40,12 +40,12 @@ export function Awards() {
       <YellowBackground />
       <div className="absolute inset-0 flex items-center">
         <div className="w-full px-8 md:px-16 lg:px-24">
-          <p 
+          <h1 
             ref={textRef}
-            className="text-gray-900 text-[5vw] z-10 text-[8vw] md:text-[9vw] xl:text-[9vw] leading-[0.9] tracking-[-0.02em]"
+            className="uppercase leading-[0.9] tracking-[-0.02em]"
           >
-            Über 210 Awards belegen den Erfolg!
-          </p>
+            Über 210 Awards <br /> belegen den Erfolg!
+          </h1>
         </div>
       </div>
     </section>

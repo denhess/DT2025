@@ -40,9 +40,9 @@ export function ClosingKarriere() {
   <YellowBackground />
   <div className="absolute inset-0 flex items-center">
     <div className="w-full px-8 md:px-16 lg:px-24">
-      <p 
+      <h2 
         ref={textRef}
-        className="text-gray-900 text-[5vw] md:text-[4vw] xl:text-[3vw] leading-tight tracking-[-0.02em]"
+        className="leading-tight tracking-[-0.02em]"
       >
         Die besten Ergebnisse erzielen unsere Kunden, weil wir Lösungen individuell auf Ihr 
         gesamtes Erfolgs-System abstimmen – von internen Prozessen über die Marke bis hin zu 
@@ -50,7 +50,7 @@ export function ClosingKarriere() {
         Statt branchenübliche Standartlösungen zu bieten, entwickeln wir präzise Ansätze, die 
         unsere Kunden voranbringen. Mit dieser bewährten Systematik und unserer tiefgreifenden, 
         über Jahrzehnten gewachsenen Expertise führen wir auch Ihr Projekt gemeinsam zum Erfolg.
-      </p>
+      </h2>
     </div>
   </div>
 </section>

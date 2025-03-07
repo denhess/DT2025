@@ -80,7 +80,7 @@ export function DesignToSuccessSlider() {
                 style={{ backgroundColor: project.backgroundColor || "transparent" }}
               />
             </div>
-            <div className="relative h-full flex flex-col justify-center items-start text-left px-8 md:px-16">
+            <div className="relative h-full flex flex-col justify-center items-start text-left">
               <h2
                 id={`slide-title-${index}`}
                 className="slide-content leading-tight tracking-[-0.02em] opacity-0 font-bold"

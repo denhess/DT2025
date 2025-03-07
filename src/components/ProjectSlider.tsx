@@ -99,7 +99,7 @@ export function ProjectSlider() {
                 <div className="pb-5">
                   {/* Logo links oben */}
                   {project.logo && (
-                    <div id={`slide-logo-${index}`} className="w-24 md:w-28 h-8 md:h-10 opacity-0">
+                    <div id={`slide-logo-${index}`} className="w-24 md:w-20 h-8 md:h-6 opacity-0">
                       <img
                         src={`/${project.logo}`}
                         alt={project.copyright || "Company logo"}
@@ -112,14 +112,14 @@ export function ProjectSlider() {
                 </div>
                   <h2
                     id={`slide-title-${index}`}
-                    className="text-[5vw] md:text-[2.5vw] font-extralight uppercase tracking-tighter opacity-0"
+                    className="font-extralight uppercase tracking-tighter opacity-0"
                     style={{ color: project.textColor }} // Hier wird die textColor angewendet
                   >
                     {project.title || project.titleEn}
                   </h2>
                   <p
                     id={`slide-description-${index}`}
-                    className="text-[2.5vw] md:text-[1vw] font-extralight uppercase tracking-tighter leading-tight opacity-0"
+                    className="font-extralight uppercase tracking-tighter leading-tight opacity-0"
                     style={{ color: project.textColor }} // Hier wird die textColor angewendet
                   >
                     {project.description || project.descriptionEn}
