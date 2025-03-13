@@ -16,13 +16,9 @@ export default function ErfolgsgeschichtePage() {
   return (
     <>
           
-          <HeroDesignTech />
-          <AboutDesignTech />
+
           <Awards />
-          <Clients />
-          <ClosingKarriere/>
-          <Industries />
-          <Footer />
+
            
     </>
   );
