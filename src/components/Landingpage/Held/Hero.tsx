@@ -127,7 +127,7 @@ export function Hero() {
         onCanPlay={() => setVideoLoaded(true)}
       >
         <source src="/Landingpage/Held/HeaderVideo_held_animation.mp4" media="(min-width: 768px)" type="video/mp4" />
-        <source src="/Landingpage/Held/HeaderVideo_held_animation.mp4." media="(max-width: 767px)" type="video/mp4" />
+        <source src="/Landingpage/Held/HeaderVideo_held_animation.mp4" media="(max-width: 767px)" type="video/mp4" />
       </video>
       <div id="background-check" className="h-screen w-full bg-gray-900" />
       <div
