@@ -34,23 +34,29 @@ export function SplitscreenOne() {
       data-background="light"
       className="relative min-h-screen w-full flex items-center"
     >
-      <div className="absolute inset-0 flex flex-col md:flex-row justify-between items-center">
+      <div className="w-full flex flex-col md:flex-row justify-between items-center">
         {/* Image Div - Takes up exactly half the screen in mobile */}
-        <div className="w-full h-1/2 md:w-1/2 md:h-full">
+        <div className="w-full h-1/2 md:w-1/2 md:h-screen relative">
           <img 
             src="/landingpage/held/pictures/BeforeAfterSlider/Before.webp" 
             alt="About Image"
             className="w-full h-full object-cover"
           />
+          <div className="absolute bottom-10 sm:bottom-15 left-0 right-0 px-8 md:px-16 lg:px-24">
+            <h3 className="text-white">AUSGANGSZUSTAND</h3>
+          </div>
         </div>
         
         {/* Text Div - Takes up exactly half the screen in mobile */}
-        <div className="w-full h-1/2 md:w-1/2 md:h-full">
+        <div className="w-full h-1/2 md:w-1/2 md:h-screen relative">
           <img 
             src="/landingpage/held/pictures/BeforeAfterSlider/After.webp" 
             alt="About Image"
             className="w-full h-full object-cover"
           />
+          <div className="absolute bottom-10 sm:bottom-15 left-0 right-0 px-8 md:px-16 lg:px-24">
+            <h3 className="text-white">ERGEBNIS</h3>
+          </div>
         </div>
       </div>
     </section>
