@@ -50,14 +50,14 @@ export function SplitscreenThree() {
             ref={textRef}
             className="text-gray-900 leading-tight tracking-[-0.02em]"
           >
-            <p>
+            <h4>
             &bdquo;Unsere Mitarbeiter brannten von der ersten Entwurfsphase an für dieses Projekt.
             Diese Leidenschaft spiegelt sich in der positiven Resonanz unserer Kunden wider.
             Bereits bei der Vorstellung der Anlage während unserer 75-Jahr-Feier im Jahr 2024 waren sie hoch begeistert.&ldquo;
             <br />
             <br />
             <i>Till Held, Geschäftsführer von Held Technologie GmbH in Trossingen</i>
-            </p>
+            </h4>
           </div>
         </div>
       </div>

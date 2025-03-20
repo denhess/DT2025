@@ -65,6 +65,10 @@ h3 {
   font-size: 3rem; /* 24px bei 16px Basisgröße */
 }
 
+h4 {
+  font-size: 1.2rem; /* 16.8px */
+}
+
 p {
   font-size: 1.2rem; /* 16px */
 }
@@ -93,6 +97,10 @@ p {
     font-size: 1.5rem; /* 22.5px */
   }
 
+  h4 {
+    font-size: 1.2rem; /* 16.8px */
+  }
+
   p {
     font-size: 1rem; /* 15px */
   }
@@ -117,6 +125,10 @@ p {
 
   h3 {
     font-size: 1.4rem; /* 21px */
+  }
+
+  h4 {
+    font-size: 1.2rem; /* 16.8px */
   }
 
   p {
@@ -146,6 +158,10 @@ p {
     font-size: 1.3rem; /* 18.2px */
   }
 
+  h4 {
+    font-size: 1.2rem; /* 16.8px */
+  }
+
   p {
     font-size: 1rem; /* 14px */
   }
@@ -170,6 +186,10 @@ p {
   }
 
   h3 {
+    font-size: 1.2rem; /* 16.8px */
+  }
+
+  h4 {
     font-size: 1.2rem; /* 16.8px */
   }
 

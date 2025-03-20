@@ -50,13 +50,13 @@ export function SplitscreenTwo() {
             ref={textRef}
             className="text-gray-900 leading-tight tracking-[-0.02em]"
           >
-            <p>
+            <h4>
             &bdquo;Es war sehr interessant zu sehen, wie Sie mit diesem voll integrierten Ansatz im Projekt eine wirklich beeindruckende Lösung erreicht haben. Und wie gutes Verständnis und frühes Einbinden der verschiedenen Fakultäten dazu genutzt wurde,
             um am Ende eine Maschine zu haben, die funktional sehr durchdacht ist. Nicht nur in ihrer Kernfunktion, sondern durchgängig in den verschiedenen Nutzungsformen – von der Einrichtung über die Wartung bis zur normalen Produktion. Dass die Maschine dann auch noch richtig gut aussieht, ist natürlich keine Überraschung.&ldquo;
             <br />
             <br />
             <i>Carsten O&apos;Beirne, CEO von Mall + Herlan GmbH</i>
-            </p>
+            </h4>
           </div>
         </div>
       </div>
