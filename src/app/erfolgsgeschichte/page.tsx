@@ -3,18 +3,20 @@
 import React from 'react';
 
 import { Hero } from '@/components/Landingpage/Held/Hero';
-import { About } from '@/components/Landingpage/Held/About';
-import { BeforeAfter } from '@/components/Landingpage/Held/BeforeAfter';
-import { QuoteOne } from '@/components/Landingpage/Held/QuoteOne';
+import { TextOne } from '@/components/Landingpage/Held/TextOne';
 import { FullscreenPictureTwo } from '@/components/Landingpage/Held/FullscreenPictureTwo';
-import { QuoteTwo } from '@/components/Landingpage/Held/QuoteTwo';
-import { SliderTwo } from '@/components/Landingpage/Held/SliderTwo';
-import { QuoteThree } from '@/components/Landingpage/Held/QuoteThree';
-import { SliderOne } from '@/components/Landingpage/Held/SliderOne';
+import { SplitscreenOne } from '@/components/Landingpage/Held/SplitscreenOne';
+import { TextTwo } from '@/components/Landingpage/Held/TextTwo';
+import { SplitscreenTwo } from '@/components/Landingpage/Held/SplitscreenTwo';
+import { SplitscreenThree } from '@/components/Landingpage/Held/SplitscreenThree';
 import { Footer } from '@/components/Footer';
 import { FullscreenPicture } from '@/components/Landingpage/Held/FullscreenPicture';
 import { FullscreenPictureThree } from '@/components/Landingpage/Held/FullscreenPictureThree';
-import { QuoteFour } from '@/components/Landingpage/Held/QuoteFour';
+import { FullscreenPictureFour } from '@/components/Landingpage/Held/FullscreenPictureFour';
+import { FullscreenPictureFive } from '@/components/Landingpage/Held/FullscreenPictureFive';
+import { FullscreenPictureSix } from '@/components/Landingpage/Held/FullscreenPictureSix';
+import { TextThree } from '@/components/Landingpage/Held/TextThree';
+
 
 
 
@@ -24,17 +26,18 @@ export default function ErfolgsgeschichtePage() {
   return (
     <>
           <Hero />
-          <About />
-          <FullscreenPictureThree />
-          <QuoteOne />
-          <FullscreenPictureTwo />
-          <QuoteTwo /> 
-          <BeforeAfter />
-          <QuoteThree />
-          <SliderTwo /> 
-          <QuoteFour />
-          <SliderOne /> 
+          <TextOne />
           <FullscreenPicture />
+          <SplitscreenOne />
+          <TextTwo />
+          <SplitscreenTwo />
+          <SplitscreenThree />
+          <FullscreenPictureTwo />
+          <FullscreenPictureThree />
+          <FullscreenPictureFour />
+          <FullscreenPictureFive />
+          <FullscreenPictureSix />
+          <TextThree />
           <Footer />
     </>
   );

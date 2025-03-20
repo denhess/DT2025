@@ -31,7 +31,7 @@ export function FullscreenPictureThree() {
   return (
     <section className="relative min-h-screen w-full">
       <Image
-        src={isMobile ? "/landingpage/held/pictures/Gastvortrag.webp" : "/landingpage/held/pictures/Gastvortrag.webp"} // Dynamisch je nach Bildschirmgröße
+        src={isMobile ? "/landingpage/held/pictures/FullscreenThree-mobile.webp" : "/landingpage/held/pictures/FullscreenThree.webp"} // Dynamisch je nach Bildschirmgröße
         alt="Fullscreen Background"
         layout="fill"
         objectFit="cover"

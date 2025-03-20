@@ -31,7 +31,7 @@ export function FullscreenPictureTwo() {
   return (
     <section className="relative min-h-screen w-full">
       <Image
-        src={isMobile ? "/landingpage/held/pictures/Diskussion.webp" : "/landingpage/held/pictures/Diskussion.webp"} // Dynamisch je nach Bildschirmgröße
+        src={isMobile ? "/landingpage/held/pictures/FullscreenTwo-mobile.webp" : "/landingpage/held/pictures/FullscreenTwo.webp"} // Dynamisch je nach Bildschirmgröße
         alt="Fullscreen Background"
         layout="fill"
         objectFit="cover"

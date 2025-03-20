@@ -7,7 +7,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export function FullscreenPicture() {
+export function FullscreenPictureFive() {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -31,19 +31,12 @@ export function FullscreenPicture() {
   return (
     <section className="relative min-h-screen w-full">
       <Image
-        src={isMobile ? "/landingpage/held/pictures/HaileyTeaser-mobile.webp" : "/landingpage/held/pictures/HaileyTeaser.webp"} // Dynamisch je nach Bildschirmgröße
+        src={isMobile ? "/landingpage/held/pictures/FullscreenFive-mobile.webp" : "/landingpage/held/pictures/FullscreenFive.webp"} // Dynamisch je nach Bildschirmgröße
         alt="Fullscreen Background"
         layout="fill"
         objectFit="cover"
         priority
       />
-      
-      <div className="text-white absolute inset-0 flex flex-col justify-end absolute bottom-10 sm:bottom-20 flex flex-col px-8 md:px-16 lg:px-24">
-        
-      <h2>WIE DESIGN ZUM WETTBEWERBSVORTEIL WIRD
-      </h2>
-
-      </div>
     </section>
   );
 }
