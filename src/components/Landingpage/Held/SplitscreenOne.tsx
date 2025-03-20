@@ -43,7 +43,9 @@ export function SplitscreenOne() {
             className="w-full h-full object-cover"
           />
           <div className="absolute bottom-10 sm:bottom-15 left-0 right-0 px-8 md:px-16 lg:px-24">
-            <h3 className="text-white">VORHER</h3>
+            <div className="inline-block bg-yellow-300 px-2 py-1">
+              <h3 className="text-black font-medium">VORHER</h3>
+            </div>
           </div>
         </div>
         
@@ -55,7 +57,9 @@ export function SplitscreenOne() {
             className="w-full h-full object-cover"
           />
           <div className="absolute bottom-10 sm:bottom-15 left-0 right-0 px-8 md:px-16 lg:px-24">
-            <h3 className="text-white">NACHHER</h3>
+            <div className="inline-block bg-yellow-300 px-2 py-1">
+              <h3 className="text-black font-medium">NACHHER</h3>
+            </div>
           </div>
         </div>
       </div>
