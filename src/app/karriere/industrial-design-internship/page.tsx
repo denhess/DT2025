@@ -8,7 +8,7 @@ import { Job } from '@/components/Job';
 import { ContactJob } from '@/components/ContactJob';
 import { YellowBackground } from '@/components/BG/YellowBackground';
 
-export default function JuniorIndustrialDesignerPage() {
+export default function IndustrialDesignInternship() {
   return (
     <>
               <section className="relative min-h-screen w-full"
@@ -18,7 +18,7 @@ export default function JuniorIndustrialDesignerPage() {
                       <div className="absolute inset-0 flex items-center">
                         <div className="w-full px-8 md:px-16 lg:px-24">
                           <p className="text-gray-900 text-[5vw] md:text-[4vw] xl:text-[3vw] leading-tight tracking-[-0.02em]">
-                            JUNIOR INDUSTRIAL DESIGNER
+                            Industrial Design Internship
                           </p>
                         </div>
                       </div>
@@ -30,19 +30,20 @@ export default function JuniorIndustrialDesignerPage() {
                   <div className="w-full px-6 sm:px-8 md:px-16 lg:px-24 max-w-5xl pt-16 pb-16"> {/* Doppelt so viel Padding oben und unten */}
                     <div className="mb-8">
                       <p className="text-black text-lg sm:text-xl leading-relaxed text-left">
-                          Du brennst für neue Herausforderungen? Du hast Lust auf
-                          erfolgreiche Industrial Design–Projekte und willst Innovationen
-                          auf höchstem Niveau entwickeln?
+                          Du studierst Industrial Design / Industriedesign und suchst ein anspruchsvolles Praktikum? 
+                          (Pflicht – Praktikum). Du bist für ein Praktikum im Bereich Industrial Design / Industriedesign, 
+                          Maschinen- / Investitionsgüterdesign oder UX Design / UI Design sensationell motiviert? Du hast Sinn 
+                          für attraktive Formen, Anwendernutzen und anspruchsvolle Technologie?
                           <br />
                           <br />
-                          Dann werde Teil unseres Design Tech-Teams!
+                          Dann bringst Du für ein Praktikum bei Design Tech bereits beste Voraussetzungen mit. 
+                          Du lernst viel über höchst effiziente Prozesse, intelligentes Handwerkszeug, 
+                          Kreativitätstechniken für die Praxis und vieles mehr.
                           <br />
                           <br />
-                          <b>Neues Denken. Neues Schaffen.</b>
+                          <b>Kurz gesagt: Das Team von Design Tech macht Dich in Deinem Praktikum fit für Deine berufliche Zukunft als Industrial Designer / Industriedesigner.</b>
                           <br />
-                          Wir sind das international führende Designunternehmen für
-                          Industrieunternehmen im Maschinenbau und
-                          Investitionsgüterbereich.
+                          Wir sind eines der führenden Unternehmen für zielgenaues Industrial Design / Industriedesign in Deutschland und haben uns kompromisslos auf Maschinendesign spezialisiert.
                         </p>
                       </div>
 
@@ -62,15 +63,12 @@ export default function JuniorIndustrialDesignerPage() {
                           <b>Deine Qualifikation</b>
                           <br />
                           <ul className="list-none pl-0"> {/* Keine Aufzählungszeichen und kein Einrücken */}
-                            <li>_ Abgeschlossenes Studium als Industrial Design / Industriedesign oder einer verwandten Studiendisziplin</li>
-                            <li>_ Sehr gute Darstellungsfähigkeiten und virtuoser Umgang mit Form, Farbe und Proportionen</li>
+                            <li>_ Studienplatz als Industrie-Designer oder vergleichbarer Studiengänge wie Intermedia, Web-Design, oder Mediengestalter</li>
+                            <li>_ Interesse an anspruchsvollem Design und anspruchsvollen Aufgaben</li>
+                            <li>_ Ausgeprägtes technisches Verständnis</li>
                             <li>_ Sicherer Umgang mit gängiger Software (Adobe CC, Solid Works, Microsoft Office etc.)</li>
-                            <li>_ Fundierte Kenntnisse über Fertigungsverfahren und Material</li>
-                            <li>_ Erfahrung in der Planung und dem Management von Gestaltungsprojekten</li>
-                            <li>_ Sicherer Auftritt im Kontakt mit Kunden und bei Präsentationen</li>
-                            <li>_ Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift</li>
-                            <li>_ Überzeugende Kommunikationsfähigkeiten, Spaß am Arbeiten im Team und ein sicheres Auftreten</li>
-                            <li>_ Biss und verantwortungsvolles und strukturiertes Arbeiten</li>
+                            <li>_ Gute Deutschkenntnisse in Wort und Schrift</li>
+                            <li>_ Flexibles und gewissenhaftes Arbeiten im Team</li>
                           </ul>
                         </p>
                       </div>
@@ -82,21 +80,16 @@ export default function JuniorIndustrialDesignerPage() {
                           <ul className="list-none pl-0"> {/* Keine Aufzählungszeichen und kein Einrücken */}
                             <li>_ Ein spannendes und vielseitiges Aufgabengebiet</li>
                             <li>_ Ein hoch professionelles und motiviertes Team</li>
-                            <li>_ Festanstellung und einen unbefristeten Arbeitsvertrag</li>
-                            <li>_ Mittelfristige Aufstiegsoptionen</li>
-                            <li>_ Kurze Entscheidungswege durch eine flache Hierarchie</li>
-                            <li>_ Flexible Arbeitszeiten bei einer geregelten 40-Stunden-Woche</li>
                             <li>_ Attraktives Arbeitsumfeld in modernen Büroräumen</li>
                             <li>_ Regelmäßige Feedback- mit Zielvereinbarungsgespräche</li>
                             <li>_ Regelmäßige Teamevents und Veranstaltungen</li>
                           </ul>
                           <br />
                           <b>
-                            Wir freuen uns auf Deine aussagekräftige Bewerbung mit
-                            Projekt-Referenzen und Arbeitsproben.
+                          Wir freuen uns auf Deine aussagekräftige Bewerbung.
                           </b>
                           <br />
-                          Auf Deine Bewerbung freut sich Lisa Valentina Schmid.
+                          Sende uns jetzt Deine Bewerbung für ein sechsmonatiges Praktikum oder melde dich direkt bei uns! Auf Deine Bewerbung freut sich Lisa Valentina Schmid.
                           </p>
                         </div>
                       </div>
