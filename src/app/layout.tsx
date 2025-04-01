@@ -11,7 +11,23 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Design Tech - Maschinendesign",
-  description: "Maschinendesign",
+  description: "Spezialist für Maschinendesign im Investitionsgüterbereich mit über 210 Awards. Maßgeschneiderte Designlösungen für Marktführer wie Liebherr, Arburg und WashTec.",
+  keywords: ["Maschinendesign", "Industrial Design", "Industriedesign", "Maschinenbau", "Design Tech"],
+  openGraph: {
+    title: "Design Tech - Führend im Maschinendesign",
+    description: "Spezialist für Maschinendesign im Investitionsgüterbereich",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Design Tech Maschinendesign",
+      },
+    ],
+    locale: "de_DE",
+    type: "website",
+  },
+
   icons: {
     icon: "/favicon.png",
   },
@@ -24,6 +40,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="de">
+      <head>
+        {/* Hreflang-Links für mehrsprachige Unterstützung */}
+        <link rel="alternate" hrefLang="de" href="https://designtech.eu/" />
+        <link rel="alternate" hrefLang="en" href="https://designtech.eu/en/" />
+        <link rel="alternate" hrefLang="x-default" href="https://designtech.eu/" />
+      </head>
       <body>
         {/* Google Tag Manager Code mit next/script und id */}
         <Script
