@@ -58,7 +58,7 @@ export function ProjectSlider() {
   };
 
   return (
-    <section ref={sectionRef} data-background="light" className="project-slider relative h-screen bg-black overflow-hidden">
+    <section ref={sectionRef} id="projects" data-background="light" className="project-slider relative h-screen bg-black overflow-hidden">
       <Swiper
         modules={[Autoplay, Pagination]}
         spaceBetween={0}

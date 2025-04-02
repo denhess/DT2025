@@ -69,39 +69,54 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
     >
       <div ref={contentRef} className="text-center space-y-8">
         {/* Alle Links haben jetzt die gleiche Schriftgröße */}
-        <Link href="/designtech" onClick={handleLinkClick}>
-          <h2 className="mb-4 hover:underline transition-all duration-300">DESIGN TECH</h2>
+        <Link href="/" onClick={handleLinkClick}>
+          <h2 className="mb-4 text-4xl hover:underline transition-all duration-300">STARTSEITE</h2>
         </Link>
 
-        <Link href="/karriere" onClick={handleLinkClick}>
-          <h2 className="mb-4 font-thin hover:underline transition-all duration-300">KARRIERE</h2>
+        <Link href="/#projects" onClick={handleLinkClick}>
+          <h2 className="mb-4 text-4xl hover:underline transition-all duration-300">PROJEKTE</h2>
+        </Link>
+
+        <Link href="/erfolgsgeschichte" onClick={handleLinkClick}>
+          <h2 className="mb-4 text-4xl hover:underline transition-all duration-300">ERFOLGSGESCHICHTE</h2>
+        </Link>
+
+        <Link href="/designtech" onClick={handleLinkClick}>
+          <h2 className="mb-4 text-4xl hover:underline transition-all duration-300">DESIGN TECH</h2>
         </Link>
 
         <Link href="/designtosuccess" onClick={handleLinkClick}>
-          <h2 className="mb-4 hover:underline transition-all duration-300">DESIGN TO SUCCESS</h2>
+          <h2 className="mb-4 text-4xl hover:underline transition-all duration-300">DESIGN TO SUCCESS</h2>
         </Link>
 
-        <div className="flex justify-center ">
+        <Link href="/karriere" onClick={handleLinkClick}>
+          <h2 className="mb-4 text-4xl hover:underline transition-all duration-300">KARRIERE</h2>
+        </Link>
+
+
+
+         {/* Buttons nebeneinander (auch auf mobil) */}
+         <div className="flex flex-row justify-center gap-2 mb-8 pt-4 pb-4">
           <a
             href="mailto:info@designtech.eu?subject=Anfrage%20für%20ein%20Videocall&body=Sehr%20geehrte%20Frau%20Mayer,%0A%0A"
-            className="text-black text-2xl px-[2vw] py-1 rounded-full border-2 border-black bg-transparent hover:bg-black hover:text-white transition-all duration-300"
+            className="text-black md:text-xl px-3 sm:px-4 md:px-6 py-2 rounded-full border border-black bg-transparent hover:bg-black hover:text-white transition-all duration-300 whitespace-nowrap"
+            style={{ border: "1.5px solid black" }}
           >
             VIDEOCALL
           </a>
-        </div>
-
-        <div className="flex justify-center ">
+          
           <a
             href="tel:+49707391890"
-            className="text-black text-2xl px-[2vw] py-1 rounded-full border-2 border-black bg-transparent hover:bg-black hover:text-white transition-all duration-300"
+            className="text-black  md:text-xl px-3 sm:px-4 md:px-6 py-2 rounded-full border border-black bg-transparent hover:bg-black hover:text-white transition-all duration-300 whitespace-nowrap"
+            style={{ border: "1.5px solid black" }}
           >
             +49 7073 91 89 0
           </a>
         </div>
 
-        <div className="space-y-4">
+        <div className="space-y-3">
           {/* Links zu externen Seiten */}
-          <p className="text-black cursor-pointer text-2xl hover:underline transition-all duration-300">
+          <p className="text-black cursor-pointer text-lg opacity-70 hover:opacity-100 hover:underline transition-all duration-300">
             <a
               href="https://www.ammerbucher-design-talk.de/"
               target="_blank"
@@ -110,7 +125,7 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
               Ammerbucher Design Talk
             </a>
           </p>
-          <p className="text-black cursor-pointer text-2xl hover:underline transition-all duration-300">
+          <p className="text-black cursor-pointer text-lg opacity-70 hover:opacity-100 hover:underline transition-all duration-300">
             <a
               href="http://werkzeugderzukunft.de"
               target="_blank"
@@ -119,7 +134,7 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
               Werkzeug der Zukunft
             </a>
           </p>
-          <p className="text-black cursor-pointer text-2xl hover:underline transition-all duration-300">
+          <p className="text-black cursor-pointer text-lg opacity-70 hover:opacity-100 hover:underline transition-all duration-300">
             <a
               href="http://maschine2020.com/de_DE/"
               target="_blank"
@@ -142,8 +157,8 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
             <Image
               src="/icon/icon-linkedin-black.svg"
               alt="LinkedIn"
-              width={28}
-              height={28}
+              width={24}
+              height={24}
               className="transition-opacity hover:opacity-75"
             />
           </Link>
@@ -159,8 +174,8 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
             <Image
               src="/icon/icon-kununu-black.svg" // Sicherstellen, dass du auch das Xing-Icon dort gespeichert hast
               alt="Kununu"
-              width={28}
-              height={28}
+              width={24}
+              height={24}
               className="transition-opacity hover:opacity-75"
             />
           </Link>
