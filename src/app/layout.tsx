@@ -1,10 +1,10 @@
+// src/app/layout.tsx (Server Component)
 import type { Metadata } from "next";
-import { Header } from "@/components/Header";
-
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Analytics } from "@vercel/analytics/react"
 import { HeaderProvider } from "@/contexts/HeaderContext";
-
+import { Header } from "@/components/Header";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react";
+import LoadingProvider from "../components/LoadingProvider";
 import Script from 'next/script';
 
 import "./globals.css";
@@ -27,7 +27,6 @@ export const metadata: Metadata = {
     locale: "de_DE",
     type: "website",
   },
-
   icons: {
     icon: "/favicon.png",
   },
@@ -78,8 +77,10 @@ export default function RootLayout({
         </noscript>
 
         <HeaderProvider>
-          <Header />
-          {children}
+          <LoadingProvider>
+            <Header />
+            {children}
+          </LoadingProvider>
           <SpeedInsights />
           <Analytics />
         </HeaderProvider>

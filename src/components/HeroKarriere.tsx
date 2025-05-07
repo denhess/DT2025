@@ -113,7 +113,7 @@ export function HeroKarriere() {
         playsInline 
         className={`absolute inset-0 w-full h-full object-cover ${videoLoaded ? 'opacity-100' : 'opacity-0'}`}
         poster="/KarriereVideo-thumbnail.png"
-        preload="auto"
+        preload="metadata"
         onCanPlay={() => setVideoLoaded(true)}
       >
         <source src="/KarriereVideo.mp4" type="video/mp4" />

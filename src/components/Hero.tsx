@@ -36,6 +36,7 @@ export function Hero() {
               }, { once: true });
             });
         }
+        
       }
     };
     
@@ -123,7 +124,7 @@ export function Hero() {
         playsInline
         className={`absolute inset-0 w-full h-full object-cover ${videoLoaded ? 'opacity-100' : 'opacity-0'}`}
         poster="/HeaderVideo-thumbnail.png"
-        preload="auto"
+        preload="metadata"
         onCanPlay={() => setVideoLoaded(true)}
       >
         <source src="/HeaderVideo.mp4" media="(min-width: 768px)" type="video/mp4" />

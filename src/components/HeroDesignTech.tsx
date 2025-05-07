@@ -113,7 +113,7 @@ export function HeroDesignTech() {
         playsInline 
         className={`absolute inset-0 w-full h-full object-cover ${videoLoaded ? 'opacity-100' : 'opacity-0'}`}
         poster="/DesignTechVideo-thumbnail.png"
-        preload="auto"
+        preload="metadata"
         onCanPlay={() => setVideoLoaded(true)}
       >
         <source src="/DesignTechVideo.mp4" type="video/mp4" />

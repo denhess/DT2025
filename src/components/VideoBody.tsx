@@ -81,7 +81,7 @@ export function VideoBody() {
         playsInline
         className={`absolute inset-0 w-full h-full object-cover ${videoLoaded ? 'opacity-100' : 'opacity-0'}`}
         poster="/BodyVideo-thumbnail.png"
-        preload="auto"
+        preload="metadata"
         onCanPlay={() => setVideoLoaded(true)}
       >
         {/* Video for larger screens */}
