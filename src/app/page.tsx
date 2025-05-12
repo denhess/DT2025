@@ -8,6 +8,7 @@ import { Footer } from "@/components/Footer";
 import { VideoBody } from "@/components/VideoBody";
 import { MomentSlider } from "@/components/MomentSlider";
 import Script from 'next/script';
+import { Ready } from "@/components/Ready";
 
 
 
@@ -47,6 +48,7 @@ export default function Home() {
       <About />
       <ProjectSlider />
       <VideoBody />
+      <Ready />
       <Contact />
       <MomentSlider />
       <Footer />

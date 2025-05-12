@@ -35,7 +35,7 @@ export function YellowBackground() {
         ref={gradientRef}
         className="absolute inset-0 z-0"
         style={{
-          background: 'radial-gradient(circle at center, #FFFF00 0%, #ffffff 100%)',
+          background: 'radial-gradient(circle at center, #ffd000 0%, #ffffff 100%)',
           backgroundSize: '100% 100%',
           backgroundPosition: 'center'
         }}

@@ -38,15 +38,6 @@ export function Contact() {
     >
       <YellowBackground />
 
-      {/* Titel mit dynamischem Padding für verschiedene Bildschirmgrößen */}
-      <div className="absolute inset-0 flex flex-col justify-start mt-20">
-        <p className="text-3xl mb-4 w-full px-8 md:px-16 lg:px-24">
-          Sind <span className="underline">Sie</span> bereit für
-        </p>
-        <h1 className="font-thin uppercase text-black z-10 text-[7vw] md:text-[7vw] xl:text-[8vw] leading-[0.9] w-full px-8 md:px-16 lg:px-24 whitespace-nowrap">
-          DAS NÄCHSTE LEVEL?
-        </h1>
-      </div>
 
       {/* Haupttext mittig */}
       <div className="absolute inset-0 flex justify-center items-center">
