@@ -1,6 +1,6 @@
 "use client";
 
-import { YellowBackground } from "./BG/YellowBackground";
+import { YellowBackgroundTop } from "./BG/YellowBackgroundTop";
 import { useEffect, useRef, useState } from "react";
 
 const industries = {
@@ -382,15 +382,15 @@ export function Industries() {
   };
 
   return (
-    <section 
+<section 
     ref={containerRef} 
     data-background="light" className="relative min-h-screen w-full">
-      <YellowBackground />
-      <div className="absolute inset-0 overflow-hidden">
+      <YellowBackgroundTop/>
+      <div className="absolute inset-0 overflow-hidden flex items-center justify-center">
         {/* <h2 className="text-gray-900 text-[5vw] z-10 md:text-[9vw] xl:text-[9vw] leading-[0.9] tracking-[-0.02em] px-4 md:px-8 lg:px-16 pt-4 md:pt-8">
           Branchen
         </h2> */}
-        <div className="w-full px-2 md:px-8 lg:px-16 mt-4 md:mt-8 pb-20">
+        <div className="w-full px-2 md:px-8 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {Object.entries(industries).map(([industry, items], index) => (
               <div key={index}>
@@ -406,7 +406,7 @@ export function Industries() {
                   <span className="font-thind">{industry}</span>
                 </button>
                 {!isMobile && openIndex === index && (
-                  <div className="px-8 md:px-16 py-2 md:py-4">
+                  <div className="px-8 md:px-8 py-2 md:py-4">
                     <div className="space-y-1 md:space-y-3">
                       {items.map((item, i) => (
                         <div key={i} className="text-black text-base md:text-xl lg:text-2xl">

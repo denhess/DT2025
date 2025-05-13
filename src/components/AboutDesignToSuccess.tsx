@@ -39,16 +39,16 @@ export function AboutDesignToSuccess() {
     >
      <YellowBackground/>
       <div className="absolute inset-0 flex items-center">
-        <div className="w-full px-8 md:px-16 lg:px-24">
+        <div className="w-full max-w-8xl px-8 md:px-8 lg:px-8">
           <h2 
             ref={textRef}
-            className="leading-tight tracking-[-0.02em]"
+            className="leading-tight tracking-[-0.02em] max-w-prose mx-auto"
           >
             „NUR EINE EINZIGARTIGE FORM SICHERT DEN MAXIMALEN ERFOLG.”
             </h2>  
             <h3 
             ref={textRef}
-            className="mt-20 leading-tight tracking-[-0.02em]"
+            className="mt-20 leading-tight tracking-[-0.02em] max-w-prose mx-auto"
           >
             
             Die Design to success®-Strategie ist eine tragende Säule unseres Erfolgs. 

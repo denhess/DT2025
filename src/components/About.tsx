@@ -33,17 +33,17 @@ export function About() {
 
   return (
     <section
-    data-background="light" 
+      data-background="light" 
       ref={sectionRef}
       className="relative min-h-screen w-full"
     >
       
       <YellowBackground />
-      <div className="absolute inset-0 flex items-center">
-        <div className="w-full px-8 md:px-16 lg:px-24">
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className="w-full max-w-8xl px-8 md:px-8 lg:px-8">
           <h2 
             ref={textRef}
-            className="leading-tight tracking-[-0.02em]"
+            className="leading-tight tracking-[-0.02em] max-w-prose mx-auto"
           >
             Bei <strong>Design Tech</strong> entwickeln wir praxisorientierte, maßgeschneiderte Lösungen, die präzise auf die individuellen Bedürfnisse und strategischen Ziele Ihres Unternehmens sowie die Anforderungen Ihres Marktes abgestimmt sind. Mit unserer jahrzehntelangen Expertise im Maschinendesign und tiefem Branchenwissen unterstützen wir Sie dabei, Ihre Marktführerschaft nachhaltig zu sichern und weiter auszubauen.
           </h2>

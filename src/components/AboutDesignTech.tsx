@@ -5,7 +5,7 @@ import { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-import { YellowBackground } from './BG/YellowBackground';
+import { YellowBackgroundTop } from './BG/YellowBackgroundTop';
 
 
 gsap.registerPlugin(ScrollTrigger);
@@ -37,12 +37,12 @@ export function AboutDesignTech() {
       className="relative min-h-screen w-full"
        data-background="light"
     >
-     <YellowBackground/>
+     <YellowBackgroundTop/>
       <div className="absolute inset-0 flex items-center">
-        <div className="w-full px-8 md:px-16 lg:px-24">
+        <div className="w-full max-w-8xl px-8 md:px-8 lg:px-8">
           <h2 
             ref={textRef}
-            className="leading-tight tracking-[-0.02em]"
+            className="leading-tight tracking-[-0.02em] max-w-prose mx-auto"
           >
             Bei Design Tech entwickeln wir verkaufsstarke Produkte, 
             die wirtschaftlich überzeugen und technisch machbar sind. 

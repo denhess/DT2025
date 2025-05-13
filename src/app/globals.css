@@ -197,7 +197,38 @@ p {
   color: white;
 }
 
-/* Icon Styles */
+/* Button Styles white */
+
+.btn-gradient-trans {
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 50px;
+  border: 1.5px solid white;
+  padding: 0.5rem 1.5rem;
+  color: white;
+  transition: 0.3s;
+  background: radial-gradient(farthest-side, transparent calc(100% - 150px), white 0) center / var(--d, 600px) var(--d, 600px) no-repeat;
+}
+
+.btn-gradient-trans:hover {
+  --d: 300px;
+  color: black;
+}
+
+/* Button Styles groß */
+
+.btn-gradient-big {
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 50px;
+  border: 1.5px solid black;
+  padding: 0.5rem 1.5rem;
+  color: black;
+  transition: 0.3s;
+  background: radial-gradient(farthest-side, transparent calc(100% - 150px), black 0) center / var(--d, 600px) var(--d, 600px) no-repeat;
+}
+
+/* Icon Styles - schwarz*/
 
 .icon-btn-gradient {
   display: inline-flex;
@@ -221,6 +252,32 @@ p {
 .icon-btn-gradient:hover img,
 .icon-btn-gradient:hover svg {
   filter: brightness(0) invert(1);
+}
+
+/* Icon Styles - weiß */
+
+.icon-btn-gradient-white {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 1.5px solid white;
+  width: 2.5rem;
+  height: 2.5rem;
+  color: white;
+  transition: 0.25s;
+  background: radial-gradient(farthest-side, transparent calc(100% - 150px), white 0) center / var(--d, 600px) var(--d, 600px) no-repeat;
+}
+
+.icon-btn-gradient-white:hover {
+  --d: 300px;
+  color: black;
+}
+
+.icon-btn-gradient-white:hover img,
+.icon-btn-gradient-white:hover svg {
+  filter: brightness(1) invert(0);
 }
 
 /*Burger Menu Styles */

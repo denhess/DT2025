@@ -39,10 +39,10 @@ export function ClosingKarriere() {
 >
   <YellowBackground />
   <div className="absolute inset-0 flex items-center">
-    <div className="w-full px-8 md:px-16 lg:px-24">
+    <div className="w-full max-w-8xl px-8 md:px-8 lg:px-8">
       <h2 
         ref={textRef}
-        className="leading-tight tracking-[-0.02em]"
+        className="leading-tight tracking-[-0.02em] max-w-prose mx-auto"
       >
         Die besten Ergebnisse erzielen unsere Kunden, weil wir Lösungen individuell auf Ihr 
         gesamtes Erfolgs-System abstimmen – von internen Prozessen über die Marke bis hin zu 

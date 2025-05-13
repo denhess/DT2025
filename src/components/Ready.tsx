@@ -39,12 +39,12 @@ export function Ready() {
       <YellowBackground />
 
       <div className="absolute inset-0 flex items-center">
-        <div className="w-full px-8 md:px-16 lg:px-24">
+        <div className="w-full px-8 md:px-8 lg:px-8">
           <h1 
             ref={textRef}
             className="uppercase leading-[0.9] tracking-[-0.02em]"
           >
-            Sind <b>Sie</b> bereit für das nächste Level?
+            Sind Sie bereit für das nächste Level?
           </h1>
         </div>
       </div>

@@ -141,7 +141,7 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
           width: '140%',
           height: '140%',
           borderRadius: '50%',
-          background: 'radial-gradient(circle at 70% 70%, #ffdd30 20%, #ffd000 50%, rgba(255,255,255,0.8) 90%, rgba(255,255,255,0) 100%)',
+          background: 'radial-gradient(circle at 70% 70%, #ffdd30 20%, #ffd000 50%, rgba(239,239,239,0.8) 90%, rgba(255,255,255,0) 100%)',
           bottom: '-60%',
           right: '-40%',
           filter: 'blur(300px)',

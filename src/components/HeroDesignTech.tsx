@@ -121,7 +121,7 @@ export function HeroDesignTech() {
       <div id="background-check" className="h-screen w-full bg-gray-900" />
       <div
         ref={textRef}
-        className="absolute bottom-10 sm:bottom-20 flex flex-col px-8 md:px-16 lg:px-24"
+        className="absolute bottom-10 sm:bottom-20 flex flex-col px-8 md:px-8 lg:px-8"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >

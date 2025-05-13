@@ -1,18 +1,20 @@
 "use client";
 
-import { useRef } from 'react';
-import Link from 'next/link'; // Importiere Link von Next.js
+import { useRef, useEffect } from 'react';
+import Link from 'next/link';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-import { YellowBackground } from './BG/YellowBackground';
+
 
 gsap.registerPlugin(ScrollTrigger);
 
 export function Job() {
   const sectionRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
+  const linkRefs = useRef<(HTMLHeadingElement | null)[]>([]);
 
+  // GSAP Animation beim Scrollen
   useGSAP(() => {
     if (!contentRef.current || !sectionRef.current) return;
 
@@ -31,22 +33,84 @@ export function Job() {
     });
   }, []);
 
+  // Hover-Animation für die Links, ähnlich dem MenuOverlay
+  useEffect(() => {
+    // Nur auf dem Client ausführen
+    if (typeof window === 'undefined') return;
+
+    // Für jeden Link-Ref
+    linkRefs.current.forEach((link) => {
+      if (!link) return;
+
+      // Linie unter dem Text erstellen
+      const line = document.createElement('div');
+      line.className = 'nav-line';
+      Object.assign(line.style, {
+        position: 'absolute',
+        bottom: '0',
+        left: '0',
+        width: '0',
+        height: '2px',
+        backgroundColor: 'black',
+        transformOrigin: 'left center',
+        transition: 'none',
+        zIndex: '1'
+      });
+      
+      link.style.position = 'relative';
+      link.style.paddingBottom = '2px';
+      link.style.display = 'inline-block';
+      link.appendChild(line);
+
+      // Animation beim Hover
+      link.addEventListener('mouseenter', () => {
+        gsap.killTweensOf(line);
+        gsap.to(line, {
+          width: '100%',
+          duration: 0.3,
+          ease: 'power2.out'
+        });
+      });
+
+      link.addEventListener('mouseleave', () => {
+        gsap.killTweensOf(line);
+        gsap.to(line, {
+          width: '0%',
+          duration: 0.3,
+          ease: 'power2.in'
+        });
+      });
+    });
+
+    // Cleanup beim Unmounting
+    return () => {
+      linkRefs.current.forEach((link) => {
+        if (!link) return;
+        const line = link.querySelector('.nav-line');
+        if (line) line.remove();
+      });
+    };
+  }, []);
+
   return (
     <section
       ref={sectionRef}
       className="relative min-h-screen w-full text-black"
       data-background="light"
     >
-      <YellowBackground />
+      
 
       {/* Positionierung der Jobbeschreibungen */}
       <div
         ref={contentRef}
-        className="absolute top-1/2 left-0 p-8 pl-8 md:pl-16 lg:pl-24 transform -translate-y-1/2 flex flex-col items-start"
+        className="absolute top-1/2 left-0 p-8 pl-8 md:pl-8 lg:pl-8 transform -translate-y-1/2 flex flex-col items-start"
       >
         {/* Senior Industrial Designer */}
         <Link href="/karriere/senior-industrial-designer" passHref>
-          <h2 className="leading-tight tracking-[-0.02em] mb-12 hover:underline">
+          <h2 
+            ref={(el) => { linkRefs.current[0] = el; }}
+            className="leading-tight tracking-[-0.02em] mb-12 cursor-pointer relative py-2 inline-block"
+          >
             SENIOR INDUSTRIAL DESIGNER (W/M/D)
           </h2>
         </Link>
@@ -56,7 +120,10 @@ export function Job() {
 
         {/* Junior Industrial Designer */}
         <Link href="/karriere/junior-industrial-designer" passHref>
-          <h2 className="leading-tight tracking-[-0.02em] mb-12 hover:underline">
+          <h2 
+            ref={(el) => { linkRefs.current[1] = el; }}
+            className="leading-tight tracking-[-0.02em] mb-12 cursor-pointer relative py-2 inline-block"
+          >
             JUNIOR INDUSTRIAL DESIGNER (W/M/D)
           </h2>
         </Link>
@@ -66,7 +133,10 @@ export function Job() {
 
         {/* Internship Industrial Designer */}
         <Link href="/karriere/industrial-design-internship" passHref>
-          <h2 className="leading-tight tracking-[-0.02em] mb-12 hover:underline">
+          <h2 
+            ref={(el) => { linkRefs.current[2] = el; }}
+            className="leading-tight tracking-[-0.02em] mb-12 cursor-pointer relative py-2 inline-block"
+          >
             INDUSTRIAL DESIGN INTERNSHIP (W/M/D)
           </h2>
         </Link>

@@ -2,11 +2,11 @@
 
 
 import React from 'react';
-
+import { YellowBackgroundTop } from '@/components/BG/YellowBackgroundTop';
 import { Footer } from "@/components/Footer";
 import { Job } from '@/components/Job';
 import { ContactJob } from '@/components/ContactJob';
-import { YellowBackground } from '@/components/BG/YellowBackground';
+
 
 export default function JuniorIndustrialDesignerPage() {
   return (
@@ -14,9 +14,9 @@ export default function JuniorIndustrialDesignerPage() {
               <section className="relative min-h-screen w-full"
               data-background="light"
               >
-                      <YellowBackground />
+                      <YellowBackgroundTop/>
                       <div className="absolute inset-0 flex items-center">
-                        <div className="w-full px-8 md:px-16 lg:px-24">
+                        <div className="w-full px-8 md:px-8 lg:px-8">
                           <p className="text-gray-900 text-[5vw] md:text-[4vw] xl:text-[3vw] leading-tight tracking-[-0.02em]">
                             JUNIOR INDUSTRIAL DESIGNER
                           </p>

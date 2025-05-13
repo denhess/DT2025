@@ -7,7 +7,7 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export function YellowBackground() {
+export function YellowBackgroundTop() {
   const sectionRef = useRef<HTMLElement>(null);
   const circleRef = useRef<HTMLDivElement>(null);
   const [isClient, setIsClient] = useState(false);
@@ -82,7 +82,7 @@ export function YellowBackground() {
           height: '180%',
           borderRadius: '120%',
           background: 'radial-gradient(circle at 70% 70%, #ffdd30 20%, #ffd000 50%, rgba(239,239,239,0.8) 90%, rgba(255,255,255,0) 100%)',
-          bottom: '-80%',
+          bottom: '60%',
           right: '-20%',
           filter: 'blur(300px)',
           opacity: 0.85,
