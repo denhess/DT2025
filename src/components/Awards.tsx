@@ -1,10 +1,9 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useCallback } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import { YellowBackground } from "./BG/YellowBackground";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -69,8 +68,8 @@ export function Awards() {
     return confetti;
   };
   
-  // Funktion zum Starten des Konfetti-Regens
-  const startConfettiRain = () => {
+  // Mit useCallback die Funktion memorisieren
+  const startConfettiRain = useCallback(() => {
     // Lösche vorhandene Konfetti-Elemente
     document.querySelectorAll('.awards-confetti').forEach(el => el.remove());
     
@@ -93,7 +92,7 @@ export function Awards() {
     
     // Speichere die Intervall-ID zum Aufräumen
     return intervalId;
-  };
+  }, [isHovering]); // isHovering als Abhängigkeit für useCallback
   
   // Effekt zum Starten/Stoppen des Konfetti-Regens
   useEffect(() => {
@@ -106,7 +105,7 @@ export function Awards() {
     return () => {
       if (intervalId) clearInterval(intervalId);
     };
-  }, [isHovering]);
+  }, [isHovering, startConfettiRain]);
   
   // Textfarbe ändern beim Hover
   const handleMouseEnter = () => {

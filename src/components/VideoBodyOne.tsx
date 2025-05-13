@@ -8,6 +8,7 @@ export function VideoBodyOne() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [scrollY, setScrollY] = useState(0);
+  const [debugInfo, setDebugInfo] = useState('');
 
   // Video laden und abspielen
   useEffect(() => {
@@ -65,8 +66,12 @@ export function VideoBodyOne() {
     const handleScroll = () => {
       if (!containerRef.current || !videoRef.current) return;
       
-      // Aktuelle Scroll-Position speichern
-      setScrollY(window.scrollY);
+      // Aktuelle Scroll-Position speichern und für Debug-Zwecke verwenden
+      const currentScrollY = window.scrollY;
+      setScrollY(currentScrollY);
+      
+      // Debug-Informationen aktualisieren
+      setDebugInfo(`Scroll: ${currentScrollY}`);
 
       // Animation canceln, wenn bereits eine läuft
       if (animationFrame) {
@@ -129,6 +134,14 @@ export function VideoBodyOne() {
         minHeight: '100vh' // Mindesthöhe für kleine Bildschirme
       }}
     >
+      {/* Debug-Element, das scrollY verwendet - nur im Development sichtbar */}
+      {process.env.NODE_ENV === 'development' && (
+        <div className="fixed top-0 right-0 bg-black bg-opacity-50 text-white p-2 z-50 text-xs">
+          ScrollY: {scrollY}px<br/>
+          {debugInfo}
+        </div>
+      )}
+
       <div 
         className="absolute inset-0 overflow-hidden" 
         style={{

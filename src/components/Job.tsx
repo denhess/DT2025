@@ -6,7 +6,6 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
-
 gsap.registerPlugin(ScrollTrigger);
 
 export function Job() {
@@ -38,8 +37,12 @@ export function Job() {
     // Nur auf dem Client ausführen
     if (typeof window === 'undefined') return;
 
+    // Ref-Werte innerhalb des Effects kopieren, um Cleanup-Probleme zu vermeiden
+    const currentLinkRefs = linkRefs.current.slice();
+    const lineElements: HTMLDivElement[] = [];
+
     // Für jeden Link-Ref
-    linkRefs.current.forEach((link) => {
+    currentLinkRefs.forEach((link) => {
       if (!link) return;
 
       // Linie unter dem Text erstellen
@@ -56,6 +59,8 @@ export function Job() {
         transition: 'none',
         zIndex: '1'
       });
+      
+      lineElements.push(line);
       
       link.style.position = 'relative';
       link.style.paddingBottom = '2px';
@@ -84,10 +89,10 @@ export function Job() {
 
     // Cleanup beim Unmounting
     return () => {
-      linkRefs.current.forEach((link) => {
-        if (!link) return;
-        const line = link.querySelector('.nav-line');
-        if (line) line.remove();
+      lineElements.forEach((line) => {
+        if (line && line.parentElement) {
+          line.remove();
+        }
       });
     };
   }, []);
@@ -98,8 +103,6 @@ export function Job() {
       className="relative min-h-screen w-full text-black"
       data-background="light"
     >
-      
-
       {/* Positionierung der Jobbeschreibungen */}
       <div
         ref={contentRef}

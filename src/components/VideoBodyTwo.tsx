@@ -8,6 +8,7 @@ export function VideoBodyTwo() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [scrollY, setScrollY] = useState(0);
+  const [debugInfo, setDebugInfo] = useState('');
 
   // Video laden und abspielen
   useEffect(() => {
@@ -65,8 +66,12 @@ export function VideoBodyTwo() {
     const handleScroll = () => {
       if (!containerRef.current || !videoRef.current) return;
       
-      // Aktuelle Scroll-Position speichern
-      setScrollY(window.scrollY);
+      // Aktuelle Scroll-Position speichern und für Debug-Zwecke verwenden
+      const currentScrollY = window.scrollY;
+      setScrollY(currentScrollY);
+      
+      // Debug-Informationen aktualisieren
+      setDebugInfo(`Scroll: ${currentScrollY}`);
 
       // Animation canceln, wenn bereits eine läuft
       if (animationFrame) {
@@ -129,6 +134,14 @@ export function VideoBodyTwo() {
         minHeight: '100vh' // Mindesthöhe für kleine Bildschirme
       }}
     >
+      {/* Debug-Element, das scrollY verwendet - nur im Development sichtbar */}
+      {process.env.NODE_ENV === 'development' && (
+        <div className="fixed top-0 right-0 bg-black bg-opacity-50 text-white p-2 z-50 text-xs">
+          ScrollY: {scrollY}px<br/>
+          {debugInfo}
+        </div>
+      )}
+
       <div 
         className="absolute inset-0 overflow-hidden" 
         style={{
@@ -164,36 +177,35 @@ export function VideoBodyTwo() {
       </div>
 
       {/* Untere Navigationsleiste mit Buttons und Logo */}
-            <div className="absolute bottom-0 left-0 right-0 w-full px-8 py-6 flex justify-between items-center z-10">
-              {/* Buttons links unten */}
-              <div className="flex space-x-4">
-                <a
-                  href="#"
-                  className="btn-gradient-trans whitespace-nowrap"
-                >
-                  ANLAGENDESIGN
-                </a>
-                
-                <a
-                  href="#"
-                  className="btn-gradient-trans whitespace-nowrap"
-                >
-                  DOPPELBANDPRESSE
-                </a>
-              </div>
-              
-              {/* Logo rechts unten */}
-              <div className="flex items-center">
-                <Image
-                  src="/logo.svg"
-                  alt="Logo"
-                  width={120}
-                  height={40}
-                  className="h-10 w-auto object-contain"
-                />
-              </div>
-            </div>
-
+      <div className="absolute bottom-0 left-0 right-0 w-full px-8 py-6 flex justify-between items-center z-10">
+        {/* Buttons links unten */}
+        <div className="flex space-x-4">
+          <a
+            href="#"
+            className="btn-gradient-trans whitespace-nowrap"
+          >
+            MASCHINENDESIGN
+          </a>
+          
+          <a
+            href="#"
+            className="btn-gradient-trans whitespace-nowrap"
+          >
+            Plattform 3
+          </a>
+        </div>
+        
+        {/* Logo rechts unten */}
+        <div className="flex items-center">
+          <Image
+            src="/logo.svg"
+            alt="Logo"
+            width={120}
+            height={40}
+            className="h-10 w-auto object-contain"
+          />
+        </div>
+      </div>
     </section>
   );
 }

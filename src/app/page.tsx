@@ -10,7 +10,6 @@ import { MomentSlider } from "@/components/MomentSlider";
 import Script from 'next/script';
 import { Ready } from "@/components/Ready";
 import { VideoBodyTwo } from "@/components/VideoBodyTwo";
-import { Video } from "lucide-react";
 import { VideoBodyThree } from "@/components/VideoBodyThree";
 import { VideoBodyFour } from "@/components/VideoBodyFour";
 import { VideoBodyFive } from "@/components/VideoBodyFive";
@@ -51,7 +50,6 @@ export default function Home() {
 
       <Hero />
       <About />
-      
       <VideoBodyOne />
       <VideoBodyTwo />
       <VideoBodyThree />
