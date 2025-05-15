@@ -164,9 +164,9 @@ export function VideoBodyOne() {
           }}
         >
           {/* Video for larger screens */}
-          <source src="/BodyVideo-TCB.mp4" media="(min-width: 768px)" type="video/mp4" />
+          <source src="/BodyVideo-vhf.mp4" media="(min-width: 768px)" type="video/mp4" />
           {/* Video for smaller screens */}
-          <source src="/BodyVideo-TCB.mp4" media="(max-width: 767px)" type="video/mp4" />
+          <source src="/BodyVideo-vhf.mp4" media="(max-width: 767px)" type="video/mp4" />
         </video>
       </div>
 
@@ -175,18 +175,18 @@ export function VideoBodyOne() {
         {/* Buttons links unten - vertikal auf Mobilgeräten */}
         <div className="flex flex-col sm:flex-row sm:space-x-4 space-y-2 sm:space-y-0 mb-4 sm:mb-0">
           <a className="btn-gradient-white-noanimation whitespace-nowrap inline-flex self-start sm:self-auto">
-            MASCHINENDESIGN / UX DESIGN
+            MASCHINENDESIGN
           </a>
 
           <a className="btn-gradient-white-noanimation whitespace-nowrap inline-flex self-start sm:self-auto">
-            AUXO V bioreactor
+            CNC-Fräsmaschinen
           </a>
         </div>
         
         {/* Logo - auf allen Geräten links */}
         <div className="flex items-center self-start sm:self-auto">
           <Image
-            src="logos/logo-cultivated-b-white.svg"
+            src="logos/logo-vhf-white.svg"
             alt="Logo"
             width={120}
             height={40}

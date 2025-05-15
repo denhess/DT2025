@@ -179,7 +179,7 @@ export function VideoBodySix() {
           </a>
 
           <a className="btn-gradient-white-noanimation whitespace-nowrap inline-flex self-start sm:self-auto">
-            AUXO V bioreactor
+            Bioreactor Control Unit
           </a>
         </div>
         

@@ -1,6 +1,7 @@
 import { ProjectData } from "@/models/project-model";
 
 export const Projects: ProjectData[] = [
+
     {
         img: "projects/slide-arburg-gestica.webp",
         imgMobile: "projects/slide-arburg-gestica-mobile.webp",
