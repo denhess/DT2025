@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
 import { Projects } from "@/data/projects/project-data";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
@@ -34,26 +35,61 @@ export function ProjectSlider() {
   }, []);
 
   const animateSlideContent = (index: number) => {
+    // Bildanimation
     gsap.to(`#slide-image-${index}`, { scale: 1.1, duration: 10, ease: "none" });
-    const timeline = gsap.timeline();
-    timeline.to(
-      [`#slide-title-${index}`, `#slide-description-${index}`, `#slide-logo-${index}`],
-      { opacity: 1, y: 0, duration: 0.6, stagger: 0.1, ease: "power3.out" }
-    );
+    
+    // Finde die zu animierenden Elemente durch direkten Zugriff
+    const titleElement = document.getElementById(`slide-title-${index}`);
+    const descElement = document.getElementById(`slide-description-${index}`);
+    const logoElement = document.getElementById(`slide-logo-${index}`);
+    
+    // Nur animieren, wenn die Elemente existieren
+    const elements = [titleElement, descElement, logoElement].filter(Boolean);
+    
+    if (elements.length > 0) {
+      const timeline = gsap.timeline();
+      timeline.to(
+        elements,
+        { opacity: 1, y: 0, duration: 0.6, stagger: 0.1, ease: "power3.out" }
+      );
+    }
   };
 
-  const handleSlideStart = () => {
-    gsap.to([".slide-content"], { opacity: 0, y: 20, duration: 0.5, ease: "power2.in" });
+  const handleSlideStart = (swiper: SwiperInstance) => {
+    // Aktueller Slide-Index
+    const currentIndex = swiper.activeIndex;
+    
+    // Finde die zu animierenden Elemente
+    const titleElement = document.getElementById(`slide-title-${currentIndex}`);
+    const descElement = document.getElementById(`slide-description-${currentIndex}`);
+    const logoElement = document.getElementById(`slide-logo-${currentIndex}`);
+    
+    // Nur animieren, wenn die Elemente existieren
+    const elements = [titleElement, descElement, logoElement].filter(Boolean);
+    
+    if (elements.length > 0) {
+      gsap.to(elements, { opacity: 0, y: 20, duration: 0.5, ease: "power2.in" });
+    }
   };
 
   const handleSlideEnd = (swiper: SwiperInstance) => {
+    // Zurücksetzen der Bildgrößen für alle Slides
     Projects.forEach((_, index) => {
       gsap.set(`#slide-image-${index}`, { scale: 1 });
     });
-    gsap.set(
-      [`#slide-title-${swiper.activeIndex}`, `#slide-description-${swiper.activeIndex}`, `#slide-logo-${swiper.activeIndex}`],
-      { opacity: 0, y: 30 }
-    );
+    
+    // Setze Startwerte für die Elemente des neuen aktiven Slides
+    const titleElement = document.getElementById(`slide-title-${swiper.activeIndex}`);
+    const descElement = document.getElementById(`slide-description-${swiper.activeIndex}`);
+    const logoElement = document.getElementById(`slide-logo-${swiper.activeIndex}`);
+    
+    const elements = [titleElement, descElement, logoElement].filter(Boolean);
+    
+    if (elements.length > 0) {
+      gsap.set(elements, { opacity: 0, y: 30 });
+    }
+    
+    // Starte Animation für den neuen aktiven Slide
     animateSlideContent(swiper.activeIndex);
   };
 
@@ -68,9 +104,12 @@ export function ProjectSlider() {
         pagination={{ clickable: true }}
         onSwiper={(swiper) => {
           swiperRef.current = swiper;
-          animateSlideContent(0);
+          // Initialisierung mit Verzögerung, um sicherzustellen, dass der DOM geladen ist
+          setTimeout(() => {
+            animateSlideContent(0);
+          }, 100);
         }}
-        onSlideChangeTransitionStart={handleSlideStart}
+        onSlideChangeTransitionStart={(swiper) => handleSlideStart(swiper)}
         onSlideChangeTransitionEnd={(swiper) => handleSlideEnd(swiper)}
         className="h-full"
       >
@@ -78,52 +117,72 @@ export function ProjectSlider() {
           <SwiperSlide key={index}>
             <div className="absolute inset-0 overflow-hidden">
               <div id={`slide-image-${index}`} className="relative w-full h-full">
-                <picture>
-                  <source srcSet={`/${project.imgMobile}`} media="(max-width: 767px)" />
-                  <img src={`/${project.img}`} alt="" className="w-full h-full object-cover" />
-                </picture>
+                {/* Desktop Bild mit Next.js Image Komponente */}
+                <div className="hidden md:block relative w-full h-full">
+                  <Image
+                    src={`/${project.img}`}
+                    alt={project.title || ""}
+                    fill
+                    priority={index === 0}
+                    style={{ objectFit: 'cover' }}
+                    sizes="100vw"
+                  />
+                </div>
+                
+                {/* Mobile Bild mit Next.js Image Komponente */}
+                <div className="block md:hidden relative w-full h-full">
+                  <Image
+                    src={`/${project.imgMobile}`}
+                    alt={project.title || ""}
+                    fill
+                    priority={index === 0}
+                    style={{ objectFit: 'cover' }}
+                    sizes="100vw"
+                  />
+                </div>
               </div>
             </div>
             <div className="relative h-full">
-              <div className="absolute inset-0 flex flex-col justify-between px-8 md:px-16 lg:px-24">
-              <div className="pb-5">
-                  {/* Logo links oben */}
+              <div className="absolute inset-0 flex flex-col justify-end px-8 md:px-16 lg:px-24">
+                {/* Text unten mit Logo über dem Titel */}
+                <div className="pb-10 md:pb-16">
+                  {/* Logo über dem Titel */}
                   {project.logo && (
-                    <div className="w-24 md:w-32 h-10 md:h-12 opacity-0">
-                      
-                    </div>
-                  )}
-                </div>
-                {/* Text links unten */}
-                <div className="pb-10">
-                <div className="pb-5">
-                  {/* Logo links oben */}
-                  {project.logo && (
-                    <div id={`slide-logo-${index}`} className="w-24 md:w-20 h-8 md:h-6 opacity-0">
-                      <img
+                    <div id={`slide-logo-${index}`} className="w-24 md:w-20 h-8 md:h-6 mb-4 opacity-0 relative">
+                      <Image
                         src={`/${project.logo}`}
                         alt={project.copyright || "Company logo"}
-                        className="object-contain"
-                        loading="lazy"
-                        style={{ filter: `invert(1) sepia(1) saturate(10000%) hue-rotate(${project.logoColor || '0deg'})` }}
+                        fill
+                        style={{ 
+                          objectFit: 'contain',
+                          filter: `invert(1) sepia(1) saturate(10000%) hue-rotate(${project.logoColor || '0deg'})` 
+                        }}
                       />
                     </div>
                   )}
-                </div>
+                
                   <h2
                     id={`slide-title-${index}`}
-                    className="font-extralight uppercase tracking-tighter opacity-0"
-                    style={{ color: project.textColor }} // Hier wird die textColor angewendet
+                    className="text-2xl md:text-3xl lg:text-4xl font-extralight uppercase tracking-tighter opacity-0"
+                    style={{ color: project.textColor }}
                   >
                     {project.title || project.titleEn}
                   </h2>
+                  
                   <p
                     id={`slide-description-${index}`}
-                    className="font-extralight uppercase tracking-tighter leading-tight opacity-0"
-                    style={{ color: project.textColor }} // Hier wird die textColor angewendet
+                    className="text-base md:text-lg lg:text-xl mt-2 md:mt-3 font-extralight uppercase tracking-tighter leading-tight opacity-0"
+                    style={{ color: project.textColor }}
                   >
                     {project.description || project.descriptionEn}
                   </p>
+                  
+                  {/* Copyright, falls vorhanden */}
+                  {project.copyright && (
+                    <p className="text-xs text-white/70 mt-2">
+                      © {project.copyright}
+                    </p>
+                  )}
                 </div>
               </div>
             </div>
