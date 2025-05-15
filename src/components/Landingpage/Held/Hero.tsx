@@ -173,7 +173,7 @@ export function Hero() {
       <div 
         ref={scrollArrowRef} 
         onClick={scrollToNextSection}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer z-10"
+        className="absolute bottom-40 sm:bottom-12 md:bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer z-10"
       >
         <div className="flex flex-col items-center text-white">
           <p className="mb-1 sm:mb-2 text-xs sm:text-sm">Mehr entdecken</p>
@@ -196,7 +196,7 @@ export function Hero() {
       
       <div
         ref={textRef}
-        className="absolute bottom-20 sm:bottom-20 flex flex-col px-8 md:px-16 lg:px-24"
+        className="absolute bottom-40 sm:bottom-20 flex flex-col px-8 md:px-16 lg:px-24"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
