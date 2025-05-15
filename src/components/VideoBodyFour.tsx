@@ -170,9 +170,9 @@ export function VideoBodyFour() {
           }}
         >
           {/* Video for larger screens */}
-          <source src="/BodyVideo.mp4" media="(min-width: 768px)" type="video/mp4" />
+          <source src="/BodyVideo-Held.mp4" media="(min-width: 768px)" type="video/mp4" />
           {/* Video for smaller screens */}
-          <source src="/BodyVideo-small.mp4" media="(max-width: 767px)" type="video/mp4" />
+          <source src="/BodyVideo-Held.mp4" media="(max-width: 767px)" type="video/mp4" />
         </video>
       </div>
 

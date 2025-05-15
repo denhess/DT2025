@@ -165,39 +165,39 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
       />
 
       <div 
-        className="flex flex-col justify-between w-full h-full"
+        className="flex flex-col justify-between w-full h-full overflow-auto"
         style={{ zIndex: 10, position: "relative" }}
       >
-        {/* Hauptnavigation in der Mitte, linksbündig */}
-        <div className="flex-grow flex items-center w-full">
+        {/* Hauptnavigation in der Mitte, linksbündig - mit angepasster Mobildarstellung */}
+        <div className="flex-grow flex items-center w-full py-12 md:py-0">
           <div ref={contentRef} className="text-left w-full max-w-5xl px-8 md:px-8 lg:px-8 z-10">
             <div className="flex flex-col">
               <Link href="/" onClick={handleLinkClick}>
-                <h2 className="mb-5 text-5xl relative py-2 z-10 inline-block nav-link">
+                <h2 className="mb-2 md:mb-5 text-2xl sm:text-3xl md:text-4xl lg:text-5xl relative py-1 md:py-2 z-10 inline-block nav-link">
                   STARTSEITE
                 </h2>
               </Link>
 
               <Link href="/#projects" onClick={handleLinkClick}>
-                <h2 className="mb-5 text-5xl relative py-2 z-10 inline-block nav-link">
+                <h2 className="mb-2 md:mb-5 text-2xl sm:text-3xl md:text-4xl lg:text-5xl relative py-1 md:py-2 z-10 inline-block nav-link">
                   PROJEKTE
                 </h2>
               </Link>
 
               <Link href="/designtech" onClick={handleLinkClick}>
-                <h2 className="mb-5 text-5xl relative py-2 z-10 inline-block nav-link">
+                <h2 className="mb-2 md:mb-5 text-2xl sm:text-3xl md:text-4xl lg:text-5xl relative py-1 md:py-2 z-10 inline-block nav-link">
                   DESIGN TECH
                 </h2>
               </Link>
 
               <Link href="/designtosuccess" onClick={handleLinkClick}>
-                <h2 className="mb-5 text-5xl relative py-2 z-10 inline-block nav-link">
+                <h2 className="mb-2 md:mb-5 text-2xl sm:text-3xl md:text-4xl lg:text-5xl relative py-1 md:py-2 z-10 inline-block nav-link">
                   DESIGN TO SUCCESS
                 </h2>
               </Link>
 
               <Link href="/karriere" onClick={handleLinkClick}>
-                <h2 className="mb-5 text-5xl relative py-2 z-10 inline-block nav-link">
+                <h2 className="mb-2 md:mb-5 text-2xl sm:text-3xl md:text-4xl lg:text-5xl relative py-1 md:py-2 z-10 inline-block nav-link">
                   KARRIERE
                 </h2>
               </Link>
@@ -205,19 +205,19 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
           </div>
         </div>
         
-        {/* Footer mit 4 Spalten im unteren Bereich */}
+        {/* Footer mit 4 Spalten im unteren Bereich - responsive für Mobile */}
         <div 
           ref={footerRef} 
           className="w-full pb-8 px-8 md:px-8 lg:px-8 z-10"
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {/* Spalte 1: */}
             <div className="footer-column">
-              <div className="space-y-3">
+              <div className="space-y-2 md:space-y-3">
                 <a
                   href="/erfolgsgeschichte" 
                   onClick={handleLinkClick}
-                  className="text-black cursor-pointer text-lg opacity-70 hover:opacity-100 hover:underline transition-all duration-300 block"
+                  className="text-black cursor-pointer text-base md:text-lg opacity-70 hover:opacity-100 hover:underline transition-all duration-300 block"
                 >
                   Erfolgsgeschichte
                 </a>
@@ -226,7 +226,7 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
                   href="https://www.ammerbucher-design-talk.de/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-black cursor-pointer text-lg opacity-70 hover:opacity-100 hover:underline transition-all duration-300 block"
+                  className="text-black cursor-pointer text-base md:text-lg opacity-70 hover:opacity-100 hover:underline transition-all duration-300 block"
                 >
                   Ammerbucher Design Talk
                 </a>
@@ -235,12 +235,12 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
             
             {/* Spalte 2: Sonstige Links */}
             <div className="footer-column">
-              <div className="space-y-3">
+              <div className="space-y-2 md:space-y-3">
                 <a
                   href="http://werkzeugderzukunft.de"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-black cursor-pointer text-lg opacity-70 hover:opacity-100 hover:underline transition-all duration-300 block"
+                  className="text-black cursor-pointer text-base md:text-lg opacity-70 hover:opacity-100 hover:underline transition-all duration-300 block"
                 >
                   Werkzeug der Zukunft
                 </a>
@@ -248,7 +248,7 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
                   href="http://maschine2020.com/de_DE/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-black cursor-pointer text-lg opacity-70 hover:opacity-100 hover:underline transition-all duration-300 block"
+                  className="text-black cursor-pointer text-base md:text-lg opacity-70 hover:opacity-100 hover:underline transition-all duration-300 block"
                 >
                   Maschine 2020
                 </a>
@@ -256,18 +256,18 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
             </div>
             
             {/* Spalte 3: Kontakt - nun rechtsbündig */}
-            <div className="footer-column">
-              <div className="flex flex-col items-end space-y-3">
+            <div className="footer-column mt-4 sm:mt-0">
+              <div className="flex flex-col items-start sm:items-end space-y-2 md:space-y-3">
                 <a
                   href="mailto:info@designtech.eu?subject=Anfrage%20für%20ein%20Videocall&body=Sehr%20geehrte%20Frau%20Mayer,%0A%0A"
-                  className="btn-gradient whitespace-nowrap"
+                  className="btn-gradient whitespace-nowrap text-sm md:text-base"
                 >
                   VIDEOCALL
                 </a>
                 
                 <a
                   href="tel:+49707391890"
-                  className="btn-gradient whitespace-nowrap"
+                  className="btn-gradient whitespace-nowrap text-sm md:text-base"
                 >
                   +49 7073 91 89 0
                 </a>
@@ -275,8 +275,8 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
             </div>
             
             {/* Spalte 4: Social Media - rechtsbündig */}
-            <div className="footer-column">
-              <div className="flex justify-end space-x-3">
+            <div className="footer-column mt-4 sm:mt-0">
+              <div className="flex justify-start sm:justify-end space-x-3">
                 <Link
                   href="https://www.linkedin.com/company/designtechschmid/posts/?feedView=all"
                   className="icon-btn-gradient"

@@ -9,10 +9,7 @@ import { VideoBodyOne } from "@/components/VideoBodyOne";
 import { MomentSlider } from "@/components/MomentSlider";
 import Script from 'next/script';
 import { Ready } from "@/components/Ready";
-import { VideoBodyTwo } from "@/components/VideoBodyTwo";
-import { VideoBodyThree } from "@/components/VideoBodyThree";
-import { VideoBodyFour } from "@/components/VideoBodyFour";
-import { VideoBodyFive } from "@/components/VideoBodyFive";
+import { VideoBodySix } from "@/components/VideoBodySix";
 
 
 
@@ -50,11 +47,9 @@ export default function Home() {
 
       <Hero />
       <About />
+      <VideoBodySix />
       <VideoBodyOne />
-      <VideoBodyTwo />
-      <VideoBodyThree />
-      <VideoBodyFour />
-      <VideoBodyFive />
+
       <ProjectSlider />
       <Ready />
       <Contact />

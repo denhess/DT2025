@@ -2,13 +2,15 @@
 
 import { useRef, useEffect, useState } from "react";
 import Image from "next/image";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/effect-fade";
 
 export function VideoBodyOne() {
   const containerRef = useRef<HTMLElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [scrollY, setScrollY] = useState(0);
-  const [debugInfo, setDebugInfo] = useState('');
 
   // Video laden und abspielen
   useEffect(() => {
@@ -66,12 +68,12 @@ export function VideoBodyOne() {
     const handleScroll = () => {
       if (!containerRef.current || !videoRef.current) return;
       
-      // Aktuelle Scroll-Position speichern und für Debug-Zwecke verwenden
+      // Aktuelle Scroll-Position speichern
       const currentScrollY = window.scrollY;
       setScrollY(currentScrollY);
       
-      // Debug-Informationen aktualisieren
-      setDebugInfo(`Scroll: ${currentScrollY}`);
+      // Performance-Optimierung: Nur weitermachen, wenn sich die Scroll-Position signifikant geändert hat
+      if (Math.abs(currentScrollY - scrollY) < 5) return;
 
       // Animation canceln, wenn bereits eine läuft
       if (animationFrame) {
@@ -122,7 +124,7 @@ export function VideoBodyOne() {
         cancelAnimationFrame(animationFrame);
       }
     };
-  }, []);
+  }, [scrollY]); // scrollY als Abhängigkeit hinzugefügt
 
   return (
     <section 
@@ -134,14 +136,6 @@ export function VideoBodyOne() {
         minHeight: '100vh' // Mindesthöhe für kleine Bildschirme
       }}
     >
-      {/* Debug-Element, das scrollY verwendet - nur im Development sichtbar */}
-      {process.env.NODE_ENV === 'development' && (
-        <div className="fixed top-0 right-0 bg-black bg-opacity-50 text-white p-2 z-50 text-xs">
-          ScrollY: {scrollY}px<br/>
-          {debugInfo}
-        </div>
-      )}
-
       <div 
         className="absolute inset-0 overflow-hidden" 
         style={{
@@ -155,50 +149,44 @@ export function VideoBodyOne() {
           muted
           loop
           playsInline
-          className={`absolute inset-0 w-full h-[130%] object-cover ${videoLoaded ? 'opacity-100' : 'opacity-0'}`}
+          className={`absolute inset-0 w-full h-[140%] object-cover ${videoLoaded ? 'opacity-100' : 'opacity-0'}`}
           poster="/BodyVideo-thumbnail.png"
           preload="metadata"
           onCanPlay={() => setVideoLoaded(true)}
           style={{ 
             willChange: 'transform', // Optimierung für Performance
             transformStyle: 'preserve-3d',
-            top: '-15%', // Startposition, um Platz für Bewegung zu schaffen
-            height: '130%',
+            top: '-5%', // Startposition, nach oben verschoben um mehr Platz für Bewegung zu schaffen
+            height: '140%', // Größere Höhe, um weißen Rand zu vermeiden
             width: '100%',
             objectFit: 'cover',
             objectPosition: 'center'
           }}
         >
           {/* Video for larger screens */}
-          <source src="/BodyVideo.mp4" media="(min-width: 768px)" type="video/mp4" />
+          <source src="/BodyVideo-TCB.mp4" media="(min-width: 768px)" type="video/mp4" />
           {/* Video for smaller screens */}
-          <source src="/BodyVideo-small.mp4" media="(max-width: 767px)" type="video/mp4" />
+          <source src="/BodyVideo-TCB.mp4" media="(max-width: 767px)" type="video/mp4" />
         </video>
       </div>
 
-      {/* Untere Navigationsleiste mit Buttons und Logo */}
-      <div className="absolute bottom-0 left-0 right-0 w-full px-8 py-6 flex justify-between items-center z-10">
-        {/* Buttons links unten */}
-        <div className="flex space-x-4">
-          <a
-            href="#"
-            className="btn-gradient-trans whitespace-nowrap"
-          >
-            MASCHINENDESIGN
+      {/* Angepasste Navigationsleiste für bessere Mobile-Ansicht */}
+      <div className="absolute bottom-0 left-0 right-0 w-full px-8 py-6 flex flex-col sm:flex-row justify-between items-start sm:items-center z-10">
+        {/* Buttons links unten - vertikal auf Mobilgeräten */}
+        <div className="flex flex-col sm:flex-row sm:space-x-4 space-y-2 sm:space-y-0 mb-4 sm:mb-0">
+          <a className="btn-gradient-white-noanimation whitespace-nowrap inline-flex self-start sm:self-auto">
+            MASCHINENDESIGN / UX DESIGN
           </a>
-          
-          <a
-            href="#"
-            className="btn-gradient-trans whitespace-nowrap"
-          >
-            Plattform 3
+
+          <a className="btn-gradient-white-noanimation whitespace-nowrap inline-flex self-start sm:self-auto">
+            AUXO V bioreactor
           </a>
         </div>
         
-        {/* Logo rechts unten */}
-        <div className="flex items-center">
+        {/* Logo - auf allen Geräten links */}
+        <div className="flex items-center self-start sm:self-auto">
           <Image
-            src="/logo.svg"
+            src="logos/logo-cultivated-b-white.svg"
             alt="Logo"
             width={120}
             height={40}

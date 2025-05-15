@@ -3,12 +3,13 @@
 import { useRef } from "react";
 import { Projects } from "@/data/projects/moment-data";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination } from "swiper/modules";
+import { Autoplay, Pagination, EffectFade } from "swiper/modules";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import "swiper/css";
 import "swiper/css/pagination";
+import "swiper/css/effect-fade";
 
 import { Swiper as SwiperInstance } from 'swiper/types';
 
@@ -61,25 +62,30 @@ export function MomentSlider() {
       className="project-slider relative h-screen bg-black overflow-hidden"
     >
       <Swiper
-        modules={[Autoplay, Pagination]}
+        modules={[Autoplay, Pagination, EffectFade]}
         spaceBetween={0}
         slidesPerView={1}
         speed={800}
+        effect="fade"
+        fadeEffect={{ crossFade: true }}
         autoplay={{ delay: 5000, disableOnInteraction: false }}
-        pagination={{ clickable: true }}
+        pagination={{ 
+          clickable: true,
+          bulletClass: 'swiper-pagination-bullet custom-bullet',
+          bulletActiveClass: 'swiper-pagination-bullet-active custom-bullet-active'
+        }}
         onSwiper={(swiper) => { 
           swiperRef.current = swiper; 
           animateSlideContent(0); 
         }}
         onSlideChangeTransitionStart={handleSlideStart}
         onSlideChangeTransitionEnd={(swiper) => handleSlideEnd(swiper)}
-        className="h-full"
+        className="h-full project-slider-container"
       >
         {Projects.map((project, index) => (
           <SwiperSlide key={index}>
             <div className="absolute inset-0 overflow-hidden">
               <div id={`slide-image-${index}`} className="relative w-full h-full">
-                {/* Hier das picture Element für responsive Bilder */}
                 <picture>
                   <source srcSet={`/${project.imgMobile}`} media="(max-width: 767px)" />
                   <img 
@@ -93,22 +99,18 @@ export function MomentSlider() {
               </div>
             </div>
             <div className="relative h-full">
-              <div className="absolute inset-0 flex flex-col justify-between px-8 md:px-16 lg:px-24">
-                <div className="pb-5">
-                  {/* Logo Platzhalter für einheitliche Struktur */}
-                  <div className="w-24 md:w-32 h-10 md:h-12 opacity-0">
-                    
-                  </div>
-                </div>
-                {/* Text links unten */}
-                <div className="pb-10">
-                  
-                  
-                  {/* Copyright hinzugefügt */}
+              {/* Untere Navigationsleiste mit Buttons und Logo - wie im ProjectSlider */}
+              <div className="absolute bottom-0 left-0 right-0 w-full px-8 py-6 flex justify-between items-center z-10">
+
+                
+                {/* Logo rechts unten */}
+                <div className="flex items-center">
                   {project.copyright && (
-                    <p className="text-xs text-white/70 mt-2">
-                      © {project.copyright}
-                    </p>
+                    <div id={`slide-logo-${index}`} className="slide-content" style={{ opacity: 0, transform: 'translateY(30px)' }}>
+                      <p className="text-xs text-white/70">
+                        © {project.copyright}
+                      </p>
+                    </div>
                   )}
                 </div>
               </div>

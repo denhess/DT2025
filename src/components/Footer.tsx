@@ -108,7 +108,7 @@ export function Footer() {
                 rel="noopener noreferrer"
               >
                 <Image
-                  src="/icon/icon-linkedin-black.svg"
+                  src="/icon/icon-linkedin-white.svg"
                   alt="LinkedIn"
                   width={20}
                   height={20}
@@ -121,7 +121,7 @@ export function Footer() {
                 rel="noopener noreferrer"
               >
                 <Image
-                  src="/icon/icon-kununu-black.svg"
+                  src="/icon/icon-kununu-white.svg"
                   alt="Kununu"
                   width={20}
                   height={20}

@@ -179,7 +179,31 @@ p {
   }
 }
 
-/* Button Styles */
+
+/* Button Styles schwarz - keine naimation */
+
+.btn-gradient-noanimation {
+  display: inline-block;
+  border-radius: 50px;
+  border: 1.5px solid black;
+  padding: 0.5rem 1.5rem;
+  color: black;
+  
+}
+
+/* Button Styles weiß - keine naimation */
+
+.btn-gradient-white-noanimation {
+  display: inline-block;
+  border-radius: 50px;
+  border: 1.5px solid white;
+  padding: 0.5rem 1.5rem;
+  color: white;
+  
+}
+
+
+/* Button Styles - animiert */
 
 .btn-gradient {
   display: inline-block;
@@ -197,7 +221,26 @@ p {
   color: white;
 }
 
-/* Button Styles white */
+/* Button Styles Groß - animiert */
+
+.btn-big {
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 50px;
+  border: 1.5px solid black;
+  padding: 0.5rem 1.5rem;
+  color: black;
+  transition: 0.3s;
+  background: radial-gradient(farthest-side, transparent calc(100% - 150px), black 2) center / var(--d, 1000px) var(--d, 1000px) no-repeat;
+}
+
+.btn-big:hover {
+  --d: 500px;
+  color: grey;
+  border: 1.5px solid grey;
+}
+
+/* Button Styles white - animiert */
 
 .btn-gradient-trans {
   display: inline-block;
@@ -332,4 +375,35 @@ p {
 .nav-link:hover {
   --d: 100%;
   --p: 100%;
+}
+
+
+/* Projektslider Anpassungen */
+.project-slider-container .custom-bullet {
+  width: 12px;
+  height: 12px;
+  background: rgba(133, 131, 131, 1); /* Halbdurchsichtig weiß für inaktive Punkte */
+  opacity: 1;
+  margin: 0 5px;
+  border-radius: 50%;
+}
+
+.project-slider-container .custom-bullet-active {
+  background: #FFDD00; /* Pantone 109 C für aktiven Punkt */
+  opacity: 1;
+}
+
+/* Position der Paginierung anpassen */
+.project-slider-container .swiper-pagination {
+  bottom: 30px; /* Abstand vom unteren Rand */
+}
+
+/* Fade-Effekt verbessern */
+.project-slider .swiper-slide {
+  transition-property: opacity;
+}
+
+/* Optional: Hover-Effekt für die Buttons */
+.project-slider .btn-gradient-noanimation:hover {
+  background: rgba(255, 255, 255, 0.1);
 }

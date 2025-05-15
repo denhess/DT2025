@@ -46,6 +46,11 @@ export default function RootLayout({
         <link rel="alternate" hrefLang="x-default" href="https://designtech.eu/" />
       </head>
       <body>
+
+
+
+
+
         {/* Google Tag Manager Code mit next/script und id */}
         <Script
           id="google-tag-manager"

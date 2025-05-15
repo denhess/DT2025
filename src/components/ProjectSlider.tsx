@@ -3,9 +3,10 @@
 import { useRef } from "react";
 import { Projects } from "@/data/projects/project-data";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination } from "swiper/modules";
+import { Autoplay, Pagination, EffectFade } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
+import "swiper/css/effect-fade";
 
 import { Swiper as SwiperInstance } from "swiper/types";
 
@@ -16,16 +17,25 @@ export function ProjectSlider() {
   return (
     <section ref={sectionRef} id="projects" data-background="light" className="project-slider relative h-screen bg-black overflow-hidden">
       <Swiper
-        modules={[Autoplay, Pagination]}
+        modules={[Autoplay, Pagination, EffectFade]}
         spaceBetween={0}
         slidesPerView={1}
         speed={800}
-        autoplay={{ delay: 5000, disableOnInteraction: false }}
-        pagination={{ clickable: true }}
+        effect="fade"
+        fadeEffect={{ crossFade: true }}
+        autoplay={{ 
+          delay: 5000, 
+          disableOnInteraction: false
+        }}
+        pagination={{ 
+          clickable: true,
+          bulletClass: 'swiper-pagination-bullet custom-bullet',
+          bulletActiveClass: 'swiper-pagination-bullet-active custom-bullet-active'
+        }}
         onSwiper={(swiper) => {
           swiperRef.current = swiper;
         }}
-        className="h-full"
+        className="h-full project-slider-container"
       >
         {Projects.map((project, index) => (
           <SwiperSlide key={index}>
@@ -38,45 +48,32 @@ export function ProjectSlider() {
               </div>
             </div>
             <div className="relative h-full">
-              <div className="absolute inset-0 flex flex-col justify-between px-8 md:px-8 lg:px-8">
-              <div className="pb-5">
-                  {/* Logo links oben */}
-                  {project.logo && (
-                    <div className="w-24 md:w-32 h-10 md:h-12">
-                      
-                    </div>
-                  )}
+              {/* Angepasste Navigationsleiste für bessere Mobile-Ansicht */}
+              <div className="absolute bottom-0 left-0 right-0 w-full px-8 py-6 flex flex-col sm:flex-row justify-between items-start sm:items-center z-10">
+                {/* Buttons links unten - vertikal auf Mobilgeräten */}
+                <div className="flex flex-col sm:flex-row sm:space-x-4 space-y-2 sm:space-y-0 mb-4 sm:mb-0">
+                  <a className="btn-gradient-noanimation whitespace-nowrap inline-flex self-start sm:self-auto">
+                    {project.title || project.titleEn}
+                  </a>
+                  
+                  <a className="btn-gradient-noanimation whitespace-nowrap inline-flex self-start sm:self-auto">
+                    {project.description || project.descriptionEn}
+                  </a>
                 </div>
-                {/* Text links unten */}
-                <div className="pb-10">
-                <div className="pb-5">
-                  {/* Logo links oben */}
+                
+                {/* Logo - auf allen Geräten links */}
+                <div className="flex items-center self-start sm:self-auto">
                   {project.logo && (
-                    <div id={`slide-logo-${index}`} className="w-24 md:w-20 h-8 md:h-6">
+                    <div id={`slide-logo-${index}`} className="h-10 w-auto">
                       <img
                         src={`/${project.logo}`}
                         alt={project.copyright || "Company logo"}
-                        className="object-contain"
+                        className="h-full w-auto object-contain"
                         loading="lazy"
                         style={{ filter: `invert(1) sepia(1) saturate(10000%) hue-rotate(${project.logoColor || '0deg'})` }}
                       />
                     </div>
                   )}
-                </div>
-                  <h2
-                    id={`slide-title-${index}`}
-                    className="font-extralight uppercase tracking-tighter"
-                    style={{ color: project.textColor }}
-                  >
-                    {project.title || project.titleEn}
-                  </h2>
-                  <p
-                    id={`slide-description-${index}`}
-                    className="font-extralight uppercase tracking-tighter leading-tight"
-                    style={{ color: project.textColor }}
-                  >
-                    {project.description || project.descriptionEn}
-                  </p>
                 </div>
               </div>
             </div>

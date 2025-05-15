@@ -66,7 +66,7 @@ export function Header({ onMenuToggle }: HeaderProps) {
 
   return (
     <>
-      <header ref={headerRef} className="fixed top-0 left-0 right-0 z-50">
+      <header ref={headerRef} className="fixed top-2 left-0 right-0 z-50">
         <div className="w-full px-8 md:px-8 lg:px-8">
           <div className="flex justify-between items-center h-16 relative">
             {/* Dynamisches Logo */}
