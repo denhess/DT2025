@@ -42,7 +42,7 @@ export function Ready() {
         <div className="w-full px-8 md:px-8 lg:px-8">
           <h1 
             ref={textRef}
-            className="uppercase leading-[0.9] tracking-[-0.02em]"
+            className="uppercase leading-[1.1] tracking-[-0.03em]"
           >
             Sind Sie bereit für das nächste Level?
           </h1>

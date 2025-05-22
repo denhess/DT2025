@@ -165,7 +165,7 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
       />
 
       <div 
-        className="flex flex-col justify-between w-full h-full overflow-auto"
+        className="flex flex-col justify-between w-full h-full overflow-auto mt-20"
         style={{ zIndex: 10, position: "relative" }}
       >
         {/* Hauptnavigation in der Mitte, linksbündig - mit angepasster Mobildarstellung */}

@@ -38,26 +38,23 @@ export function AboutDesignToSuccess() {
       data-background="light"
     >
      <YellowBackground/>
-      <div className="absolute inset-0 flex items-center">
+      <div className="absolute inset-0 flex items-center justify-center">
         <div className="w-full max-w-8xl px-8 md:px-8 lg:px-8">
-          <h2 
+          <div 
             ref={textRef}
-            className="leading-tight tracking-[-0.02em] max-w-prose mx-auto"
+            className="leading-tight tracking-[-0.02em] max-w-7xl mx-auto"
           >
-            „NUR EINE EINZIGARTIGE FORM SICHERT DEN MAXIMALEN ERFOLG.”
+            <h2>
+              „NUR EINE EINZIGARTIGE FORM SICHERT DEN MAXIMALEN ERFOLG."
             </h2>  
-            <h3 
-            ref={textRef}
-            className="mt-20 leading-tight tracking-[-0.02em] max-w-prose mx-auto"
-          >
-            
-            Die Design to success®-Strategie ist eine tragende Säule unseres Erfolgs. 
-            Design Tech entwickelte die mehrfach ausgezeichnete Innovationsstrategie in der Erkenntnis, 
-            dass das Produkt nur in einer einzigen konkreten Ausgestaltung den bestmöglichen Markterfolg sichert: 
-            Nämlich punktgenau dort, wo sie sich von den Konkurrenzprodukten abgrenzt und die Kaufentscheidung des 
-            Kunden trifft.
-
-          </h3>
+            <h3 className="mt-20">
+              Die Design to success®-Strategie ist eine tragende Säule unseres Erfolgs. 
+              Design Tech entwickelte die mehrfach ausgezeichnete Innovationsstrategie in der Erkenntnis, 
+              dass das Produkt nur in einer einzigen konkreten Ausgestaltung den bestmöglichen Markterfolg sichert: 
+              Nämlich punktgenau dort, wo sie sich von den Konkurrenzprodukten abgrenzt und die Kaufentscheidung des 
+              Kunden trifft.
+            </h3>
+          </div>
         </div>
       </div>
     </section>

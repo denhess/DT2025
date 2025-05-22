@@ -38,23 +38,22 @@ export function TextDesignToSuccess() {
       data-background="light"
     >
      <YellowBackgroundTop/>
-      <div className="absolute inset-0 flex items-center">
+      <div className="absolute inset-0 flex items-center justify-center">
         <div className="w-full max-w-8xl px-8 md:px-8 lg:px-8">
-          <h2 
+          <div 
             ref={textRef}
-            className="leading-tight tracking-[-0.02em] max-w-prose mx-auto"
+            className="leading-tight tracking-[-0.02em] max-w-7xl mx-auto"
           >
-            EINZIGARTIGE MITTEL ZUR ENTWICKLUNG DES MASCHINENDESIGNS 
-          </h2>
-          <h3 
-            ref={textRef}
-            className="mt-20 leading-tight tracking-[-0.02em] max-w-prose mx-auto"
-          >
-            Zum punktgenauen Entwurf der Maschine für die Ziele des Kunden setzt Design Tech überdurchschnittliche, 
-            eigens dafür entwickelte Erkenntnisquellen bei der Entwicklung des Maschinendesign ein: insbesondere, 
-            wenn es um das Sichtbarmachen von Qualität oder eigenständigen Markenmerkmalen geht, um die Differenzierung 
-            zum Wettbewerb oder um anwenderorientierte Funktionen.
-          </h3>
+            <h2>
+              EINZIGARTIGE MITTEL ZUR ENTWICKLUNG DES MASCHINENDESIGNS 
+            </h2>
+            <h3 className="mt-20">
+              Zum punktgenauen Entwurf der Maschine für die Ziele des Kunden setzt Design Tech überdurchschnittliche, 
+              eigens dafür entwickelte Erkenntnisquellen bei der Entwicklung des Maschinendesign ein: insbesondere, 
+              wenn es um das Sichtbarmachen von Qualität oder eigenständigen Markenmerkmalen geht, um die Differenzierung 
+              zum Wettbewerb oder um anwenderorientierte Funktionen.
+            </h3>
+          </div>
         </div>
       </div>
     </section>

@@ -382,20 +382,57 @@ p {
 .project-slider-container .custom-bullet {
   width: 12px;
   height: 12px;
-  background: rgba(133, 131, 131, 1); /* Halbdurchsichtig weiß für inaktive Punkte */
+  background: rgb(202, 202, 202); /* Halbdurchsichtig weiß für inaktive Punkte */
   opacity: 1;
   margin: 0 5px;
   border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+/* Vertikaler Abstand zwischen den Bullets überschreiben */
+.project-slider-container .swiper-pagination-vertical .custom-bullet,
+.project-slider-container .swiper-pagination .custom-bullet {
+  margin: 4px 0 !important;
 }
 
 .project-slider-container .custom-bullet-active {
   background: #FFDD00; /* Pantone 109 C für aktiven Punkt */
   opacity: 1;
+  transform: scale(1.2);
 }
 
-/* Position der Paginierung anpassen */
+/* Position der Paginierung - RECHTE SEITE */
 .project-slider-container .swiper-pagination {
-  bottom: 30px; /* Abstand vom unteren Rand */
+  right: 30px !important;
+  left: auto !important;
+  top: 50% !important;
+  bottom: auto !important;
+  transform: translateY(-50%);
+  display: flex !important;
+  flex-direction: column !important;
+  width: auto !important;
+  height: auto !important;
+}
+
+/* Anpassung der Bullet-Abstände für vertikale Anordnung */
+.project-slider-container .swiper-pagination .custom-bullet {
+  margin: 4px 0 !important; /* Kleinerer vertikaler Abstand zwischen den Punkten */
+}
+
+/* Responsive: Pagination rechts auch auf kleinen Bildschirmen */
+@media (max-width: 768px) {
+  .project-slider-container .swiper-pagination {
+    right: 20px !important; /* Etwas weniger Abstand auf mobilen Geräten */
+    left: auto !important;
+    top: 50% !important;
+    bottom: auto !important;
+    transform: translateY(-50%) !important; /* Vertikal zentriert bleiben */
+    flex-direction: column !important; /* Vertikal angeordnet bleiben */
+  }
+
+  .project-slider-container .swiper-pagination .custom-bullet {
+    margin: 4px 0 !important; /* Gleicher vertikaler Abstand wie Desktop */
+  }
 }
 
 /* Fade-Effekt verbessern */

@@ -3,96 +3,62 @@
 import { useRef } from "react";
 import { Projects } from "@/data/projects/designtosucess-data";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination } from "swiper/modules";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import ScrollTrigger from "gsap/ScrollTrigger";
+import { Autoplay, Pagination, EffectFade } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
+import "swiper/css/effect-fade";
 
 // Swiper-Typen importieren
 import { Swiper as SwiperInstance } from "swiper/types";
-
-gsap.registerPlugin(ScrollTrigger);
 
 export function DesignToSuccessSlider() {
   const sectionRef = useRef<HTMLElement>(null);
   const swiperRef = useRef<SwiperInstance | null>(null);
 
-  useGSAP(() => {
-    if (!sectionRef.current) return;
-
-    ScrollTrigger.create({
-      trigger: sectionRef.current,
-      start: "top -50px",
-      onEnter: () => {
-        gsap.to(".header-color-change", { color: "#ffffff", duration: 0.3 });
-      },
-      onLeaveBack: () => {
-        gsap.to(".header-color-change", { color: "#000000", duration: 0.3 });
-      },
-    });
-  }, []);
-
-  const animateSlideContent = (index: number) => {
-    gsap.to(`#slide-image-${index}`, { scale: 1.1, duration: 10, ease: "none" });
-    gsap.to(
-      [`#slide-title-${index}`, `#slide-description-${index}`],
-      { opacity: 1, y: 0, duration: 0.6, stagger: 0.1, ease: "power3.out" }
-    );
-  };
-
-  const handleSlideStart = () => {
-    gsap.to(".slide-content", { opacity: 0, y: 20, duration: 0.5, ease: "power2.in" });
-  };
-
-  const handleSlideEnd = (swiper: SwiperInstance) => {
-    Projects.forEach((_, index) => {
-      gsap.set(`#slide-image-${index}`, { scale: 1 });
-    });
-    gsap.set(
-      [`#slide-title-${swiper.activeIndex}`, `#slide-description-${swiper.activeIndex}`],
-      { opacity: 0, y: 30 }
-    );
-    animateSlideContent(swiper.activeIndex);
-  };
-
   return (
-    <section ref={sectionRef} data-background="light" className="project-slider relative h-screen overflow-hidden px-8 md:px-16">
+    <section ref={sectionRef} data-background="light" className="project-slider relative h-screen overflow-hidden">
       <Swiper
-        modules={[Autoplay, Pagination]}
+        modules={[Autoplay, Pagination, EffectFade]}
         spaceBetween={0}
         slidesPerView={1}
         speed={800}
-        autoplay={{ delay: 5000, disableOnInteraction: false }}
-        pagination={{ clickable: true }}
-        onSwiper={(swiper) => { swiperRef.current = swiper; animateSlideContent(0); }}
-        onSlideChangeTransitionStart={handleSlideStart}
-        onSlideChangeTransitionEnd={(swiper) => handleSlideEnd(swiper)}
-        className="h-full"
+        effect="fade"
+        fadeEffect={{ crossFade: true }}
+        autoplay={{ 
+          delay: 5000, 
+          disableOnInteraction: false
+        }}
+        pagination={{ 
+          clickable: true,
+          bulletClass: 'swiper-pagination-bullet custom-bullet',
+          bulletActiveClass: 'swiper-pagination-bullet-active custom-bullet-active'
+        }}
+        onSwiper={(swiper) => {
+          swiperRef.current = swiper;
+        }}
+        className="h-full project-slider-container"
       >
         {Projects.map((project, index) => (
           <SwiperSlide key={index}>
             <div className="absolute inset-0 overflow-hidden">
               <div
-                id={`slide-image-${index}`}
                 className="relative w-full h-full"
                 style={{ backgroundColor: project.backgroundColor || "transparent" }}
               />
             </div>
-            <div className="relative h-full flex flex-col justify-center items-start text-left">
-              <h2
-                id={`slide-title-${index}`}
-                className="slide-content leading-tight tracking-[-0.02em] opacity-0 font-bold"
-              >
-                {project.title || project.titleEn}
-              </h2>
-              <h3
-                id={`slide-description-${index}`}
-                className="mt-10 slide-content leading-tight tracking-[-0.02em] opacity-0"
-              >
-                {project.description || project.descriptionEn}
-              </h3>
+            
+            {/* About-Layout angewendet: zentrierter Text mit max-width */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="w-full max-w-8xl px-8 md:px-8 lg:px-8">
+                <div className="leading-tight tracking-[-0.02em]">
+                  <h2 className="font-bold max-w-prose max-w-7xl mx-auto">
+                    {project.title || project.titleEn}
+                  </h2>
+                  <h2 className="mt-10 max-w-prose max-w-7xl mx-auto">
+                    {project.description || project.descriptionEn}
+                  </h2>
+                </div>
+              </div>
             </div>
           </SwiperSlide>
         ))}

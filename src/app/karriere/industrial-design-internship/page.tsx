@@ -1,105 +1,102 @@
 "use client"
 
-
 import React from 'react';
 import { YellowBackgroundTop } from "@/components/BG/YellowBackgroundTop";
 import { Footer } from "@/components/Footer";
 import { Job } from '@/components/Job';
 import { ContactJob } from '@/components/ContactJob';
 
-
 export default function IndustrialDesignInternship() {
   return (
     <>
-              <section className="relative min-h-screen w-full"
-              data-background="light"
-              >
-                      <YellowBackgroundTop/>
-                      <div className="absolute inset-0 flex items-center">
-                        <div className="w-full px-8 md:px-8 lg:px-8">
-                          <p className="text-gray-900 text-[5vw] md:text-[4vw] xl:text-[3vw] leading-tight tracking-[-0.02em]">
-                            Industrial Design Internship
-                          </p>
-                        </div>
-                      </div>
-              </section>
-              
-              <section
-              data-background="light">
-                <div className="text-black h-auto flex justify-center items-center">
-                  <div className="w-full px-6 sm:px-8 md:px-16 lg:px-24 max-w-5xl pt-16 pb-16"> {/* Doppelt so viel Padding oben und unten */}
-                    <div className="mb-8">
-                      <p className="text-black text-lg sm:text-xl leading-relaxed text-left">
-                          Du studierst Industrial Design / Industriedesign und suchst ein anspruchsvolles Praktikum? 
-                          (Pflicht – Praktikum). Du bist für ein Praktikum im Bereich Industrial Design / Industriedesign, 
-                          Maschinen- / Investitionsgüterdesign oder UX Design / UI Design sensationell motiviert? Du hast Sinn 
-                          für attraktive Formen, Anwendernutzen und anspruchsvolle Technologie?
-                          <br />
-                          <br />
-                          Dann bringst Du für ein Praktikum bei Design Tech bereits beste Voraussetzungen mit. 
-                          Du lernst viel über höchst effiziente Prozesse, intelligentes Handwerkszeug, 
-                          Kreativitätstechniken für die Praxis und vieles mehr.
-                          <br />
-                          <br />
-                          <b>Kurz gesagt: Das Team von Design Tech macht Dich in Deinem Praktikum fit für Deine berufliche Zukunft als Industrial Designer / Industriedesigner.</b>
-                          <br />
-                          Wir sind eines der führenden Unternehmen für zielgenaues Industrial Design / Industriedesign in Deutschland und haben uns kompromisslos auf Maschinendesign spezialisiert.
-                        </p>
-                      </div>
+      <section className="relative h-screen w-full" data-background="light">
+        <YellowBackgroundTop/>
+        <div className="absolute inset-0 flex items-center">
+          <div className="w-full px-8 md:px-8 lg:px-8">
+            <p className="text-gray-900 text-[5vw] md:text-[4vw] xl:text-[3vw] leading-tight tracking-[-0.02em]">
+              Industrial Design Internship
+            </p>
+          </div>
+        </div>
+      </section>
+      
+      <div className="py-16" data-background="light">
+        <div className="text-black">
+          <div className="w-full px-6 sm:px-8 md:px-16 lg:px-24 max-w-5xl mx-auto">
+            <div className="mb-8">
+              <p className="text-black text-lg sm:text-xl leading-relaxed text-left">
+                <b>Gestalten, was zählt.</b>
+                <br />
+                <br />
+                Du studierst Industrial Design und willst dein Können endlich in der echten Welt anwenden?
+                <br />
+                <br />
+                Bei Design Tech arbeitest du nicht an Übungsaufgaben, sondern an realen Maschinenprojekten – für echte Kund*innen, mit echtem Impact.
+                <br />
+                <br />
+                Gemeinsam mit erfahrenen Designerinnen und Ingenieurinnen entwickelst du Gestaltung, die produziert wird – und lernst, wie technisches Denken und ästhetische Klarheit zusammenwirken.
+              </p>
+            </div>
 
-                      <div className="mb-8">
-                        <p className="text-black text-lg sm:text-xl leading-relaxed text-left">
-                          Unser Standort in Ammerbuch liegt am Fuße des Schönbuch und
-                          zentral zwischen der Universitätsstadt Tübingen und Stuttgart.
-                          Unser Team erarbeitet in anspruchsvollen Projekten strategische
-                          und zukunftsweisende Lösungen für Marktführer auf der ganzen
-                          Welt. Für unsere Kunden sind wir Entwicklungspartner von der
-                          ersten Idee bis zum fertigen Produkt!
-                        </p>
-                      </div>
+            <div className="mb-8">
+              <p className="text-black text-lg sm:text-xl leading-relaxed text-left">
+                <b>Was dich erwartet</b>
+                <br />
+                <ul className="list-none pl-0">
+                  <li>_ Reale Industrieprojekte statt Simulation</li>
+                  <li>_ Verantwortung vom ersten Tag an</li>
+                  <li>_ Klarer Designprozess: Von der Skizze zur Umsetzung</li>
+                  <li>_ Hochmotiviertes Team mit über 40 Jahren Erfahrung</li>
+                  <li>_ Technologische Tiefe, kreative Freiheit, ehrliches Feedback</li>
+                </ul>
+              </p>
+            </div>
 
-                      <div className="mb-8">
-                        <p className="text-black text-lg sm:text-xl leading-relaxed text-left">
-                          <b>Deine Qualifikation</b>
-                          <br />
-                          <ul className="list-none pl-0"> {/* Keine Aufzählungszeichen und kein Einrücken */}
-                            <li>_ Studienplatz als Industrie-Designer oder vergleichbarer Studiengänge wie Intermedia, Web-Design, oder Mediengestalter</li>
-                            <li>_ Interesse an anspruchsvollem Design und anspruchsvollen Aufgaben</li>
-                            <li>_ Ausgeprägtes technisches Verständnis</li>
-                            <li>_ Sicherer Umgang mit gängiger Software (Adobe CC, Solid Works, Microsoft Office etc.)</li>
-                            <li>_ Gute Deutschkenntnisse in Wort und Schrift</li>
-                            <li>_ Flexibles und gewissenhaftes Arbeiten im Team</li>
-                          </ul>
-                        </p>
-                      </div>
+            <div className="mb-8">
+              <p className="text-black text-lg sm:text-xl leading-relaxed text-left">
+                <b>Was du mitbringen solltest</b>
+                <br />
+                <ul className="list-none pl-0">
+                  <li>_ Studium im Bereich Industrial Design oder einem verwandten Feld</li>
+                  <li>_ Leidenschaft für funktionales, nachhaltiges und innovatives Design</li>
+                  <li>_ Technisches Grundverständnis (z. B. CAD, Adobe CC, SolidWorks)</li>
+                  <li>_ Freude am eigenverantwortlichen Arbeiten im Team</li>
+                  <li>_ Neugier und Anspruch</li>
+                </ul>
+              </p>
+            </div>
 
-                      <div>
-                        <p className="text-black text-lg sm:text-xl leading-relaxed text-left">
-                          <b>Was wir bieten</b>
-                          <br />
-                          <ul className="list-none pl-0"> {/* Keine Aufzählungszeichen und kein Einrücken */}
-                            <li>_ Ein spannendes und vielseitiges Aufgabengebiet</li>
-                            <li>_ Ein hoch professionelles und motiviertes Team</li>
-                            <li>_ Attraktives Arbeitsumfeld in modernen Büroräumen</li>
-                            <li>_ Regelmäßige Feedback- mit Zielvereinbarungsgespräche</li>
-                            <li>_ Regelmäßige Teamevents und Veranstaltungen</li>
-                          </ul>
-                          <br />
-                          <b>
-                          Wir freuen uns auf Deine aussagekräftige Bewerbung.
-                          </b>
-                          <br />
-                          Sende uns jetzt Deine Bewerbung für ein sechsmonatiges Praktikum oder melde dich direkt bei uns! Auf Deine Bewerbung freut sich Lisa Valentina Schmid.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-              </section>
+            <div className="mb-8">
+              <p className="text-black text-lg sm:text-xl leading-relaxed text-left">
+                <b>Was du mitnimmst</b>
+                <br />
+                <ul className="list-none pl-0">
+                  <li>_ Ein aussagekräftiges Praxisprojekt für dein Portfolio</li>
+                  <li>_ Einen echten Einblick in die Maschinenbau-Industrie</li>
+                  <li>_ Feedback, das dich weiterbringt</li>
+                  <li>_ Kontakte, die Türen öffnen</li>
+                </ul>
+              </p>
+            </div>
 
-              <ContactJob />
-              <Job />
-              <Footer />
-              
-        </>
+            <div>
+              <p className="text-black text-lg sm:text-xl leading-relaxed text-left">
+                <b>Bewirb dich jetzt</b>
+                <br />
+                <br />
+                Sende uns deine Bewerbung für ein mindestens 5-monatiges Pflichtpraktikum – oder melde dich einfach direkt bei uns.
+                <br />
+                <br />
+                <b>Wir freuen uns auf deine Ideen!</b>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <ContactJob />
+      <Job />
+      <Footer />
+    </>
   );
 }
