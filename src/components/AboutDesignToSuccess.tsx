@@ -45,7 +45,7 @@ export function AboutDesignToSuccess() {
             className="leading-tight tracking-[-0.02em] max-w-7xl mx-auto"
           >
             <h2>
-              „NUR EINE EINZIGARTIGE FORM SICHERT DEN MAXIMALEN ERFOLG."
+              NUR EINE EINZIGARTIGE FORM SICHERT DEN MAXIMALEN ERFOLG.
             </h2>  
             <h3 className="mt-20">
               Die Design to success®-Strategie ist eine tragende Säule unseres Erfolgs. 
