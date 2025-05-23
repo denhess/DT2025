@@ -5,7 +5,7 @@ import { About } from "@/components/About";
 import { ProjectSlider } from "@/components/ProjectSlider";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
-import { VideoBodyOne } from "@/components/VideoBodyOne";
+
 import { MomentSlider } from "@/components/MomentSlider";
 import Script from 'next/script';
 import { Ready } from "@/components/Ready";
@@ -52,7 +52,7 @@ export default function Home() {
       <Hero />
       <About />
       <VideoBodySix />
-      <VideoBodyOne />
+
       <VideoBodyTwo />
       <VideoBodyThree />
       <VideoBodyFour />

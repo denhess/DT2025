@@ -12,7 +12,7 @@ export const Projects: ProjectData[] = [
         textColor: "#1A1A1A",
         description: "Walzenschleifmaschine",
         metaDescriptionEN: "",
-        release: true,
+        release: false,
         copyright: "Herkules",
     },    
     {
@@ -25,22 +25,9 @@ export const Projects: ProjectData[] = [
         textColor: "#1A1A1A",
         description: "Portalfräsmaschine",
         metaDescriptionEN: "",
-        release: true,
+        release: false,
         copyright: "Waldrich Siegen",
     },
-            {
-        img: "projects/slide-arburg-gestica.webp",
-        imgMobile: "projects/slide-arburg-gestica-mobile.webp",
-        logo: "logos/logo-arburg-black.svg",
-        logoColor: "#FFFFFF", // SVG-Farbe
-        title: "HMI Design",
-        titleEn: "HMI Design",
-        textColor: "#1A1A1A",
-        description: "ARBURG GESTICA",
-        metaDescriptionEN: "",
-        release: true,
-        copyright: "Arburg",
-    },    
     {
         img: "projects/slide-arburg-gestica.webp",
         imgMobile: "projects/slide-arburg-gestica-mobile.webp",
