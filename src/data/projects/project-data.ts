@@ -2,7 +2,7 @@ import { ProjectData } from "@/models/project-model";
 
 export const Projects: ProjectData[] = [
 
-    {
+    /*{
         img: "projects/slide-herkules-ws.webp",
         imgMobile: "projects/slide-herkules-ws-mobile.webp",
         logo: "logos/logo-arburg-black.svg",
@@ -27,7 +27,7 @@ export const Projects: ProjectData[] = [
         metaDescriptionEN: "",
         release: false,
         copyright: "Waldrich Siegen",
-    },
+    },*/
     {
         img: "projects/slide-arburg-gestica.webp",
         imgMobile: "projects/slide-arburg-gestica-mobile.webp",
