@@ -58,7 +58,7 @@ export function MomentSlider() {
   return (
     <section 
       ref={sectionRef} 
-      data-background="light" 
+      data-background="dark" 
       className="project-slider relative h-screen bg-black overflow-hidden"
     >
       <Swiper
@@ -95,7 +95,7 @@ export function MomentSlider() {
                     loading={index === 0 ? "eager" : "lazy"}
                   />
                 </picture>
-                <div className="absolute inset-0 bg-black/25" />
+                <div className="absolute inset-0" />
               </div>
             </div>
             <div className="relative h-full">

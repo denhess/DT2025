@@ -137,7 +137,7 @@ export function Hero() {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-        <h5 className="font-thin text-white z-10 text-2xl md:text-3xl xl:text-4xl mb-6">
+        <h5 className="font-thin text-white z-10 xl:ml-2 text-2xl md:text-3xl xl:text-8xl mb-4">
           Maßgeschneidertes
         </h5>
         <h1 className="font-thin uppercase text-white z-10 leading-[0.9] tracking-[-0.02em] text-left">

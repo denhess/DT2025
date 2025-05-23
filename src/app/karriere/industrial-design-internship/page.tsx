@@ -16,6 +16,9 @@ export default function IndustrialDesignInternship() {
             <p className="text-gray-900 text-[5vw] md:text-[4vw] xl:text-[3vw] leading-tight tracking-[-0.02em]">
               Industrial Design Internship
             </p>
+            <p className="text-gray-900 text-[5vw] md:text-[4vw] xl:text-[3vw] leading-tight tracking-[-0.02em]">
+              Gestalten, was zählt.
+            </p>
           </div>
         </div>
       </section>

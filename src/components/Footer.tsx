@@ -27,11 +27,11 @@ export function Footer() {
       <div className="py-6 px-8 md:px-8 lg:px-8 pt-20 pb-16">
         <div className="mb-8">
           <Link href="/">
-            <DtLogo className="w-60 md:w-80 text-white" />
+            <DtLogo className="w-60 md:w-80 text-white opacity-70" />
           </Link>
         
         {/* Copyright info */}
-        <p className="text-sm pt-5">&copy; 2025 Design Tech</p>
+        <p className="text-sm pt-5 opacity-70">&copy; 2025 Design Tech</p>
         </div>
         
         {/* Hauptbereich mit responsivem Layout */}
@@ -93,14 +93,14 @@ export function Footer() {
             <div className="flex flex-col sm:flex-row md:flex-col xl:flex-col items-start sm:items-center md:items-start xl:items-end space-y-3 sm:space-y-0 sm:space-x-3 md:space-x-0 md:space-y-3 xl:space-x-0 xl:space-y-3">
               <a
                 href="mailto:info@designtech.eu?subject=Anfrage%20für%20ein%20Videocall&body=Sehr%20geehrte%20Frau%20Mayer,%0A%0A"
-                className="btn-gradient-trans whitespace-nowrap text-sm"
+                className="btn-gradient-trans whitespace-nowrap text-sm opacity-70 hover:opacity-100 transition-all duration-300"
               >
                 VIDEOCALL VEREINBAREN
               </a>
               
               <a
                 href="tel:+49707391890"
-                className="btn-gradient-trans whitespace-nowrap text-sm"
+                className="btn-gradient-trans whitespace-nowrap text-sm opacity-70 hover:opacity-100 transition-all duration-300"
               >
                 +49 7073 91 89 0
               </a>
@@ -112,7 +112,7 @@ export function Footer() {
             <div className="flex space-x-4">
               <Link
                 href="https://www.linkedin.com/company/designtechschmid/posts/?feedView=all"
-                className="icon-btn-gradient-white"
+                className="icon-btn-gradient-white opacity-70 hover:opacity-100 transition-all duration-300"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -125,7 +125,7 @@ export function Footer() {
               </Link>
               <Link
                 href="https://www.kununu.com/de/design-tech1/kultur"
-                className="icon-btn-gradient-white"
+                className="icon-btn-gradient-white opacity-70 hover:opacity-100 transition-all duration-300"
                 target="_blank"
                 rel="noopener noreferrer"
               >
