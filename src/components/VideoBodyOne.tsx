@@ -100,9 +100,8 @@ export function VideoBodyOne() {
           const progress = lastProgress + (rawProgress - lastProgress) * 0.1;
           lastProgress = progress;
           
-          // Parallax-Bewegung berechnen (30% wie in der GSAP-Version)
-          // Wir starten bei -15% und bewegen uns bis zu +15%
-          const yMove = -15 + (progress * 30);
+          // Noch weiter reduzierte Parallax-Bewegung
+          const yMove = -2 + (progress * 4);
           
           // Auf das Video-Element anwenden
           if (videoRef.current) {
@@ -132,8 +131,8 @@ export function VideoBodyOne() {
       ref={containerRef} 
       className="h-screen w-full relative overflow-hidden"
       style={{
-        height: '100vh', // Explizite Vollbildhöhe
-        minHeight: '100vh' // Mindesthöhe für kleine Bildschirme
+        height: '100vh',
+        minHeight: '100vh'
       }}
     >
       <div 
@@ -149,18 +148,20 @@ export function VideoBodyOne() {
           muted
           loop
           playsInline
-          className={`absolute inset-0 w-full h-[140%] object-cover ${videoLoaded ? 'opacity-100' : 'opacity-0'}`}
+          className={`absolute w-full object-cover ${videoLoaded ? 'opacity-100' : 'opacity-0'}`}
           poster="/BodyVideo-thumbnail.png"
           preload="metadata"
           onCanPlay={() => setVideoLoaded(true)}
           style={{ 
-            willChange: 'transform', // Optimierung für Performance
+            willChange: 'transform',
             transformStyle: 'preserve-3d',
-            top: '-5%', // Startposition, nach oben verschoben um mehr Platz für Bewegung zu schaffen
-            height: '140%', // Größere Höhe, um weißen Rand zu vermeiden
-            width: '100%',
             objectFit: 'cover',
-            objectPosition: 'center'
+            objectPosition: 'center',
+            top: '-5%',
+            left: '0',
+            width: '100%',
+            height: '110%',
+            minHeight: '110%'
           }}
         >
           {/* Video for larger screens */}

@@ -5,11 +5,10 @@ import { About } from "@/components/About";
 import { ProjectSlider } from "@/components/ProjectSlider";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
-
+import { VideoBodyOne } from "@/components/VideoBodyOne";
 import { MomentSlider } from "@/components/MomentSlider";
 import Script from 'next/script';
 import { Ready } from "@/components/Ready";
-import { VideoBodySix } from "@/components/VideoBodySix";
 import { VideoBodyTwo } from "@/components/VideoBodyTwo";
 import { VideoBodyThree } from "@/components/VideoBodyThree";
 import { VideoBodyFour } from "@/components/VideoBodyFour";
@@ -51,12 +50,10 @@ export default function Home() {
 
       <Hero />
       <About />
-      <VideoBodySix />
-
+      <VideoBodyOne />
       <VideoBodyTwo />
       <VideoBodyThree />
       <VideoBodyFour />
-
       <ProjectSlider />
       <Ready />
       <Contact />

@@ -156,7 +156,7 @@ export function VideoBodyFour() {
           style={{ 
             willChange: 'transform', // Optimierung für Performance
             transformStyle: 'preserve-3d',
-            top: '-5%', // Startposition, nach oben verschoben um mehr Platz für Bewegung zu schaffen
+            top: '0%', // Startposition, nach oben verschoben um mehr Platz für Bewegung zu schaffen
             height: '140%', // Größere Höhe, um weißen Rand zu vermeiden
             width: '100%',
             objectFit: 'cover',
@@ -164,9 +164,9 @@ export function VideoBodyFour() {
           }}
         >
           {/* Video for larger screens */}
-          <source src="/BodyVideo-Vecoplan.mp4" media="(min-width: 768px)" type="video/mp4" />
+          <source src="/Vecoplan_desktop.mp4" media="(min-width: 768px)" type="video/mp4" />
           {/* Video for smaller screens */}
-          <source src="/BodyVideo-Vecoplan.mp4" media="(max-width: 767px)" type="video/mp4" />
+          <source src="/Vecoplan_mobil.mp4" media="(max-width: 767px)" type="video/mp4" />
         </video>
       </div>
 
