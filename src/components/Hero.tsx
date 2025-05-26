@@ -3,100 +3,62 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useRef, useEffect, useState } from "react";
+import { useRef } from "react";
+import { useOptimizedVideo } from "@/hooks/useOptimizedVideo";
+import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export function Hero() {
   const containerRef = useRef<HTMLElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
-  const [videoLoaded, setVideoLoaded] = useState(false);
-
-  useEffect(() => {
-    // Funktion zum Starten des Videos
-    const playVideo = () => {
-      if (videoRef.current) {
-        // Video explizit laden
-        videoRef.current.load();
-        // Versuch, das Video zu spielen
-        const playPromise = videoRef.current.play();
-        
-        if (playPromise !== undefined) {
-          playPromise
-            .then(() => {
-              setVideoLoaded(true);
-              console.log("Video started playing successfully");
-            })
-            .catch(error => {
-              console.error("Error playing video:", error);
-              // Versuch, nach einem Benutzerinteraktionsereignis erneut abzuspielen
-              document.addEventListener('touchstart', () => {
-                videoRef.current?.play();
-              }, { once: true });
-            });
-        }
-        
-      }
-    };
-    
-    // Video nach dem Mounting neu laden und abspielen
-    playVideo();
-    
-    // Event-Listener für Seitenwechsel zurück
-    const handleVisibilityChange = () => {
-      if (document.visibilityState === 'visible') {
-        playVideo();
-      }
-    };
-    
-    document.addEventListener('visibilitychange', handleVisibilityChange);
-    
-    return () => {
-      document.removeEventListener('visibilitychange', handleVisibilityChange);
-    };
-  }, []);
+  
+  const { videoRef, isLoaded, error } = useOptimizedVideo('/HeaderVideo.mp4', true);
 
   useGSAP(() => {
-    // Modify GSAP animations to work with snap scrolling
-    // Parallax effect for video (adjusted for snap scrolling)
-    gsap.to(videoRef.current, {
-      yPercent: 30,
-      ease: "none",
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: "top top",
-        end: "bottom top",
-        scrub: 0.5,
-      },
-    });
+    if (!containerRef.current || !textRef.current) return;
+    
+    // Animationen nur starten wenn Video geladen ist
+    if (isLoaded) {
+      // Parallax effect for video (adjusted for snap scrolling)
+      gsap.to(videoRef.current, {
+        yPercent: 30,
+        ease: "none",
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top top",
+          end: "bottom top",
+          scrub: 0.5,
+        },
+      });
 
-    // Parallax effect for text (adjusted for snap scrolling)
-    gsap.to(textRef.current, {
-      yPercent: -15,
-      ease: "none",
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: "top top",
-        end: "bottom top",
-        scrub: 0.5,
-      },
-    });
+      // Parallax effect for text (adjusted for snap scrolling)
+      gsap.to(textRef.current, {
+        yPercent: -15,
+        ease: "none",
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top top",
+          end: "bottom top",
+          scrub: 0.5,
+        },
+      });
 
-    // Opacity animation for text
-    gsap.to(textRef.current, {
-      opacity: 0.1,
-      delay: 6,
-      duration: 1.5,
-      onComplete: () => {
-        gsap.to(textRef.current, {
-          opacity: 0.1,
-          duration: 2,
-          ease: "power2.out",
-        });
-      }
-    });
-  }, []);
+      // Opacity animation for text
+      gsap.to(textRef.current, {
+        opacity: 0.1,
+        delay: 6,
+        duration: 1.5,
+        onComplete: () => {
+          gsap.to(textRef.current, {
+            opacity: 0.1,
+            duration: 2,
+            ease: "power2.out",
+          });
+        }
+      });
+    }
+  }, [isLoaded]);
 
   const handleMouseEnter = () => {
     gsap.to(textRef.current, {
@@ -114,6 +76,17 @@ export function Hero() {
     });
   };
 
+  if (error) {
+    return (
+      <section className="hero h-screen relative bg-gray-900 flex items-center justify-center">
+        <div className="text-white text-center">
+          <h1>Fehler beim Laden des Videos</h1>
+          <p>{error}</p>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section ref={containerRef} data-background="dark" className="hero h-screen relative overflow-hidden" style={{ backgroundImage: "url('/HeaderVideo-thumbnail.png')" }}>
       <video 
@@ -122,14 +95,31 @@ export function Hero() {
         muted
         loop
         playsInline
-        className={`absolute inset-0 w-full h-full object-cover ${videoLoaded ? 'opacity-100' : 'opacity-0'}`}
+        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
         poster="/HeaderVideo-thumbnail.png"
         preload="metadata"
-        onCanPlay={() => setVideoLoaded(true)}
       >
         <source src="/HeaderVideo.mp4" media="(min-width: 768px)" type="video/mp4" />
         <source src="/HeaderVideo-small.mp4" media="(max-width: 767px)" type="video/mp4" />
       </video>
+      
+      {/* Loading State */}
+      {!isLoaded && (
+        <div className="absolute inset-0 bg-gray-900">
+          <Image
+            src="/HeaderVideo-thumbnail.png" 
+            alt="Loading..." 
+            fill
+            className="object-cover opacity-50"
+            priority={false}
+          />
+
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-white"></div>
+          </div>
+        </div>
+      )}
+      
       <div id="background-check" className="h-screen w-full bg-gray-900" />
       <div
         ref={textRef}

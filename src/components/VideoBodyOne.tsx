@@ -1,129 +1,27 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
+import { useRef } from "react";
 import Image from "next/image";
+import { useOptimizedVideo } from "@/hooks/useOptimizedVideo";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
 
 export function VideoBodyOne() {
   const containerRef = useRef<HTMLElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [videoLoaded, setVideoLoaded] = useState(false);
-  const [scrollY, setScrollY] = useState(0);
+  
+  const { videoRef, isLoaded, error } = useOptimizedVideo('/BodyVideo-vhf.mp4', true);
 
-  // Video laden und abspielen
-  useEffect(() => {
-    // Funktion zum Starten des Videos
-    const playVideo = () => {
-      if (videoRef.current) {
-        // Video explizit laden
-        videoRef.current.load();
-        // Versuch, das Video zu spielen
-        const playPromise = videoRef.current.play();
-        
-        if (playPromise !== undefined) {
-          playPromise
-            .then(() => {
-              setVideoLoaded(true);
-              console.log("BodyVideo started playing successfully");
-            })
-            .catch(error => {
-              console.error("Error playing BodyVideo:", error);
-              // Versuch, nach einem Benutzerinteraktionsereignis erneut abzuspielen
-              document.addEventListener('touchstart', () => {
-                videoRef.current?.play();
-              }, { once: true });
-            });
-        }
-      }
-    };
-    
-    // Video nach dem Mounting neu laden und abspielen
-    playVideo();
-    
-    // Event-Listener für Seitenwechsel zurück
-    const handleVisibilityChange = () => {
-      if (document.visibilityState === 'visible') {
-        playVideo();
-      }
-    };
-    
-    document.addEventListener('visibilitychange', handleVisibilityChange);
-    
-    return () => {
-      document.removeEventListener('visibilitychange', handleVisibilityChange);
-    };
-  }, []);
-
-  // Parallax-Effekt mit nativem JavaScript, optimiert für Snap-Scrolling
-  useEffect(() => {
-    if (!containerRef.current || !videoRef.current) return;
-
-    // Letzte Animation speichern, um sie abbrechen zu können
-    let animationFrame: number | null = null;
-    let lastProgress = 0;
-    
-    // Scroll-Handler für den Parallax-Effekt
-    const handleScroll = () => {
-      if (!containerRef.current || !videoRef.current) return;
-      
-      // Aktuelle Scroll-Position speichern
-      const currentScrollY = window.scrollY;
-      setScrollY(currentScrollY);
-      
-      // Performance-Optimierung: Nur weitermachen, wenn sich die Scroll-Position signifikant geändert hat
-      if (Math.abs(currentScrollY - scrollY) < 5) return;
-
-      // Animation canceln, wenn bereits eine läuft
-      if (animationFrame) {
-        cancelAnimationFrame(animationFrame);
-      }
-
-      // Animation mit requestAnimationFrame für bessere Performance
-      animationFrame = requestAnimationFrame(() => {
-        if (!containerRef.current || !videoRef.current) return;
-        
-        // Berechnung der Container-Position relativ zum Viewport
-        const rect = containerRef.current.getBoundingClientRect();
-        const containerTop = rect.top;
-        const containerHeight = rect.height;
-        const windowHeight = window.innerHeight;
-
-        // Überprüfen, ob der Container im Viewport ist
-        if (containerTop < windowHeight && containerTop > -containerHeight) {
-          // Berechnen wie weit der Container im Viewport ist (0 bis 1)
-          const rawProgress = (windowHeight - containerTop) / (windowHeight + containerHeight);
-          
-          // Sanftes Easing für die Parallax-Bewegung
-          // Wir verwenden eine Interpolation zwischen dem letzten und dem aktuellen Wert
-          const progress = lastProgress + (rawProgress - lastProgress) * 0.1;
-          lastProgress = progress;
-          
-          // Noch weiter reduzierte Parallax-Bewegung
-          const yMove = -2 + (progress * 4);
-          
-          // Auf das Video-Element anwenden
-          if (videoRef.current) {
-            videoRef.current.style.transform = `translateY(${yMove}%)`;
-          }
-        }
-      });
-    };
-
-    // Initial aufrufen und Scroll-Event-Listener hinzufügen
-    handleScroll();
-    window.addEventListener('scroll', handleScroll);
-    
-    // Event-Listener entfernen beim Unmounting
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      // Laufende Animation abbrechen
-      if (animationFrame) {
-        cancelAnimationFrame(animationFrame);
-      }
-    };
-  }, [scrollY]); // scrollY als Abhängigkeit hinzugefügt
+  if (error) {
+    return (
+      <section className="h-screen w-full relative overflow-hidden bg-gray-900 flex items-center justify-center">
+        <div className="text-white text-center">
+          <h2>Video konnte nicht geladen werden</h2>
+          <p>{error}</p>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section 
@@ -148,13 +46,10 @@ export function VideoBodyOne() {
           muted
           loop
           playsInline
-          className={`absolute w-full object-cover ${videoLoaded ? 'opacity-100' : 'opacity-0'}`}
+          className={`absolute w-full object-cover transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
           poster="/BodyVideo-thumbnail.png"
           preload="metadata"
-          onCanPlay={() => setVideoLoaded(true)}
           style={{ 
-            willChange: 'transform',
-            transformStyle: 'preserve-3d',
             objectFit: 'cover',
             objectPosition: 'center',
             top: '-5%',
@@ -169,6 +64,22 @@ export function VideoBodyOne() {
           {/* Video for smaller screens */}
           <source src="/BodyVideo-vhf.mp4" media="(max-width: 767px)" type="video/mp4" />
         </video>
+        
+        {/* Loading State */}
+        {!isLoaded && (
+          <div className="absolute inset-0 bg-gray-900">
+            <Image
+              src="/BodyVideo-thumbnail.png" 
+              alt="Loading..." 
+              fill
+              className="w-full h-full object-cover opacity-50"
+              priority={false}
+            />
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-white"></div>
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Angepasste Navigationsleiste für bessere Mobile-Ansicht */}

@@ -3,88 +3,50 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useRef, useEffect, useState } from "react";
+import { useRef } from "react";
+import { useOptimizedVideo } from "@/hooks/useOptimizedVideo";
+import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export function HeroKarriere() {
   const containerRef = useRef<HTMLElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
-  const [videoLoaded, setVideoLoaded] = useState(false);
-
-  useEffect(() => {
-    // Funktion zum Starten des Videos
-    const playVideo = () => {
-      if (videoRef.current) {
-        // Video explizit laden
-        videoRef.current.load();
-        // Versuch, das Video zu spielen
-        const playPromise = videoRef.current.play();
-        
-        if (playPromise !== undefined) {
-          playPromise
-            .then(() => {
-              setVideoLoaded(true);
-              console.log("KarriereVideo started playing successfully");
-            })
-            .catch(error => {
-              console.error("Error playing KarriereVideo:", error);
-              // Versuch, nach einem Benutzerinteraktionsereignis erneut abzuspielen
-              document.addEventListener('touchstart', () => {
-                videoRef.current?.play();
-              }, { once: true });
-            });
-        }
-      }
-    };
-    
-    // Video nach dem Mounting neu laden und abspielen
-    playVideo();
-    
-    // Event-Listener für Seitenwechsel zurück
-    const handleVisibilityChange = () => {
-      if (document.visibilityState === 'visible') {
-        playVideo();
-      }
-    };
-    
-    document.addEventListener('visibilitychange', handleVisibilityChange);
-    
-    return () => {
-      document.removeEventListener('visibilitychange', handleVisibilityChange);
-    };
-  }, []);
+  
+  const { videoRef, isLoaded, error } = useOptimizedVideo('/KarriereVideo.mp4', true);
 
   useGSAP(() => {
     if (!containerRef.current || !textRef.current) return;
 
-    // Parallax effect for text (moving slower than image)
-    gsap.to(textRef.current, {
-      yPercent: -15,
-      ease: "none",
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: "top top",
-        end: "bottom top",
-        scrub: true,
-      },
-    });
+    // Animationen nur starten wenn Video geladen ist
+    if (isLoaded) {
+      // Parallax effect for text (moving slower than image)
+      gsap.to(textRef.current, {
+        yPercent: -15,
+        ease: "none",
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top top",
+          end: "bottom top",
+          scrub: true,
+        },
+      });
 
-    // Opacity animation for text
-    gsap.to(textRef.current, {
-      opacity: 0.1,
-      delay: 6,
-      duration: 1.5,
-      onComplete: () => {
-        gsap.to(textRef.current, {
-          opacity: 0.1,
-          duration: 2,
-          ease: "power2.out",
-        });
-      }
-    });
-  }, []);
+      // Opacity animation for text
+      gsap.to(textRef.current, {
+        opacity: 0.1,
+        delay: 6,
+        duration: 1.5,
+        onComplete: () => {
+          gsap.to(textRef.current, {
+            opacity: 0.1,
+            duration: 2,
+            ease: "power2.out",
+          });
+        }
+      });
+    }
+  }, [isLoaded]);
 
   const handleMouseEnter = () => {
     gsap.to(textRef.current, {
@@ -102,22 +64,47 @@ export function HeroKarriere() {
     });
   };
 
+  if (error) {
+    return (
+      <section className="hero h-screen relative bg-gray-900 flex items-center justify-center">
+        <div className="text-white text-center">
+          <h1>Fehler beim Laden des Videos</h1>
+          <p>{error}</p>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section ref={containerRef} data-background="dark" className="hero h-screen relative overflow-hidden">
-      
       <video 
         ref={videoRef}
         autoPlay 
         muted 
         loop
         playsInline 
-        className={`absolute inset-0 w-full h-full object-cover ${videoLoaded ? 'opacity-100' : 'opacity-0'}`}
+        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
         poster="/KarriereVideo-thumbnail.png"
         preload="metadata"
-        onCanPlay={() => setVideoLoaded(true)}
       >
         <source src="/KarriereVideo.mp4" type="video/mp4" />
       </video>
+      
+      {/* Loading State */}
+      {!isLoaded && (
+        <div className="absolute inset-0 bg-gray-900">
+          <Image
+            src="/HeaderVideo-thumbnail.png" 
+            alt="Loading..." 
+            fill
+            className="object-cover opacity-50"
+            priority={false}
+          />
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-white"></div>
+          </div>
+        </div>
+      )}
      
       <div id="background-check" className="h-screen w-full bg-gray-900" />
       <div
@@ -130,7 +117,6 @@ export function HeroKarriere() {
           KARRIERE
         </h1>
       </div>
-
     </section>
   );
 }

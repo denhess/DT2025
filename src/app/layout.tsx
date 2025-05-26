@@ -2,6 +2,7 @@
 import type { Metadata } from "next";
 import { HeaderProvider } from "@/contexts/HeaderContext";
 import { Header } from "@/components/Header";
+import { PreloadManager } from "@/components/PreloadManager"; // NEU
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 import LoadingProvider from "../components/LoadingProvider";
@@ -46,11 +47,6 @@ export default function RootLayout({
         <link rel="alternate" hrefLang="x-default" href="https://designtech.eu/" />
       </head>
       <body>
-
-
-
-
-
         {/* Google Tag Manager Code mit next/script und id */}
         <Script
           id="google-tag-manager"
@@ -83,6 +79,7 @@ export default function RootLayout({
 
         <HeaderProvider>
           <LoadingProvider>
+            <PreloadManager /> {/* NEU: Preloading im Hintergrund */}
             <Header />
             {children}
           </LoadingProvider>
