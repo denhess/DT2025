@@ -52,8 +52,8 @@ export function ContactJob() {
             Ihr Kontakt
           </h3>
           {/* Subtitle */}
-          <h2 className="leading-tight tracking-[-0.02em]">
-            LISA&nbsp;VALENTINA&nbsp;SCHMID
+          <h2 className="leading-tight tracking-[-0.02em] whitespace-nowrap">
+            LISA VALENTINA SCHMID
           </h2>
 
           {/* Button - Mit derselben btn-gradient Klasse wie im MenuOverlay */}

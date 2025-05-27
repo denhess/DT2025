@@ -380,8 +380,8 @@ p {
 
 /* Projektslider Anpassungen */
 .project-slider-container .custom-bullet {
-  width: 12px;
-  height: 12px;
+  width: 10px;
+  height: 10px;
   background: rgb(202, 202, 202); /* Halbdurchsichtig weiß für inaktive Punkte */
   opacity: 1;
   margin: 0 5px;

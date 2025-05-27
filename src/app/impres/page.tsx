@@ -7,9 +7,10 @@ import { Footer } from "@/components/Footer";
 export default function Impres() {
   return (
     <>
-      <section>
-        <div className="text-black h-auto flex justify-center items-center">
-          <div className="w-full px-6 sm:px-8 md:px-16 lg:px-24 max-w-5xl pt-16 pb-16">
+      <div>
+        <div className="text-black min-h-screen flex justify-center items-start pt-8">
+          <div className="w-full px-6 sm:px-8 md:px-16 lg:px-24 max-w-5xl pt-24 pb-16">
+            {/* Erhöhtes padding-top von pt-16 auf pt-24 oder pt-32 */}
 
             {/* Impressum */}
             <div className="mb-8">
@@ -42,7 +43,7 @@ export default function Impres() {
                 <br />
                 Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich. <br />
                 <br />
-            </p>
+              </p>
             </div>
 
             {/* Rechtlicher Hinweis / Nutzungsbedingungen */}
@@ -51,19 +52,33 @@ export default function Impres() {
                 <b>RECHTLICHER HINWEIS / NUTZUNGSBEDINGUNGEN</b>
                 <br />
                 <br />
-                Mit Urteil vom 12. Mai 1998 – 312 O 85/98 – „Haftung für Links“
+                Mit Urteil vom 12. Mai 1998 – 312 O 85/98 – &bdquo;Haftung für Links&ldquo;
                 hat das Landgericht (LG) Hamburg entschieden, dass man durch die
                 Ausbringung eines Links die Inhalte der gelinkten Seite ggf. mit
                 zu verantworten hat. Dies kann – so das LG – nur dadurch
                 verhindert werden, dass man sich ausdrücklich von diesen
                 Inhalten distanziert.
                 <br />
-                {/* Der restliche Text sollte hier ergänzt werden */}
+                <br />
+                Wir haben auf unseren Seiten Links zu anderen Seiten im Internet
+                gelegt. Für alle diese Links gilt: Wir möchten ausdrücklich
+                betonen, dass wir keinerlei Einfluss auf die Gestaltung und die
+                Inhalte der gelinkten Seiten haben. Deshalb distanzieren wir uns
+                hiermit ausdrücklich von allen Inhalten aller gelinkten Seiten
+                auf unserer Homepage und machen uns diese Inhalte nicht zu eigen.
+                Diese Erklärung gilt für alle auf unserer Homepage angebrachten
+                Links und für alle Inhalte der Seiten, zu denen Links oder Banner
+                führen.
+                <br />
+                <br />
+                Sollten Sie der Ansicht sein, dass die verlinkten externen Seiten
+                gegen geltendes Recht verstoßen oder sonst unangemessene Inhalte
+                enthalten, teilen Sie uns dies bitte mit.
               </p>
             </div>
           </div>
         </div>
-      </section>
+      </div>
 
       <Footer />
     </>
