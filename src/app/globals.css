@@ -62,7 +62,6 @@ h1 {
   line-height: 1.1;
   overflow-wrap: break-word;
   hyphens: auto;
-  
 }
 
 h2 {
@@ -79,8 +78,9 @@ h3 {
   margin-bottom: 0.5em;
 }
 
+/* Optimierte H4-Definition für bessere Hierarchie */
 h4 {
-  font-size: clamp(1rem, 1vw, 1.1rem);
+  font-size: clamp(1rem, 1.5vw, 1.375rem); /* 16px - 22px */
   line-height: 1.4;
   overflow-wrap: break-word;
   margin-bottom: 0.5em;
@@ -91,6 +91,19 @@ p {
   line-height: 1.5;
   overflow-wrap: break-word;
   margin-bottom: 1em;
+}
+
+/* Helvetica-spezifische Spacing-Utilities */
+.helvetica-spacing-tight {
+  margin-top: 2rem; /* 32px */
+}
+
+.helvetica-spacing-normal {
+  margin-top: 3rem; /* 48px */
+}
+
+.helvetica-spacing-loose {
+  margin-top: 4rem; /* 64px */
 }
 
 /* Beibehalten der Media Queries für feinere Anpassungen im Kontext */
@@ -106,7 +119,14 @@ p {
     scroll-snap-type: y proximity;
   }
   
-  /* Media-Query-spezifische Anpassungen beibehalten, aber clamp() hat jetzt Vorrang */
+  /* Leicht reduzierte Abstände für mittlere Screens */
+  .helvetica-spacing-normal {
+    margin-top: 2.5rem;
+  }
+  
+  .helvetica-spacing-loose {
+    margin-top: 3.5rem;
+  }
 }
 
 /* Small Laptops: 769px - 1024px */
@@ -125,6 +145,19 @@ p {
     flex-direction: column;
     gap: 1rem;
   }
+  
+  /* Angepasste Abstände für Laptops */
+  .helvetica-spacing-tight {
+    margin-top: 1.5rem;
+  }
+  
+  .helvetica-spacing-normal {
+    margin-top: 2rem;
+  }
+  
+  .helvetica-spacing-loose {
+    margin-top: 3rem;
+  }
 }
 
 /* Tablets: 481px - 768px */
@@ -141,6 +174,19 @@ p {
   section > div {
     padding: 0.75rem;
   }
+  
+  /* Kompaktere Abstände auf Tablets */
+  .helvetica-spacing-tight {
+    margin-top: 1rem;
+  }
+  
+  .helvetica-spacing-normal {
+    margin-top: 1.5rem;
+  }
+  
+  .helvetica-spacing-loose {
+    margin-top: 2rem;
+  }
 }
 
 /* Mobile Geräte: 320px - 480px */
@@ -156,6 +202,19 @@ p {
   /* Minimaler Abstand auf Mobilgeräten */
   section > div {
     padding: 0.5rem;
+  }
+  
+  /* Sehr kompakte Abstände auf Mobile */
+  .helvetica-spacing-tight {
+    margin-top: 0.75rem;
+  }
+  
+  .helvetica-spacing-normal {
+    margin-top: 1rem;
+  }
+  
+  .helvetica-spacing-loose {
+    margin-top: 1.5rem;
   }
   
   /* Text-Beschneidung für sehr lange Inhalte auf Mobilgeräten */
@@ -179,32 +238,25 @@ p {
   }
 }
 
-
-/* Button Styles schwarz - keine naimation */
-
+/* Button Styles schwarz - keine animation */
 .btn-gradient-noanimation {
   display: inline-block;
   border-radius: 50px;
   border: 1.5px solid black;
   padding: 0.5rem 1.5rem;
   color: black;
-  
 }
 
-/* Button Styles weiß - keine naimation */
-
+/* Button Styles weiß - keine animation */
 .btn-gradient-white-noanimation {
   display: inline-block;
   border-radius: 50px;
   border: 1.5px solid white;
   padding: 0.5rem 1.5rem;
   color: white;
-  
 }
 
-
 /* Button Styles - animiert */
-
 .btn-gradient {
   display: inline-block;
   cursor: pointer;
@@ -222,7 +274,6 @@ p {
 }
 
 /* Button Styles Groß - animiert */
-
 .btn-big {
   display: inline-block;
   cursor: pointer;
@@ -241,7 +292,6 @@ p {
 }
 
 /* Button Styles white - animiert */
-
 .btn-gradient-trans {
   display: inline-block;
   cursor: pointer;
@@ -259,7 +309,6 @@ p {
 }
 
 /* Button Styles groß */
-
 .btn-gradient-big {
   display: inline-block;
   cursor: pointer;
@@ -271,8 +320,7 @@ p {
   background: radial-gradient(farthest-side, transparent calc(100% - 150px), black 0) center / var(--d, 600px) var(--d, 600px) no-repeat;
 }
 
-/* Icon Styles - schwarz*/
-
+/* Icon Styles - schwarz */
 .icon-btn-gradient {
   display: inline-flex;
   align-items: center;
@@ -298,7 +346,6 @@ p {
 }
 
 /* Icon Styles - weiß */
-
 .icon-btn-gradient-white {
   display: inline-flex;
   align-items: center;
@@ -323,7 +370,7 @@ p {
   filter: brightness(1) invert(0);
 }
 
-/*Burger Menu Styles */
+/* Burger Menu Styles */
 /* Burger-Button-Styles für Light und Dark Mode */
 
 /* Light Mode Burger Button (schwarzer Rand) */
@@ -363,7 +410,6 @@ p {
   filter: brightness(0);
 }
 
-
 /* Navigationslink-Animation (MenuOverlay) */
 .nav-link {
   background: 
@@ -376,7 +422,6 @@ p {
   --d: 100%;
   --p: 100%;
 }
-
 
 /* Projektslider Anpassungen */
 .project-slider-container .custom-bullet {

@@ -1,4 +1,4 @@
-// TextDesignToSuccess
+// TextDesignToSuccessThree
 "use client";
 
 import { useRef } from 'react';
@@ -8,7 +8,7 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export function TextDesignToSuccess() {
+export function TextDesignToSuccessThree() {
   const sectionRef = useRef<HTMLElement>(null);
   const textRef = useRef<HTMLParagraphElement>(null);
   
@@ -41,23 +41,36 @@ export function TextDesignToSuccess() {
             className="max-w-7xl mx-auto"
           >
             <h2>
-              Exzellente Lösungen brauchen keinen Verkäufer. <br />
-              Der Kunde erkennt den Wert sofort und bekommt ihn von uns.
+              
+              Design to Success®, wenn Erfolg kein Zufall sein darf.
+            </h2>
+            
+            <h2 className="helvetica-spacing-normal">
+              Unsere Innovationsstrategie wurde mehrfach ausgezeichnet und ist in der Industriepraxis seit Jahrzehnten bewährt.
             </h2>
             
             <h3 className="helvetica-spacing-normal">
-              Ein Design, das auf den Punkt wirkt bevor jemand etwas erklärt.
+              Unsere bewährte Methode im Detail:
             </h3>
-            
+
             <div className="helvetica-spacing-normal space-y-4">
               <h4 className="max-w-5xl">
-                Zum punktgenauen Entwurf der Maschine für die Ziele des Kunden setzt Design Tech überdurchschnittliche, 
-                eigens dafür entwickelte Erkenntnisquellen bei der Entwicklung des Maschinendesign ein.
+                Unsere Methode verbindet strategisches Denken mit exzellenter Umsetzung durch Design, 
+                das exakt zur Unternehmensstrategie passt, und Prozesse, die auf den Punkt liefern – in Qualität, Zeit und Wirkung.
               </h4>
               
               <h4 className="max-w-5xl">
-                Insbesondere, wenn es um das Sichtbarmachen von Qualität oder eigenständigen Markenmerkmalen geht, 
-                um die Differenzierung zum Wettbewerb oder um anwenderorientierte Funktionen.
+                Das schafft Sicherheit für Entscheider, weil System dahintersteckt. Dabei übernehmen wir nur Projekte, 
+                bei denen wir echte Erfolgsaussichten sehen, denn wir stehen ausschließlich für Design, das wirkt und 
+                messbare Ergebnisse liefert.
+              </h4>
+              
+              <h4 className="max-w-5xl">
+                Dafür denken wir voraus, hinterfragen und schaffen die Voraussetzungen, damit Erfolg kein Zufall ist.
+              </h4>
+              
+              <h4 className="max-w-5xl">
+                40 Jahre Erfahrung, über 200 Designpreise und Kunden, die auf den Punkt profitieren, sprechen für sich.
               </h4>
             </div>
           </div>
