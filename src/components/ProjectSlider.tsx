@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
 import { Projects } from "@/data/projects/project-data";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, EffectFade } from "swiper/modules";
@@ -41,10 +42,29 @@ export function ProjectSlider() {
           <SwiperSlide key={index}>
             <div className="absolute inset-0 overflow-hidden">
               <div id={`slide-image-${index}`} className="relative w-full h-full">
-                <picture>
-                  <source srcSet={`/${project.imgMobile}`} media="(max-width: 767px)" />
-                  <img src={`/${project.img}`} alt="" className="w-full h-full object-cover" />
-                </picture>
+                {/* Desktop Bild mit Next.js Image Komponente */}
+                <div className="hidden md:block relative w-full h-full">
+                  <Image
+                    src={`/${project.img}`}
+                    alt={project.title || ""}
+                    fill
+                    priority={index === 0}
+                    style={{ objectFit: 'cover' }}
+                    sizes="100vw"
+                  />
+                </div>
+                
+                {/* Mobile Bild mit Next.js Image Komponente */}
+                <div className="block md:hidden relative w-full h-full">
+                  <Image
+                    src={`/${project.imgMobile}`}
+                    alt={project.title || ""}
+                    fill
+                    priority={index === 0}
+                    style={{ objectFit: 'cover' }}
+                    sizes="100vw"
+                  />
+                </div>
               </div>
             </div>
             <div className="relative h-full">

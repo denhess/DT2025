@@ -14,6 +14,8 @@ import { Swiper as SwiperInstance } from "swiper/types";
 export function DesignToSuccessSlider() {
   const sectionRef = useRef<HTMLElement>(null);
   const swiperRef = useRef<SwiperInstance | null>(null);
+  // Erstellen eines Arrays von Refs für jeden Slide
+  const slideContentsRef = useRef<Array<HTMLElement | null>>([]);
 
   return (
     <section ref={sectionRef} data-background="light" className="project-slider relative h-screen overflow-hidden">

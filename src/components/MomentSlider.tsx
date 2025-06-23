@@ -18,6 +18,8 @@ gsap.registerPlugin(ScrollTrigger);
 export function MomentSlider() {
   const sectionRef = useRef<HTMLElement>(null);
   const swiperRef = useRef<SwiperInstance | null>(null);
+  // Refs für Slide-Inhalte
+  const slideContentRefs = useRef<Array<HTMLElement | null>>([]);
 
   useGSAP(() => {
     if (!sectionRef.current) return;
@@ -35,23 +37,61 @@ export function MomentSlider() {
   }, []);
 
   const animateSlideContent = (index: number) => {
+    // Bildanimation
     gsap.to(`#slide-image-${index}`, { scale: 1.1, duration: 10, ease: "none" });
-    const timeline = gsap.timeline();
-    timeline.to(
-      [`#slide-title-${index}`, `#slide-description-${index}`, `#slide-logo-${index}`],
-      { opacity: 1, y: 0, duration: 0.6, stagger: 0.1, ease: "power3.out" }
-    );
+    
+    // Finde die zu animierenden Elemente durch direkten Zugriff
+    const titleElement = document.getElementById(`slide-title-${index}`);
+    const descElement = document.getElementById(`slide-description-${index}`);
+    const logoElement = document.getElementById(`slide-logo-${index}`);
+    
+    // Nur animieren, wenn die Elemente existieren
+    const elements = [titleElement, descElement, logoElement].filter(Boolean);
+    
+    if (elements.length > 0) {
+      const timeline = gsap.timeline();
+      timeline.to(
+        elements,
+        { opacity: 1, y: 0, duration: 0.6, stagger: 0.1, ease: "power3.out" }
+      );
+    }
   };
 
-  const handleSlideStart = () => {
-    gsap.to([".slide-content"], { opacity: 0, y: 20, duration: 0.5, ease: "power2.in" });
+  const handleSlideStart = (swiper: SwiperInstance) => {
+    // Aktueller Slide-Index
+    const currentIndex = swiper.activeIndex;
+    
+    // Finde die zu animierenden Elemente
+    const titleElement = document.getElementById(`slide-title-${currentIndex}`);
+    const descElement = document.getElementById(`slide-description-${currentIndex}`);
+    const logoElement = document.getElementById(`slide-logo-${currentIndex}`);
+    
+    // Nur animieren, wenn die Elemente existieren
+    const elements = [titleElement, descElement, logoElement].filter(Boolean);
+    
+    if (elements.length > 0) {
+      gsap.to(elements, { opacity: 0, y: 20, duration: 0.5, ease: "power2.in" });
+    }
   };
 
   const handleSlideEnd = (swiper: SwiperInstance) => {
+    // Zurücksetzen der Bildgrößen für alle Slides
     Projects.forEach((_, index) => {
       gsap.set(`#slide-image-${index}`, { scale: 1 });
     });
-    gsap.set([`#slide-title-${swiper.activeIndex}`, `#slide-description-${swiper.activeIndex}`, `#slide-logo-${swiper.activeIndex}`], { opacity: 0, y: 30 });
+    
+    // Setze Startwerte für die Elemente des neuen aktiven Slides
+    const titleElement = document.getElementById(`slide-title-${swiper.activeIndex}`);
+    const descElement = document.getElementById(`slide-description-${swiper.activeIndex}`);
+    const logoElement = document.getElementById(`slide-logo-${swiper.activeIndex}`);
+    
+    const elements = [titleElement, descElement, logoElement].filter(Boolean);
+    
+    if (elements.length > 0) {
+      gsap.set(elements, { opacity: 0, y: 30 });
+    }
+    
+    // Starte Animation für den neuen aktiven Slide
     animateSlideContent(swiper.activeIndex);
   };
 
@@ -76,9 +116,12 @@ export function MomentSlider() {
         }}
         onSwiper={(swiper) => { 
           swiperRef.current = swiper; 
-          animateSlideContent(0); 
+          // Initialisierung mit Verzögerung, um sicherzustellen, dass der DOM geladen ist
+          setTimeout(() => {
+            animateSlideContent(0);
+          }, 100);
         }}
-        onSlideChangeTransitionStart={handleSlideStart}
+        onSlideChangeTransitionStart={(swiper) => handleSlideStart(swiper)}
         onSlideChangeTransitionEnd={(swiper) => handleSlideEnd(swiper)}
         className="h-full project-slider-container"
       >
@@ -101,7 +144,6 @@ export function MomentSlider() {
             <div className="relative h-full">
               {/* Untere Navigationsleiste mit Buttons und Logo - wie im ProjectSlider */}
               <div className="absolute bottom-0 left-0 right-0 w-full px-8 py-6 flex justify-between items-center z-10">
-
                 
                 {/* Logo rechts unten */}
                 <div className="flex items-center">
