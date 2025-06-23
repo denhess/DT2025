@@ -1,122 +1,51 @@
 "use client";
 
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useRef, useEffect, useState } from "react";
-
-gsap.registerPlugin(ScrollTrigger);
+import { useOptimizedHero } from "@/hooks/useOptimizedHero";
 
 export function Hero() {
-  const containerRef = useRef<HTMLElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const textRef = useRef<HTMLDivElement>(null);
-  const [videoLoaded, setVideoLoaded] = useState(false);
-
-  useEffect(() => {
-    const playVideo = () => {
-      if (videoRef.current) {
-        const playPromise = videoRef.current.play();
-        
-        if (playPromise !== undefined) {
-          playPromise
-            .then(() => {
-              setVideoLoaded(true);
-              console.log("Video started playing successfully");
-            })
-            .catch(error => {
-              console.error("Error playing video:", error);
-              setVideoLoaded(true); // Zeige trotzdem an
-            });
-        }
-      }
-    };
-    
-    playVideo();
-    
-    const handleVisibilityChange = () => {
-      if (document.visibilityState === 'visible') {
-        playVideo();
-      }
-    };
-    
-    document.addEventListener('visibilitychange', handleVisibilityChange);
-    
-    return () => {
-      document.removeEventListener('visibilitychange', handleVisibilityChange);
-    };
-  }, []);
-
-  useGSAP(() => {
-    if (!containerRef.current || !textRef.current) return;
-    
-    gsap.to(videoRef.current, {
-      yPercent: 30,
-      ease: "none",
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: "top top",
-        end: "bottom top",
-        scrub: 0.5,
-      },
-    });
-
-    gsap.to(textRef.current, {
-      yPercent: -15,
-      ease: "none",
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: "top top",
-        end: "bottom top",
-        scrub: 0.5,
-      },
-    });
-
-    gsap.to(textRef.current, {
-      opacity: 0.1,
-      delay: 6,
-      duration: 1.5,
-    });
-  }, []);
-
-  const handleMouseEnter = () => {
-    gsap.to(textRef.current, {
-      opacity: 1,
-      duration: 0.5,
-      ease: "power2.out",
-    });
-  };
-
-  const handleMouseLeave = () => {
-    gsap.to(textRef.current, {
-      opacity: 0.1,
-      duration: 0.5,
-      ease: "power2.out",
-    });
-  };
+  const {
+    containerRef,
+    videoRef,
+    textRef,
+    videoLoaded,
+    handleMouseEnter,
+    handleMouseLeave
+  } = useOptimizedHero({ 
+    enableAnimations: true
+  });
 
   return (
-    <section ref={containerRef} data-background="dark" className="hero h-screen relative overflow-hidden" style={{ backgroundImage: "url('/HeaderVideo-thumbnail.png')" }}>
+    <section 
+      ref={containerRef} 
+      data-background="dark" 
+      className="hero h-screen relative overflow-hidden"
+      style={{ backgroundImage: "url('/HeaderVideo-thumbnail.webp')" }}
+    >
       <video 
         ref={videoRef}
-        autoPlay
-        muted
+        autoPlay 
+        muted 
         loop
-        playsInline
+        playsInline 
         className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${videoLoaded ? 'opacity-100' : 'opacity-0'}`}
-        poster="/HeaderVideo-thumbnail.png"
-        preload="metadata"
-        onCanPlay={() => setVideoLoaded(true)}
-        onError={() => setVideoLoaded(true)}
+        poster="/HeaderVideo-thumbnail.webp"
+        preload="none"
       >
         <source src="/HeaderVideo.mp4" media="(min-width: 768px)" type="video/mp4" />
         <source src="/HeaderVideo-small.mp4" media="(max-width: 767px)" type="video/mp4" />
       </video>
       
       <div id="background-check" className="h-screen w-full bg-gray-900" />
+      
       <div
         ref={textRef}
         className="absolute bottom-10 sm:bottom-8 flex flex-col px-8 md:px-8 lg:px-8"
+        style={{
+          opacity: 1,
+          visibility: 'visible',
+          transform: 'translate3d(0, 0, 0)',
+          transition: 'opacity 0.5s ease'
+        }}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >

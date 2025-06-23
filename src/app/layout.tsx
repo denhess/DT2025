@@ -1,8 +1,8 @@
-// src/app/layout.tsx (Server Component)
+// src/app/layout.tsx (Server Component) - OPTIMIZED
 import type { Metadata } from "next";
 import { HeaderProvider } from "@/contexts/HeaderContext";
 import { Header } from "@/components/Header";
-import { PreloadManager } from "@/components/PreloadManager"; // NEU
+import { PreloadManager } from "@/components/PreloadManager";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 import LoadingProvider from "../components/LoadingProvider";
@@ -41,46 +41,71 @@ export default function RootLayout({
   return (
     <html lang="de">
       <head>
+        {/* DNS Prefetch für Performance */}
+        <link rel="dns-prefetch" href="//www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="//www.google-analytics.com" />
+        
         {/* Hreflang-Links für mehrsprachige Unterstützung */}
         <link rel="alternate" hrefLang="de" href="https://designtech.eu/" />
         <link rel="alternate" hrefLang="en" href="https://designtech.eu/en/" />
         <link rel="alternate" hrefLang="x-default" href="https://designtech.eu/" />
       </head>
       <body>
-        {/* Google Tag Manager Code mit next/script und id */}
+        {/* OPTIMIZED: Non-blocking GTM + GA4 Loading */}
         <Script
-          id="google-tag-manager"
+          id="optimized-analytics"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
-              (function(w,d,s,l,i){
-                w[l]=w[l]||[];
-                w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
-                var f=d.getElementsByTagName(s)[0],
-                    j=d.createElement(s),
-                    dl=l!='dataLayer'?'&l='+l:'';
-                j.async=true;
-                j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-                f.parentNode.insertBefore(j,f);
-              })(window,document,'script','dataLayer','GTM-NHBLRBHH');
-            `,
-          }}
-        />
-
-        {/* Google Analytics 4 (gtag.js) */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-D2ZPKL1FPP"
-          strategy="afterInteractive"
-        />
-        <Script
-          id="google-analytics"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
+              // Initialize dataLayer
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-D2ZPKL1FPP');
+              
+              // Performance-optimized loading
+              (function() {
+                var analyticsLoaded = false;
+                
+                function loadAnalytics() {
+                  if (analyticsLoaded) return;
+                  analyticsLoaded = true;
+                  
+                  // Load GTM
+                  var gtmScript = document.createElement('script');
+                  gtmScript.async = true;
+                  gtmScript.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-NHBLRBHH';
+                  document.head.appendChild(gtmScript);
+                  
+                  // Load GA4
+                  var ga4Script = document.createElement('script');
+                  ga4Script.async = true;
+                  ga4Script.src = 'https://www.googletagmanager.com/gtag/js?id=G-D2ZPKL1FPP';
+                  ga4Script.onload = function() {
+                    gtag('js', new Date());
+                    gtag('config', 'G-D2ZPKL1FPP');
+                    
+                    // GTM dataLayer push
+                    window.dataLayer.push({'gtm.start': new Date().getTime(), event:'gtm.js'});
+                  };
+                  document.head.appendChild(ga4Script);
+                }
+                
+                // Load on first user interaction
+                var events = ['mousedown', 'mousemove', 'keypress', 'scroll', 'touchstart', 'click'];
+                var autoLoad = function() {
+                  events.forEach(function(event) {
+                    window.removeEventListener(event, loadAnalytics, {passive: true});
+                  });
+                  loadAnalytics();
+                };
+                
+                // Add event listeners
+                events.forEach(function(event) {
+                  window.addEventListener(event, autoLoad, {passive: true});
+                });
+                
+                // Fallback: load after 3 seconds
+                setTimeout(autoLoad, 3000);
+              })();
             `,
           }}
         />
@@ -97,7 +122,7 @@ export default function RootLayout({
 
         <HeaderProvider>
           <LoadingProvider>
-            <PreloadManager /> {/* NEU: Preloading im Hintergrund */}
+            <PreloadManager />
             <Header />
             {children}
           </LoadingProvider>

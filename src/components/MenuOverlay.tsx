@@ -5,6 +5,11 @@ import Link from "next/link";
 import Image from "next/image";
 import gsap from "gsap";
 
+// TypeScript-Deklaration für gtag
+declare global {
+  function gtag(...args: any[]): void;
+}
+
 interface MenuOverlayProps {
   isOpen: boolean;
   onClose: () => void;
@@ -16,6 +21,32 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
   const footerRef = useRef<HTMLDivElement>(null);
   const circleRef = useRef<HTMLDivElement>(null);
   const [isClient, setIsClient] = useState(false);
+
+  // TRACKING-FUNKTION - Menu Videocall
+  const trackMenuVideocall = () => {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'design_inquiry', {
+        'event_category': 'Contact',
+        'event_label': 'Menu Videocall Button',
+        'contact_method': 'email_menu',
+        'page_location': window.location.href
+      });
+      console.log('Menu Videocall Button clicked - tracked in GA4');
+    }
+  };
+
+  // TRACKING-FUNKTION - Menu Phone
+  const trackMenuPhone = () => {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'phone_contact', {
+        'event_category': 'Contact',
+        'event_label': 'Menu Phone Button',
+        'contact_method': 'phone_menu',
+        'page_location': window.location.href
+      });
+      console.log('Menu Phone Button clicked - tracked in GA4');
+    }
+  };
 
   useEffect(() => {
     setIsClient(true);
@@ -214,6 +245,7 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
             {/* Spalte 1: */}
             <div className="footer-column">
               <div className="space-y-2 md:space-y-3">
+                
                 <a
                   href="/erfolgsgeschichte" 
                   onClick={handleLinkClick}
@@ -236,6 +268,7 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
             {/* Spalte 2: Sonstige Links */}
             <div className="footer-column">
               <div className="space-y-2 md:space-y-3">
+                
                 <a
                   href="http://werkzeugderzukunft.de"
                   target="_blank"
@@ -255,22 +288,24 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
               </div>
             </div>
             
-            {/* Spalte 3: Kontakt - nun rechtsbündig */}
+            {/* Spalte 3: Kontakt - nun rechtsbündig mit TRACKING */}
             <div className="footer-column mt-4 sm:mt-0">
               <div className="flex flex-col items-start sm:items-end space-y-2 md:space-y-3">
                 <a
                   href="mailto:info@designtech.eu?subject=Anfrage%20für%20ein%20Videocall&body=Sehr%20geehrte%20Frau%20Mayer,%0A%0A"
+                  onClick={trackMenuVideocall}
                   className="btn-gradient whitespace-nowrap text-sm md:text-base"
                 >
-                  VIDEOCALL
+                  VIDEOCALL VEREINBAREN
                 </a>
-                
                 <a
                   href="tel:+49707391890"
+                  onClick={trackMenuPhone}
                   className="btn-gradient whitespace-nowrap text-sm md:text-base"
                 >
                   +49 7073 91 89 0
                 </a>
+                
               </div>
             </div>
             

@@ -150,7 +150,7 @@ export function VideoBodySix() {
           loop
           playsInline
           className={`absolute inset-0 w-full h-[140%] object-cover ${videoLoaded ? 'opacity-100' : 'opacity-0'}`}
-          poster="/BodyVideo-thumbnail.png"
+          poster="/BodyVideo-thumbnail.webp"
           preload="metadata"
           onCanPlay={() => setVideoLoaded(true)}
           style={{ 

@@ -6,12 +6,43 @@ import { DtLogo } from "./Dt-logo";
 import { useRef } from "react";
 import CookieBanner from "@/components/Cookie/CookieBanner";
 
+// TypeScript-Deklaration für gtag
+declare global {
+  function gtag(...args: any[]): void;
+}
+
 interface CookieBannerRef {
   openBanner: () => void;
 }
 
 export function Footer() {
   const cookieBannerRef = useRef<CookieBannerRef | null>(null);
+
+  // TRACKING-FUNKTION - Footer Videocall
+  const trackFooterVideocall = () => {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'design_inquiry', {
+        'event_category': 'Contact',
+        'event_label': 'Footer Videocall Button',
+        'contact_method': 'email_footer',
+        'page_location': window.location.href
+      });
+      console.log('Footer Videocall Button clicked - tracked in GA4');
+    }
+  };
+
+  // TRACKING-FUNKTION - Footer Phone
+  const trackFooterPhone = () => {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'phone_contact', {
+        'event_category': 'Contact',
+        'event_label': 'Footer Phone Button',
+        'contact_method': 'phone_footer',
+        'page_location': window.location.href
+      });
+      console.log('Footer Phone Button clicked - tracked in GA4');
+    }
+  };
 
   const handleLinkClick = () => {
     cookieBannerRef.current?.openBanner();
@@ -91,8 +122,10 @@ export function Footer() {
           {/* Spalte 4 - Buttons */}
           <div className="footer-column sm:col-span-1 md:col-span-1 xl:col-span-1">
             <div className="flex flex-col sm:flex-row md:flex-col xl:flex-col items-start sm:items-center md:items-start xl:items-end space-y-3 sm:space-y-0 sm:space-x-3 md:space-x-0 md:space-y-3 xl:space-x-0 xl:space-y-3">
+              
               <a
                 href="mailto:info@designtech.eu?subject=Anfrage%20für%20ein%20Videocall&body=Sehr%20geehrte%20Frau%20Mayer,%0A%0A"
+                onClick={trackFooterVideocall}
                 className="btn-gradient-trans whitespace-nowrap text-sm opacity-70 hover:opacity-100 transition-all duration-300"
               >
                 VIDEOCALL VEREINBAREN
@@ -100,6 +133,7 @@ export function Footer() {
               
               <a
                 href="tel:+49707391890"
+                onClick={trackFooterPhone}
                 className="btn-gradient-trans whitespace-nowrap text-sm opacity-70 hover:opacity-100 transition-all duration-300"
               >
                 +49 7073 91 89 0

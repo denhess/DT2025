@@ -24,17 +24,37 @@ body {
   -webkit-text-size-adjust: 100%; /* Verhindert unerwünschte Textvergrößerung auf iOS */
 }
 
-/* Add to your globals.css file */
-html {
-  scroll-snap-type: y proximity;
-  overflow-y: scroll;
-  scroll-behavior: smooth;
+/* FONT-OPTIMIERUNG: Hero-spezifische LCP-Optimierung */
+.hero h1, .hero h5 {
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-weight: 100 !important;
+  color: white;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
-/* Make all full-height sections snap to viewport, but with smoother transitions */
+/* Scroll Snap nur für Desktop (1024px+) */
+@media (min-width: 1024px) {
+  html {
+    scroll-snap-type: y proximity;
+    scroll-behavior: smooth;
+  }
+
+  section {
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
+  }
+}
+
+/* Mobile: Natürliches Scrolling ohne Snap */
+@media (max-width: 1023px) {
+  html {
+    scroll-behavior: auto; /* Schnelleres Scrolling auf Mobile */
+  }
+}
+
+/* Basis-Section-Styles für alle Geräte */
 section {
-  scroll-snap-align: start;
-  scroll-snap-stop: normal;
   min-height: 100vh;
   height: 100vh;
   display: flex;
@@ -93,39 +113,10 @@ p {
   margin-bottom: 1em;
 }
 
-/* Helvetica-spezifische Spacing-Utilities */
-.helvetica-spacing-tight {
-  margin-top: 2rem; /* 32px */
-}
-
-.helvetica-spacing-normal {
-  margin-top: 3rem; /* 48px */
-}
-
-.helvetica-spacing-loose {
-  margin-top: 4rem; /* 64px */
-}
-
-/* Beibehalten der Media Queries für feinere Anpassungen im Kontext */
-/* Extra Large Screens: 1201px und größer (Standard oben) */
-
 /* Desktops/Large Laptops: 1025px - 1200px */
 @media (max-width: 1200px) {
   :root {
     font-size: 15px;
-  }
-
-  html {
-    scroll-snap-type: y proximity;
-  }
-  
-  /* Leicht reduzierte Abstände für mittlere Screens */
-  .helvetica-spacing-normal {
-    margin-top: 2.5rem;
-  }
-  
-  .helvetica-spacing-loose {
-    margin-top: 3.5rem;
   }
 }
 
@@ -135,28 +126,11 @@ p {
     font-size: 15px;
   }
   
-  html {
-    scroll-snap-type: y proximity;
-  }
-  
   /* Flexbox für Container einführen */
   .content-container {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-  }
-  
-  /* Angepasste Abstände für Laptops */
-  .helvetica-spacing-tight {
-    margin-top: 1.5rem;
-  }
-  
-  .helvetica-spacing-normal {
-    margin-top: 2rem;
-  }
-  
-  .helvetica-spacing-loose {
-    margin-top: 3rem;
   }
 }
 
@@ -165,27 +139,10 @@ p {
   :root {
     font-size: 14px;
   }
-
-  html {
-    scroll-snap-type: y proximity;
-  }
   
   /* Reduzieren von Abständen für mehr Platz auf kleineren Geräten */
   section > div {
     padding: 0.75rem;
-  }
-  
-  /* Kompaktere Abstände auf Tablets */
-  .helvetica-spacing-tight {
-    margin-top: 1rem;
-  }
-  
-  .helvetica-spacing-normal {
-    margin-top: 1.5rem;
-  }
-  
-  .helvetica-spacing-loose {
-    margin-top: 2rem;
   }
 }
 
@@ -194,27 +151,10 @@ p {
   :root {
     font-size: 14px;
   }
-
-  html {
-    scroll-snap-type: y proximity;
-  }
   
   /* Minimaler Abstand auf Mobilgeräten */
   section > div {
     padding: 0.5rem;
-  }
-  
-  /* Sehr kompakte Abstände auf Mobile */
-  .helvetica-spacing-tight {
-    margin-top: 0.75rem;
-  }
-  
-  .helvetica-spacing-normal {
-    margin-top: 1rem;
-  }
-  
-  .helvetica-spacing-loose {
-    margin-top: 1.5rem;
   }
   
   /* Text-Beschneidung für sehr lange Inhalte auf Mobilgeräten */
@@ -256,7 +196,7 @@ p {
   color: white;
 }
 
-/* Button Styles - animiert */
+/* Button Styles - animiert (Desktop: radial-gradient, Mobile: einfache Transition) */
 .btn-gradient {
   display: inline-block;
   cursor: pointer;
@@ -265,12 +205,30 @@ p {
   padding: 0.5rem 1.5rem;
   color: black;
   transition: 0.3s;
-  background: radial-gradient(farthest-side, transparent calc(100% - 150px), black 0) center / var(--d, 600px) var(--d, 600px) no-repeat;
 }
 
-.btn-gradient:hover {
-  --d: 300px;
-  color: white;
+/* Desktop: Radial-Gradient Animation */
+@media (min-width: 769px) {
+  .btn-gradient {
+    background: radial-gradient(farthest-side, transparent calc(100% - 150px), black 0) center / var(--d, 600px) var(--d, 600px) no-repeat;
+  }
+  
+  .btn-gradient:hover {
+    --d: 300px;
+    color: white;
+  }
+}
+
+/* Mobile: Einfache Background-Transition */
+@media (max-width: 768px) {
+  .btn-gradient {
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .btn-gradient:hover {
+    background-color: black;
+    color: white;
+  }
 }
 
 /* Button Styles Groß - animiert */
@@ -282,13 +240,32 @@ p {
   padding: 0.5rem 1.5rem;
   color: black;
   transition: 0.3s;
-  background: radial-gradient(farthest-side, transparent calc(100% - 150px), black 2) center / var(--d, 1000px) var(--d, 1000px) no-repeat;
 }
 
-.btn-big:hover {
-  --d: 500px;
-  color: grey;
-  border: 1.5px solid grey;
+/* Desktop: Radial-Gradient für btn-big */
+@media (min-width: 769px) {
+  .btn-big {
+    background: radial-gradient(farthest-side, transparent calc(100% - 150px), black 2) center / var(--d, 1000px) var(--d, 1000px) no-repeat;
+  }
+  
+  .btn-big:hover {
+    --d: 500px;
+    color: grey;
+    border: 1.5px solid grey;
+  }
+}
+
+/* Mobile: Einfache Transition für btn-big */
+@media (max-width: 768px) {
+  .btn-big {
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  }
+  
+  .btn-big:hover {
+    background-color: grey;
+    color: white;
+    border-color: grey;
+  }
 }
 
 /* Button Styles white - animiert */
@@ -300,12 +277,30 @@ p {
   padding: 0.5rem 1.5rem;
   color: white;
   transition: 0.3s;
-  background: radial-gradient(farthest-side, transparent calc(100% - 150px), white 0) center / var(--d, 600px) var(--d, 600px) no-repeat;
 }
 
-.btn-gradient-trans:hover {
-  --d: 300px;
-  color: black;
+/* Desktop: Radial-Gradient für btn-gradient-trans */
+@media (min-width: 769px) {
+  .btn-gradient-trans {
+    background: radial-gradient(farthest-side, transparent calc(100% - 150px), white 0) center / var(--d, 600px) var(--d, 600px) no-repeat;
+  }
+  
+  .btn-gradient-trans:hover {
+    --d: 300px;
+    color: black;
+  }
+}
+
+/* Mobile: Einfache Transition für btn-gradient-trans */
+@media (max-width: 768px) {
+  .btn-gradient-trans {
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .btn-gradient-trans:hover {
+    background-color: white;
+    color: black;
+  }
 }
 
 /* Button Styles groß */
@@ -317,7 +312,25 @@ p {
   padding: 0.5rem 1.5rem;
   color: black;
   transition: 0.3s;
-  background: radial-gradient(farthest-side, transparent calc(100% - 150px), black 0) center / var(--d, 600px) var(--d, 600px) no-repeat;
+}
+
+/* Desktop: Radial-Gradient für btn-gradient-big */
+@media (min-width: 769px) {
+  .btn-gradient-big {
+    background: radial-gradient(farthest-side, transparent calc(100% - 150px), black 0) center / var(--d, 600px) var(--d, 600px) no-repeat;
+  }
+}
+
+/* Mobile: Einfache Transition für btn-gradient-big */
+@media (max-width: 768px) {
+  .btn-gradient-big {
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .btn-gradient-big:hover {
+    background-color: black;
+    color: white;
+  }
 }
 
 /* Icon Styles - schwarz */
@@ -332,12 +345,30 @@ p {
   height: 2.5rem;
   color: black;
   transition: 0.25s;
-  background: radial-gradient(farthest-side, transparent calc(100% - 150px), black 0) center / var(--d, 600px) var(--d, 600px) no-repeat;
 }
 
-.icon-btn-gradient:hover {
-  --d: 300px;
-  color: white;
+/* Desktop: Radial-Gradient für Icons */
+@media (min-width: 769px) {
+  .icon-btn-gradient {
+    background: radial-gradient(farthest-side, transparent calc(100% - 150px), black 0) center / var(--d, 600px) var(--d, 600px) no-repeat;
+  }
+  
+  .icon-btn-gradient:hover {
+    --d: 300px;
+    color: white;
+  }
+}
+
+/* Mobile: Einfache Transition für Icons */
+@media (max-width: 768px) {
+  .icon-btn-gradient {
+    transition: background-color 0.25s, color 0.25s;
+  }
+  
+  .icon-btn-gradient:hover {
+    background-color: black;
+    color: white;
+  }
 }
 
 .icon-btn-gradient:hover img,
@@ -357,12 +388,30 @@ p {
   height: 2.5rem;
   color: white;
   transition: 0.25s;
-  background: radial-gradient(farthest-side, transparent calc(100% - 150px), white 0) center / var(--d, 600px) var(--d, 600px) no-repeat;
 }
 
-.icon-btn-gradient-white:hover {
-  --d: 300px;
-  color: black;
+/* Desktop: Radial-Gradient für weiße Icons */
+@media (min-width: 769px) {
+  .icon-btn-gradient-white {
+    background: radial-gradient(farthest-side, transparent calc(100% - 150px), white 0) center / var(--d, 600px) var(--d, 600px) no-repeat;
+  }
+  
+  .icon-btn-gradient-white:hover {
+    --d: 300px;
+    color: black;
+  }
+}
+
+/* Mobile: Einfache Transition für weiße Icons */
+@media (max-width: 768px) {
+  .icon-btn-gradient-white {
+    transition: background-color 0.25s, color 0.25s;
+  }
+  
+  .icon-btn-gradient-white:hover {
+    background-color: white;
+    color: black;
+  }
 }
 
 .icon-btn-gradient-white:hover img,
@@ -371,19 +420,35 @@ p {
 }
 
 /* Burger Menu Styles */
-/* Burger-Button-Styles für Light und Dark Mode */
-
 /* Light Mode Burger Button (schwarzer Rand) */
 .burger-light {
   border: 1.5px solid black;
   color: black;
   transition: 0.25s;
-  background: radial-gradient(farthest-side, transparent calc(100% - 150px), black 0) center / var(--d, 600px) var(--d, 600px) no-repeat;
 }
 
-.burger-light:hover {
-  --d: 300px;
-  color: white;
+/* Desktop: Radial-Gradient für Burger Light */
+@media (min-width: 769px) {
+  .burger-light {
+    background: radial-gradient(farthest-side, transparent calc(100% - 150px), black 0) center / var(--d, 600px) var(--d, 600px) no-repeat;
+  }
+  
+  .burger-light:hover {
+    --d: 300px;
+    color: white;
+  }
+}
+
+/* Mobile: Einfache Transition für Burger Light */
+@media (max-width: 768px) {
+  .burger-light {
+    transition: background-color 0.25s, color 0.25s;
+  }
+  
+  .burger-light:hover {
+    background-color: black;
+    color: white;
+  }
 }
 
 /* Dark Mode Burger Button (weißer Rand) */
@@ -391,12 +456,30 @@ p {
   border: 1.5px solid white;
   transition: 0.25s;
   color: white;
-  background: radial-gradient(farthest-side, transparent calc(100% - 150px), white 0) center / var(--d, 600px) var(--d, 600px) no-repeat;
 }
 
-.burger-dark:hover {
-  --d: 300px;
-  color: black;
+/* Desktop: Radial-Gradient für Burger Dark */
+@media (min-width: 769px) {
+  .burger-dark {
+    background: radial-gradient(farthest-side, transparent calc(100% - 150px), white 0) center / var(--d, 600px) var(--d, 600px) no-repeat;
+  }
+  
+  .burger-dark:hover {
+    --d: 300px;
+    color: black;
+  }
+}
+
+/* Mobile: Einfache Transition für Burger Dark */
+@media (max-width: 768px) {
+  .burger-dark {
+    transition: background-color 0.25s, color 0.25s;
+  }
+  
+  .burger-dark:hover {
+    background-color: white;
+    color: black;
+  }
 }
 
 /* Für das Invertieren der Icons bei Hover */

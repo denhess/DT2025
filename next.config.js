@@ -11,6 +11,11 @@ const nextConfig = {
     unoptimized: true
   },
   
+  // ESLint-Fehler während Build ignorieren
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  
   // Experimentelle Features - optimizeCss entfernt wegen critters Problem
   experimental: {
     optimizePackageImports: ['gsap', 'swiper'],

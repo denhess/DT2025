@@ -47,7 +47,7 @@ export function VideoBodyOne() {
           loop
           playsInline
           className={`absolute w-full object-cover transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
-          poster="/BodyVideo-thumbnail.png"
+          poster="/BodyVideo-thumbnail.webp"
           preload="metadata"
           style={{ 
             objectFit: 'cover',
@@ -69,7 +69,7 @@ export function VideoBodyOne() {
         {!isLoaded && (
           <div className="absolute inset-0 bg-gray-900">
             <Image
-              src="/BodyVideo-thumbnail.png" 
+              src="/BodyVideo-thumbnail.webp" 
               alt="Loading..." 
               fill
               className="w-full h-full object-cover opacity-50"

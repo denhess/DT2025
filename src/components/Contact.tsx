@@ -9,11 +9,30 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
 
+// TypeScript-Deklaration für gtag
+declare global {
+  function gtag(...args: any[]): void;
+}
+
 gsap.registerPlugin(ScrollTrigger);
 
 export function Contact() {
   const sectionRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
+
+  // TRACKING-FUNKTION - Contact Section
+  const trackVideocallInquiry = () => {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'design_inquiry', {
+        'event_category': 'Contact',
+        'event_label': 'Contact Section Videocall Button',
+        'contact_method': 'email_contact_section',
+        'page_location': window.location.href
+      });
+      
+      console.log('Contact Section Videocall Button clicked - tracked in GA4');
+    }
+  };
 
   useGSAP(() => {
     if (!contentRef.current || !sectionRef.current) return;
@@ -40,7 +59,6 @@ export function Contact() {
     >
       <YellowBackgroundTop/>
 
-      {/* Hauptinhalt vertikal und horizontal zentriert */}
       <div className="absolute inset-0 flex justify-center items-center">
         <div
           ref={contentRef}
@@ -54,10 +72,11 @@ export function Contact() {
             </h2>
           </div>
 
-          {/* Button mittig */}
+          {/* TRACKED EMAIL BUTTON */}
           <div className="flex justify-center">
-            
-            <a  href="mailto:info@designtech.eu?subject=Anfrage%20für%20ein%20Videocall&body=Sehr%20geehrte%20Frau%20Mayer,%0A%0A"
+            <a  
+              href="mailto:info@designtech.eu?subject=Anfrage%20für%20ein%20Videocall&body=Sehr%20geehrte%20Frau%20Mayer,%0A%0A"
+              onClick={trackVideocallInquiry}
             >
               <div className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl btn-big">
                 VIDEOCALL VEREINBAREN

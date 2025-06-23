@@ -88,7 +88,7 @@ export function Hero() {
   }
 
   return (
-    <section ref={containerRef} data-background="dark" className="hero h-screen relative overflow-hidden" style={{ backgroundImage: "url('/HeaderVideo-thumbnail.png')" }}>
+    <section ref={containerRef} data-background="dark" className="hero h-screen relative overflow-hidden" style={{ backgroundImage: "url('/HeaderVideo-thumbnail.webp')" }}>
       <video 
         ref={videoRef}
         autoPlay
@@ -96,7 +96,7 @@ export function Hero() {
         loop
         playsInline
         className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
-        poster="/HeaderVideo-thumbnail.png"
+        poster="/HeaderVideo-thumbnail.webp"
         preload="metadata"
       >
         <source src="/landingpage/held/HeaderVideo_held_animation.mp4" media="(min-width: 768px)" type="video/mp4" />
@@ -107,7 +107,7 @@ export function Hero() {
       {!isLoaded && (
         <div className="absolute inset-0 bg-gray-900">
           <Image
-            src="/HeaderVideo-thumbnail.png" 
+            src="/HeaderVideo-thumbnail.webp" 
             alt="Loading..." 
             fill
             className="object-cover opacity-50"
