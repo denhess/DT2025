@@ -1,0 +1,16 @@
+{
+  "hero": {
+    "subtitle": "Maßgeschneidertes",
+    "title": "Maschinendesign und Innovation"
+  },
+  "navigation": {
+    "home": "Startseite",
+    "projects": "Projekte",
+    "designtech": "Design Tech",
+    "career": "Karriere"
+  },
+  "buttons": {
+    "arrangeVideocall": "Videocall vereinbaren",
+    "phone": "+49 7073 91 89 0"
+  }
+}

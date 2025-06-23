@@ -1,8 +1,24 @@
+// src/components/Hero.tsx
 "use client";
 
 import { useOptimizedHero } from "@/hooks/useOptimizedHero";
+import { useTranslations, useLocale } from 'next-intl';
 
 export function Hero() {
+  const locale = useLocale();
+  
+  // Debug: Schauen ob useTranslations funktioniert
+  let t;
+  let debugInfo = '';
+  
+  try {
+    t = useTranslations('hero');
+    debugInfo = `Locale: ${locale}, Translations loaded`;
+  } catch (error) {
+    debugInfo = `Error loading translations: ${error}`;
+    console.error('Translation error:', error);
+  }
+  
   const {
     containerRef,
     videoRef,
@@ -14,6 +30,10 @@ export function Hero() {
     enableAnimations: true
   });
 
+  // Fallback Texte falls Übersetzungen nicht funktionieren
+  const subtitle = t ? t('subtitle') : (locale === 'de' ? 'Maßgeschneidertes' : 'Customized');
+  const title = t ? t('title') : (locale === 'de' ? 'Maschinendesign und Innovation' : 'Machine Design and Innovation');
+
   return (
     <section 
       ref={containerRef} 
@@ -21,6 +41,11 @@ export function Hero() {
       className="hero h-screen relative overflow-hidden"
       style={{ backgroundImage: "url('/HeaderVideo-thumbnail.webp')" }}
     >
+      {/* Debug Info */}
+      <div className="absolute top-4 left-4 z-50 bg-red-500 text-white p-2 text-sm">
+        {debugInfo}
+      </div>
+      
       <video 
         ref={videoRef}
         autoPlay 
@@ -50,10 +75,10 @@ export function Hero() {
         onMouseLeave={handleMouseLeave}
       >
         <h5 className="font-thin text-white z-10 xl:ml-2 text-2xl md:text-3xl xl:text-8xl mb-4">
-          Maßgeschneidertes
+          {subtitle}
         </h5>
         <h1 className="font-thin uppercase text-white z-10 leading-[0.9] tracking-[-0.02em] text-left">
-          Maschinendesign<br />und Innovation
+          {title}
         </h1>
       </div>
     </section>

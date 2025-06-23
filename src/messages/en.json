@@ -1,0 +1,16 @@
+{
+  "hero": {
+    "subtitle": "Customized",
+    "title": "Machine Design and Innovation"
+  },
+  "navigation": {
+    "home": "Home",
+    "projects": "Projects",
+    "designtech": "Design Tech",
+    "career": "Career"
+  },
+  "buttons": {
+    "arrangeVideocall": "Arrange video call",
+    "phone": "+49 7073 91 89 0"
+  }
+}
