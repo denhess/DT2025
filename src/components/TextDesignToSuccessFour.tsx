@@ -1,4 +1,4 @@
-// TextDesignToSuccess
+// TextDesignToSuccessFour
 "use client";
 
 import { useRef } from 'react';
@@ -8,7 +8,7 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export function TextDesignToSuccess() {
+export function TextDesignToSuccessFour() {
   const sectionRef = useRef<HTMLElement>(null);
   const textRef = useRef<HTMLParagraphElement>(null);
   
@@ -41,23 +41,23 @@ export function TextDesignToSuccess() {
             className="max-w-7xl mx-auto"
           >
             <h2>
-              Exzellente Lösungen brauchen keinen Verkäufer. <br />
-              Der Kunde erkennt den Wert sofort und bekommt ihn von uns.
+              Design, das nicht fliegt, bleibt am Boden. Auch wenn es glänzt.
             </h2>
             
             <h3 className="helvetica-spacing-normal">
-              Ein Design, das auf den Punkt wirkt bevor jemand etwas erklärt.
+              Wir gestalten auf Erfolg, gezielt, messbar, wiederholbar.<br />
+              Unser Ansatz: Vom Geschäftsmodell zum Design
             </h3>
-            
+
             <div className="helvetica-spacing-normal space-y-4">
               <h4 className="max-w-5xl">
-                Zum punktgenauen Entwurf der Maschine für die Ziele des Kunden setzt Design Tech überdurchschnittliche, 
-                eigens dafür entwickelte Erkenntnisquellen bei der Entwicklung des Maschinendesign ein.
+                Wir starten nicht beim Produkt – wir starten beim Geschäftsmodell. 
+                Nur so entsteht Design, das Wirkung entfaltet: im Vertrieb, im Markt und im Unternehmen.
               </h4>
               
               <h4 className="max-w-5xl">
-                Insbesondere, wenn es um das Sichtbarmachen von Qualität oder eigenständigen Markenmerkmalen geht, 
-                um die Differenzierung zum Wettbewerb oder um anwenderorientierte Funktionen.
+                Design ist bei uns kein Zufallsprodukt, sondern das Ergebnis von Strategie, Präzision und 
+                einem klaren Ziel: messbarer Erfolg.
               </h4>
             </div>
           </div>

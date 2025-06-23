@@ -76,7 +76,7 @@ const CookieBanner = forwardRef<CookieBannerRef, unknown>((_, ref) => {
           <p className="text-sm mb-4">Diese Website nutzt Cookies.</p>
         </div>
         <button
-          className="text-white text-xl font-bold ml-4"
+          className="icon-btn-gradient-white"
           onClick={() => setShowBanner(false)}
           aria-label="Schließen"
         >
@@ -124,15 +124,15 @@ const CookieBanner = forwardRef<CookieBannerRef, unknown>((_, ref) => {
       <div className="flex gap-4">
         <button
           onClick={handleAcceptAll}
-          className="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600"
+          className="btn-gradient-trans whitespace-nowrap"
         >
-          Alle Akzeptieren
+          ALLE AKZEPTIEREN
         </button>
         <button
           onClick={handleSavePreferences}
-          className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
+          className="btn-gradient-white-noanimation whitespace-nowrap"
         >
-          Speichern
+          SPEICHERN
         </button>
       </div>
     </div>

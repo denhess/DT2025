@@ -11,13 +11,11 @@ export default function IndustrialDesignInternship() {
     <>
       <section className="relative h-screen w-full" data-background="light">
         <YellowBackgroundTop/>
+        
         <div className="absolute inset-0 flex items-center">
           <div className="w-full px-8 md:px-8 lg:px-8">
             <p className="text-gray-900 text-[5vw] md:text-[4vw] xl:text-[3vw] leading-tight tracking-[-0.02em]">
               Industrial Design Internship
-            </p>
-            <p className="text-gray-900 text-[5vw] md:text-[4vw] xl:text-[3vw] leading-tight tracking-[-0.02em]">
-              Gestalten, was zählt.
             </p>
           </div>
         </div>
@@ -45,13 +43,27 @@ export default function IndustrialDesignInternship() {
               <p className="text-black text-lg sm:text-xl leading-relaxed text-left">
                 <b>Was dich erwartet</b>
                 <br />
-                <ul className="list-none pl-0">
-                  <li>_ Reale Industrieprojekte statt Simulation</li>
-                  <li>_ Verantwortung vom ersten Tag an</li>
-                  <li>_ Klarer Designprozess: Von der Skizze zur Umsetzung</li>
-                  <li>_ Hochmotiviertes Team mit über 40 Jahren Erfahrung</li>
-                  <li>_ Technologische Tiefe, kreative Freiheit, ehrliches Feedback</li>
-                </ul>
+                <br />
+                <span className="flex items-start space-x-3 mb-2">
+                  <span className="w-2 h-2 bg-gray-400 rounded-full mt-3 flex-shrink-0"></span>
+                  <span>Reale Industrieprojekte statt Simulation</span>
+                </span>
+                <span className="flex items-start space-x-3 mb-2">
+                  <span className="w-2 h-2 bg-gray-400 rounded-full mt-3 flex-shrink-0"></span>
+                  <span>Verantwortung vom ersten Tag an</span>
+                </span>
+                <span className="flex items-start space-x-3 mb-2">
+                  <span className="w-2 h-2 bg-gray-400 rounded-full mt-3 flex-shrink-0"></span>
+                  <span>Klarer Designprozess: Von der Skizze zur Umsetzung</span>
+                </span>
+                <span className="flex items-start space-x-3 mb-2">
+                  <span className="w-2 h-2 bg-gray-400 rounded-full mt-3 flex-shrink-0"></span>
+                  <span>Hochmotiviertes Team mit über 40 Jahren Erfahrung</span>
+                </span>
+                <span className="flex items-start space-x-3">
+                  <span className="w-2 h-2 bg-gray-400 rounded-full mt-3 flex-shrink-0"></span>
+                  <span>Technologische Tiefe, kreative Freiheit, ehrliches Feedback</span>
+                </span>
               </p>
             </div>
 
@@ -59,13 +71,27 @@ export default function IndustrialDesignInternship() {
               <p className="text-black text-lg sm:text-xl leading-relaxed text-left">
                 <b>Was du mitbringen solltest</b>
                 <br />
-                <ul className="list-none pl-0">
-                  <li>_ Studium im Bereich Industrial Design oder einem verwandten Feld</li>
-                  <li>_ Leidenschaft für funktionales, nachhaltiges und innovatives Design</li>
-                  <li>_ Technisches Grundverständnis (z. B. CAD, Adobe CC, SolidWorks)</li>
-                  <li>_ Freude am eigenverantwortlichen Arbeiten im Team</li>
-                  <li>_ Neugier und Anspruch</li>
-                </ul>
+                <br />
+                <span className="flex items-start space-x-3 mb-2">
+                  <span className="w-2 h-2 bg-gray-400 rounded-full mt-3 flex-shrink-0"></span>
+                  <span>Studium im Bereich Industrial Design oder einem verwandten Feld</span>
+                </span>
+                <span className="flex items-start space-x-3 mb-2">
+                  <span className="w-2 h-2 bg-gray-400 rounded-full mt-3 flex-shrink-0"></span>
+                  <span>Leidenschaft für funktionales, nachhaltiges und innovatives Design</span>
+                </span>
+                <span className="flex items-start space-x-3 mb-2">
+                  <span className="w-2 h-2 bg-gray-400 rounded-full mt-3 flex-shrink-0"></span>
+                  <span>Technisches Grundverständnis (z. B. CAD, Adobe CC, SolidWorks)</span>
+                </span>
+                <span className="flex items-start space-x-3 mb-2">
+                  <span className="w-2 h-2 bg-gray-400 rounded-full mt-3 flex-shrink-0"></span>
+                  <span>Freude am eigenverantwortlichen Arbeiten im Team</span>
+                </span>
+                <span className="flex items-start space-x-3">
+                  <span className="w-2 h-2 bg-gray-400 rounded-full mt-3 flex-shrink-0"></span>
+                  <span>Neugier und Anspruch</span>
+                </span>
               </p>
             </div>
 
@@ -73,12 +99,23 @@ export default function IndustrialDesignInternship() {
               <p className="text-black text-lg sm:text-xl leading-relaxed text-left">
                 <b>Was du mitnimmst</b>
                 <br />
-                <ul className="list-none pl-0">
-                  <li>_ Ein aussagekräftiges Praxisprojekt für dein Portfolio</li>
-                  <li>_ Einen echten Einblick in die Maschinenbau-Industrie</li>
-                  <li>_ Feedback, das dich weiterbringt</li>
-                  <li>_ Kontakte, die Türen öffnen</li>
-                </ul>
+                <br />
+                <span className="flex items-start space-x-3 mb-2">
+                  <span className="w-2 h-2 bg-gray-400 rounded-full mt-3 flex-shrink-0"></span>
+                  <span>Ein aussagekräftiges Praxisprojekt für dein Portfolio</span>
+                </span>
+                <span className="flex items-start space-x-3 mb-2">
+                  <span className="w-2 h-2 bg-gray-400 rounded-full mt-3 flex-shrink-0"></span>
+                  <span>Einen echten Einblick in die Maschinenbau-Industrie</span>
+                </span>
+                <span className="flex items-start space-x-3 mb-2">
+                  <span className="w-2 h-2 bg-gray-400 rounded-full mt-3 flex-shrink-0"></span>
+                  <span>Feedback, das dich weiterbringt</span>
+                </span>
+                <span className="flex items-start space-x-3">
+                  <span className="w-2 h-2 bg-gray-400 rounded-full mt-3 flex-shrink-0"></span>
+                  <span>Kontakte, die Türen öffnen</span>
+                </span>
               </p>
             </div>
 

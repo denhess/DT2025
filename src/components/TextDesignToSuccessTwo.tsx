@@ -1,4 +1,4 @@
-// TextDesignToSuccess
+// TextDesignToSuccessTwo
 "use client";
 
 import { useRef } from 'react';
@@ -8,7 +8,7 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export function TextDesignToSuccess() {
+export function TextDesignToSuccessTwo() {
   const sectionRef = useRef<HTMLElement>(null);
   const textRef = useRef<HTMLParagraphElement>(null);
   
@@ -41,13 +41,12 @@ export function TextDesignToSuccess() {
             className="max-w-7xl mx-auto"
           >
             <h2>
-              Exzellente Lösungen brauchen keinen Verkäufer. <br />
-              Der Kunde erkennt den Wert sofort und bekommt ihn von uns.
+              Wirkung die trägt.
             </h2>
             
-            <h3 className="helvetica-spacing-normal">
-              Ein Design, das auf den Punkt wirkt bevor jemand etwas erklärt.
-            </h3>
+            <h2 className="helvetica-spacing-normal">
+              Ein Design, das auf den Punkt wirkt, bevor jemand etwas erklärt.
+            </h2>
             
             <div className="helvetica-spacing-normal space-y-4">
               <h4 className="max-w-5xl">

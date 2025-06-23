@@ -57,7 +57,7 @@ export default function Home() {
       <ProjectSlider />
       <Ready />
       <Contact />
-      <MomentSlider />
+
       <Footer />
     </>
   );
