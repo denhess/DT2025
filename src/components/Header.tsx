@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
-import { usePathname } from 'next/navigation'; // Neu importiert
+import { usePathname } from 'next/navigation';
 import { DtLogo } from "./Dt-logo";
 import MenuOverlay from "./MenuOverlay";
 import clsx from "clsx";
@@ -30,7 +30,6 @@ export function Header({ onMenuToggle }: HeaderProps) {
       if (visibleSection) {
         setIsDark(visibleSection.getAttribute("data-background") === "dark");
       }
-
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
@@ -44,11 +43,9 @@ export function Header({ onMenuToggle }: HeaderProps) {
           threshold: 0.5,
         }
       );
-
       // Alle Sections beobachten
       const sections = document.querySelectorAll("[data-background]");
       sections.forEach((section) => observer.observe(section));
-
       return observer;
     };
 
@@ -69,8 +66,8 @@ export function Header({ onMenuToggle }: HeaderProps) {
 
   return (
     <>
-      <header ref={headerRef} className="fixed top-0 left-0 right-0 z-50">
-        <div className="w-full px-8 md:px-16 lg:px-24">
+      <header ref={headerRef} className="fixed top-2 left-0 right-0 z-50">
+        <div className="w-full px-8 md:px-8 lg:px-8">
           <div className="flex justify-between items-center h-16 relative">
             {/* Dynamisches Logo */}
             <div className="flex-shrink-0 relative">
@@ -82,37 +79,54 @@ export function Header({ onMenuToggle }: HeaderProps) {
                     isMenuOpen && "opacity-0" // Verstecken, wenn das Menü offen ist
                   )}
                 />
-              
-
-              {/* Fixes schwarzes Logo, das nur angezeigt wird, wenn das Menü offen ist */}
-              {isMenuOpen && (
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <DtLogo className="text-black w-60 sm:w-60 md:w-60 lg:w-80" />
-                </div>
-              )}
+                
+                {/* Fixes schwarzes Logo, das nur angezeigt wird, wenn das Menü offen ist */}
+                {isMenuOpen && (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <DtLogo className="text-black w-60 sm:w-60 md:w-60 lg:w-80" />
+                  </div>
+                )}
               </Link>
             </div>
 
-            {/* Menü-Button bleibt dynamisch */}
-            <button
-              onClick={handleMenuToggle}
-              className="p-2 z-50 transition-colors duration-300"
-              aria-expanded={isMenuOpen}
-              aria-label="Hauptmenü"
-            >
-              <span
-                className={clsx(
-                  "text-xl font-medium transition-colors duration-300",
-                  isMenuOpen
-                    ? "text-black"
-                    : isDark
-                      ? "text-white"
-                      : "text-black"
-                )}
+            {/* Menü-Button: X-Icon wenn offen, Burger-Menü wenn geschlossen */}
+            {isMenuOpen ? (
+              <button
+                onClick={handleMenuToggle}
+                className="icon-btn-gradient z-50"
+                aria-expanded={true}
+                aria-label="Menü schließen"
               >
-                {isMenuOpen ? "X" : "MENU"}
-              </span>
-            </button>
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1 1L13 13M1 13L13 1" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                </svg>
+              </button>
+            ) : (
+              <button
+                onClick={handleMenuToggle}
+                className={clsx(
+                  "z-50 inline-flex items-center justify-center rounded-full w-10 h-10 transition-all duration-300",
+                  isDark ? "burger-dark" : "burger-light"
+                )}
+                aria-expanded={false}
+                aria-label="Hauptmenü öffnen"
+              >
+                <svg 
+                  width="18" 
+                  height="14" 
+                  viewBox="0 0 18 14" 
+                  fill="none" 
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path 
+                    d="M1 1H17M1 7H17M1 13H17" 
+                    stroke="currentColor" 
+                    strokeWidth="2" 
+                    strokeLinecap="round" 
+                  />
+                </svg>
+              </button>
+            )}
           </div>
         </div>
       </header>

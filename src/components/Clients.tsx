@@ -39,7 +39,7 @@ export function Clients() {
       />
       
       <div className="absolute inset-0 flex flex-col justify-end">
-        <h2 className="pt-10 pb-10 w-full px-8 md:px-16 lg:px-24 leading-tight tracking-[-0.02em] bg-white">
+        <h2 className="pt-10 pb-10 w-full px-8 md:px-8 lg:px-8 leading-tight tracking-[-0.02em] bg-white">
           Diese <b>Marktführer</b> vertrauen auf unser Design
         </h2>
       </div>

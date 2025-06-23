@@ -4,39 +4,61 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #212121; /* Korrigiert: Doppeltes # entfernt */
+  --foreground: #212121;
   font-size: 16px; /* Basis-Schriftgröße für Desktop */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #ffffff;
-    --foreground: #212121; /* Korrigiert: Doppeltes # entfernt */
+    --foreground: #212121;
     font-size: 16px;
   }
 }
 
 body {
   color: var(--foreground);
-  background: var(--background); /* Kommentar entfernt */
+  background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+  overflow-wrap: break-word; /* Verhindert Textüberläufe */
+  -webkit-text-size-adjust: 100%; /* Verhindert unerwünschte Textvergrößerung auf iOS */
 }
 
-/* Add to your globals.css file */
-
-
-html {
-  scroll-snap-type: y proximity;
-  overflow-y: scroll;
-  scroll-behavior: smooth;
+/* FONT-OPTIMIERUNG: Hero-spezifische LCP-Optimierung */
+.hero h1, .hero h5 {
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-weight: 100 !important;
+  color: white;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
-/* Make all full-height sections snap to viewport, but with smoother transitions */
+/* Scroll Snap nur für Desktop (1024px+) */
+@media (min-width: 1024px) {
+  html {
+    scroll-snap-type: y proximity;
+    scroll-behavior: smooth;
+  }
+
+  section {
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
+  }
+}
+
+/* Mobile: Natürliches Scrolling ohne Snap */
+@media (max-width: 1023px) {
+  html {
+    scroll-behavior: auto; /* Schnelleres Scrolling auf Mobile */
+  }
+}
+
+/* Basis-Section-Styles für alle Geräte */
 section {
-  scroll-snap-align: start;
-  scroll-snap-stop: normal;
   min-height: 100vh;
   height: 100vh;
+  display: flex;
+  flex-direction: column; /* Vertikale Ausrichtung der Inhalte */
 }
 
 /* Ensure content flows properly within fixed height sections */
@@ -44,6 +66,9 @@ section > div {
   max-height: 100vh;
   overflow-y: auto;
   scrollbar-width: none; /* Hide scrollbar for Firefox */
+  padding: 1rem; /* Sicherheitsabstand vom Rand */
+  width: 100%;
+  box-sizing: border-box; /* Padding wird nicht zur Breite hinzugerechnet */
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
@@ -51,58 +76,47 @@ section > div::-webkit-scrollbar {
   display: none;
 }
 
-
-/* Standardgrößen für Desktop (1201px und größer) */
+/* Verwende clamp() für flüssige Typografie */
 h1 {
-  font-size: 12rem; /* 40px bei 16px Basisgröße */
+  font-size: clamp(2rem, 8vw, 12rem);
+  line-height: 1.1;
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
 
 h2 {
-  font-size: 4rem; /* 32px bei 16px Basisgröße */
+  font-size: clamp(1.4rem, 3vw, 2.5rem);
+  line-height: 1.2;
+  overflow-wrap: break-word;
+  margin-bottom: 0.5em;
 }
 
 h3 {
-  font-size: 3rem; /* 24px bei 16px Basisgröße */
+  font-size: clamp(1.1rem, 2vw, 1.8rem);
+  line-height: 1.3;
+  overflow-wrap: break-word;
+  margin-bottom: 0.5em;
 }
 
+/* Optimierte H4-Definition für bessere Hierarchie */
 h4 {
-  font-size: 1.2rem; /* 16.8px */
+  font-size: clamp(1rem, 1.5vw, 1.375rem); /* 16px - 22px */
+  line-height: 1.4;
+  overflow-wrap: break-word;
+  margin-bottom: 0.5em;
 }
 
 p {
-  font-size: 1.2rem; /* 16px */
+  font-size: clamp(1rem, 1.2vw, 1.2rem);
+  line-height: 1.5;
+  overflow-wrap: break-word;
+  margin-bottom: 1em;
 }
-
-/* Extra Large Screens: 1201px und größer (Standard oben) */
 
 /* Desktops/Large Laptops: 1025px - 1200px */
 @media (max-width: 1200px) {
   :root {
     font-size: 15px;
-  }
-
-  html {
-    scroll-snap-type: y proximity; /* Less strict snapping on mobile */
-  }
-
-  h1 {
-    font-size: 4rem; /* 37.5px bei 15px Basisgröße */
-  }
-
-  h2 {
-    font-size: 2rem; /* 30px */
-  }
-
-  h3 {
-    font-size: 1.5rem; /* 22.5px */
-  }
-
-  h4 {
-    font-size: 1.2rem; /* 16.8px */
-  }
-
-  p {
-    font-size: 1rem; /* 15px */
   }
 }
 
@@ -111,28 +125,12 @@ p {
   :root {
     font-size: 15px;
   }
-  html {
-    scroll-snap-type: y proximity; /* Less strict snapping on mobile */
-  }
-
-  h1 {
-    font-size: 3rem; /* 36px */
-  }
-
-  h2 {
-    font-size: 1.9rem; /* 28.5px */
-  }
-
-  h3 {
-    font-size: 1.4rem; /* 21px */
-  }
-
-  h4 {
-    font-size: 1.2rem; /* 16.8px */
-  }
-
-  p {
-    font-size: 1rem; /* 15px */
+  
+  /* Flexbox für Container einführen */
+  .content-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
   }
 }
 
@@ -141,29 +139,10 @@ p {
   :root {
     font-size: 14px;
   }
-
-  html {
-    scroll-snap-type: y proximity; /* Less strict snapping on mobile */
-  }
-
-  h1 {
-    font-size: 2.3rem; /* 32.2px bei 14px Basisgröße */
-  }
-
-  h2 {
-    font-size: 1.8rem; /* 25.2px */
-  }
-
-  h3 {
-    font-size: 1.3rem; /* 18.2px */
-  }
-
-  h4 {
-    font-size: 1.2rem; /* 16.8px */
-  }
-
-  p {
-    font-size: 1rem; /* 14px */
+  
+  /* Reduzieren von Abständen für mehr Platz auf kleineren Geräten */
+  section > div {
+    padding: 0.75rem;
   }
 }
 
@@ -172,28 +151,424 @@ p {
   :root {
     font-size: 14px;
   }
+  
+  /* Minimaler Abstand auf Mobilgeräten */
+  section > div {
+    padding: 0.5rem;
+  }
+  
+  /* Text-Beschneidung für sehr lange Inhalte auf Mobilgeräten */
+  .mobile-truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
 
-  html {
-    scroll-snap-type: y proximity; /* Less strict snapping on mobile */
+/* Container Queries für erweiterte Responsivität */
+@supports (container-type: inline-size) {
+  .responsive-container {
+    container-type: inline-size;
+  }
+  
+  @container (max-width: 400px) {
+    .responsive-text {
+      font-size: 0.9rem;
+    }
+  }
+}
+
+/* Button Styles schwarz - keine animation */
+.btn-gradient-noanimation {
+  display: inline-block;
+  border-radius: 50px;
+  border: 1.5px solid black;
+  padding: 0.5rem 1.5rem;
+  color: black;
+}
+
+/* Button Styles weiß - keine animation */
+.btn-gradient-white-noanimation {
+  display: inline-block;
+  border-radius: 50px;
+  border: 1.5px solid white;
+  padding: 0.5rem 1.5rem;
+  color: white;
+}
+
+/* Button Styles - animiert (Desktop: radial-gradient, Mobile: einfache Transition) */
+.btn-gradient {
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 50px;
+  border: 1.5px solid black;
+  padding: 0.5rem 1.5rem;
+  color: black;
+  transition: 0.3s;
+}
+
+/* Desktop: Radial-Gradient Animation */
+@media (min-width: 769px) {
+  .btn-gradient {
+    background: radial-gradient(farthest-side, transparent calc(100% - 150px), black 0) center / var(--d, 600px) var(--d, 600px) no-repeat;
+  }
+  
+  .btn-gradient:hover {
+    --d: 300px;
+    color: white;
+  }
+}
+
+/* Mobile: Einfache Background-Transition */
+@media (max-width: 768px) {
+  .btn-gradient {
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .btn-gradient:hover {
+    background-color: black;
+    color: white;
+  }
+}
+
+/* Button Styles Groß - animiert */
+.btn-big {
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 50px;
+  border: 1.5px solid black;
+  padding: 0.5rem 1.5rem;
+  color: black;
+  transition: 0.3s;
+}
+
+/* Desktop: Radial-Gradient für btn-big */
+@media (min-width: 769px) {
+  .btn-big {
+    background: radial-gradient(farthest-side, transparent calc(100% - 150px), black 2) center / var(--d, 1000px) var(--d, 1000px) no-repeat;
+  }
+  
+  .btn-big:hover {
+    --d: 500px;
+    color: grey;
+    border: 1.5px solid grey;
+  }
+}
+
+/* Mobile: Einfache Transition für btn-big */
+@media (max-width: 768px) {
+  .btn-big {
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  }
+  
+  .btn-big:hover {
+    background-color: grey;
+    color: white;
+    border-color: grey;
+  }
+}
+
+/* Button Styles white - animiert */
+.btn-gradient-trans {
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 50px;
+  border: 1.5px solid white;
+  padding: 0.5rem 1.5rem;
+  color: white;
+  transition: 0.3s;
+}
+
+/* Desktop: Radial-Gradient für btn-gradient-trans */
+@media (min-width: 769px) {
+  .btn-gradient-trans {
+    background: radial-gradient(farthest-side, transparent calc(100% - 150px), white 0) center / var(--d, 600px) var(--d, 600px) no-repeat;
+  }
+  
+  .btn-gradient-trans:hover {
+    --d: 300px;
+    color: black;
+  }
+}
+
+/* Mobile: Einfache Transition für btn-gradient-trans */
+@media (max-width: 768px) {
+  .btn-gradient-trans {
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .btn-gradient-trans:hover {
+    background-color: white;
+    color: black;
+  }
+}
+
+/* Button Styles groß */
+.btn-gradient-big {
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 50px;
+  border: 1.5px solid black;
+  padding: 0.5rem 1.5rem;
+  color: black;
+  transition: 0.3s;
+}
+
+/* Desktop: Radial-Gradient für btn-gradient-big */
+@media (min-width: 769px) {
+  .btn-gradient-big {
+    background: radial-gradient(farthest-side, transparent calc(100% - 150px), black 0) center / var(--d, 600px) var(--d, 600px) no-repeat;
+  }
+}
+
+/* Mobile: Einfache Transition für btn-gradient-big */
+@media (max-width: 768px) {
+  .btn-gradient-big {
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .btn-gradient-big:hover {
+    background-color: black;
+    color: white;
+  }
+}
+
+/* Icon Styles - schwarz */
+.icon-btn-gradient {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 1.5px solid black;
+  width: 2.5rem;
+  height: 2.5rem;
+  color: black;
+  transition: 0.25s;
+}
+
+/* Desktop: Radial-Gradient für Icons */
+@media (min-width: 769px) {
+  .icon-btn-gradient {
+    background: radial-gradient(farthest-side, transparent calc(100% - 150px), black 0) center / var(--d, 600px) var(--d, 600px) no-repeat;
+  }
+  
+  .icon-btn-gradient:hover {
+    --d: 300px;
+    color: white;
+  }
+}
+
+/* Mobile: Einfache Transition für Icons */
+@media (max-width: 768px) {
+  .icon-btn-gradient {
+    transition: background-color 0.25s, color 0.25s;
+  }
+  
+  .icon-btn-gradient:hover {
+    background-color: black;
+    color: white;
+  }
+}
+
+.icon-btn-gradient:hover img,
+.icon-btn-gradient:hover svg {
+  filter: brightness(0) invert(1);
+}
+
+/* Icon Styles - weiß */
+.icon-btn-gradient-white {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 1.5px solid white;
+  width: 2.5rem;
+  height: 2.5rem;
+  color: white;
+  transition: 0.25s;
+}
+
+/* Desktop: Radial-Gradient für weiße Icons */
+@media (min-width: 769px) {
+  .icon-btn-gradient-white {
+    background: radial-gradient(farthest-side, transparent calc(100% - 150px), white 0) center / var(--d, 600px) var(--d, 600px) no-repeat;
+  }
+  
+  .icon-btn-gradient-white:hover {
+    --d: 300px;
+    color: black;
+  }
+}
+
+/* Mobile: Einfache Transition für weiße Icons */
+@media (max-width: 768px) {
+  .icon-btn-gradient-white {
+    transition: background-color 0.25s, color 0.25s;
+  }
+  
+  .icon-btn-gradient-white:hover {
+    background-color: white;
+    color: black;
+  }
+}
+
+.icon-btn-gradient-white:hover img,
+.icon-btn-gradient-white:hover svg {
+  filter: brightness(1) invert(0);
+}
+
+/* Burger Menu Styles */
+/* Light Mode Burger Button (schwarzer Rand) */
+.burger-light {
+  border: 1.5px solid black;
+  color: black;
+  transition: 0.25s;
+}
+
+/* Desktop: Radial-Gradient für Burger Light */
+@media (min-width: 769px) {
+  .burger-light {
+    background: radial-gradient(farthest-side, transparent calc(100% - 150px), black 0) center / var(--d, 600px) var(--d, 600px) no-repeat;
+  }
+  
+  .burger-light:hover {
+    --d: 300px;
+    color: white;
+  }
+}
+
+/* Mobile: Einfache Transition für Burger Light */
+@media (max-width: 768px) {
+  .burger-light {
+    transition: background-color 0.25s, color 0.25s;
+  }
+  
+  .burger-light:hover {
+    background-color: black;
+    color: white;
+  }
+}
+
+/* Dark Mode Burger Button (weißer Rand) */
+.burger-dark {
+  border: 1.5px solid white;
+  transition: 0.25s;
+  color: white;
+}
+
+/* Desktop: Radial-Gradient für Burger Dark */
+@media (min-width: 769px) {
+  .burger-dark {
+    background: radial-gradient(farthest-side, transparent calc(100% - 150px), white 0) center / var(--d, 600px) var(--d, 600px) no-repeat;
+  }
+  
+  .burger-dark:hover {
+    --d: 300px;
+    color: black;
+  }
+}
+
+/* Mobile: Einfache Transition für Burger Dark */
+@media (max-width: 768px) {
+  .burger-dark {
+    transition: background-color 0.25s, color 0.25s;
+  }
+  
+  .burger-dark:hover {
+    background-color: white;
+    color: black;
+  }
+}
+
+/* Für das Invertieren der Icons bei Hover */
+.burger-light:hover svg,
+.burger-light:hover img {
+  filter: brightness(0) invert(1);
+}
+
+.burger-dark:hover svg,
+.burger-dark:hover img {
+  filter: brightness(0);
+}
+
+/* Navigationslink-Animation (MenuOverlay) */
+.nav-link {
+  background: 
+      linear-gradient(currentColor 0 0) 
+      var(--p, 0) 100% /var(--d, 0) 3px 
+      no-repeat;
+  transition: 0.3s, background-position 0s 0.3s;
+}
+.nav-link:hover {
+  --d: 100%;
+  --p: 100%;
+}
+
+/* Projektslider Anpassungen */
+.project-slider-container .custom-bullet {
+  width: 10px;
+  height: 10px;
+  background: rgb(202, 202, 202); /* Halbdurchsichtig weiß für inaktive Punkte */
+  opacity: 1;
+  margin: 0 5px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+/* Vertikaler Abstand zwischen den Bullets überschreiben */
+.project-slider-container .swiper-pagination-vertical .custom-bullet,
+.project-slider-container .swiper-pagination .custom-bullet {
+  margin: 4px 0 !important;
+}
+
+.project-slider-container .custom-bullet-active {
+  background: #FFDD00; /* Pantone 109 C für aktiven Punkt */
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+/* Position der Paginierung - RECHTE SEITE */
+.project-slider-container .swiper-pagination {
+  right: 30px !important;
+  left: auto !important;
+  top: 50% !important;
+  bottom: auto !important;
+  transform: translateY(-50%);
+  display: flex !important;
+  flex-direction: column !important;
+  width: auto !important;
+  height: auto !important;
+}
+
+/* Anpassung der Bullet-Abstände für vertikale Anordnung */
+.project-slider-container .swiper-pagination .custom-bullet {
+  margin: 4px 0 !important; /* Kleinerer vertikaler Abstand zwischen den Punkten */
+}
+
+/* Responsive: Pagination rechts auch auf kleinen Bildschirmen */
+@media (max-width: 768px) {
+  .project-slider-container .swiper-pagination {
+    right: 20px !important; /* Etwas weniger Abstand auf mobilen Geräten */
+    left: auto !important;
+    top: 50% !important;
+    bottom: auto !important;
+    transform: translateY(-50%) !important; /* Vertikal zentriert bleiben */
+    flex-direction: column !important; /* Vertikal angeordnet bleiben */
   }
 
-  h1 {
-    font-size: 2rem; /* 28px */
+  .project-slider-container .swiper-pagination .custom-bullet {
+    margin: 4px 0 !important; /* Gleicher vertikaler Abstand wie Desktop */
   }
+}
 
-  h2 {
-    font-size: 1.6rem; /* 22.4px */
-  }
+/* Fade-Effekt verbessern */
+.project-slider .swiper-slide {
+  transition-property: opacity;
+}
 
-  h3 {
-    font-size: 1.2rem; /* 16.8px */
-  }
-
-  h4 {
-    font-size: 1.2rem; /* 16.8px */
-  }
-
-  p {
-    font-size: 1rem; /* 14px */
-  }
+/* Optional: Hover-Effekt für die Buttons */
+.project-slider .btn-gradient-noanimation:hover {
+  background: rgba(255, 255, 255, 0.1);
 }

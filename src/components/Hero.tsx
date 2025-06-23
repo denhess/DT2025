@@ -1,142 +1,55 @@
 "use client";
 
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useRef, useEffect, useState } from "react";
-
-gsap.registerPlugin(ScrollTrigger);
+import { useOptimizedHero } from "@/hooks/useOptimizedHero";
 
 export function Hero() {
-  const containerRef = useRef<HTMLElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const textRef = useRef<HTMLDivElement>(null);
-  const [videoLoaded, setVideoLoaded] = useState(false);
-
-  useEffect(() => {
-    // Funktion zum Starten des Videos
-    const playVideo = () => {
-      if (videoRef.current) {
-        // Video explizit laden
-        videoRef.current.load();
-        // Versuch, das Video zu spielen
-        const playPromise = videoRef.current.play();
-        
-        if (playPromise !== undefined) {
-          playPromise
-            .then(() => {
-              setVideoLoaded(true);
-              console.log("Video started playing successfully");
-            })
-            .catch(error => {
-              console.error("Error playing video:", error);
-              // Versuch, nach einem Benutzerinteraktionsereignis erneut abzuspielen
-              document.addEventListener('touchstart', () => {
-                videoRef.current?.play();
-              }, { once: true });
-            });
-        }
-      }
-    };
-    
-    // Video nach dem Mounting neu laden und abspielen
-    playVideo();
-    
-    // Event-Listener für Seitenwechsel zurück
-    const handleVisibilityChange = () => {
-      if (document.visibilityState === 'visible') {
-        playVideo();
-      }
-    };
-    
-    document.addEventListener('visibilitychange', handleVisibilityChange);
-    
-    return () => {
-      document.removeEventListener('visibilitychange', handleVisibilityChange);
-    };
-  }, []);
-
-  useGSAP(() => {
-    // Modify GSAP animations to work with snap scrolling
-    // Parallax effect for video (adjusted for snap scrolling)
-    gsap.to(videoRef.current, {
-      yPercent: 30,
-      ease: "none",
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: "top top",
-        end: "bottom top",
-        scrub: 0.5,
-      },
-    });
-
-    // Parallax effect for text (adjusted for snap scrolling)
-    gsap.to(textRef.current, {
-      yPercent: -15,
-      ease: "none",
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: "top top",
-        end: "bottom top",
-        scrub: 0.5,
-      },
-    });
-
-    // Opacity animation for text
-    gsap.to(textRef.current, {
-      opacity: 0.1,
-      delay: 6,
-      duration: 1.5,
-      onComplete: () => {
-        gsap.to(textRef.current, {
-          opacity: 0.1,
-          duration: 2,
-          ease: "power2.out",
-        });
-      }
-    });
-  }, []);
-
-  const handleMouseEnter = () => {
-    gsap.to(textRef.current, {
-      opacity: 1,
-      duration: 0.5,
-      ease: "power2.out",
-    });
-  };
-
-  const handleMouseLeave = () => {
-    gsap.to(textRef.current, {
-      opacity: 0.1,
-      duration: 0.5,
-      ease: "power2.out",
-    });
-  };
+  const {
+    containerRef,
+    videoRef,
+    textRef,
+    videoLoaded,
+    handleMouseEnter,
+    handleMouseLeave
+  } = useOptimizedHero({ 
+    enableAnimations: true
+  });
 
   return (
-    <section ref={containerRef} data-background="dark" className="hero h-screen relative overflow-hidden" style={{ backgroundImage: "url('/HeaderVideo-thumbnail.png')" }}>
+    <section 
+      ref={containerRef} 
+      data-background="dark" 
+      className="hero h-screen relative overflow-hidden"
+      style={{ backgroundImage: "url('/HeaderVideo-thumbnail.webp')" }}
+    >
       <video 
         ref={videoRef}
-        autoPlay
-        muted
+        autoPlay 
+        muted 
         loop
-        playsInline
-        className={`absolute inset-0 w-full h-full object-cover ${videoLoaded ? 'opacity-100' : 'opacity-0'}`}
-        poster="/HeaderVideo-thumbnail.png"
-        preload="auto"
-        onCanPlay={() => setVideoLoaded(true)}
+        playsInline 
+        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${videoLoaded ? 'opacity-100' : 'opacity-0'}`}
+        poster="/HeaderVideo-thumbnail.webp"
+        preload="none"
       >
         <source src="/HeaderVideo.mp4" media="(min-width: 768px)" type="video/mp4" />
         <source src="/HeaderVideo-small.mp4" media="(max-width: 767px)" type="video/mp4" />
       </video>
+      
       <div id="background-check" className="h-screen w-full bg-gray-900" />
+      
       <div
         ref={textRef}
-        className="absolute bottom-10 sm:bottom-20 flex flex-col px-8 md:px-16 lg:px-24"
+        className="absolute bottom-10 sm:bottom-8 flex flex-col px-8 md:px-8 lg:px-8"
+        style={{
+          opacity: 1,
+          visibility: 'visible',
+          transform: 'translate3d(0, 0, 0)',
+          transition: 'opacity 0.5s ease'
+        }}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-        <h5 className="font-thin text-white z-10 text-2xl md:text-3xl xl:text-4xl mb-6">
+        <h5 className="font-thin text-white z-10 xl:ml-2 text-2xl md:text-3xl xl:text-8xl mb-4">
           Maßgeschneidertes
         </h5>
         <h1 className="font-thin uppercase text-white z-10 leading-[0.9] tracking-[-0.02em] text-left">

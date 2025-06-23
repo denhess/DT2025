@@ -1,12 +1,11 @@
-// components/About.tsx
+// AboutDesignToSuccess
 "use client";
 
 import { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-import { YellowBackground } from './BG/YellowBackground';
-
+import { YellowBackgroundTop } from './BG/YellowBackgroundTop';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -17,7 +16,6 @@ export function AboutDesignToSuccess() {
   useGSAP(() => {
     if (!textRef.current || !sectionRef.current) return;
 
-    // Text Fade-in Animation
     gsap.from(textRef.current, {
       opacity: 0,
       y: 0,
@@ -37,27 +35,30 @@ export function AboutDesignToSuccess() {
       className="relative min-h-screen w-full"
       data-background="light"
     >
-     <YellowBackground/>
-      <div className="absolute inset-0 flex items-center">
-        <div className="w-full px-8 md:px-16 lg:px-24">
-          <h2 
+     <YellowBackgroundTop/>
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className="w-full max-w-6xl flex flex-col text-left px-8 md:px-8 lg:px-8 py-16">
+          <div 
             ref={textRef}
-            className="leading-tight tracking-[-0.02em]"
+            className="max-w-7xl mx-auto"
           >
-            „NUR EINE EINZIGARTIGE FORM SICHERT DEN MAXIMALEN ERFOLG.”
-            </h2>  
-            <h3 
-            ref={textRef}
-            className="mt-20 leading-tight tracking-[-0.02em]"
-          >
+            <h2>
+              Vom Verkaufen zum gekauft werden.
+            </h2>
             
-            Die Design to success®-Strategie ist eine tragende Säule unseres Erfolgs. 
-            Design Tech entwickelte die mehrfach ausgezeichnete Innovationsstrategie in der Erkenntnis, 
-            dass das Produkt nur in einer einzigen konkreten Ausgestaltung den bestmöglichen Markterfolg sichert: 
-            Nämlich punktgenau dort, wo sie sich von den Konkurrenzprodukten abgrenzt und die Kaufentscheidung des 
-            Kunden trifft.
+            <h3 className="helvetica-spacing-normal">
+              Wenn Emotionen und Fakten stimmen, überzeugt das Produkt ohne ein Wort.
+            </h3>
 
-          </h3>
+            <div className="helvetica-spacing-normal space-y-4">
+              <h4 className="max-w-5xl">
+                Starke Produkte müssen nicht erklärt werden. Sie überzeugen auf den ersten Blick. <br />
+                Weil sie stimmig sind, in Funktion, Form, Herstellung. Weil sie Vertrauen wecken und Begehrlichkeit. <br />
+                Und weil Entscheider sofort erkennen: Das ist genau das, was wir brauchen. <br />
+                Das ist kein Produktglück. Das ist Design, das Wirkung erzeugt bevor jemand etwas erklärt. <br />
+              </h4>
+            </div>
+          </div>
         </div>
       </div>
     </section>

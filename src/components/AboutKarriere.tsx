@@ -5,7 +5,7 @@ import { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-import { YellowBackground } from './BG/YellowBackground';
+import { YellowBackgroundTop } from './BG/YellowBackgroundTop';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -36,12 +36,12 @@ export function AboutKarriere() {
       ref={sectionRef}
       className="relative min-h-screen w-full"
     >
-      <YellowBackground />
+      <YellowBackgroundTop />
       <div className="absolute inset-0 flex items-center">
-        <div className="w-full px-8 md:px-16 lg:px-24">
+        <div className="w-full px-8 md:px-8 lg:px-8">
           <h2 
             ref={textRef}
-            className="leading-tight tracking-[-0.02em]"
+            className="leading-tight tracking-[-0.02em] max-w-prose mx-auto"
           >
             „WER BEI UNS ARBEITET, ENTWICKELT SICH AUSSERORDENTLICH SCHNELL AUSSERORDENTLICH WEIT.”
           </h2>

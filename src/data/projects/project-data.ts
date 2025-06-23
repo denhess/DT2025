@@ -1,6 +1,33 @@
 import { ProjectData } from "@/models/project-model";
 
 export const Projects: ProjectData[] = [
+
+    /*{
+        img: "projects/slide-herkules-ws.webp",
+        imgMobile: "projects/slide-herkules-ws-mobile.webp",
+        logo: "logos/logo-arburg-black.svg",
+        logoColor: "#FFFFFF", // SVG-Farbe
+        title: "MASCHINENDESIGN",
+        titleEn: "MASCHINENDESIGN",
+        textColor: "#1A1A1A",
+        description: "Walzenschleifmaschine",
+        metaDescriptionEN: "",
+        release: false,
+        copyright: "Herkules",
+    },    
+    {
+        img: "projects/slide-waldrich-siegen-profiturn.webp",
+        imgMobile: "projects/slide-waldrich-siegen-profiturn-mobile.webp",
+        logo: "logos/logo-arburg-black.svg",
+        logoColor: "#FFFFFF", // SVG-Farbe
+        title: "MASCHINENDESIGN",
+        titleEn: "MASCHINENDESIGN",
+        textColor: "#1A1A1A",
+        description: "Portalfräsmaschine",
+        metaDescriptionEN: "",
+        release: false,
+        copyright: "Waldrich Siegen",
+    },*/
     {
         img: "projects/slide-arburg-gestica.webp",
         imgMobile: "projects/slide-arburg-gestica-mobile.webp",
@@ -9,7 +36,7 @@ export const Projects: ProjectData[] = [
         title: "HMI Design",
         titleEn: "HMI Design",
         textColor: "#1A1A1A",
-        description: "ARBURG GESTICA",
+        description: "Gestica",
         metaDescriptionEN: "",
         release: true,
         copyright: "Arburg",
@@ -22,7 +49,7 @@ export const Projects: ProjectData[] = [
         title: "WERKZEUGDESIGN",
         titleEn: "WERKZEUGDESIGN",
         textColor: "#1A1A1A",
-        description: "KONTURHOHNWERKZEUG",
+        description: "Konturhonwerkzeug",
         metaDescriptionEN: "",
         release: true,
         copyright: "Elgan",
@@ -48,7 +75,7 @@ export const Projects: ProjectData[] = [
         title: "BAUMASCHINENDESIGN",
         titleEn: "CONSTRUCTION MACHINE DESIGN",
         textColor: "#1A1A1A",
-        description: "KRANFAHRZEUG FAHRERHAUS",
+        description: "Kranfahrzeug Fahrerhaus",
         metaDescriptionEN: "",
         release: true,
         copyright: "Liebherr",
@@ -71,10 +98,10 @@ export const Projects: ProjectData[] = [
         imgMobile: "projects/slide-tcb-mobile.webp",
         logo: "logos/logo-cultivated-b-black.svg",
         logoColor: "#FFFFFF", // SVG-Farbe
-        title: "Maschinendesign",
+        title: "MASCHINENDESIGN",
         titleEn: "MACHINE DESIGN",
         textColor: "#1A1A1A",
-        description: "BIOREACTOR CONTROL UNIT",
+        description: "Bioreactor Controll Unit",
         metaDescriptionEN: "",
         release: true,
         copyright: "TCB",
@@ -113,7 +140,7 @@ export const Projects: ProjectData[] = [
         title: "MASCHINENDESIGN",
         titleEn: "MACHINE DESIGN",
         textColor: "#1A1A1A",
-        description: "PORTALWASCHANLAGE SMART CARE",
+        description: "Portalwaschanlage",
         metaDescriptionEN: "",
         release: true,
         copyright: "WashTec",

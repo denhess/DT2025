@@ -4,13 +4,35 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import { YellowBackground } from "./BG/YellowBackground";
+import { YellowBackgroundTop } from "./BG/YellowBackgroundTop";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/effect-fade";
+
+// TypeScript-Deklaration für gtag
+declare global {
+  function gtag(...args: any[]): void;
+}
 
 gsap.registerPlugin(ScrollTrigger);
 
 export function Contact() {
   const sectionRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
+
+  // TRACKING-FUNKTION - Contact Section
+  const trackVideocallInquiry = () => {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'design_inquiry', {
+        'event_category': 'Contact',
+        'event_label': 'Contact Section Videocall Button',
+        'contact_method': 'email_contact_section',
+        'page_location': window.location.href
+      });
+      
+      console.log('Contact Section Videocall Button clicked - tracked in GA4');
+    }
+  };
 
   useGSAP(() => {
     if (!contentRef.current || !sectionRef.current) return;
@@ -34,55 +56,40 @@ export function Contact() {
       data-background="light"
       ref={sectionRef}
       className="relative min-h-screen w-full text-black flex flex-col justify-center items-center"
-      
     >
-      <YellowBackground />
+      <YellowBackgroundTop/>
 
-      {/* Titel mit dynamischem Padding für verschiedene Bildschirmgrößen */}
-      <div className="absolute inset-0 flex flex-col justify-start mt-20">
-        <p className="text-3xl mb-4 w-full px-8 md:px-16 lg:px-24">
-          Sind <span className="underline">Sie</span> bereit für
-        </p>
-        <h1 className="font-thin uppercase text-black z-10 text-[7vw] md:text-[7vw] xl:text-[8vw] leading-[0.9] w-full px-8 md:px-16 lg:px-24 whitespace-nowrap">
-          DAS NÄCHSTE LEVEL?
-        </h1>
-      </div>
-
-      {/* Haupttext mittig */}
       <div className="absolute inset-0 flex justify-center items-center">
         <div
           ref={contentRef}
-          className="w-full max-w-3xl flex flex-col text-left px-8 md:px-16 lg:px-24"
+          className="w-full max-w-6xl flex flex-col text-left px-8 md:px-8 lg:px-8 py-16"
         >
-          <div className="mt-40 mb-16">
-            <p className="">
+          <div className="mb-16">
+            <h2 className="">
               Lassen Sie uns gemeinsam Ihren Erfolg gestalten. Buchen Sie jetzt
               Ihren persönlichen Video Call und sichern Sie sich den
               entscheidenden Vorsprung.
-            </p>
+            </h2>
           </div>
 
-          {/* Button mittig */}
+          {/* TRACKED EMAIL BUTTON */}
           <div className="flex justify-center">
-          <a
-  href="mailto:info@designtech.eu?subject=Anfrage%20für%20ein%20Videocall&body=Sehr%20geehrte%20Frau%20Mayer,%0A%0A"
-  className="px-[10vw] py-1 rounded-full border-2 border-black bg-transparent hover:bg-black hover:text-white transition-all duration-300"
->
-  <h1> VIDEOCALL </h1>
-</a>
-
-
-
-
-
+            <a  
+              href="mailto:info@designtech.eu?subject=Anfrage%20für%20ein%20Videocall&body=Sehr%20geehrte%20Frau%20Mayer,%0A%0A"
+              onClick={trackVideocallInquiry}
+            >
+              <div className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl btn-big">
+                VIDEOCALL VEREINBAREN
+              </div>
+            </a>
           </div>
 
-          <p className="mt-16 ">
-          Damit unser Gespräch nicht nur irgendein Austausch wird, sondern der Startschuss für etwas Außergewöhnliches, 
-          laden wir Sie vorab zu einer kurzen Online-Befragung ein. So treffen wir uns nicht im Nebel, sondern genau dort, 
-          wo Ihre Vorstellungen, Ziele und Herausforderungen liegen. Stellen Sie sich vor, was möglich ist – und erwarten Sie mehr. 
-          Wir freuen uns sie kennen zu lernen.
-          </p>
+          <h3 className="mt-16">
+            Damit unser Gespräch nicht nur irgendein Austausch wird, sondern der Startschuss für etwas Außergewöhnliches, 
+            laden wir Sie vorab zu einer kurzen Online-Befragung ein. So treffen wir uns nicht im Nebel, sondern genau dort, 
+            wo Ihre Vorstellungen, Ziele und Herausforderungen liegen. Stellen Sie sich vor, was möglich ist – und erwarten Sie mehr. 
+            Wir freuen uns sie kennen zu lernen.
+          </h3>
         </div>
       </div>
     </section>
