@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import { useTranslation } from 'react-i18next';
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -9,6 +10,7 @@ import { YellowBackground } from "./BG/YellowBackground";
 gsap.registerPlugin(ScrollTrigger);
 
 export function Ready() {
+  const { t } = useTranslation('common');
   const sectionRef = useRef<HTMLElement>(null);
   const textRef = useRef<HTMLParagraphElement>(null);
   
@@ -44,7 +46,7 @@ export function Ready() {
             ref={textRef}
             className="uppercase leading-[1.1] tracking-[-0.03em]"
           >
-            Sind Sie bereit für das nächste Level?
+            {t('ready.title')}
           </h1>
         </div>
       </div>

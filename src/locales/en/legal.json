@@ -1,0 +1,151 @@
+{
+  "imprint": {
+    "title": "IMPRINT",
+    "company": "Design Tech",
+    "address": {
+      "street": "Zeppelinstraße 53",
+      "city": "72119 Ammerbuch",
+      "country": "Germany"
+    },
+    "ceo": {
+      "title": "Authorized Managing Director:",
+      "name": "Dipl.-Designer Jürgen Schmid"
+    },
+    "management": {
+      "title": "Company Management:",
+      "name": "Lisa Schmid"
+    },
+    "vatId": {
+      "title": "VAT identification number according to § 27 a",
+      "description": "VAT Act",
+      "number": "DE 146 941 777"
+    },
+    "contact": {
+      "phone": "Tel. +49 (0)7073 91 89 0",
+      "fax": "Fax. +49 (0)7073 91 89 17",
+      "email": "info@designtech.eu"
+    },
+    "responsible": {
+      "title": "Content responsible according to § 55 Abs. 2 RStV:",
+      "name": "Jürgen Schmid",
+      "address": "(address as above)"
+    },
+    "disclaimer": {
+      "title": "Disclaimer: Despite careful content control, we assume no liability for the content of external links.",
+      "content": "The operators of the linked pages are exclusively responsible for the content of the linked pages."
+    }
+  },
+  "legal_notice": {
+    "title": "LEGAL NOTICE / TERMS OF USE",
+    "court_decision": "With the judgment of May 12, 1998 - 312 O 85/98 - \"Liability for Links\" the Regional Court (LG) Hamburg decided that by placing a link, one may be responsible for the content of the linked page. This can - according to the LG - only be prevented by expressly distancing oneself from these contents.",
+    "links_policy": "We have placed links to other pages on the Internet on our pages. For all these links the following applies: We would like to expressly emphasize that we have no influence on the design and content of the linked pages. Therefore, we hereby expressly distance ourselves from all contents of all linked pages on our homepage and do not make these contents our own. This declaration applies to all links placed on our homepage and to all contents of the pages to which links or banners lead.",
+    "contact_info": "If you are of the opinion that the linked external pages violate applicable law or otherwise contain inappropriate content, please inform us."
+  },
+  "privacy": {
+    "title": "PRIVACY POLICY",
+    "overview": {
+      "title": "1. Privacy at a glance General information",
+      "intro": "The following information provides a simple overview of what happens to your personal data when you visit our website. Personal data is any data that can be used to personally identify you. Detailed information on data protection can be found in our privacy policy listed below this text."
+    },
+    "data_collection": {
+      "title": "Data collection on our website",
+      "responsible": "Who is responsible for data collection on this website?",
+      "responsible_answer": "Data processing on this website is carried out by the website operator. You can find their contact details in the imprint of this website.",
+      "how": "How do we collect your data?",
+      "how_answer": "Your data is collected on the one hand by you providing it to us. This could be data that you enter into a contact form, for example. Other data is automatically collected by our IT systems when you visit the website. This is mainly technical data (e.g. internet browser, operating system or time of page access). This data is collected automatically as soon as you enter our website.",
+      "purpose": "What do we use your data for?",
+      "purpose_answer": "Part of the data is collected to ensure error-free provision of the website. Other data may be used to analyze your user behavior.",
+      "rights": "What rights do you have regarding your data?",
+      "rights_answer": "You have the right to receive information about the origin, recipient and purpose of your stored personal data free of charge at any time. You also have the right to request correction, blocking or deletion of this data. You can contact us at any time at the address given in the imprint for this and other questions about data protection. You also have the right to lodge a complaint with the competent supervisory authority."
+    },
+    "analysis_tools": {
+      "title": "Analysis tools and third-party tools",
+      "content": "When visiting our website, your surfing behavior can be statistically evaluated. This is mainly done with cookies and so-called analysis programs. The analysis of your surfing behavior is usually anonymous; the surfing behavior cannot be traced back to you. You can object to this analysis or prevent it by not using certain tools. Detailed information about this can be found in the following privacy policy. You can object to this analysis. We will inform you about the possibilities of objection in this privacy policy."
+    },
+    "general": {
+      "title": "2. General information and mandatory information",
+      "protection": {
+        "title": "Data protection",
+        "content": "The operators of these pages take the protection of your personal data very seriously. We treat your personal data confidentially and in accordance with the statutory data protection regulations and this privacy policy. When you use this website, various personal data is collected. Personal data is data that can be used to personally identify you. This privacy policy explains what data we collect and what we use it for. It also explains how and for what purpose this happens. We point out that data transmission on the Internet (e.g. when communicating by email) can have security gaps. Complete protection of data against access by third parties is not possible."
+      },
+      "consent": {
+        "title": "Revocation of your consent to data processing",
+        "content": "Many data processing operations are only possible with your express consent. You can revoke consent that has already been given at any time. An informal notification by email is sufficient for this. The legality of the data processing carried out until the revocation remains unaffected by the revocation."
+      },
+      "complaint": {
+        "title": "Right to lodge a complaint with the competent supervisory authority",
+        "content": "In the event of data protection violations, the person concerned has the right to lodge a complaint with the competent supervisory authority. The competent supervisory authority for data protection issues is the state data protection officer of the federal state in which our company is based. A list of data protection officers and their contact details can be found at the following link: https://www.bfdi.bund.de/DE/Infothek/Anschriften_Links/anschriften_links-node.html."
+      },
+      "portability": {
+        "title": "Right to data portability",
+        "content": "You have the right to have data that we process automatically on the basis of your consent or in fulfillment of a contract handed over to you or to a third party in a common, machine-readable format. If you request the direct transfer of the data to another controller, this will only be done insofar as it is technically feasible."
+      },
+      "ssl": {
+        "title": "SSL or TLS encryption",
+        "content": "For security reasons and to protect the transmission of confidential content, such as orders or inquiries that you send to us as the site operator, this site uses SSL or TLS encryption. You can recognize an encrypted connection by the fact that the address line of the browser changes from \"http://\" to \"https://\" and by the lock symbol in your browser line. When SSL or TLS encryption is activated, the data you transmit to us cannot be read by third parties."
+      },
+      "rights": {
+        "title": "Information, blocking, deletion",
+        "content": "Within the framework of the applicable legal provisions, you have the right to free information about your stored personal data, its origin and recipient and the purpose of data processing and, if applicable, a right to correction, blocking or deletion of this data at any time. You can contact us at any time at the address given in the imprint for this and other questions about personal data."
+      },
+      "spam": {
+        "title": "Objection to advertising emails",
+        "content": "The use of contact data published within the framework of the imprint obligation for sending unsolicited advertising and information materials is hereby rejected. The operators of the pages expressly reserve the right to take legal action in the event of unsolicited sending of advertising information, such as spam emails."
+      }
+    },
+    "data_website": {
+      "title": "3. Data collection on our website",
+      "cookies": {
+        "title": "Cookies",
+        "content": "The web pages sometimes use so-called cookies. Cookies do not damage your computer and do not contain viruses. Cookies serve to make our offer more user-friendly, more effective and safer. Cookies are small text files that are stored on your computer and saved by your browser. Most of the cookies we use are so-called \"session cookies\". They are automatically deleted after your visit ends. Other cookies remain stored on your device until you delete them. These cookies enable us to recognize your browser on your next visit. You can set your browser so that you are informed about the setting of cookies and only allow cookies in individual cases, exclude the acceptance of cookies for certain cases or in general, and activate the automatic deletion of cookies when closing the browser. When cookies are deactivated, the functionality of this website may be limited. Cookies that are necessary for carrying out the electronic communication process or for providing certain functions you want (e.g. shopping cart function) are stored on the basis of Art. 6 Para. 1 lit. f GDPR. The website operator has a legitimate interest in storing cookies for the technically error-free and optimized provision of its services. Insofar as other cookies (e.g. cookies for analyzing your surfing behavior) are stored, these are treated separately in this privacy policy."
+      },
+      "server_logs": {
+        "title": "Server log files",
+        "intro": "The provider of the pages automatically collects and stores information in so-called server log files, which your browser automatically transmits to us. These are:",
+        "list": "- Browser type and browser version\n- Operating system used\n- Referrer URL\n- Host name of the accessing computer\n- Time of server request\n- IP address",
+        "legal_basis": "This data is not merged with other data sources. The basis for data processing is Art. 6 Para. 1 lit. f GDPR, which permits the processing of data to fulfill a contract or pre-contractual measures."
+      },
+      "contact_form": {
+        "title": "Contact form",
+        "content": "If you send us inquiries via contact form, your details from the inquiry form including the contact data you provided there will be stored with us for the purpose of processing the inquiry and in case of follow-up questions. We do not pass on this data without your consent. The processing of the data entered in the contact form is therefore based exclusively on your consent (Art. 6 Para. 1 lit. a GDPR). You can revoke this consent at any time. An informal notification by email is sufficient for this. The legality of the data processing operations carried out until revocation remains unaffected by the revocation. The data you enter in the contact form will remain with us until you request deletion, revoke your consent to storage or the purpose for data storage no longer applies (e.g. after completion of processing your inquiry). Mandatory legal provisions - in particular retention periods - remain unaffected."
+      },
+      "comments": {
+        "title": "Comment function on this website",
+        "content": "For the comment function on this page, in addition to your comment, information about the time the comment was created, your email address and, if you do not post anonymously, the username you chose is stored.",
+        "ip_storage": "Storage of IP address",
+        "ip_content": "Our comment function stores the IP addresses of users who write comments. Since we do not check comments on our site before they are activated, we need this data to be able to take action against the author in case of legal violations such as insults or propaganda.",
+        "duration": "Storage duration of comments",
+        "duration_content": "The comments and the associated data (e.g. IP address) are stored and remain on our website until the commented content has been completely deleted or the comments have to be deleted for legal reasons (e.g. insulting comments).",
+        "legal_basis": "Legal basis",
+        "legal_content": "The storage of comments is based on your consent (Art. 6 Para. 1 lit. a GDPR). You can revoke consent you have given at any time. An informal notification by email is sufficient for this. The legality of the data processing operations that have already taken place remains unaffected by the revocation."
+      }
+    },
+    "analytics": {
+      "title": "4. Analysis tools and advertising",
+      "google": {
+        "title": "Google Analytics",
+        "content": "This website uses functions of the web analysis service Google Analytics. The provider is Google Inc., 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA. Google Analytics uses so-called \"cookies\". These are text files that are stored on your computer and enable analysis of your use of the website. The information generated by the cookie about your use of this website is usually transmitted to a Google server in the USA and stored there. The storage of Google Analytics cookies is based on Art. 6 Para. 1 lit. f GDPR. The website operator has a legitimate interest in analyzing user behavior in order to optimize both its web offering and its advertising."
+      },
+      "anonymization": {
+        "title": "IP anonymization",
+        "content": "We have activated the IP anonymization function on this website. This means that your IP address will be shortened by Google within member states of the European Union or in other contracting states of the Agreement on the European Economic Area before transmission to the USA. Only in exceptional cases will the full IP address be transmitted to a Google server in the USA and shortened there. On behalf of the operator of this website, Google will use this information to evaluate your use of the website, to compile reports on website activities and to provide other services related to website usage and internet usage to the website operator. The IP address transmitted by your browser as part of Google Analytics will not be merged with other Google data."
+      },
+      "plugin": {
+        "title": "Browser plugin",
+        "content": "You can prevent the storage of cookies by setting your browser software accordingly; however, we point out that in this case you may not be able to use all functions of this website to their full extent. You can also prevent the collection of data generated by the cookie and related to your use of the website (including your IP address) to Google and the processing of this data by Google by downloading and installing the browser plugin available under the following link: https://tools.google.com/dlpage/gaoptout?hl=en."
+      },
+      "opt_out": {
+        "title": "Objection to data collection",
+        "content": "You can use the following switch to prevent or reactivate the collection of your data by Google Analytics:"
+      },
+      "more_info": "More information on handling user data at Google Analytics can be found in Google's privacy policy: https://support.google.com/analytics/answer/6004245?hl=en."
+    },
+    "plugins": {
+      "title": "5. Plugins and tools",
+      "youtube": {
+        "title": "YouTube",
+        "content": "Our website contains links to the Google-operated page YouTube. The operator of the pages is YouTube, LLC, 901 Cherry Ave., San Bruno, CA 94066, USA. If you click on one of the links (recognizable by the play symbol), a connection to YouTube's servers is established. The YouTube server is told which of our pages you have visited. If you are logged into your YouTube account, you enable YouTube to assign your surfing behavior directly to your personal profile. You can prevent this by logging out of your YouTube account. The use of YouTube is in the interest of an appealing presentation of our online offers. This represents a legitimate interest within the meaning of Art. 6 Para. 1 lit. f GDPR. Further information on handling user data can be found in YouTube's privacy policy at: https://www.google.de/intl/en/policies/privacy."
+      }
+    }
+  }
+}

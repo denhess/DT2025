@@ -1,7 +1,7 @@
-// TextDesignToSuccessFour
 "use client";
 
 import { useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import ScrollTrigger from 'gsap/ScrollTrigger';
@@ -9,6 +9,7 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 export function TextDesignToSuccessFour() {
+  const { t } = useTranslation('designtosuccess');
   const sectionRef = useRef<HTMLElement>(null);
   const textRef = useRef<HTMLParagraphElement>(null);
   
@@ -41,23 +42,18 @@ export function TextDesignToSuccessFour() {
             className="max-w-7xl mx-auto"
           >
             <h2>
-              Design, das nicht fliegt, bleibt am Boden. Auch wenn es glänzt.
+              {t('text4.title')}
             </h2>
             
-            <h3 className="helvetica-spacing-normal">
-              Wir gestalten auf Erfolg, gezielt, messbar, wiederholbar.<br />
-              Unser Ansatz: Vom Geschäftsmodell zum Design
-            </h3>
+            <h3 className="helvetica-spacing-normal" dangerouslySetInnerHTML={{ __html: t('text4.subtitle') }} />
 
             <div className="helvetica-spacing-normal space-y-4">
               <h4 className="max-w-5xl">
-                Wir starten nicht beim Produkt – wir starten beim Geschäftsmodell. 
-                Nur so entsteht Design, das Wirkung entfaltet: im Vertrieb, im Markt und im Unternehmen.
+                {t('text4.paragraph1')}
               </h4>
               
               <h4 className="max-w-5xl">
-                Design ist bei uns kein Zufallsprodukt, sondern das Ergebnis von Strategie, Präzision und 
-                einem klaren Ziel: messbarer Erfolg.
+                {t('text4.paragraph2')}
               </h4>
             </div>
           </div>

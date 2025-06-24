@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { useTranslation } from 'react-i18next';
 import { DtLogo } from "./Dt-logo";
 import { useRef } from "react";
 import CookieBanner from "@/components/Cookie/CookieBanner";
@@ -16,6 +17,7 @@ interface CookieBannerRef {
 }
 
 export function Footer() {
+  const { t } = useTranslation('common');
   const cookieBannerRef = useRef<CookieBannerRef | null>(null);
 
   // TRACKING-FUNKTION - Footer Videocall
@@ -70,52 +72,52 @@ export function Footer() {
           {/* Spalte 1 - Hauptlinks */}
           <div className="flex flex-col space-y-2">
             <Link href="/" className="text-white cursor-pointer text-sm md:text-base xl:text-lg font-bold opacity-70 hover:opacity-100 hover:underline transition-all duration-300 inline-block">
-              STARTSEITE
+              {t('navigation.home')}
             </Link>
             <Link href="/#projects" className="text-white cursor-pointer text-sm md:text-base xl:text-lg font-bold opacity-70 hover:opacity-100 hover:underline transition-all duration-300 inline-block">
-              PROJEKTE
+              {t('navigation.projects')}
             </Link>
             <Link href="/designtech" className="text-white cursor-pointer text-sm md:text-base xl:text-lg font-bold opacity-70 hover:opacity-100 hover:underline transition-all duration-300 inline-block">
-              DESIGN TECH
+              {t('navigation.designtech')}
             </Link>
             <Link href="/designtosuccess" className="text-white cursor-pointer text-sm md:text-base xl:text-lg font-bold opacity-70 hover:opacity-100 hover:underline transition-all duration-300 inline-block">
-              DESIGN TO SUCCESS
+              {t('navigation.designtosuccess')}
             </Link>
             <Link href="/karriere" className="text-white cursor-pointer text-sm md:text-base xl:text-lg font-bold opacity-70 hover:opacity-100 hover:underline transition-all duration-300 inline-block">
-              KARRIERE
+              {t('navigation.career')}
             </Link>
           </div>
 
           {/* Spalte 2 - Projektlinks */}
           <div className="flex flex-col space-y-2">
             <Link href="/erfolgsgeschichte" className="text-white cursor-pointer text-sm md:text-base xl:text-lg opacity-70 hover:opacity-100 hover:underline transition-all duration-300 inline-block">
-              Erfolgsgeschichte
+              {t('footer.successStory')}
             </Link>
             <Link href="https://www.ammerbucher-design-talk.de/" className="text-white cursor-pointer text-sm md:text-base xl:text-lg opacity-70 hover:opacity-100 hover:underline transition-all duration-300 inline-block">
-              Ammerbucher Design Talk
+              {t('footer.designTalk')}
             </Link>
             <Link href="http://werkzeugderzukunft.de" className="text-white cursor-pointer text-sm md:text-base xl:text-lg opacity-70 hover:opacity-100 hover:underline transition-all duration-300 inline-block">
-              Werkzeug der Zukunft
+              {t('footer.toolOfFuture')}
             </Link>
             <Link href="http://maschine2020.com/de_DE/" className="text-white cursor-pointer text-sm md:text-base xl:text-lg opacity-70 hover:opacity-100 hover:underline transition-all duration-300 inline-block">
-              Maschine 2020
+              {t('footer.machine2020')}
             </Link>
           </div>
 
           {/* Spalte 3 - Rechtliches */}
           <div className="flex flex-col space-y-2">
             <Link href="/impres" className="text-white cursor-pointer text-sm md:text-base xl:text-lg opacity-70 hover:opacity-100 hover:underline transition-all duration-300 inline-block">
-              Impressum / Rechtlicher Hinweis
+              {t('footer.imprint')}
             </Link>
             <Link href="/privacy-policy" className="text-white cursor-pointer text-sm md:text-base xl:text-lg opacity-70 hover:opacity-100 hover:underline transition-all duration-300 inline-block">
-              Datenschutzerklärung
+              {t('footer.privacy')}
             </Link>
             <Link
               href="#"
               className="text-white cursor-pointer text-sm md:text-base xl:text-lg opacity-70 hover:opacity-100 hover:underline transition-all duration-300 inline-block"
               onClick={handleLinkClick}
             >
-              Datenschutzeinstellungen
+              {t('footer.privacySettings')}
             </Link>
           </div>
 
@@ -128,7 +130,7 @@ export function Footer() {
                 onClick={trackFooterVideocall}
                 className="btn-gradient-trans whitespace-nowrap text-sm opacity-70 hover:opacity-100 transition-all duration-300"
               >
-                VIDEOCALL VEREINBAREN
+                {t('contact.videocall')}
               </a>
               
               <a
@@ -136,7 +138,7 @@ export function Footer() {
                 onClick={trackFooterPhone}
                 className="btn-gradient-trans whitespace-nowrap text-sm opacity-70 hover:opacity-100 transition-all duration-300"
               >
-                +49 7073 91 89 0
+                {t('contact.phone')}
               </a>
             </div>
           </div>

@@ -2,12 +2,14 @@
 
 import { useRef } from "react";
 import Image from "next/image";
+import { useTranslation } from 'react-i18next';
 import { useOptimizedVideo } from "@/hooks/useOptimizedVideo";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
 
 export function VideoBodyOne() {
+  const { t } = useTranslation('common');
   const containerRef = useRef<HTMLElement>(null);
   
   const { videoRef, isLoaded, error } = useOptimizedVideo('/BodyVideo-vhf.mp4', true);
@@ -87,11 +89,11 @@ export function VideoBodyOne() {
         {/* Buttons links unten - vertikal auf Mobilgeräten */}
         <div className="flex flex-col sm:flex-row sm:space-x-4 space-y-2 sm:space-y-0 mb-4 sm:mb-0">
           <a className="btn-gradient-white-noanimation whitespace-nowrap inline-flex self-start sm:self-auto">
-            MASCHINENDESIGN
+            {t('videoBody.machineDesign')}
           </a>
 
           <a className="btn-gradient-white-noanimation whitespace-nowrap inline-flex self-start sm:self-auto">
-            CNC-Fräsmaschinen
+            {t('videoBody.cncMilling')}
           </a>
         </div>
         

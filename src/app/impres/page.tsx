@@ -1,47 +1,47 @@
 "use client";
 
 import React from "react";
-
+import { useTranslation } from 'react-i18next';
 import { Footer } from "@/components/Footer";
 
-export default function Impres() {
+export default function Impressum() {
+  const { t } = useTranslation('legal');
+
   return (
     <>
       <div>
         <div className="text-black min-h-screen flex justify-center items-start pt-8">
           <div className="w-full px-6 sm:px-8 md:px-16 lg:px-24 max-w-5xl pt-24 pb-16">
-            {/* Erhöhtes padding-top von pt-16 auf pt-24 oder pt-32 */}
-
             {/* Impressum */}
             <div className="mb-8">
               <p className="text-black text-lg sm:text-xl leading-relaxed text-left">
-                <b>IMPRESSUM</b>
+                <b>{t('imprint.title')}</b>
                 <br />
                 <br />
-                Design Tech <br />
-                Zeppelinstraße 53 <br />
-                72119 Ammerbuch <br />
-                Deutschland <br />
+                {t('imprint.company')} <br />
+                {t('imprint.address.street')} <br />
+                {t('imprint.address.city')} <br />
+                {t('imprint.address.country')} <br />
                 <br />
-                Vertretungsberechtigter Geschäftsführer: <br />
-                Dipl.-Designer Jürgen Schmid <br />
+                {t('imprint.ceo.title')} <br />
+                {t('imprint.ceo.name')} <br />
                 <br />
-                Unternehmensleitung: <br />
-                Lisa Schmid <br />
+                {t('imprint.management.title')} <br />
+                {t('imprint.management.name')} <br />
                 <br />
-                Umsatzsteuer-Identifikationsnummer gemäß § 27 a <br />
-                Umsatzsteuergesetz: DE 146 941 777 <br />
+                {t('imprint.vatId.title')} <br />
+                {t('imprint.vatId.description')}: {t('imprint.vatId.number')} <br />
                 <br />
-                Tel. +49 (0)7073 91 89 0 <br />
-                Fax. +49 (0)7073 91 89 17 <br />
-                info@designtech.eu <br />
+                {t('imprint.contact.phone')} <br />
+                {t('imprint.contact.fax')} <br />
+                {t('imprint.contact.email')} <br />
                 <br />
-                Inhaltlich Verantwortlicher gemäß § 55 Abs. 2 RStV: <br />
-                Jürgen Schmid (Anschrift wie oben) <br />
+                {t('imprint.responsible.title')} <br />
+                {t('imprint.responsible.name')} {t('imprint.responsible.address')} <br />
                 <br />
-                Haftungshinweis: Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für die Inhalte externer Links. <br />
+                {t('imprint.disclaimer.title')} <br />
                 <br />
-                Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich. <br />
+                {t('imprint.disclaimer.content')} <br />
                 <br />
               </p>
             </div>
@@ -49,31 +49,16 @@ export default function Impres() {
             {/* Rechtlicher Hinweis / Nutzungsbedingungen */}
             <div className="mb-8">
               <p className="text-black text-lg sm:text-xl leading-relaxed text-left">
-                <b>RECHTLICHER HINWEIS / NUTZUNGSBEDINGUNGEN</b>
+                <b>{t('legal_notice.title')}</b>
                 <br />
                 <br />
-                Mit Urteil vom 12. Mai 1998 – 312 O 85/98 – &bdquo;Haftung für Links&ldquo;
-                hat das Landgericht (LG) Hamburg entschieden, dass man durch die
-                Ausbringung eines Links die Inhalte der gelinkten Seite ggf. mit
-                zu verantworten hat. Dies kann – so das LG – nur dadurch
-                verhindert werden, dass man sich ausdrücklich von diesen
-                Inhalten distanziert.
+                {t('legal_notice.court_decision')}
                 <br />
                 <br />
-                Wir haben auf unseren Seiten Links zu anderen Seiten im Internet
-                gelegt. Für alle diese Links gilt: Wir möchten ausdrücklich
-                betonen, dass wir keinerlei Einfluss auf die Gestaltung und die
-                Inhalte der gelinkten Seiten haben. Deshalb distanzieren wir uns
-                hiermit ausdrücklich von allen Inhalten aller gelinkten Seiten
-                auf unserer Homepage und machen uns diese Inhalte nicht zu eigen.
-                Diese Erklärung gilt für alle auf unserer Homepage angebrachten
-                Links und für alle Inhalte der Seiten, zu denen Links oder Banner
-                führen.
+                {t('legal_notice.links_policy')}
                 <br />
                 <br />
-                Sollten Sie der Ansicht sein, dass die verlinkten externen Seiten
-                gegen geltendes Recht verstoßen oder sonst unangemessene Inhalte
-                enthalten, teilen Sie uns dies bitte mit.
+                {t('legal_notice.contact_info')}
               </p>
             </div>
           </div>

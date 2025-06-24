@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from "react";
+import { useTranslation } from 'react-i18next';
 import Link from "next/link";
 import Image from "next/image";
 import gsap from "gsap";
@@ -16,6 +17,7 @@ interface MenuOverlayProps {
 }
 
 const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
+  const { t } = useTranslation('common');
   const overlayRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const footerRef = useRef<HTMLDivElement>(null);
@@ -152,7 +154,7 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
   return (
     <div
       ref={overlayRef}
-      className="fixed inset-0 z-40 hidden opacity-0"
+      className="fixed inset-0 z-30 hidden opacity-0"
       style={{
         backgroundColor: 'white',
         overflow: 'hidden',
@@ -195,48 +197,50 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
         }}
       />
 
+
+
       <div 
-        className="flex flex-col justify-between w-full h-full overflow-auto mt-20"
+        className="flex flex-col justify-between w-full h-full overflow-auto pt-24"
         style={{ zIndex: 10, position: "relative" }}
       >
-        {/* Hauptnavigation in der Mitte, linksbündig - mit angepasster Mobildarstellung */}
+        {/* Hauptnavigation in der Mitte, linksbündig */}
         <div className="flex-grow flex items-center w-full py-12 md:py-0">
           <div ref={contentRef} className="text-left w-full max-w-5xl px-8 md:px-8 lg:px-8 z-10">
             <div className="flex flex-col">
               <Link href="/" onClick={handleLinkClick}>
                 <h2 className="mb-2 md:mb-5 text-2xl sm:text-3xl md:text-4xl lg:text-5xl relative py-1 md:py-2 z-10 inline-block nav-link">
-                  STARTSEITE
+                  {t('navigation.home')}
                 </h2>
               </Link>
 
               <Link href="/#projects" onClick={handleLinkClick}>
                 <h2 className="mb-2 md:mb-5 text-2xl sm:text-3xl md:text-4xl lg:text-5xl relative py-1 md:py-2 z-10 inline-block nav-link">
-                  PROJEKTE
+                  {t('navigation.projects')}
                 </h2>
               </Link>
 
               <Link href="/designtech" onClick={handleLinkClick}>
                 <h2 className="mb-2 md:mb-5 text-2xl sm:text-3xl md:text-4xl lg:text-5xl relative py-1 md:py-2 z-10 inline-block nav-link">
-                  DESIGN TECH
+                  {t('navigation.designtech')}
                 </h2>
               </Link>
 
               <Link href="/designtosuccess" onClick={handleLinkClick}>
                 <h2 className="mb-2 md:mb-5 text-2xl sm:text-3xl md:text-4xl lg:text-5xl relative py-1 md:py-2 z-10 inline-block nav-link">
-                  DESIGN TO SUCCESS
+                  {t('navigation.designtosuccess')}
                 </h2>
               </Link>
 
               <Link href="/karriere" onClick={handleLinkClick}>
                 <h2 className="mb-2 md:mb-5 text-2xl sm:text-3xl md:text-4xl lg:text-5xl relative py-1 md:py-2 z-10 inline-block nav-link">
-                  KARRIERE
+                  {t('navigation.career')}
                 </h2>
               </Link>
             </div>
           </div>
         </div>
         
-        {/* Footer mit 4 Spalten im unteren Bereich - responsive für Mobile */}
+        {/* Footer mit 4 Spalten im unteren Bereich */}
         <div 
           ref={footerRef} 
           className="w-full pb-8 px-8 md:px-8 lg:px-8 z-10"
@@ -251,7 +255,7 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
                   onClick={handleLinkClick}
                   className="text-black cursor-pointer text-base md:text-lg opacity-70 hover:opacity-100 hover:underline transition-all duration-300 block"
                 >
-                  Erfolgsgeschichte
+                  {t('footer.successStory')}
                 </a>
 
                 <a
@@ -260,7 +264,7 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
                   rel="noopener noreferrer"
                   className="text-black cursor-pointer text-base md:text-lg opacity-70 hover:opacity-100 hover:underline transition-all duration-300 block"
                 >
-                  Ammerbucher Design Talk
+                  {t('footer.designTalk')}
                 </a>
               </div>
             </div>
@@ -275,7 +279,7 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
                   rel="noopener noreferrer"
                   className="text-black cursor-pointer text-base md:text-lg opacity-70 hover:opacity-100 hover:underline transition-all duration-300 block"
                 >
-                  Werkzeug der Zukunft
+                  {t('footer.toolOfFuture')}
                 </a>
                 <a
                   href="http://maschine2020.com/de_DE/"
@@ -283,12 +287,12 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
                   rel="noopener noreferrer"
                   className="text-black cursor-pointer text-base md:text-lg opacity-70 hover:opacity-100 hover:underline transition-all duration-300 block"
                 >
-                  Maschine 2020
+                  {t('footer.machine2020')}
                 </a>
               </div>
             </div>
             
-            {/* Spalte 3: Kontakt - nun rechtsbündig mit TRACKING */}
+            {/* Spalte 3: Kontakt - mit TRACKING */}
             <div className="footer-column mt-4 sm:mt-0">
               <div className="flex flex-col items-start sm:items-end space-y-2 md:space-y-3">
                 <a
@@ -296,20 +300,20 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
                   onClick={trackMenuVideocall}
                   className="btn-gradient whitespace-nowrap text-sm md:text-base"
                 >
-                  VIDEOCALL VEREINBAREN
+                  {t('contact.videocall')}
                 </a>
                 <a
                   href="tel:+49707391890"
                   onClick={trackMenuPhone}
                   className="btn-gradient whitespace-nowrap text-sm md:text-base"
                 >
-                  +49 7073 91 89 0
+                  {t('contact.phone')}
                 </a>
                 
               </div>
             </div>
             
-            {/* Spalte 4: Social Media - rechtsbündig */}
+            {/* Spalte 4: Social Media */}
             <div className="footer-column mt-4 sm:mt-0">
               <div className="flex justify-start sm:justify-end space-x-3">
                 <Link

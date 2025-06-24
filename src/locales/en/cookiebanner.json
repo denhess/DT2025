@@ -1,0 +1,21 @@
+{
+  "title": "PRIVACY SETTINGS",
+  "description": "This website uses cookies.",
+  "essential": {
+    "title": "Essential Cookies:",
+    "description": "Necessary for the functionality of the website"
+  },
+  "analytics": {
+    "title": "Analytics Cookies:",
+    "description": "This website uses Google Analytics"
+  },
+  "external": {
+    "title": "External Cookies:",
+    "description": "For displaying YouTube content"
+  },
+  "buttons": {
+    "acceptAll": "ACCEPT ALL",
+    "save": "SAVE",
+    "close": "Close"
+  }
+}

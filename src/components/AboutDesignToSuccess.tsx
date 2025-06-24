@@ -1,7 +1,7 @@
-// AboutDesignToSuccess
 "use client";
 
 import { useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import ScrollTrigger from 'gsap/ScrollTrigger';
@@ -10,6 +10,7 @@ import { YellowBackgroundTop } from './BG/YellowBackgroundTop';
 gsap.registerPlugin(ScrollTrigger);
 
 export function AboutDesignToSuccess() {
+  const { t } = useTranslation('designtosuccess');
   const sectionRef = useRef<HTMLElement>(null);
   const textRef = useRef<HTMLParagraphElement>(null);
   
@@ -43,20 +44,18 @@ export function AboutDesignToSuccess() {
             className="max-w-7xl mx-auto"
           >
             <h2>
-              Vom Verkaufen zum gekauft werden.
+              {t('about.title')}
             </h2>
             
             <h3 className="helvetica-spacing-normal">
-              Wenn Emotionen und Fakten stimmen, überzeugt das Produkt ohne ein Wort.
+              {t('about.subtitle')}
             </h3>
 
             <div className="helvetica-spacing-normal space-y-4">
-              <h4 className="max-w-5xl">
-                Starke Produkte müssen nicht erklärt werden. Sie überzeugen auf den ersten Blick. <br />
-                Weil sie stimmig sind, in Funktion, Form, Herstellung. Weil sie Vertrauen wecken und Begehrlichkeit. <br />
-                Und weil Entscheider sofort erkennen: Das ist genau das, was wir brauchen. <br />
-                Das ist kein Produktglück. Das ist Design, das Wirkung erzeugt bevor jemand etwas erklärt. <br />
-              </h4>
+              <h4 
+                className="max-w-5xl"
+                dangerouslySetInnerHTML={{ __html: t('about.text') }}
+              />
             </div>
           </div>
         </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import { useTranslation } from 'react-i18next';
 import Image from "next/image";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -10,6 +11,7 @@ import { YellowBackground } from "./BG/YellowBackground";
 gsap.registerPlugin(ScrollTrigger);
 
 export function ContactJob() {
+  const { t, i18n } = useTranslation('karriere');
   const sectionRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
@@ -30,6 +32,25 @@ export function ContactJob() {
     });
   }, []);
 
+  // Email-Text je nach Sprache
+  const getEmailContent = () => {
+    const isGerman = i18n.language === 'de';
+    
+    if (isGerman) {
+      return {
+        subject: "Bewerbung%20als%20[Jobtitel]",
+        body: "Sehr%20geehrte%20Frau%20Schmid,%0A%0A"
+      };
+    } else {
+      return {
+        subject: "Application%20for%20[Job%20Title]",
+        body: "Dear%20Ms.%20Schmid,%0A%0A"
+      };
+    }
+  };
+
+  const emailContent = getEmailContent();
+
   return (
     <section
       ref={sectionRef}
@@ -49,20 +70,20 @@ export function ContactJob() {
         >
           {/* Title */}
           <h3 className="z-10">
-            Ihr Kontakt
+            {t('contact.title')}
           </h3>
           {/* Subtitle */}
           <h2 className="leading-tight tracking-[-0.02em] whitespace-nowrap">
-            LISA VALENTINA SCHMID
+            {t('contact.name')}
           </h2>
 
           {/* Button - Mit derselben btn-gradient Klasse wie im MenuOverlay */}
           <div className="flex justify-left pt-5">
             <a
-              href="mailto:lschmid@designtech.eu?subject=Bewerbung%20als%20[Jobtitel]&body=Sehr%20geehrte%20Frau%20Schmid,%0A%0A"
+              href={`mailto:lschmid@designtech.eu?subject=${emailContent.subject}&body=${emailContent.body}`}
               className="btn-gradient whitespace-nowrap"
             >
-              JETZT&nbsp;BEWERBEN
+              {t('contact.button')}
             </a>
           </div>
         </div>

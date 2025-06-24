@@ -1,8 +1,10 @@
 "use client";
 
+import { useTranslation } from 'react-i18next';
 import { useOptimizedHero } from "@/hooks/useOptimizedHero";
 
 export function HeroDesignTech() {
+  const { t } = useTranslation('designtech');
   const {
     containerRef,
     videoRef,
@@ -48,7 +50,7 @@ export function HeroDesignTech() {
         onMouseLeave={handleMouseLeave}
       >
         <h1 className="font-thin uppercase text-white z-10 leading-[0.9] tracking-[-0.02em] text-left">
-          IHR ERFOLG <br /> IST UNSER ANTRIEB
+          {t('hero.title')}
         </h1>
       </div>
     </section>

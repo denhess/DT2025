@@ -1,0 +1,122 @@
+{
+  "hero": {
+    "title": "KARRIERE"
+  },
+  "about": {
+    "quote": "„WER BEI UNS ARBEITET, ENTWICKELT SICH AUSSERORDENTLICH SCHNELL AUSSERORDENTLICH WEIT."
+  },
+  "jobs": {
+    "senior": "SENIOR INDUSTRIAL DESIGNER (W/M/D)",
+    "junior": "JUNIOR INDUSTRIAL DESIGNER (W/M/D)",
+    "internship": "INDUSTRIAL DESIGN INTERNSHIP (W/M/D)"
+  },
+  "contact": {
+    "title": "Ihr Kontakt",
+    "name": "LISA VALENTINA SCHMID",
+    "button": "JETZT BEWERBEN"
+  },
+  "job_details": {
+    "senior": {
+      "title": "SENIOR INDUSTRIAL DESIGNER",
+      "intro_passion": "Du brennst für neue Herausforderungen? Du hast Lust auf erfolgreiche Industrial Design–Projekte und willst Innovationen auf höchstem Niveau entwickeln?",
+      "intro_team": "Dann werde Teil unseres Design Tech-Teams!",
+      "intro_thinking": "Neues Denken. Neues Schaffen.",
+      "intro_company": "Wir sind das international führende Designunternehmen für Industrieunternehmen im Maschinenbau und Investitionsgüterbereich.",
+      "location_text": "Unser Standort in Ammerbuch liegt am Fuße des Schönbuch und zentral zwischen der Universitätsstadt Tübingen und Stuttgart. Unser Team erarbeitet in anspruchsvollen Projekten strategische und zukunftsweisende Lösungen für Marktführer auf der ganzen Welt. Für unsere Kunden sind wir Entwicklungspartner von der ersten Idee bis zum fertigen Produkt!",
+      "qualification_title": "Deine Qualifikation",
+      "qualification_items": [
+        "Abgeschlossenes Studium als Industrial Design / Industriedesign oder einer verwandten Studiendisziplin",
+        "Sehr gute Darstellungsfähigkeiten und virtuoser Umgang mit Form, Farbe und Proportionen",
+        "Sicherer Umgang mit gängiger Software (Adobe CC, Solid Works, Microsoft Office etc.)",
+        "Fundierte Kenntnisse über Fertigungsverfahren und Material",
+        "Erfahrung in der Planung und dem Management von Gestaltungsprojekten",
+        "Sicherer Auftritt im Kontakt mit Kunden und bei Präsentationen",
+        "Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift",
+        "Überzeugende Kommunikationsfähigkeiten, Spaß am Arbeiten im Team und ein sicheres Auftreten",
+        "Biss und verantwortungsvolles und strukturiertes Arbeiten"
+      ],
+      "offer_title": "Was wir bieten",
+      "offer_items": [
+        "Ein spannendes und vielseitiges Aufgabengebiet",
+        "Ein hoch professionelles und motiviertes Team",
+        "Festanstellung und einen unbefristeten Arbeitsvertrag",
+        "Mittelfristige Aufstiegsoptionen",
+        "Kurze Entscheidungswege durch eine flache Hierarchie",
+        "Flexible Arbeitszeiten bei einer geregelten 40-Stunden-Woche",
+        "Attraktives Arbeitsumfeld in modernen Büroräumen",
+        "Regelmäßige Feedback- mit Zielvereinbarungsgespräche",
+        "Regelmäßige Teamevents und Veranstaltungen"
+      ],
+      "application_text": "Wir freuen uns auf Deine aussagekräftige Bewerbung mit Projekt-Referenzen und Arbeitsproben.",
+      "contact_text": "Auf Deine Bewerbung freut sich Lisa Valentina Schmid."
+    },
+    "junior": {
+      "title": "JUNIOR INDUSTRIAL DESIGNER",
+      "intro_passion": "Du brennst für neue Herausforderungen? Du hast Lust auf erfolgreiche Industrial Design–Projekte und willst Innovationen auf höchstem Niveau entwickeln?",
+      "intro_team": "Dann werde Teil unseres Design Tech-Teams!",
+      "intro_thinking": "Neues Denken. Neues Schaffen.",
+      "intro_company": "Wir sind das international führende Designunternehmen für Industrieunternehmen im Maschinenbau und Investitionsgüterbereich.",
+      "location_text": "Unser Standort in Ammerbuch liegt am Fuße des Schönbuch und zentral zwischen der Universitätsstadt Tübingen und Stuttgart. Unser Team erarbeitet in anspruchsvollen Projekten strategische und zukunftsweisende Lösungen für Marktführer auf der ganzen Welt. Für unsere Kunden sind wir Entwicklungspartner von der ersten Idee bis zum fertigen Produkt!",
+      "qualification_title": "Deine Qualifikation",
+      "qualification_items": [
+        "Abgeschlossenes Studium als Industrial Design / Industriedesign oder einer verwandten Studiendisziplin",
+        "Sehr gute Darstellungsfähigkeiten und virtuoser Umgang mit Form, Farbe und Proportionen",
+        "Sicherer Umgang mit gängiger Software (Adobe CC, Solid Works, Microsoft Office etc.)",
+        "Fundierte Kenntnisse über Fertigungsverfahren und Material",
+        "Erfahrung in der Planung und dem Management von Gestaltungsprojekten",
+        "Sicherer Auftritt im Kontakt mit Kunden und bei Präsentationen",
+        "Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift",
+        "Überzeugende Kommunikationsfähigkeiten, Spaß am Arbeiten im Team und ein sicheres Auftreten",
+        "Biss und verantwortungsvolles und strukturiertes Arbeiten"
+      ],
+      "offer_title": "Was wir bieten",
+      "offer_items": [
+        "Ein spannendes und vielseitiges Aufgabengebiet",
+        "Ein hoch professionelles und motiviertes Team",
+        "Festanstellung und einen unbefristeten Arbeitsvertrag",
+        "Mittelfristige Aufstiegsoptionen",
+        "Kurze Entscheidungswege durch eine flache Hierarchie",
+        "Flexible Arbeitszeiten bei einer geregelten 40-Stunden-Woche",
+        "Attraktives Arbeitsumfeld in modernen Büroräumen",
+        "Regelmäßige Feedback- mit Zielvereinbarungsgespräche",
+        "Regelmäßige Teamevents und Veranstaltungen"
+      ],
+      "application_text": "Wir freuen uns auf Deine aussagekräftige Bewerbung mit Projekt-Referenzen und Arbeitsproben.",
+      "contact_text": "Auf Deine Bewerbung freut sich Lisa Valentina Schmid."
+    },
+    "internship": {
+      "title": "Industrial Design Internship",
+      "intro_bold": "Gestalten, was zählt.",
+      "intro_study": "Du studierst Industrial Design und willst dein Können endlich in der echten Welt anwenden?",
+      "intro_real": "Bei Design Tech arbeitest du nicht an Übungsaufgaben, sondern an realen Maschinenprojekten – für echte Kund*innen, mit echtem Impact.",
+      "intro_team": "Gemeinsam mit erfahrenen Designerinnen und Ingenieurinnen entwickelst du Gestaltung, die produziert wird – und lernst, wie technisches Denken und ästhetische Klarheit zusammenwirken.",
+      "expectations_title": "Was dich erwartet",
+      "expectations_items": [
+        "Reale Industrieprojekte statt Simulation",
+        "Verantwortung vom ersten Tag an",
+        "Klarer Designprozess: Von der Skizze zur Umsetzung",
+        "Hochmotiviertes Team mit über 40 Jahren Erfahrung",
+        "Technologische Tiefe, kreative Freiheit, ehrliches Feedback"
+      ],
+      "requirements_title": "Was du mitbringen solltest",
+      "requirements_items": [
+        "Studium im Bereich Industrial Design oder einem verwandten Feld",
+        "Leidenschaft für funktionales, nachhaltiges und innovatives Design",
+        "Technisches Grundverständnis (z. B. CAD, Adobe CC, SolidWorks)",
+        "Freude am eigenverantwortlichen Arbeiten im Team",
+        "Neugier und Anspruch"
+      ],
+      "takeaways_title": "Was du mitnimmst",
+      "takeaways_items": [
+        "Ein aussagekräftiges Praxisprojekt für dein Portfolio",
+        "Einen echten Einblick in die Maschinenbau-Industrie",
+        "Feedback, das dich weiterbringt",
+        "Kontakte, die Türen öffnen"
+      ],
+      "apply_title": "Bewirb dich jetzt",
+      "apply_text": "Sende uns deine Bewerbung für ein mindestens 5-monatiges Pflichtpraktikum – oder melde dich einfach direkt bei uns.",
+      "apply_bold": "Wir freuen uns auf deine Ideen!"
+    }
+  }
+}
+

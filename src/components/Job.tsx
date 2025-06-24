@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import Link from 'next/link';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
@@ -9,6 +10,7 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 export function Job() {
+  const { t } = useTranslation('karriere');
   const sectionRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const linkRefs = useRef<(HTMLHeadingElement | null)[]>([]);
@@ -114,7 +116,7 @@ export function Job() {
             ref={(el) => { linkRefs.current[0] = el; }}
             className="leading-tight tracking-[-0.02em] mb-12 cursor-pointer relative py-2 inline-block"
           >
-            SENIOR INDUSTRIAL DESIGNER (W/M/D)
+            {t('jobs.senior')}
           </h2>
         </Link>
 
@@ -127,7 +129,7 @@ export function Job() {
             ref={(el) => { linkRefs.current[1] = el; }}
             className="leading-tight tracking-[-0.02em] mb-12 cursor-pointer relative py-2 inline-block"
           >
-            JUNIOR INDUSTRIAL DESIGNER (W/M/D)
+            {t('jobs.junior')}
           </h2>
         </Link>
 
@@ -140,7 +142,7 @@ export function Job() {
             ref={(el) => { linkRefs.current[2] = el; }}
             className="leading-tight tracking-[-0.02em] mb-12 cursor-pointer relative py-2 inline-block"
           >
-            INDUSTRIAL DESIGN INTERNSHIP (W/M/D)
+            {t('jobs.internship')}
           </h2>
         </Link>
       </div>

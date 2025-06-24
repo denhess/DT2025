@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState, useEffect, useCallback } from "react";
+import { useTranslation } from 'react-i18next';
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -8,6 +9,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 export function Awards() {
+  const { t } = useTranslation('designtech');
   const sectionRef = useRef<HTMLElement>(null);
   const textRef = useRef<HTMLHeadingElement>(null);
   const [isHovering, setIsHovering] = useState(false);
@@ -146,9 +148,8 @@ export function Awards() {
             className="uppercase leading-[0.9] tracking-[-0.02em] cursor-pointer relative z-10"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-          >
-            Über 210 Awards <br /> belegen den Erfolg!
-          </h1>
+            dangerouslySetInnerHTML={{ __html: t('awards.title') }}
+          />
         </div>
       </div>
     </section>

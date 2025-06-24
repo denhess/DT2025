@@ -1,0 +1,53 @@
+{
+  "hero": {
+    "subtitle": "Customized",
+    "title": "Machine Design\nand Innovation"
+  },
+  "about": {
+    "text": "At <strong>Design Tech</strong>, we develop practice-oriented, customized solutions that are precisely tailored to the individual needs and strategic goals of your company as well as the requirements of your market. With our decades of expertise in machine design and deep industry knowledge, we support you in sustainably securing and further expanding your market leadership."
+  },
+  "contact": {
+    "videocall": "SCHEDULE VIDEOCALL",
+    "phone": "+49 7073 91 89 0",
+    "mainText": "Let us shape your success together. Book your personal video call now and secure the decisive advantage.",
+    "subText": "So that our conversation is not just any exchange, but the starting signal for something extraordinary, we invite you to a brief online survey in advance. This way we don't meet in the fog, but exactly where your ideas, goals and challenges lie. Imagine what is possible - and expect more. We look forward to getting to know you."
+  },
+  "ready": {
+    "title": "Are you ready for the next level?"
+  },
+  "footer": {
+    "successStory": "Success Story",
+    "designTalk": "Ammerbucher Design Talk",
+    "toolOfFuture": "Tool of the Future",
+    "machine2020": "Machine 2020",
+    "imprint": "Imprint / Legal Notice",
+    "privacy": "Privacy Policy",
+    "privacySettings": "Privacy Settings"
+  },
+  "navigation": {
+    "home": "HOME",
+    "projects": "PROJECTS",
+    "designtech": "DESIGN TECH",
+    "designtosuccess": "DESIGN TO SUCCESS",
+    "career": "CAREER"
+  },
+  "videoBody": {
+    "machineDesign": "MACHINE DESIGN",
+    "cncMilling": "CNC Milling Machines",
+    "grindingMachines": "Cylindrical Grinding Machines",
+    "preShredder": "Pre-Shredder",
+    "shredder": "Shredder"
+  },
+  "projects": {
+    "hmiDesign": "HMI Design",
+    "toolDesign": "TOOL DESIGN",
+    "corporateDesign": "CORPORATE INDUSTRIAL DESIGN",
+    "constructionMachine": "CONSTRUCTION MACHINE DESIGN",
+    "machineDesign": "MACHINE DESIGN",
+    "plantDesign": "PLANT DESIGN"
+  },
+  "meta": {
+    "title": "Design Tech - Machine Design",
+    "description": "Specialist for machine design in the capital goods sector with over 210 awards. Customized design solutions for market leaders like Liebherr, Arburg and WashTec."
+  }
+}

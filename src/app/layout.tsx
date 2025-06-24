@@ -1,4 +1,4 @@
-// src/app/layout.tsx (Server Component) - OPTIMIZED
+// src/app/layout.tsx - Mit i18n Support
 import type { Metadata } from "next";
 import { HeaderProvider } from "@/contexts/HeaderContext";
 import { Header } from "@/components/Header";
@@ -6,6 +6,7 @@ import { PreloadManager } from "@/components/PreloadManager";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 import LoadingProvider from "../components/LoadingProvider";
+import { I18nProvider } from "../components/I18nProvider";
 import Script from 'next/script';
 
 import "./globals.css";
@@ -51,7 +52,7 @@ export default function RootLayout({
         <link rel="alternate" hrefLang="x-default" href="https://designtech.eu/" />
       </head>
       <body>
-        {/* OPTIMIZED: Non-blocking GTM + GA4 Loading */}
+        {/* Analytics Script bleibt gleich */}
         <Script
           id="optimized-analytics"
           strategy="afterInteractive"
@@ -120,15 +121,17 @@ export default function RootLayout({
           />
         </noscript>
 
-        <HeaderProvider>
-          <LoadingProvider>
-            <PreloadManager />
-            <Header />
-            {children}
-          </LoadingProvider>
-          <SpeedInsights />
-          <Analytics />
-        </HeaderProvider>
+        <I18nProvider>
+          <HeaderProvider>
+            <LoadingProvider>
+              <PreloadManager />
+              <Header />
+              {children}
+            </LoadingProvider>
+            <SpeedInsights />
+            <Analytics />
+          </HeaderProvider>
+        </I18nProvider>
       </body>
     </html>
   );

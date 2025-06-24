@@ -2,12 +2,14 @@
 "use client";
 
 import React, { useState, useEffect, forwardRef, useImperativeHandle } from "react";
+import { useTranslation } from 'react-i18next';
 
 interface CookieBannerRef {
   openBanner: () => void;
 }
 
 const CookieBanner = forwardRef<CookieBannerRef, unknown>((_, ref) => {
+  const { t } = useTranslation('cookiebanner');
   const [showBanner, setShowBanner] = useState(true);
   const [essentialCookies, setEssentialCookies] = useState(true);
   const [analyticsCookies, setAnalyticsCookies] = useState(false);
@@ -16,11 +18,11 @@ const CookieBanner = forwardRef<CookieBannerRef, unknown>((_, ref) => {
   // Lade die Cookie-Einstellungen aus localStorage, falls vorhanden
   useEffect(() => {
     const savedPreferences = JSON.parse(localStorage.getItem("cookiePreferences") || "{}");
-    if (savedPreferences) {
+    if (savedPreferences && Object.keys(savedPreferences).length > 0) {
       setEssentialCookies(savedPreferences.essentialCookies ?? true);
       setAnalyticsCookies(savedPreferences.analyticsCookies ?? false);
       setExternalCookies(savedPreferences.externalCookies ?? false);
-      setShowBanner(savedPreferences.showBanner ?? true);
+      setShowBanner(savedPreferences.showBanner ?? false);
     }
   }, []);
 
@@ -36,13 +38,13 @@ const CookieBanner = forwardRef<CookieBannerRef, unknown>((_, ref) => {
     setAnalyticsCookies(true);
     setExternalCookies(true);
     setShowBanner(false);
-    savePreferences(); // Speichern der Einstellungen in localStorage
+    savePreferences(true, true, true); // Speichern der Einstellungen in localStorage
     console.log("Alle Cookies akzeptiert");
   };
 
   const handleSavePreferences = () => {
     setShowBanner(false);
-    savePreferences(); // Speichern der Einstellungen in localStorage
+    savePreferences(essentialCookies, analyticsCookies, externalCookies); // Speichern der Einstellungen in localStorage
     console.log("Präferenzen gespeichert", {
       essentialCookies,
       analyticsCookies,
@@ -51,13 +53,13 @@ const CookieBanner = forwardRef<CookieBannerRef, unknown>((_, ref) => {
   };
 
   // Speichern der Cookie-Einstellungen im localStorage
-  const savePreferences = () => {
+  const savePreferences = (essential: boolean, analytics: boolean, external: boolean) => {
     localStorage.setItem(
       "cookiePreferences",
       JSON.stringify({
-        essentialCookies,
-        analyticsCookies,
-        externalCookies,
+        essentialCookies: essential,
+        analyticsCookies: analytics,
+        externalCookies: external,
         showBanner: false,
       })
     );
@@ -72,13 +74,13 @@ const CookieBanner = forwardRef<CookieBannerRef, unknown>((_, ref) => {
     <div className="fixed bottom-0 left-0 w-full bg-gray-800 text-white p-6 z-50">
       <div className="flex justify-between items-start">
         <div>
-          <h2 className="text-lg font-bold mb-2">DATENSCHUTZEINSTELLUNGEN</h2>
-          <p className="text-sm mb-4">Diese Website nutzt Cookies.</p>
+          <h2 className="text-lg font-bold mb-2">{t('title')}</h2>
+          <p className="text-sm mb-4">{t('description')}</p>
         </div>
         <button
           className="icon-btn-gradient-white"
           onClick={() => setShowBanner(false)}
-          aria-label="Schließen"
+          aria-label={t('buttons.close')}
         >
           ×
         </button>
@@ -94,7 +96,7 @@ const CookieBanner = forwardRef<CookieBannerRef, unknown>((_, ref) => {
             disabled
           />
           <span className="text-sm">
-            <strong>Essenzielle Cookies:</strong> Notwendig für die Funktionalität der Website
+            <strong>{t('essential.title')}</strong> {t('essential.description')}
           </span>
         </label>
         <label className="flex items-center mb-2">
@@ -105,7 +107,7 @@ const CookieBanner = forwardRef<CookieBannerRef, unknown>((_, ref) => {
             className="mr-2"
           />
           <span className="text-sm">
-            <strong>Analyse Cookies:</strong> Diese Website verwendet Google Analytics
+            <strong>{t('analytics.title')}</strong> {t('analytics.description')}
           </span>
         </label>
         <label className="flex items-center">
@@ -116,7 +118,7 @@ const CookieBanner = forwardRef<CookieBannerRef, unknown>((_, ref) => {
             className="mr-2"
           />
           <span className="text-sm">
-            <strong>Externe Cookies:</strong> Zum Anzeigen von YouTube-Inhalten
+            <strong>{t('external.title')}</strong> {t('external.description')}
           </span>
         </label>
       </div>
@@ -126,13 +128,13 @@ const CookieBanner = forwardRef<CookieBannerRef, unknown>((_, ref) => {
           onClick={handleAcceptAll}
           className="btn-gradient-trans whitespace-nowrap"
         >
-          ALLE AKZEPTIEREN
+          {t('buttons.acceptAll')}
         </button>
         <button
           onClick={handleSavePreferences}
           className="btn-gradient-white-noanimation whitespace-nowrap"
         >
-          SPEICHERN
+          {t('buttons.save')}
         </button>
       </div>
     </div>

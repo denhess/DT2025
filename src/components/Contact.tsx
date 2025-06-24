@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import { useTranslation } from 'react-i18next';
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -17,8 +18,26 @@ declare global {
 gsap.registerPlugin(ScrollTrigger);
 
 export function Contact() {
+  const { t, i18n } = useTranslation('common');
   const sectionRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
+
+  // Email-Inhalte je nach Sprache
+  const getEmailContent = () => {
+    const isGerman = i18n.language === 'de';
+    
+    if (isGerman) {
+      return {
+        subject: "Anfrage%20für%20ein%20Videocall",
+        body: "Sehr%20geehrte%20Frau%20Mayer,%0A%0A"
+      };
+    } else {
+      return {
+        subject: "Request%20for%20a%20Video%20Call",
+        body: "Dear%20Ms.%20Mayer,%0A%0A"
+      };
+    }
+  };
 
   // TRACKING-FUNKTION - Contact Section
   const trackVideocallInquiry = () => {
@@ -27,10 +46,11 @@ export function Contact() {
         'event_category': 'Contact',
         'event_label': 'Contact Section Videocall Button',
         'contact_method': 'email_contact_section',
-        'page_location': window.location.href
+        'page_location': window.location.href,
+        'language': i18n.language
       });
       
-      console.log('Contact Section Videocall Button clicked - tracked in GA4');
+      console.log(`Contact Section Videocall Button clicked (${i18n.language}) - tracked in GA4`);
     }
   };
 
@@ -51,6 +71,8 @@ export function Contact() {
     });
   }, []);
 
+  const emailContent = getEmailContent();
+
   return (
     <section
       data-background="light"
@@ -66,29 +88,24 @@ export function Contact() {
         >
           <div className="mb-16">
             <h2 className="">
-              Lassen Sie uns gemeinsam Ihren Erfolg gestalten. Buchen Sie jetzt
-              Ihren persönlichen Video Call und sichern Sie sich den
-              entscheidenden Vorsprung.
+              {t('contact.mainText')}
             </h2>
           </div>
 
-          {/* TRACKED EMAIL BUTTON */}
+          {/* TRACKED EMAIL BUTTON mit sprachspezifischem Inhalt */}
           <div className="flex justify-center">
             <a  
-              href="mailto:info@designtech.eu?subject=Anfrage%20für%20ein%20Videocall&body=Sehr%20geehrte%20Frau%20Mayer,%0A%0A"
+              href={`mailto:info@designtech.eu?subject=${emailContent.subject}&body=${emailContent.body}`}
               onClick={trackVideocallInquiry}
             >
               <div className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl btn-big">
-                VIDEOCALL VEREINBAREN
+                {t('contact.videocall')}
               </div>
             </a>
           </div>
 
           <h3 className="mt-16">
-            Damit unser Gespräch nicht nur irgendein Austausch wird, sondern der Startschuss für etwas Außergewöhnliches, 
-            laden wir Sie vorab zu einer kurzen Online-Befragung ein. So treffen wir uns nicht im Nebel, sondern genau dort, 
-            wo Ihre Vorstellungen, Ziele und Herausforderungen liegen. Stellen Sie sich vor, was möglich ist – und erwarten Sie mehr. 
-            Wir freuen uns sie kennen zu lernen.
+            {t('contact.subText')}
           </h3>
         </div>
       </div>

@@ -1,16 +1,17 @@
-// components/About.tsx
+// src/components/About.tsx - Mit i18n
 "use client";
 
 import { useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import { YellowBackground } from './BG/YellowBackground';
 
-
 gsap.registerPlugin(ScrollTrigger);
 
 export function About() {
+  const { t } = useTranslation('common');
   const sectionRef = useRef<HTMLElement>(null);
   const textRef = useRef<HTMLParagraphElement>(null);
   
@@ -37,19 +38,16 @@ export function About() {
       ref={sectionRef}
       className="relative min-h-screen w-full"
     >
-      
       <YellowBackground />
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="w-full max-w-8xl px-8 md:px-8 lg:px-8">
           <h2 
             ref={textRef}
             className="leading-tight tracking-[-0.02em] max-w-prose mx-auto"
-          >
-            Bei <strong>Design Tech</strong> entwickeln wir praxisorientierte, maßgeschneiderte Lösungen, die präzise auf die individuellen Bedürfnisse und strategischen Ziele Ihres Unternehmens sowie die Anforderungen Ihres Marktes abgestimmt sind. Mit unserer jahrzehntelangen Expertise im Maschinendesign und tiefem Branchenwissen unterstützen wir Sie dabei, Ihre Marktführerschaft nachhaltig zu sichern und weiter auszubauen.
-          </h2>
+            dangerouslySetInnerHTML={{ __html: t('about.text') }}
+          />
         </div>
       </div>
-      
     </section>
   );
 }

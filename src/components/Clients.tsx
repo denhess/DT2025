@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useTranslation } from 'react-i18next';
 import Image from "next/image";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -8,6 +9,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 export function Clients() {
+  const { t } = useTranslation('designtech');
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -39,9 +41,10 @@ export function Clients() {
       />
       
       <div className="absolute inset-0 flex flex-col justify-end">
-        <h2 className="pt-10 pb-10 w-full px-8 md:px-8 lg:px-8 leading-tight tracking-[-0.02em] bg-white">
-          Diese <b>Marktführer</b> vertrauen auf unser Design
-        </h2>
+        <h2 
+          className="pt-10 pb-10 w-full px-8 md:px-8 lg:px-8 leading-tight tracking-[-0.02em] bg-white"
+          dangerouslySetInnerHTML={{ __html: t('clients.title') }}
+        />
       </div>
     </section>
   );

@@ -6,7 +6,6 @@ import { ProjectSlider } from "@/components/ProjectSlider";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 import { VideoBodyOne } from "@/components/VideoBodyOne";
-import { MomentSlider } from "@/components/MomentSlider";
 import Script from 'next/script';
 import { Ready } from "@/components/Ready";
 import { VideoBodyTwo } from "@/components/VideoBodyTwo";
@@ -57,7 +56,6 @@ export default function Home() {
       <ProjectSlider />
       <Ready />
       <Contact />
-
       <Footer />
     </>
   );

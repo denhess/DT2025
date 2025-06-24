@@ -2,12 +2,14 @@
 
 import { useRef } from "react";
 import Image from "next/image";
+import { useTranslation } from 'react-i18next';
 import { useOptimizedVideo } from "@/hooks/useOptimizedVideo";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
 
 export function VideoBodyThree() {
+  const { t } = useTranslation('common');
   const containerRef = useRef<HTMLElement>(null);
   
   const { videoRef, isLoaded, error } = useOptimizedVideo('/BodyVideo-BHS.mp4', true);
@@ -81,10 +83,10 @@ export function VideoBodyThree() {
       <div className="absolute bottom-0 left-0 right-0 w-full px-8 py-6 flex flex-col sm:flex-row justify-between items-start sm:items-center z-10">
         <div className="flex flex-col sm:flex-row sm:space-x-4 space-y-2 sm:space-y-0 mb-4 sm:mb-0">
           <a className="btn-gradient-white-noanimation whitespace-nowrap inline-flex self-start sm:self-auto">
-            MASCHINENDESIGN
+            {t('videoBody.machineDesign')}
           </a>
           <a className="btn-gradient-white-noanimation whitespace-nowrap inline-flex self-start sm:self-auto">
-            Vorzerreisser
+            {t('videoBody.preShredder')}
           </a>
         </div>
         <div className="flex items-center self-start sm:self-auto">

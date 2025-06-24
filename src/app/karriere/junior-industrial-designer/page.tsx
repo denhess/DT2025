@@ -1,12 +1,15 @@
 "use client"
 
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { YellowBackgroundTop } from '@/components/BG/YellowBackgroundTop';
 import { Footer } from "@/components/Footer";
 import { Job } from '@/components/Job';
 import { ContactJob } from '@/components/ContactJob';
 
 export default function JuniorIndustrialDesignerPage() {
+  const { t } = useTranslation('karriere');
+
   return (
     <>
       <section className="relative h-screen w-full" data-background="light">
@@ -14,7 +17,7 @@ export default function JuniorIndustrialDesignerPage() {
         <div className="absolute inset-0 flex items-center">
           <div className="w-full px-8 md:px-8 lg:px-8">
             <p className="text-gray-900 text-[5vw] md:text-[4vw] xl:text-[3vw] leading-tight tracking-[-0.02em]">
-              JUNIOR INDUSTRIAL DESIGNER
+              {t('job_details.junior.title')}
             </p>
           </div>
         </div>
@@ -25,73 +28,51 @@ export default function JuniorIndustrialDesignerPage() {
           <div className="w-full px-6 sm:px-8 md:px-16 lg:px-24 max-w-5xl mx-auto">
             <div className="mb-8">
               <p className="text-black text-lg sm:text-xl leading-relaxed text-left">
-                Du brennst für neue Herausforderungen? Du hast Lust auf
-                erfolgreiche Industrial Design–Projekte und willst Innovationen
-                auf höchstem Niveau entwickeln?
+                {t('job_details.junior.intro_passion')}
                 <br />
                 <br />
-                Dann werde Teil unseres Design Tech-Teams!
+                {t('job_details.junior.intro_team')}
                 <br />
                 <br />
-                <b>Neues Denken. Neues Schaffen.</b>
+                <b>{t('job_details.junior.intro_thinking')}</b>
                 <br />
-                Wir sind das international führende Designunternehmen für
-                Industrieunternehmen im Maschinenbau und
-                Investitionsgüterbereich.
+                {t('job_details.junior.intro_company')}
               </p>
             </div>
 
             <div className="mb-8">
               <p className="text-black text-lg sm:text-xl leading-relaxed text-left">
-                Unser Standort in Ammerbuch liegt am Fuße des Schönbuch und
-                zentral zwischen der Universitätsstadt Tübingen und Stuttgart.
-                Unser Team erarbeitet in anspruchsvollen Projekten strategische
-                und zukunftsweisende Lösungen für Marktführer auf der ganzen
-                Welt. Für unsere Kunden sind wir Entwicklungspartner von der
-                ersten Idee bis zum fertigen Produkt!
+                {t('job_details.junior.location_text')}
               </p>
             </div>
 
             <div className="mb-8">
               <p className="text-black text-lg sm:text-xl leading-relaxed text-left">
-                <b>Deine Qualifikation</b>
+                <b>{t('job_details.junior.qualification_title')}</b>
                 <br />
                 <ul className="list-none pl-0">
-                  <li>_ Abgeschlossenes Studium als Industrial Design / Industriedesign oder einer verwandten Studiendisziplin</li>
-                  <li>_ Sehr gute Darstellungsfähigkeiten und virtuoser Umgang mit Form, Farbe und Proportionen</li>
-                  <li>_ Sicherer Umgang mit gängiger Software (Adobe CC, Solid Works, Microsoft Office etc.)</li>
-                  <li>_ Fundierte Kenntnisse über Fertigungsverfahren und Material</li>
-                  <li>_ Erfahrung in der Planung und dem Management von Gestaltungsprojekten</li>
-                  <li>_ Sicherer Auftritt im Kontakt mit Kunden und bei Präsentationen</li>
-                  <li>_ Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift</li>
-                  <li>_ Überzeugende Kommunikationsfähigkeiten, Spaß am Arbeiten im Team und ein sicheres Auftreten</li>
-                  <li>_ Biss und verantwortungsvolles und strukturiertes Arbeiten</li>
+                  {(t('job_details.junior.qualification_items', { returnObjects: true }) as string[]).map((item: string, index: number) => (
+                    <li key={index}>_ {item}</li>
+                  ))}
                 </ul>
               </p>
             </div>
 
             <div>
               <p className="text-black text-lg sm:text-xl leading-relaxed text-left">
-                <b>Was wir bieten</b>
+                <b>{t('job_details.junior.offer_title')}</b>
                 <br />
                 <ul className="list-none pl-0">
-                  <li>_ Ein spannendes und vielseitiges Aufgabengebiet</li>
-                  <li>_ Ein hoch professionelles und motiviertes Team</li>
-                  <li>_ Festanstellung und einen unbefristeten Arbeitsvertrag</li>
-                  <li>_ Mittelfristige Aufstiegsoptionen</li>
-                  <li>_ Kurze Entscheidungswege durch eine flache Hierarchie</li>
-                  <li>_ Flexible Arbeitszeiten bei einer geregelten 40-Stunden-Woche</li>
-                  <li>_ Attraktives Arbeitsumfeld in modernen Büroräumen</li>
-                  <li>_ Regelmäßige Feedback- mit Zielvereinbarungsgespräche</li>
-                  <li>_ Regelmäßige Teamevents und Veranstaltungen</li>
+                  {(t('job_details.junior.offer_items', { returnObjects: true }) as string[]).map((item: string, index: number) => (
+                    <li key={index}>_ {item}</li>
+                  ))}
                 </ul>
                 <br />
                 <b>
-                  Wir freuen uns auf Deine aussagekräftige Bewerbung mit
-                  Projekt-Referenzen und Arbeitsproben.
+                  {t('job_details.junior.application_text')}
                 </b>
                 <br />
-                Auf Deine Bewerbung freut sich Lisa Valentina Schmid.
+                {t('job_details.junior.contact_text')}
               </p>
             </div>
           </div>

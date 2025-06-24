@@ -1,0 +1,17 @@
+{
+  "main": {
+    "home": "HOME",
+    "projects": "PROJECTS", 
+    "designtech": "DESIGN TECH",
+    "designtosuccess": "DESIGN TO SUCCESS",
+    "career": "CAREER"
+  },
+  "footer": {
+    "successStory": "Success Story",
+    "designTalk": "Ammerbucher Design Talk",
+    "toolOfFuture": "Tool of the Future", 
+    "machine2020": "Machine 2020",
+    "privacy": "Privacy Policy",
+    "imprint": "Legal Notice"
+  }
+}

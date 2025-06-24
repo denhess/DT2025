@@ -1,7 +1,7 @@
-// TextDesignToSuccessThree
 "use client";
 
 import { useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import ScrollTrigger from 'gsap/ScrollTrigger';
@@ -9,6 +9,7 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 export function TextDesignToSuccessThree() {
+  const { t } = useTranslation('designtosuccess');
   const sectionRef = useRef<HTMLElement>(null);
   const textRef = useRef<HTMLParagraphElement>(null);
   
@@ -41,36 +42,32 @@ export function TextDesignToSuccessThree() {
             className="max-w-7xl mx-auto"
           >
             <h2>
-              
-              Design to Success®, wenn Erfolg kein Zufall sein darf.
+              {t('text3.title')}
             </h2>
             
             <h2 className="helvetica-spacing-normal">
-              Unsere Innovationsstrategie wurde mehrfach ausgezeichnet und ist in der Industriepraxis seit Jahrzehnten bewährt.
+              {t('text3.subtitle')}
             </h2>
             
             <h3 className="helvetica-spacing-normal">
-              Unsere bewährte Methode im Detail:
+              {t('text3.method_title')}
             </h3>
 
             <div className="helvetica-spacing-normal space-y-4">
               <h4 className="max-w-5xl">
-                Unsere Methode verbindet strategisches Denken mit exzellenter Umsetzung durch Design, 
-                das exakt zur Unternehmensstrategie passt, und Prozesse, die auf den Punkt liefern – in Qualität, Zeit und Wirkung.
+                {t('text3.paragraph1')}
               </h4>
               
               <h4 className="max-w-5xl">
-                Das schafft Sicherheit für Entscheider, weil System dahintersteckt. Dabei übernehmen wir nur Projekte, 
-                bei denen wir echte Erfolgsaussichten sehen, denn wir stehen ausschließlich für Design, das wirkt und 
-                messbare Ergebnisse liefert.
+                {t('text3.paragraph2')}
               </h4>
               
               <h4 className="max-w-5xl">
-                Dafür denken wir voraus, hinterfragen und schaffen die Voraussetzungen, damit Erfolg kein Zufall ist.
+                {t('text3.paragraph3')}
               </h4>
               
               <h4 className="max-w-5xl">
-                40 Jahre Erfahrung, über 200 Designpreise und Kunden, die auf den Punkt profitieren, sprechen für sich.
+                {t('text3.paragraph4')}
               </h4>
             </div>
           </div>

@@ -1,0 +1,21 @@
+{
+  "title": "DATENSCHUTZEINSTELLUNGEN",
+  "description": "Diese Website nutzt Cookies.",
+  "essential": {
+    "title": "Essenzielle Cookies:",
+    "description": "Notwendig für die Funktionalität der Website"
+  },
+  "analytics": {
+    "title": "Analyse Cookies:",
+    "description": "Diese Website verwendet Google Analytics"
+  },
+  "external": {
+    "title": "Externe Cookies:",
+    "description": "Zum Anzeigen von YouTube-Inhalten"
+  },
+  "buttons": {
+    "acceptAll": "ALLE AKZEPTIEREN",
+    "save": "SPEICHERN",
+    "close": "Schließen"
+  }
+}

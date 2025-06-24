@@ -1,8 +1,11 @@
+// src/components/Hero.tsx - Mit i18n
 "use client";
 
+import { useTranslation } from 'react-i18next';
 import { useOptimizedHero } from "@/hooks/useOptimizedHero";
 
 export function Hero() {
+  const { t } = useTranslation('common');
   const {
     containerRef,
     videoRef,
@@ -50,10 +53,15 @@ export function Hero() {
         onMouseLeave={handleMouseLeave}
       >
         <h5 className="font-thin text-white z-10 xl:ml-2 text-2xl md:text-3xl xl:text-8xl mb-4">
-          Maßgeschneidertes
+          {t('hero.subtitle')}
         </h5>
         <h1 className="font-thin uppercase text-white z-10 leading-[0.9] tracking-[-0.02em] text-left">
-          Maschinendesign<br />und Innovation
+          {t('hero.title').split('\n').map((line, index) => (
+            <span key={index}>
+              {line}
+              {index === 0 && <br />}
+            </span>
+          ))}
         </h1>
       </div>
     </section>

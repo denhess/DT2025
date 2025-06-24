@@ -1,0 +1,121 @@
+{
+  "hero": {
+    "title": "CAREERS"
+  },
+  "about": {
+    "quote": "\"THOSE WHO WORK WITH US DEVELOP EXTRAORDINARILY FAST AND EXTRAORDINARILY FAR.\""
+  },
+  "jobs": {
+    "senior": "SENIOR INDUSTRIAL DESIGNER (F/M/D)",
+    "junior": "JUNIOR INDUSTRIAL DESIGNER (F/M/D)",
+    "internship": "INDUSTRIAL DESIGN INTERNSHIP (F/M/D)"
+  },
+  "contact": {
+    "title": "Your Contact",
+    "name": "LISA VALENTINA SCHMID",
+    "button": "APPLY NOW"
+  },
+  "job_details": {
+    "senior": {
+      "title": "SENIOR INDUSTRIAL DESIGNER",
+      "intro_passion": "Do you thrive on new challenges? Are you excited about successful industrial design projects and want to develop innovations at the highest level?",
+      "intro_team": "Then become part of our Design Tech team!",
+      "intro_thinking": "New thinking. New creation.",
+      "intro_company": "We are the internationally leading design company for industrial companies in mechanical engineering and capital goods.",
+      "location_text": "Our location in Ammerbuch is situated at the foot of the Schönbuch and centrally between the university city of Tübingen and Stuttgart. Our team develops strategic and forward-looking solutions for market leaders around the world in demanding projects. For our customers, we are development partners from the first idea to the finished product!",
+      "qualification_title": "Your Qualifications",
+      "qualification_items": [
+        "Completed degree in Industrial Design or a related field",
+        "Excellent presentation skills and masterful handling of form, color, and proportions",
+        "Confident use of common software (Adobe CC, SolidWorks, Microsoft Office, etc.)",
+        "Sound knowledge of manufacturing processes and materials",
+        "Experience in planning and managing design projects",
+        "Confident appearance in customer contact and presentations",
+        "Excellent German and English skills, written and spoken",
+        "Convincing communication skills, enjoyment of teamwork, and confident appearance",
+        "Drive and responsible, structured work approach"
+      ],
+      "offer_title": "What We Offer",
+      "offer_items": [
+        "An exciting and diverse range of tasks",
+        "A highly professional and motivated team",
+        "Permanent employment with an unlimited contract",
+        "Medium-term advancement opportunities",
+        "Short decision-making processes through flat hierarchy",
+        "Flexible working hours with a regulated 40-hour week",
+        "Attractive work environment in modern office spaces",
+        "Regular feedback and goal-setting discussions",
+        "Regular team events and activities"
+      ],
+      "application_text": "We look forward to your meaningful application with project references and work samples.",
+      "contact_text": "Lisa Valentina Schmid looks forward to your application."
+    },
+    "junior": {
+      "title": "JUNIOR INDUSTRIAL DESIGNER",
+      "intro_passion": "Do you thrive on new challenges? Are you excited about successful industrial design projects and want to develop innovations at the highest level?",
+      "intro_team": "Then become part of our Design Tech team!",
+      "intro_thinking": "New thinking. New creation.",
+      "intro_company": "We are the internationally leading design company for industrial companies in mechanical engineering and capital goods.",
+      "location_text": "Our location in Ammerbuch is situated at the foot of the Schönbuch and centrally between the university city of Tübingen and Stuttgart. Our team develops strategic and forward-looking solutions for market leaders around the world in demanding projects. For our customers, we are development partners from the first idea to the finished product!",
+      "qualification_title": "Your Qualifications",
+      "qualification_items": [
+        "Completed degree in Industrial Design or a related field",
+        "Excellent presentation skills and masterful handling of form, color, and proportions",
+        "Confident use of common software (Adobe CC, SolidWorks, Microsoft Office, etc.)",
+        "Sound knowledge of manufacturing processes and materials",
+        "Experience in planning and managing design projects",
+        "Confident appearance in customer contact and presentations",
+        "Excellent German and English skills, written and spoken",
+        "Convincing communication skills, enjoyment of teamwork, and confident appearance",
+        "Drive and responsible, structured work approach"
+      ],
+      "offer_title": "What We Offer",
+      "offer_items": [
+        "An exciting and diverse range of tasks",
+        "A highly professional and motivated team",
+        "Permanent employment with an unlimited contract",
+        "Medium-term advancement opportunities",
+        "Short decision-making processes through flat hierarchy",
+        "Flexible working hours with a regulated 40-hour week",
+        "Attractive work environment in modern office spaces",
+        "Regular feedback and goal-setting discussions",
+        "Regular team events and activities"
+      ],
+      "application_text": "We look forward to your meaningful application with project references and work samples.",
+      "contact_text": "Lisa Valentina Schmid looks forward to your application."
+    },
+    "internship": {
+      "title": "Industrial Design Internship",
+      "intro_bold": "Design what matters.",
+      "intro_study": "Are you studying Industrial Design and want to finally apply your skills in the real world?",
+      "intro_real": "At Design Tech, you don't work on practice assignments, but on real machine projects – for real clients, with real impact.",
+      "intro_team": "Together with experienced designers and engineers, you develop design that gets produced – and learn how technical thinking and aesthetic clarity work together.",
+      "expectations_title": "What to expect",
+      "expectations_items": [
+        "Real industrial projects instead of simulation",
+        "Responsibility from day one",
+        "Clear design process: From sketch to implementation",
+        "Highly motivated team with over 40 years of experience",
+        "Technological depth, creative freedom, honest feedback"
+      ],
+      "requirements_title": "What you should bring",
+      "requirements_items": [
+        "Studies in Industrial Design or a related field",
+        "Passion for functional, sustainable, and innovative design",
+        "Basic technical understanding (e.g., CAD, Adobe CC, SolidWorks)",
+        "Enjoyment of independent work in a team",
+        "Curiosity and ambition"
+      ],
+      "takeaways_title": "What you'll take away",
+      "takeaways_items": [
+        "A meaningful practical project for your portfolio",
+        "Real insight into the mechanical engineering industry",
+        "Feedback that advances you",
+        "Contacts that open doors"
+      ],
+      "apply_title": "Apply now",
+      "apply_text": "Send us your application for a minimum 5-month mandatory internship – or simply contact us directly.",
+      "apply_bold": "We look forward to your ideas!"
+    }
+  }
+}

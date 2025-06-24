@@ -1,7 +1,7 @@
-// TextDesignToSuccessTwo
 "use client";
 
 import { useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import ScrollTrigger from 'gsap/ScrollTrigger';
@@ -9,6 +9,7 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 export function TextDesignToSuccessTwo() {
+  const { t } = useTranslation('designtosuccess');
   const sectionRef = useRef<HTMLElement>(null);
   const textRef = useRef<HTMLParagraphElement>(null);
   
@@ -41,22 +42,20 @@ export function TextDesignToSuccessTwo() {
             className="max-w-7xl mx-auto"
           >
             <h2>
-              Wirkung die trägt.
+              {t('text2.title')}
             </h2>
             
             <h2 className="helvetica-spacing-normal">
-              Ein Design, das auf den Punkt wirkt, bevor jemand etwas erklärt.
+              {t('text2.subtitle')}
             </h2>
             
             <div className="helvetica-spacing-normal space-y-4">
               <h4 className="max-w-5xl">
-                Zum punktgenauen Entwurf der Maschine für die Ziele des Kunden setzt Design Tech überdurchschnittliche, 
-                eigens dafür entwickelte Erkenntnisquellen bei der Entwicklung des Maschinendesign ein.
+                {t('text2.paragraph1')}
               </h4>
               
               <h4 className="max-w-5xl">
-                Insbesondere, wenn es um das Sichtbarmachen von Qualität oder eigenständigen Markenmerkmalen geht, 
-                um die Differenzierung zum Wettbewerb oder um anwenderorientierte Funktionen.
+                {t('text2.paragraph2')}
               </h4>
             </div>
           </div>

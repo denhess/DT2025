@@ -1,16 +1,16 @@
-// components/About.tsx
 "use client";
 
 import { useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import { YellowBackgroundTop } from './BG/YellowBackgroundTop';
 
-
 gsap.registerPlugin(ScrollTrigger);
 
 export function AboutDesignTech() {
+  const { t } = useTranslation('designtech');
   const sectionRef = useRef<HTMLElement>(null);
   const textRef = useRef<HTMLParagraphElement>(null);
   
@@ -35,24 +35,16 @@ export function AboutDesignTech() {
     <section 
       ref={sectionRef}
       className="relative min-h-screen w-full"
-       data-background="light"
+      data-background="light"
     >
-     <YellowBackgroundTop/>
+      <YellowBackgroundTop/>
       <div className="absolute inset-0 flex items-center">
         <div className="w-full max-w-8xl px-8 md:px-8 lg:px-8">
           <h2 
             ref={textRef}
             className="leading-tight tracking-[-0.02em] max-w-prose mx-auto"
-          >
-            Bei Design Tech entwickeln wir verkaufsstarke Produkte, 
-            die wirtschaftlich überzeugen und technisch machbar sind. 
-            Mit jahrzehntelanger Erfahrung im Maschinenbau für Marktführer 
-            wie <b>Liebherr</b>, <b>Arburg</b> und <b>WashTec AG</b> schaffen wir präzise, 
-            maßgeschneiderte Lösungen – perfekt abgestimmt auf Ihre Ziele, 
-            mit der Ambition und dem Engagement, als wäre es unser eigenes Unternehmen.
-
-
-          </h2>
+            dangerouslySetInnerHTML={{ __html: t('about.text') }}
+          />
         </div>
       </div>
     </section>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import { useTranslation } from 'react-i18next';
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -17,6 +18,7 @@ declare global {
 gsap.registerPlugin(ScrollTrigger);
 
 export function ContactDesignToSuccess() {
+  const { t, i18n } = useTranslation('designtosuccess');
   const sectionRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
@@ -30,6 +32,23 @@ export function ContactDesignToSuccess() {
         'page_location': window.location.href
       });
       console.log('DesignToSuccess Videocall Button clicked - tracked in GA4');
+    }
+  };
+
+  // Email-Text je nach Sprache
+  const getEmailContent = () => {
+    const isGerman = i18n.language === 'de';
+    
+    if (isGerman) {
+      return {
+        subject: "Anfrage%20für%20ein%20Videocall",
+        body: "Sehr%20geehrte%20Frau%20Mayer,%0A%0A"
+      };
+    } else {
+      return {
+        subject: "Request%20for%20a%20Video%20Call",
+        body: "Dear%20Ms.%20Mayer,%0A%0A"
+      };
     }
   };
 
@@ -50,6 +69,8 @@ export function ContactDesignToSuccess() {
     });
   }, []);
 
+  const emailContent = getEmailContent();
+
   return (
     <section
       data-background="light"
@@ -66,18 +87,18 @@ export function ContactDesignToSuccess() {
         >
           <div className="mb-16">
             <h2 className="">
-              Lassen Sie uns konkret werden: Wie kann unser Design Ihren Erfolg messbar beschleunigen.
+              {t('contact.title')}
             </h2>
           </div>
 
           {/* Button mittig */}
           <div className="flex justify-center">
             <a  
-              href="mailto:info@designtech.eu?subject=Anfrage%20für%20ein%20Videocall&body=Sehr%20geehrte%20Frau%20Mayer,%0A%0A"
+              href={`mailto:info@designtech.eu?subject=${emailContent.subject}&body=${emailContent.body}`}
               onClick={trackDesignToSuccessVideocall}
             >
               <div className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl btn-big">
-                VIDEOCALL VEREINBAREN
+                {t('contact.button')}
               </div>
             </a>
           </div>

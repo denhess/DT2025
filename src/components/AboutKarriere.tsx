@@ -1,7 +1,7 @@
-// components/About.tsx
 "use client";
 
 import { useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import ScrollTrigger from 'gsap/ScrollTrigger';
@@ -10,6 +10,7 @@ import { YellowBackgroundTop } from './BG/YellowBackgroundTop';
 gsap.registerPlugin(ScrollTrigger);
 
 export function AboutKarriere() {
+  const { t } = useTranslation('karriere');
   const sectionRef = useRef<HTMLElement>(null);
   const textRef = useRef<HTMLParagraphElement>(null);
   
@@ -43,7 +44,7 @@ export function AboutKarriere() {
             ref={textRef}
             className="leading-tight tracking-[-0.02em] max-w-prose mx-auto"
           >
-            „WER BEI UNS ARBEITET, ENTWICKELT SICH AUSSERORDENTLICH SCHNELL AUSSERORDENTLICH WEIT.”
+            {t('about.quote')}
           </h2>
         </div>
       </div>
