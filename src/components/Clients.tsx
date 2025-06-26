@@ -9,7 +9,23 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 export function Clients() {
-  const { t } = useTranslation('designtech');
+  const { t, i18n } = useTranslation('designtech');
+  
+  const getClientsTitle = () => {
+    if (i18n.language === 'de') {
+      return (
+        <>
+          Diese <span className="font-bold">{t('clients.marktfuehrer')}</span> vertrauen auf unser Design
+        </>
+      );
+    } else {
+      return (
+        <>
+          These <span className="font-bold">{t('clients.marketleaders')}</span> trust our design
+        </>
+      );
+    }
+  };
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -33,7 +49,7 @@ export function Clients() {
   return (
     <section className="relative min-h-screen w-full">
       <Image
-        src={isMobile ? "/pictures/clients-projects-mobile.webp" : "/pictures/clients-projects.webp"} // Dynamisch je nach Bildschirmgröße
+        src={isMobile ? "/pictures/clients-projects-mobile.webp" : "/pictures/clients-projects.webp"}
         alt="Fullscreen Background"
         layout="fill"
         objectFit="cover"
@@ -41,10 +57,9 @@ export function Clients() {
       />
       
       <div className="absolute inset-0 flex flex-col justify-end">
-        <h2 
-          className="pt-10 pb-10 w-full px-8 md:px-8 lg:px-8 leading-tight tracking-[-0.02em] bg-white"
-          dangerouslySetInnerHTML={{ __html: t('clients.title') }}
-        />
+        <h2 className="pt-10 pb-10 w-full px-8 md:px-8 lg:px-8 leading-tight tracking-[-0.02em] bg-white">
+          {getClientsTitle()}
+        </h2>
       </div>
     </section>
   );

@@ -10,7 +10,23 @@ import { YellowBackgroundTop } from './BG/YellowBackgroundTop';
 gsap.registerPlugin(ScrollTrigger);
 
 export function AboutDesignTech() {
-  const { t } = useTranslation('designtech');
+  const { t, i18n } = useTranslation('designtech');
+  
+  const getAboutText = () => {
+    if (i18n.language === 'de') {
+      return (
+        <>
+          Bei <span className="font-bold">{t('about.designtech')}</span> entwickeln wir verkaufsstarke Produkte, die wirtschaftlich überzeugen und technisch machbar sind. Mit jahrzehntelanger Erfahrung im Maschinenbau für Marktführer wie <span className="font-bold">{t('about.liebherr')}</span>, <span className="font-bold">{t('about.arburg')}</span> und <span className="font-bold">{t('about.washtec')}</span> schaffen wir präzise, maßgeschneiderte Lösungen – perfekt abgestimmt auf Ihre Ziele, mit der Ambition und dem Engagement, als wäre es unser eigenes Unternehmen.
+        </>
+      );
+    } else {
+      return (
+        <>
+          At <span className="font-bold">{t('about.designtech')}</span>, we develop high-selling products that convince economically and are technically feasible. With decades of experience in mechanical engineering for market leaders like <span className="font-bold">{t('about.liebherr')}</span>, <span className="font-bold">{t('about.arburg')}</span> and <span className="font-bold">{t('about.washtec')}</span>, we create precise, customized solutions – perfectly aligned with your goals, with the ambition and commitment as if it were our own company.
+        </>
+      );
+    }
+  };
   const sectionRef = useRef<HTMLElement>(null);
   const textRef = useRef<HTMLParagraphElement>(null);
   
@@ -43,8 +59,9 @@ export function AboutDesignTech() {
           <h2 
             ref={textRef}
             className="leading-tight tracking-[-0.02em] max-w-prose mx-auto"
-            dangerouslySetInnerHTML={{ __html: t('about.text') }}
-          />
+          >
+            {getAboutText()}
+          </h2>
         </div>
       </div>
     </section>

@@ -1,20 +1,23 @@
 {
   "hero": {
-    "title": "<div style=\"hyphens: none; -webkit-hyphens: none; -ms-hyphens: none;\">IHR ERFOLG IST UNSER ANTRIEB</div>"
+    "title": "IHR ERFOLG IST UNSER ANTRIEB"
   },
   "about": {
-    "text": "<div style=\"hyphens: none; -webkit-hyphens: none; -ms-hyphens: none;\">Bei <b>Design Tech</b> entwickeln wir verkaufsstarke Produkte, die wirtschaftlich überzeugen und technisch machbar sind. Mit jahrzehntelanger Erfahrung im Maschinenbau für Marktführer wie <b>Liebherr</b>, <b>Arburg</b> und <b>WashTec AG</b> schaffen wir präzise, maßgeschneiderte Lösungen – perfekt abgestimmt auf Ihre Ziele, mit der Ambition und dem Engagement, als wäre es unser eigenes Unternehmen.</div>"
+    "designtech": "Design Tech",
+    "liebherr": "Liebherr",
+    "arburg": "Arburg", 
+    "washtec": "WashTec AG"
   },
   "awards": {
-    "title": "<div style=\"hyphens: none; -webkit-hyphens: none; -ms-hyphens: none;\">Über 210 Awards belegen den Erfolg!</div>"
+    "title": "Über 210 Awards belegen den Erfolg!"
   },
   "clients": {
-    "title": "<div style=\"hyphens: none; -webkit-hyphens: none; -ms-hyphens: none;\">Diese <b>Marktführer</b> vertrauen auf unser Design</div>"
+    "marktfuehrer": "Marktführer"
   },
   "closing": {
-    "text": "<div style=\"hyphens: none; -webkit-hyphens: none; -ms-hyphens: none;\">Die besten Ergebnisse erzielen unsere Kunden, weil wir Lösungen individuell auf Ihr gesamtes Erfolgs-System abstimmen – von internen Prozessen über die Marke bis hin zu den spezifischen Anforderungen Ihres Marktes. Statt branchenübliche Standartlösungen zu bieten, entwickeln wir präzise Ansätze, die unsere Kunden voranbringen. Mit dieser bewährten Systematik und unserer tiefgreifenden, über Jahrzehnten gewachsenen Expertise führen wir auch Ihr Projekt gemeinsam zum Erfolg.</div>"
+    "text": "Die besten Ergebnisse erzielen unsere Kunden, weil wir Lösungen individuell auf Ihr gesamtes Erfolgs-System abstimmen – von internen Prozessen über die Marke bis hin zu den spezifischen Anforderungen Ihres Marktes. Statt branchenübliche Standardlösungen zu bieten, entwickeln wir präzise Ansätze, die unsere Kunden voranbringen. Mit dieser bewährten Systematik und unserer tiefgreifenden, über Jahrzehnten gewachsenen Expertise führen wir auch Ihr Projekt gemeinsam zum Erfolg."
   },
   "industries": {
-    "title": "<div style=\"hyphens: none; -webkit-hyphens: none; -ms-hyphens: none;\">Branchen</div>"
+    "title": "Branchen"
   }
 }

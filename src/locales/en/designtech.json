@@ -1,20 +1,23 @@
 {
   "hero": {
-    "title": "<div style=\"hyphens: none; -webkit-hyphens: none; -ms-hyphens: none;\">YOUR SUCCESS IS OUR DRIVE</div>"
+    "title": "YOUR SUCCESS IS OUR DRIVE"
   },
   "about": {
-    "text": "<div style=\"hyphens: none; -webkit-hyphens: none; -ms-hyphens: none;\">At <b>Design Tech</b>, we develop high-selling products that convince economically and are technically feasible. With decades of experience in mechanical engineering for market leaders like <b>Liebherr</b>, <b>Arburg</b> and <b>WashTec AG</b>, we create precise, customized solutions – perfectly aligned with your goals, with the ambition and commitment as if it were our own company.</div>"
+    "designtech": "Design Tech",
+    "liebherr": "Liebherr", 
+    "arburg": "Arburg",
+    "washtec": "WashTec AG"
   },
   "awards": {
-    "title": "<div style=\"hyphens: none; -webkit-hyphens: none; -ms-hyphens: none;\">Over 210 Awards prove our success!</div>"
+    "title": "Over 210 Awards prove our success!"
   },
   "clients": {
-    "title": "<div style=\"hyphens: none; -webkit-hyphens: none; -ms-hyphens: none;\">These <b>Market Leaders</b> trust our design</div>"
+    "marketleaders": "Market Leaders"
   },
   "closing": {
-    "text": "<div style=\"hyphens: none; -webkit-hyphens: none; -ms-hyphens: none;\">Our customers achieve the best results because we individually align solutions to your entire success system – from internal processes to the brand to the specific requirements of your market. Instead of offering industry-standard solutions, we develop precise approaches that advance our customers. With this proven methodology and our deep expertise grown over decades, we will also lead your project to success together.</div>"
+    "text": "Our customers achieve the best results because we individually align solutions to your entire success system – from internal processes to the brand to the specific requirements of your market. Instead of offering industry-standard solutions, we develop precise approaches that advance our customers. With this proven methodology and our deep expertise grown over decades, we will also lead your project to success together."
   },
   "industries": {
-    "title": "<div style=\"hyphens: none; -webkit-hyphens: none; -ms-hyphens: none;\">Industries</div>"
+    "title": "Industries"
   }
 }
