@@ -56,7 +56,7 @@ export function SplitscreenThree() {
             Bereits bei der Vorstellung der Anlage während unserer 75-Jahr-Feier im Jahr 2024 waren sie hoch begeistert.&ldquo;
             <br />
             <br />
-            <i>Till Held, Geschäftsführer von Held Technologie GmbH in Trossingen</i>
+            <i>Till Held, Geschäftsführer, Held Technologie GmbH in Trossingen</i>
             </h4>
           </div>
         </div>

@@ -49,7 +49,7 @@ export function Footer() {
             <Link href="http://werkzeugderzukunft.de" className="block hover:underline hover:text-black">
             <p>Werkzeug der Zukunft</p>
             </Link>
-            <Link href="http://maschine2020.com/de_DE/" className="block hover:underline hover:text-black">
+            <Link href="http://maschine2020.com/" className="block hover:underline hover:text-black">
             <p>Maschine 2020</p>
             </Link>
           </div>

@@ -99,7 +99,7 @@ export function Footer() {
             <Link href="http://werkzeugderzukunft.de" className="text-white cursor-pointer text-sm md:text-base xl:text-lg opacity-70 hover:opacity-100 hover:underline transition-all duration-300 inline-block">
               {t('footer.toolOfFuture')}
             </Link>
-            <Link href="http://maschine2020.com/de_DE/" className="text-white cursor-pointer text-sm md:text-base xl:text-lg opacity-70 hover:opacity-100 hover:underline transition-all duration-300 inline-block">
+            <Link href="http://maschine2020.com/" className="text-white cursor-pointer text-sm md:text-base xl:text-lg opacity-70 hover:opacity-100 hover:underline transition-all duration-300 inline-block">
               {t('footer.machine2020')}
             </Link>
           </div>

@@ -145,7 +145,7 @@ export function Awards() {
         <div className="w-full px-8 md:px-8 lg:px-8">
           <h1 
             ref={textRef}
-            className="uppercase leading-[0.9] tracking-[-0.02em] cursor-pointer relative z-10"
+            className="uppercase leading-[0.9] tracking-[-0.02em] cursor-pointer relative z-10 [hyphens:none] [-webkit-hyphens:none] [-ms-hyphens:none] [word-break:keep-all]"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
             dangerouslySetInnerHTML={{ __html: t('awards.title') }}

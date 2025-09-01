@@ -50,7 +50,7 @@ export function TextThree() {
         <p ref={textRef}
             className="mt-10 tracking-[-0.02em]"
             >
-            Held Technologie wurde 1964 gegründet und hat sich seitdem zu einem Weltmarktführer im Bereich Doppelbandpressen entwickelt. Mit rund 80 Mitarbeitern setzt das Unternehmen auf technologische Exzellenz, Innovation und maßgeschneiderte Hochleistungsanlagen, die weltweit in verschiedenen Industrien im Einsatz sind.
+            Held Technologie wurde 1949 gegründet und hat sich seitdem zu einem Weltmarktführer im Bereich Doppelbandpressen entwickelt. Mit rund 80 Mitarbeitern setzt das Unternehmen auf technologische Exzellenz, Innovation und maßgeschneiderte Hochleistungsanlagen, die weltweit in verschiedenen Industrien im Einsatz sind.
           </p>
           <h2 
             ref={textRef}

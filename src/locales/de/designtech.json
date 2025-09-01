@@ -9,13 +9,15 @@
     "washtec": "WashTec AG"
   },
   "awards": {
-    "title": "Über 210 Awards belegen den Erfolg!"
+    "title": "Über 210 Awards belegen den Erfolg!",
+    "style": "hyphens: none; -webkit-hyphens: none; -ms-hyphens: none; word-break: keep-all;"
   },
   "clients": {
     "marktfuehrer": "Marktführer"
   },
   "closing": {
-    "text": "Die besten Ergebnisse erzielen unsere Kunden, weil wir Lösungen individuell auf Ihr gesamtes Erfolgs-System abstimmen – von internen Prozessen über die Marke bis hin zu den spezifischen Anforderungen Ihres Marktes. Statt branchenübliche Standardlösungen zu bieten, entwickeln wir präzise Ansätze, die unsere Kunden voranbringen. Mit dieser bewährten Systematik und unserer tiefgreifenden, über Jahrzehnten gewachsenen Expertise führen wir auch Ihr Projekt gemeinsam zum Erfolg."
+    "text": "Die besten Ergebnisse erzielen unsere Kunden, weil wir Lösungen individuell auf ihr gesamtes Erfolgs-System abstimmen – von internen Prozessen über die Marke bis hin zu den spezifischen Anforderungen ihres Marktes. Statt branchenübliche Standardlösungen zu bieten, entwickeln wir präzise Ansätze, die unsere Kunden voranbringen. Mit dieser bewährten Systematik und unserer tiefgreifenden, über Jahrzehnte gewachsenen Expertise führen wir auch Ihr Projekt gemeinsam zum Erfolg.",
+    "style": "hyphens: none; -webkit-hyphens: none; -ms-hyphens: none; word-break: keep-all;"
   },
   "industries": {
     "title": "Branchen"

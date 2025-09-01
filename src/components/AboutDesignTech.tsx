@@ -16,13 +16,13 @@ export function AboutDesignTech() {
     if (i18n.language === 'de') {
       return (
         <>
-          Bei <span className="font-bold">{t('about.designtech')}</span> entwickeln wir verkaufsstarke Produkte, die wirtschaftlich überzeugen und technisch machbar sind. Mit jahrzehntelanger Erfahrung im Maschinenbau für Marktführer wie <span className="font-bold">{t('about.liebherr')}</span>, <span className="font-bold">{t('about.arburg')}</span> und <span className="font-bold">{t('about.washtec')}</span> schaffen wir präzise, maßgeschneiderte Lösungen – perfekt abgestimmt auf Ihre Ziele, mit der Ambition und dem Engagement, als wäre es unser eigenes Unternehmen.
+          Bei <span className="font-bold">{t('about.designtech')}</span> entwickeln wir verkaufsstarke Produkte, die wirtschaftlich überzeugen und technisch machbar sind. Mit jahrzehntelanger Erfahrung im Maschinenbau für Marktführer wie <span className="font-bold">{t('about.liebherr')}</span>, <span className="font-bold">{t('about.arburg')}</span> und <span className="font-bold">{t('about.washtec')}</span> schaffen wir präzise, maßgeschneiderte Lösungen – perfekt abgestimmt auf Ihre Ziele.
         </>
       );
     } else {
       return (
         <>
-          At <span className="font-bold">{t('about.designtech')}</span>, we develop high-selling products that convince economically and are technically feasible. With decades of experience in mechanical engineering for market leaders like <span className="font-bold">{t('about.liebherr')}</span>, <span className="font-bold">{t('about.arburg')}</span> and <span className="font-bold">{t('about.washtec')}</span>, we create precise, customized solutions – perfectly aligned with your goals, with the ambition and commitment as if it were our own company.
+          At <span className="font-bold">{t('about.designtech')}</span>, we develop high-selling products that convince economically and are technically feasible. With decades of experience in mechanical engineering for market leaders like <span className="font-bold">{t('about.liebherr')}</span>, <span className="font-bold">{t('about.arburg')}</span> and <span className="font-bold">{t('about.washtec')}</span>, we create precise, customized solutions – perfectly aligned with your goals.
         </>
       );
     }

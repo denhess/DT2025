@@ -282,7 +282,7 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
                   {t('footer.toolOfFuture')}
                 </a>
                 <a
-                  href="http://maschine2020.com/de_DE/"
+                  href="http://maschine2020.com/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-black cursor-pointer text-base md:text-lg opacity-70 hover:opacity-100 hover:underline transition-all duration-300 block"
