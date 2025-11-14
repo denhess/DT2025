@@ -1,8 +1,8 @@
-// src/components/I18nProvider.tsx
+// src/components/I18nProvider.tsx - Optimiert ohne künstliche Verzögerung
 'use client';
 
 import { useEffect, useState } from 'react';
-import '@/lib/i18n';
+import i18n from '@/lib/i18n';
 
 interface I18nProviderProps {
   children: React.ReactNode;
@@ -12,16 +12,25 @@ export function I18nProvider({ children }: I18nProviderProps) {
   const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
-    // Kurze Verzögerung um sicherzustellen, dass i18n initialisiert ist
-    const timer = setTimeout(() => {
+    // Prüfe ob i18n bereits initialisiert ist
+    if (i18n.isInitialized) {
       setIsReady(true);
-    }, 100);
+    } else {
+      // Warte auf Initialisierung
+      i18n.on('initialized', () => {
+        setIsReady(true);
+      });
+    }
 
-    return () => clearTimeout(timer);
+    // Cleanup
+    return () => {
+      i18n.off('initialized');
+    };
   }, []);
 
+  // Zeige nichts während i18n lädt (verhindert Flash of Untranslated Content)
   if (!isReady) {
-    return null; // Oder ein Loading-Indikator
+    return null;
   }
 
   return <>{children}</>;

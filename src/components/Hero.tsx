@@ -1,4 +1,4 @@
-// src/components/Hero.tsx - Mit i18n
+// src/components/Hero.tsx - Optimiert mit besserem Video-Loading
 "use client";
 
 import { useTranslation } from 'react-i18next';
@@ -14,7 +14,9 @@ export function Hero() {
     handleMouseEnter,
     handleMouseLeave
   } = useOptimizedHero({ 
-    enableAnimations: true
+    enableAnimations: true,
+    videoSrc: '/HeaderVideo.mp4',
+    videoSrcMobile: '/HeaderVideo-small.mp4'
   });
 
   return (
@@ -22,8 +24,13 @@ export function Hero() {
       ref={containerRef} 
       data-background="dark" 
       className="hero h-screen relative overflow-hidden"
-      style={{ backgroundImage: "url('/HeaderVideo-thumbnail.webp')" }}
+      style={{ 
+        backgroundImage: "url('/HeaderVideo-thumbnail.webp')",
+        backgroundSize: 'cover',
+        backgroundPosition: 'center'
+      }}
     >
+      {/* Video wird via useOptimizedHero Hook dynamisch geladen */}
       <video 
         ref={videoRef}
         autoPlay 
@@ -34,20 +41,19 @@ export function Hero() {
         poster="/HeaderVideo-thumbnail.webp"
         preload="none"
       >
-        <source src="/HeaderVideo.mp4" media="(min-width: 768px)" type="video/mp4" />
-        <source src="/HeaderVideo-small.mp4" media="(max-width: 767px)" type="video/mp4" />
+        {/* Fallback - wird vom Hook überschrieben */}
+        <source src="/HeaderVideo.mp4" type="video/mp4" />
       </video>
-      
-      <div id="background-check" className="h-screen w-full bg-gray-900" />
       
       <div
         ref={textRef}
-        className="absolute bottom-10 sm:bottom-8 flex flex-col px-8 md:px-8 lg:px-8"
+        className="absolute bottom-10 sm:bottom-8 flex flex-col px-8 md:px-8 lg:px-8 pointer-events-auto"
         style={{
           opacity: 1,
           visibility: 'visible',
           transform: 'translate3d(0, 0, 0)',
-          transition: 'opacity 0.5s ease'
+          transition: 'opacity 0.5s ease',
+          willChange: 'opacity'
         }}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}

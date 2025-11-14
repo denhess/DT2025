@@ -38,11 +38,10 @@ export function FullscreenPicture() {
         priority
       />
       
-      <div className="text-white absolute inset-0 flex flex-col justify-end absolute bottom-10 sm:bottom-20 flex flex-col px-8 md:px-16 lg:px-24">
-        
-      <h2>WIE DESIGN ZUM WETTBEWERBSVORTEIL WIRD
-      </h2>
-
+      <div className="text-white absolute bottom-10 sm:bottom-20 px-8 md:px-8 lg:px-8">
+        <h2 className="font-bold leading-tight tracking-[-0.02em]">
+          WIE DESIGN ZUM WETTBEWERBSVORTEIL WIRD
+        </h2>
       </div>
     </section>
   );

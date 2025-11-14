@@ -12,7 +12,7 @@ export function VideoBodyOne() {
   const { t } = useTranslation('common');
   const containerRef = useRef<HTMLElement>(null);
   
-  const { videoRef, isLoaded, error } = useOptimizedVideo('/BodyVideo-vhf.mp4', true);
+  const { videoRef, isLoaded, error } = useOptimizedVideo('/Bodyvideo-Vhf.mp4', true);
 
   if (error) {
     return (
@@ -49,7 +49,6 @@ export function VideoBodyOne() {
           loop
           playsInline
           className={`absolute w-full object-cover transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
-          poster="/BodyVideo-thumbnail.webp"
           preload="metadata"
           style={{ 
             objectFit: 'cover',
@@ -61,22 +60,12 @@ export function VideoBodyOne() {
             minHeight: '110%'
           }}
         >
-          {/* Video for larger screens */}
-          <source src="/BodyVideo-vhf.mp4" media="(min-width: 768px)" type="video/mp4" />
-          {/* Video for smaller screens */}
-          <source src="/BodyVideo-vhf.mp4" media="(max-width: 767px)" type="video/mp4" />
+          <source src="/Bodyvideo-Vhf.mp4" type="video/mp4" />
         </video>
         
-        {/* Loading State */}
+        {/* Loading State - ohne Image, nur Spinner */}
         {!isLoaded && (
           <div className="absolute inset-0 bg-gray-900">
-            <Image
-              src="/BodyVideo-thumbnail.webp" 
-              alt="Loading..." 
-              fill
-              className="w-full h-full object-cover opacity-50"
-              priority={false}
-            />
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-white"></div>
             </div>

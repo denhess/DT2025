@@ -40,32 +40,30 @@ export function TextThree() {
       
       <YellowBackground />
       <div className="absolute inset-0 flex items-center">
-        <div className="w-full px-8 md:px-16 lg:px-24">
-        <h2 
+        <div className="w-full max-w-8xl px-8 md:px-8 lg:px-8">
+          <h2 
             ref={textRef}
-            className="font-bold leading-tight tracking-[-0.02em]"
+            className="text-2xl md:text-4xl font-bold leading-tight tracking-[-0.02em] max-w-prose mx-auto mb-6"
           >
             Held Technologie
           </h2>
-        <p ref={textRef}
-            className="mt-10 tracking-[-0.02em]"
-            >
+          <p 
+            ref={textRef}
+            className="text-2xl md:text-4xl leading-tight tracking-[-0.02em] max-w-prose mx-auto mb-16"
+          >
             Held Technologie wurde 1949 gegründet und hat sich seitdem zu einem Weltmarktführer im Bereich Doppelbandpressen entwickelt. Mit rund 80 Mitarbeitern setzt das Unternehmen auf technologische Exzellenz, Innovation und maßgeschneiderte Hochleistungsanlagen, die weltweit in verschiedenen Industrien im Einsatz sind.
           </p>
           <h2 
             ref={textRef}
-            className="mt-20 font-bold leading-tight tracking-[-0.02em]"
+            className="text-2xl md:text-4xl font-bold leading-tight tracking-[-0.02em] max-w-prose mx-auto mb-6"
           >
             HAILEY - Doppelbandpresse
           </h2>
-          <p ref={textRef}
-            className="mt-10 tracking-[-0.02em]"
-            >
-            Die Doppelbandpressen von Held Technologie sind weltweit führend in der 
-            kontinuierlichen Hochpräzisions- und Hochleistungsproduktion von Materialien 
-            mit höchsten Qualitätsanforderungen. Sie ermöglichen eine gleichmäßige Druck- 
-            und Temperaturverteilung über den gesamten Prozess und sind ideal für die Herstellung 
-            von Verbundwerkstoffen, technischen Laminaten und anderen anspruchsvollen Materialien.
+          <p 
+            ref={textRef}
+            className="text-2xl md:text-4xl leading-tight tracking-[-0.02em] max-w-prose mx-auto"
+          >
+            Die Doppelbandpressen von Held Technologie sind weltweit führend in der kontinuierlichen Hochpräzisions- und Hochleistungsproduktion von Materialien mit höchsten Qualitätsanforderungen. Sie ermöglichen eine gleichmäßige Druck- und Temperaturverteilung über den gesamten Prozess und sind ideal für die Herstellung von Verbundwerkstoffen, technischen Laminaten und anderen anspruchsvollen Materialien.
           </p>
         </div>
       </div>

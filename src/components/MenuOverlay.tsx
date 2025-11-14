@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { useTranslation } from 'react-i18next';
 import Link from "next/link";
 import Image from "next/image";
-import gsap from "gsap";
+import type { gsap as GSAPType } from "gsap";
 
 // TypeScript-Deklaration für gtag
 declare global {
@@ -54,93 +54,130 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
     setIsClient(true);
   }, []);
 
-  // Funktion für den atmenden Effekt des Kreises
+  // Funktion für den fließenden Effekt des Kreises - LAZY GSAP
   useEffect(() => {
-    if (isClient && circleRef.current) {
+    if (!isClient || !circleRef.current) return;
+    
+    const loadGSAP = async () => {
+      const { gsap } = await import('gsap');
+      
+      if (!circleRef.current) return;
+      
       // Anfangsposition
       gsap.set(circleRef.current, {
         scale: 1,
         x: "0%",
         y: "0%",
-        filter: "blur(60px)"
+        filter: "blur(300px)"
       });
       
-      // Endlose Animation, die hin und her geht
+      // Fließende, organische Bewegung - EXTREM STARK
       const timeline = gsap.timeline({
         repeat: -1,
-        yoyo: true,
-        repeatDelay: 0.5
+        yoyo: false
       });
       
-      // Animiere zum Zielzustand
-      timeline.to(circleRef.current, {
-        scale: 1.02,
-        x: "2%", 
-        y: "-2%",
-        filter: "blur(70px)",
-        duration: 15,
-        ease: "sine.inOut"
-      });
+      // Komplexe Bewegung in mehreren Phasen - sehr große Bewegungen
+      timeline
+        .to(circleRef.current, {
+          x: "30%",
+          y: "-20%",
+          scale: 1.3,
+          filter: "blur(280px)",
+          duration: 5,
+          ease: "sine.inOut"
+        })
+        .to(circleRef.current, {
+          x: "-25%",
+          y: "15%",
+          scale: 0.85,
+          filter: "blur(220px)",
+          duration: 6,
+          ease: "sine.inOut"
+        })
+        .to(circleRef.current, {
+          x: "20%",
+          y: "-10%",
+          scale: 1.2,
+          filter: "blur(270px)",
+          duration: 5,
+          ease: "sine.inOut"
+        })
+        .to(circleRef.current, {
+          x: "0%",
+          y: "0%",
+          scale: 1,
+          filter: "blur(250px)",
+          duration: 4,
+          ease: "sine.inOut"
+        });
       
-      return () => {
-        // Aufräumen beim Unmounting
-        timeline.kill();
-      };
-    }
+      return () => timeline.kill();
+    };
+    
+    loadGSAP();
   }, [isClient]);
 
   useEffect(() => {
-    if (isOpen && isClient) {
-      // Erst Display setzen, dann animieren
-      gsap.set(overlayRef.current, {
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center", // Zentriert horizontal
-        justifyContent: "space-between"
-      });
+    if (!isClient) return;
+    
+    const animateMenu = async () => {
+      const { gsap } = await import('gsap');
       
-      // Dann Opacity animieren
-      gsap.to(overlayRef.current, {
-        opacity: 1,
-        duration: 0.3,
-        ease: "power2.inOut"
-      });
+      if (isOpen) {
+        // Erst Display setzen, dann animieren
+        gsap.set(overlayRef.current, {
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "space-between"
+        });
+        
+        // Dann Opacity animieren
+        gsap.to(overlayRef.current, {
+          opacity: 1,
+          duration: 0.3,
+          ease: "power2.inOut"
+        });
 
-      if (contentRef.current) {
-        gsap.from(contentRef.current.children, {
-          y: 30,
-          opacity: 0,
-          duration: 0.5,
-          stagger: 0.1,
-          ease: "power2.out",
-          delay: 0.2,
-        });
-      }
-      
-      if (footerRef.current) {
-        gsap.from(footerRef.current.children, {
-          y: 30,
-          opacity: 0,
-          duration: 0.5,
-          stagger: 0.1,
-          ease: "power2.out",
-          delay: 0.4,
-        });
-      }
-    } else {
-      // Erst Opacity animieren
-      gsap.to(overlayRef.current, {
-        opacity: 0,
-        duration: 0.3,
-        ease: "power2.inOut",
-        onComplete: () => {
-          // Nach Animation display auf none setzen
-          gsap.set(overlayRef.current, {
-            display: "none"
+        if (contentRef.current) {
+          gsap.from(contentRef.current.children, {
+            y: 30,
+            opacity: 0,
+            duration: 0.5,
+            stagger: 0.1,
+            ease: "power2.out",
+            delay: 0.2,
           });
         }
-      });
-    }
+        
+        if (footerRef.current) {
+          gsap.from(footerRef.current.children, {
+            y: 30,
+            opacity: 0,
+            duration: 0.5,
+            stagger: 0.1,
+            ease: "power2.out",
+            delay: 0.4,
+          });
+        }
+      } else {
+        // Erst Opacity animieren
+        gsap.to(overlayRef.current, {
+          opacity: 0,
+          duration: 0.3,
+          ease: "power2.inOut",
+          onComplete: () => {
+            // Nach Animation display auf none setzen
+            gsap.set(overlayRef.current, {
+              display: "none"
+            });
+          }
+        });
+      }
+    };
+    
+    animateMenu();
   }, [isOpen, isClient]);
 
   const handleLinkClick = () => {
@@ -166,23 +203,38 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
         display: 'none'
       }}
     >
-      {/* Gelber Kreis Hintergrund */}
+      {/* SVG Noise Filter Definition */}
+      <svg style={{ position: 'absolute', width: 0, height: 0 }}>
+        <defs>
+          <filter id="noiseFilter">
+            <feTurbulence 
+              type="fractalNoise" 
+              baseFrequency="0.9" 
+              numOctaves="4" 
+              stitchTiles="stitch"
+            />
+            <feColorMatrix type="saturate" values="0"/>
+          </filter>
+        </defs>
+      </svg>
+
+      {/* Gelber Kreis Hintergrund - kleiner für stärkere sichtbare Bewegung */}
       <div
         ref={circleRef}
         className="absolute"
         style={{
-          width: '140%',
-          height: '140%',
+          width: '100%',
+          height: '100%',
           borderRadius: '50%',
           background: 'radial-gradient(circle at 70% 70%, #ffdd30 20%, #ffd000 50%, rgba(239,239,239,0.8) 90%, rgba(255,255,255,0) 100%)',
-          bottom: '-60%',
-          right: '-40%',
-          filter: 'blur(300px)',
+          bottom: '-40%',
+          right: '-10%',
+          filter: 'blur(250px)',
           opacity: 0.85,
           transform: 'scale(1)',
           transformOrigin: 'center center',
           zIndex: 1,
-          transition: 'none' // Entferne ggf. vorhandene CSS-Transitions
+          transition: 'none'
         }}
       />
       
@@ -196,8 +248,6 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
           zIndex: 1
         }}
       />
-
-
 
       <div 
         className="flex flex-col justify-between w-full h-full overflow-auto pt-24"

@@ -13,7 +13,8 @@ export function HeroDesignToSuccess() {
     handleMouseEnter,
     handleMouseLeave
   } = useOptimizedHero({ 
-    enableAnimations: true
+    enableAnimations: true,
+    videoSrc: '/DesignToSuccessVideo.mp4'
   });
 
   return (

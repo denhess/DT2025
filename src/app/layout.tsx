@@ -3,15 +3,16 @@ import type { Metadata } from "next";
 import { HeaderProvider } from "@/contexts/HeaderContext";
 import { Header } from "@/components/Header";
 import { PreloadManager } from "@/components/PreloadManager";
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Analytics } from "@vercel/analytics/react";
+
 import LoadingProvider from "../components/LoadingProvider";
 import { I18nProvider } from "../components/I18nProvider";
+import { ScrollInitializer } from "@/components/ScrollInitializer";
 import Script from 'next/script';
 
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://designtech.eu'),
   title: "Design Tech - Maschinendesign",
   description: "Spezialist für Maschinendesign im Investitionsgüterbereich mit über 210 Awards. Maßgeschneiderte Designlösungen für Marktführer wie Liebherr, Arburg und WashTec.",
   keywords: ["Maschinendesign", "Industrial Design", "Industriedesign", "Maschinenbau", "Design Tech"],
@@ -124,12 +125,11 @@ export default function RootLayout({
         <I18nProvider>
           <HeaderProvider>
             <LoadingProvider>
+              <ScrollInitializer />
               <PreloadManager />
               <Header />
               {children}
             </LoadingProvider>
-            <SpeedInsights />
-            <Analytics />
           </HeaderProvider>
         </I18nProvider>
       </body>

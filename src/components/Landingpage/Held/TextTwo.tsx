@@ -40,29 +40,22 @@ export function TextTwo() {
       
       <YellowBackground />
       <div className="absolute inset-0 flex items-center">
-        <div className="w-full px-8 md:px-16 lg:px-24">
+        <div className="w-full max-w-8xl px-8 md:px-8 lg:px-8">
           <h2 
             ref={textRef}
-            className="font-bold leading-tight tracking-[-0.02em]"
+            className="text-2xl md:text-4xl font-bold leading-tight tracking-[-0.02em] max-w-prose mx-auto mb-12"
           >
-            LERNEN SIE VON DEN BESTEN: 
-            <br />
-            <br />
+            LERNEN SIE VON DEN BESTEN:<br />
             HAILEY - EINE ERFOLGSGESCHICHTE
           </h2>
-          <h3 ref={textRef}
-            className="mt-20 leading-tight tracking-[-0.02em]"
-            >
-            40% schnellere Rüstzeiten durch optimierte Prozesse
-            <br />
-            <br />
-            <br />
-            Reduzierte Fehlerquote dank intuitiver Steuerung
-            <br />
-            <br />
-            <br />
-            Maschinendesign als Umsatztreiber
-          </h3>
+          <h2 
+            ref={textRef}
+            className="text-2xl md:text-4xl leading-tight tracking-[-0.02em] max-w-prose mx-auto space-y-8"
+          >
+            <p className="text-2xl md:text-4xl">40% schnellere Rüstzeiten durch optimierte Prozesse</p>
+            <p className="text-2xl md:text-4xl">Reduzierte Fehlerquote dank intuitiver Steuerung</p>
+            <p className="text-2xl md:text-4xl">Maschinendesign als Umsatztreiber</p>
+          </h2>
         </div>
       </div>
       

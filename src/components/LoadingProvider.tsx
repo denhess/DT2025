@@ -1,34 +1,32 @@
-// src/components/LoadingProvider.tsx
+// src/components/LoadingProvider.tsx - Optimiert mit echtem Loading-State
 "use client";
 
 import { useState, useEffect } from "react";
 
 interface LoadingProviderProps {
   children: React.ReactNode;
-  debugMode?: boolean; // Optional Debug-Modus Parameter
-  debugDuration?: number; // Optional Dauer in Millisekunden
 }
 
-export default function LoadingProvider({ 
-  children, 
-  debugMode = false, 
-  debugDuration = 3000 
-}: LoadingProviderProps) {
+export default function LoadingProvider({ children }: LoadingProviderProps) {
   const [pageLoaded, setPageLoaded] = useState(false);
 
   useEffect(() => {
-    if (debugMode) {
-      // Im Debug-Modus: zeige den Loader für die angegebene Zeit
-      const timer = setTimeout(() => {
+    // Warte auf DOM-Ready und wichtige Ressourcen
+    const handleLoad = () => {
+      // Kurze Verzögerung für smoother Übergang
+      requestAnimationFrame(() => {
         setPageLoaded(true);
-      }, debugDuration);
-      
-      return () => clearTimeout(timer);
+      });
+    };
+
+    // Prüfe ob Seite bereits geladen ist
+    if (document.readyState === 'complete') {
+      handleLoad();
     } else {
-      // Normaler Modus: sofort laden
-      setPageLoaded(true);
+      window.addEventListener('load', handleLoad);
+      return () => window.removeEventListener('load', handleLoad);
     }
-  }, [debugMode, debugDuration]);
+  }, []);
 
   const loaderStyle = {
     width: '40px',
@@ -41,7 +39,10 @@ export default function LoadingProvider({
   return (
     <>
       {!pageLoaded && (
-        <div className="fixed inset-0 z-[9999] flex items-center justify-center" style={{ backgroundColor: 'rgb(24, 21, 28)' }}>
+        <div 
+          className="fixed inset-0 z-[9999] flex items-center justify-center" 
+          style={{ backgroundColor: 'rgb(24, 21, 28)' }}
+        >
           <div style={loaderStyle} className="loader-animation"></div>
         </div>
       )}

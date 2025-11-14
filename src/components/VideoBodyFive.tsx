@@ -10,7 +10,7 @@ import "swiper/css/effect-fade";
 export function VideoBodyFive() {
   const containerRef = useRef<HTMLElement>(null);
   
-  const { videoRef, isLoaded, error } = useOptimizedVideo('/BodyVideo-TCB.mp4', true);
+  const { videoRef, isLoaded, error } = useOptimizedVideo('/Bodyvideo-Tcb.mp4', true);
 
   if (error) {
     return (
@@ -47,7 +47,6 @@ export function VideoBodyFive() {
           loop
           playsInline
           className={`absolute inset-0 w-full h-[140%] object-cover transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
-          poster="/BodyVideo-thumbnail.webp"
           preload="metadata"
           style={{ 
             top: '-5%',
@@ -57,20 +56,12 @@ export function VideoBodyFive() {
             objectPosition: 'center'
           }}
         >
-          <source src="/BodyVideo-TCB.mp4" media="(min-width: 768px)" type="video/mp4" />
-          <source src="/BodyVideo-TCB.mp4" media="(max-width: 767px)" type="video/mp4" />
+          <source src="/Bodyvideo-Tcb.mp4" type="video/mp4" />
         </video>
         
-        {/* Loading State */}
+        {/* Loading State - ohne Image, nur Spinner */}
         {!isLoaded && (
           <div className="absolute inset-0 bg-gray-900">
-            <Image
-              src="/BodyVideo-thumbnail.webp" 
-              alt="Loading..." 
-              fill
-              className="w-full h-full object-cover opacity-50"
-              priority={false}
-            />
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-white"></div>
             </div>

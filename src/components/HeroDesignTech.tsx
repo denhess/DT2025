@@ -13,7 +13,8 @@ export function HeroDesignTech() {
     handleMouseEnter,
     handleMouseLeave
   } = useOptimizedHero({ 
-    enableAnimations: true
+    enableAnimations: true,
+    videoSrc: '/DesignTechVideo.mp4'
   });
 
   return (

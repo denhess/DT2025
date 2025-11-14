@@ -123,26 +123,20 @@ export function Hero() {
       
       <div
         ref={textRef}
-        className="absolute bottom-40 sm:bottom-20 flex flex-col px-8 md:px-16 lg:px-24"
+        className="absolute bottom-10 sm:bottom-20 flex flex-col px-8 md:px-8 lg:px-8"
+        style={{
+          opacity: 1,
+          visibility: 'visible',
+          transform: 'translate3d(0, 0, 0)',
+          transition: 'opacity 0.5s ease'
+        }}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-        <div className="flex justify-left">
-          <a
-            href="mailto:info@designtech.eu?subject=Anfrage%20für%20ein%20Videocall&body=Sehr%20geehrte%20Frau%20Mayer,%0A%0A"
-            className="text-white mt-5 px-[2vw] py-1 rounded-full border-2 border-white bg-transparent hover:bg-white hover:text-black transition-all duration-300"
-          >
-            <h3>info@designtech.eu</h3>
-          </a>
-        </div>
-        <div className="flex justify-left">
-          <a
-            href="tel:+49707391890"
-            className="text-white mt-5 px-[2vw] py-1 rounded-full border-2 border-white bg-transparent hover:bg-white hover:text-black transition-all duration-300"
-          >
-            <h3>+49 7073 91 89 0</h3>
-          </a>
-        </div>
+        <h1 className="font-thin uppercase text-white z-10 leading-[0.9] tracking-[-0.02em] text-left">
+          ERFOLGSGESCHICHTE<br />
+          HAILEY
+        </h1>
       </div>
     </section>
   );

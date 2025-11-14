@@ -5,7 +5,7 @@ import { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-import { YellowBackground } from '@/components/BG/YellowBackground';
+import { YellowBackgroundTop } from '@/components/BG/YellowBackgroundTop';
 
 
 gsap.registerPlugin(ScrollTrigger);
@@ -38,32 +38,24 @@ export function TextOne() {
       className="relative min-h-screen w-full"
     >
       
-      <YellowBackground />
+      <YellowBackgroundTop />
       <div className="absolute inset-0 flex items-center">
-        <div className="w-full px-8 md:px-16 lg:px-24">
+        <div className="w-full max-w-8xl px-8 md:px-8 lg:px-8">
           <h2 
             ref={textRef}
-            className="font-bold leading-tight tracking-[-0.02em]"
+            className="text-2xl md:text-4xl font-bold leading-tight tracking-[-0.02em] max-w-prose mx-auto mb-12"
           >
             SIND IHRE MASCHINEN BEREIT FÜR DIE ZUKUNFT?
           </h2>
-          <h3 ref={textRef}
-            className="mt-20 leading-tight tracking-[-0.02em]"
-            >
-            Schnellere Einarbeitung durch intuitive Bedienung
-            <br />
-            <br />
-            <br />
-            Reduzierte Fehlerquote und höherer Bedienkomfort
-            <br />
-            <br />
-            <br />
-            Geringerer Wartungsaufwand und niedrigere Betriebskosten
-            <br />
-            <br />
-            <br />
-            Kompakte Bauweise für mehr Effizienz
-          </h3>
+          <h2 
+            ref={textRef}
+            className="text-2xl md:text-4xl leading-tight tracking-[-0.02em] max-w-prose mx-auto space-y-8"
+          >
+            <p className="text-2xl md:text-4xl">Schnellere Einarbeitung durch intuitive Bedienung</p>
+            <p className="text-2xl md:text-4xl">Reduzierte Fehlerquote und höherer Bedienkomfort</p>
+            <p className="text-2xl md:text-4xl">Geringerer Wartungsaufwand und niedrigere Betriebskosten</p>
+            <p className="text-2xl md:text-4xl">Kompakte Bauweise für mehr Effizienz</p>
+          </h2>
         </div>
       </div>
       

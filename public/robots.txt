@@ -1,6 +1,10 @@
 # *
 User-agent: *
 Allow: /
+Disallow: /impres
+Disallow: /privacy-policy
+Disallow: /api/
+Disallow: /_next/
 
 # Host
 Host: https://designtech.eu

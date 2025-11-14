@@ -12,7 +12,7 @@ export function VideoBodyTwo() {
   const { t } = useTranslation('common');
   const containerRef = useRef<HTMLElement>(null);
   
-  const { videoRef, isLoaded, error } = useOptimizedVideo('/BodyVideo-Junker.mp4', true);
+  const { videoRef, isLoaded, error } = useOptimizedVideo('/Bodyvideo-Junker.mp4', true);
 
   if (error) {
     return (
@@ -49,7 +49,6 @@ export function VideoBodyTwo() {
           loop
           playsInline
           className={`absolute inset-0 w-full h-[140%] object-cover transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
-          poster="/BodyVideo-thumbnail.webp"
           preload="metadata"
           style={{ 
             top: '-5%',
@@ -59,22 +58,12 @@ export function VideoBodyTwo() {
             objectPosition: 'center'
           }}
         >
-          {/* Video for larger screens */}
-          <source src="/BodyVideo-Junker.mp4" media="(min-width: 768px)" type="video/mp4" />
-          {/* Video for smaller screens */}
-          <source src="/BodyVideo-Junker.mp4" media="(max-width: 767px)" type="video/mp4" />
+          <source src="/Bodyvideo-Junker.mp4" type="video/mp4" />
         </video>
         
-        {/* Loading State */}
+        {/* Loading State - ohne Image, nur Spinner */}
         {!isLoaded && (
           <div className="absolute inset-0 bg-gray-900">
-            <Image
-              src="/BodyVideo-thumbnail.webp" 
-              alt="Loading..." 
-              fill
-              className="w-full h-full object-cover opacity-50"
-              priority={false}
-            />
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-white"></div>
             </div>
@@ -84,21 +73,17 @@ export function VideoBodyTwo() {
 
       {/* Angepasste Navigationsleiste für bessere Mobile-Ansicht */}
       <div className="absolute bottom-0 left-0 right-0 w-full px-8 py-6 flex flex-col sm:flex-row justify-between items-start sm:items-center z-10">
-        {/* Buttons links unten - vertikal auf Mobilgeräten */}
         <div className="flex flex-col sm:flex-row sm:space-x-4 space-y-2 sm:space-y-0 mb-4 sm:mb-0">
           <a className="btn-gradient-white-noanimation whitespace-nowrap inline-flex self-start sm:self-auto">
             {t('videoBody.machineDesign')}
           </a>
-
           <a className="btn-gradient-white-noanimation whitespace-nowrap inline-flex self-start sm:self-auto">
             {t('videoBody.grindingMachines')}
           </a>
         </div>
-        
-        {/* Logo - auf allen Geräten links */}
         <div className="flex items-center self-start sm:self-auto">
           <Image
-            src="logos/logo-junker-white.svg"
+            src="logos/logo-arburg-white.svg"
             alt="Logo"
             width={120}
             height={40}

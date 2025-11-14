@@ -13,7 +13,8 @@ export function HeroKarriere() {
     handleMouseEnter,
     handleMouseLeave
   } = useOptimizedHero({ 
-    enableAnimations: true
+    enableAnimations: true,
+    videoSrc: '/KarriereVideo.mp4'
   });
 
   return (

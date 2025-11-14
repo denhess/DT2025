@@ -1,87 +1,174 @@
-"use client"
-
 import React from 'react';
-import { useTranslation } from 'react-i18next';
-import { YellowBackgroundTop } from '@/components/BG/YellowBackgroundTop';
-import { Footer } from "@/components/Footer";
-import { Job } from '@/components/Job';
-import { ContactJob } from '@/components/ContactJob';
+import type { Metadata } from "next";
+import Script from 'next/script';
+import JuniorDesignerContent from './JuniorDesignerContent';
+
+// SEO-optimierte Metadata für Junior Industrial Designer
+export const metadata: Metadata = {
+  title: "Junior Industrial Designer (w/m/d) - Design Tech | Ammerbuch",
+  description: "Junior Industrial Designer für Maschinenprojekte gesucht! Arbeite mit Marktführern wie Liebherr & Arburg. Unbefristete Festanstellung mit Aufstiegschancen. Standort: Ammerbuch bei Tübingen.",
+  keywords: [
+    "Junior Industrial Designer",
+    "Berufseinsteiger Industrial Design",
+    "Junior Designer Jobs",
+    "Design Jobs Tübingen",
+    "CAD Jobs Berufseinsteiger",
+    "Industrial Design Absolvent",
+    "Produktdesign Einstieg",
+    "Design Tech Jobs",
+    "Karrierestart Industrial Design",
+    "Junior Maschinenbau Designer"
+  ],
+  authors: [{ name: "Design Tech" }],
+  creator: "Design Tech",
+  publisher: "Design Tech",
+  
+  openGraph: {
+    title: "Junior Industrial Designer (w/m/d) bei Design Tech",
+    description: "Starte deine Karriere im Industriedesign! Unbefristete Festanstellung mit Entwicklungsperspektiven bei international führendem Designunternehmen.",
+    url: "https://designtech.eu/karriere/junior-industrial-designer",
+    siteName: "Design Tech",
+    images: [
+      {
+        url: "/og-image-karriere-junior.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Junior Industrial Designer bei Design Tech",
+      },
+    ],
+    locale: "de_DE",
+    type: "website",
+  },
+  
+  twitter: {
+    card: "summary_large_image",
+    title: "Junior Industrial Designer (w/m/d) - Design Tech",
+    description: "Karrierestart im Industriedesign. Preisgekrönte Maschinenprojekte gestalten. Ammerbuch bei Tübingen.",
+    images: ["/og-image-karriere-junior.jpg"],
+  },
+  
+  alternates: {
+    canonical: "https://designtech.eu/karriere/junior-industrial-designer",
+    languages: {
+      'de': 'https://designtech.eu/karriere/junior-industrial-designer',
+      'en': 'https://designtech.eu/en/careers/junior-industrial-designer',
+    },
+  },
+  
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  
+  category: 'Job Posting',
+};
 
 export default function JuniorIndustrialDesignerPage() {
-  const { t } = useTranslation('karriere');
-
   return (
     <>
-      <section className="relative h-screen w-full" data-background="light">
-        <YellowBackgroundTop/>
-        <div className="absolute inset-0 flex items-center">
-          <div className="w-full px-8 md:px-8 lg:px-8">
-            <p className="text-gray-900 text-[5vw] md:text-[4vw] xl:text-[3vw] leading-tight tracking-[-0.02em]">
-              {t('job_details.junior.title')}
-            </p>
-          </div>
-        </div>
-      </section>
-      
-      <div className="py-16" data-background="light">
-        <div className="text-black">
-          <div className="w-full px-6 sm:px-8 md:px-16 lg:px-24 max-w-5xl mx-auto">
-            <div className="mb-8">
-              <p className="text-black text-lg sm:text-xl leading-relaxed text-left">
-                {t('job_details.junior.intro_passion')}
-                <br />
-                <br />
-                {t('job_details.junior.intro_team')}
-                <br />
-                <br />
-                <b>{t('job_details.junior.intro_thinking')}</b>
-                <br />
-                {t('job_details.junior.intro_company')}
-              </p>
-            </div>
+      {/* Structured Data für JobPosting */}
+      <Script 
+        id="junior-jobposting-schema" 
+        type="application/ld+json"
+        strategy="afterInteractive"
+      >
+        {`
+          {
+            "@context": "https://schema.org",
+            "@type": "JobPosting",
+            "title": "Junior Industrial Designer (w/m/d)",
+            "description": "Junior Industrial Designer für preisgekrönte Maschinenprojekte gesucht. Idealer Karrierestart für Absolventen und Berufseinsteiger im Industrial Design. Entwickeln Sie zukunftsweisende Designlösungen für internationale Marktführer.",
+            "identifier": {
+              "@type": "PropertyValue",
+              "name": "Design Tech",
+              "value": "JUNIOR-ID-2025"
+            },
+            "datePosted": "2025-01-15",
+            "validThrough": "2025-12-31T23:59:59Z",
+            "employmentType": ["FULL_TIME", "PERMANENT"],
+            "experienceRequirements": {
+              "@type": "OccupationalExperienceRequirements",
+              "monthsOfExperience": 0
+            },
+            "hiringOrganization": {
+              "@type": "Organization",
+              "name": "Design Tech",
+              "sameAs": "https://designtech.eu",
+              "logo": "https://designtech.eu/logo.png"
+            },
+            "jobLocation": {
+              "@type": "Place",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Zeppelinstraße 53",
+                "addressLocality": "Ammerbuch",
+                "addressRegion": "Baden-Württemberg",
+                "postalCode": "72119",
+                "addressCountry": "DE"
+              }
+            },
+            "qualifications": "Abgeschlossenes Studium Industrial Design, sehr gute Darstellungsfähigkeiten, Umgang mit Adobe CC und SolidWorks, Grundkenntnisse Fertigungsverfahren, sehr gute Deutsch- und Englischkenntnisse",
+            "responsibilities": "Mitarbeit an strategischen Designprojekten für Marktführer, Entwicklung von Designkonzepten, Kundenpräsentationen, Teamwork",
+            "skills": ["Industrial Design", "SolidWorks", "Adobe Creative Cloud", "CAD", "Kommunikationsfähigkeit"],
+            "educationRequirements": {
+              "@type": "EducationalOccupationalCredential",
+              "credentialCategory": "bachelor degree"
+            },
+            "benefits": "Unbefristeter Arbeitsvertrag, Aufstiegsmöglichkeiten, Mentoring, flexible Arbeitszeiten, 40-Stunden-Woche, moderne Büroräume, flache Hierarchie, regelmäßige Teamevents",
+            "workHours": "40 hours per week",
+            "jobStartDate": "2025-03-01",
+            "directApply": true,
+            "applicationContact": {
+              "@type": "ContactPoint",
+              "name": "Lisa Valentina Schmid",
+              "email": "l.schmid@designtech.eu",
+              "telephone": "+49-7073-91-89-0"
+            }
+          }
+        `}
+      </Script>
 
-            <div className="mb-8">
-              <p className="text-black text-lg sm:text-xl leading-relaxed text-left">
-                {t('job_details.junior.location_text')}
-              </p>
-            </div>
+      <Script 
+        id="junior-breadcrumb-schema" 
+        type="application/ld+json"
+        strategy="afterInteractive"
+      >
+        {`
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://designtech.eu"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Karriere",
+                "item": "https://designtech.eu/karriere"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Junior Industrial Designer",
+                "item": "https://designtech.eu/karriere/junior-industrial-designer"
+              }
+            ]
+          }
+        `}
+      </Script>
 
-            <div className="mb-8">
-              <p className="text-black text-lg sm:text-xl leading-relaxed text-left">
-                <b>{t('job_details.junior.qualification_title')}</b>
-                <br />
-                <ul className="list-none pl-0">
-                  {(t('job_details.junior.qualification_items', { returnObjects: true }) as string[]).map((item: string, index: number) => (
-                    <li key={index}>_ {item}</li>
-                  ))}
-                </ul>
-              </p>
-            </div>
-
-            <div>
-              <p className="text-black text-lg sm:text-xl leading-relaxed text-left">
-                <b>{t('job_details.junior.offer_title')}</b>
-                <br />
-                <ul className="list-none pl-0">
-                  {(t('job_details.junior.offer_items', { returnObjects: true }) as string[]).map((item: string, index: number) => (
-                    <li key={index}>_ {item}</li>
-                  ))}
-                </ul>
-                <br />
-                <b>
-                  {t('job_details.junior.application_text')}
-                </b>
-                <br />
-                {t('job_details.junior.contact_text')}
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <ContactJob />
-      <Job />
-      <Footer />
+      <JuniorDesignerContent />
     </>
   );
 }
