@@ -111,6 +111,7 @@ export function Job() {
         className="absolute top-1/2 left-0 p-8 pl-8 md:pl-8 lg:pl-8 transform -translate-y-1/2 flex flex-col items-start"
       >
         {/* Senior Industrial Designer */}
+        {/*
         <Link href="/karriere/senior-industrial-designer" passHref>
           <h2 
             ref={(el) => { linkRefs.current[0] = el; }}
@@ -119,11 +120,12 @@ export function Job() {
             {t('jobs.senior')}
           </h2>
         </Link>
-
+        */}
         {/* Strich zwischen Jobbeschreibungen */}
-        <div className="border-b border-black w-full mb-12" />
-
+        {/*<div className="border-b border-black w-full mb-12" />*/}
+        
         {/* Junior Industrial Designer */}
+        {/*
         <Link href="/karriere/junior-industrial-designer" passHref>
           <h2 
             ref={(el) => { linkRefs.current[1] = el; }}
@@ -132,9 +134,9 @@ export function Job() {
             {t('jobs.junior')}
           </h2>
         </Link>
-
+        */}
         {/* Strich zwischen Jobbeschreibungen */}
-        <div className="border-b border-black w-full mb-12" />
+        {/*<div className="border-b border-black w-full mb-12" />*/}
 
         {/* Internship Industrial Designer */}
         <Link href="/karriere/industrial-design-internship" passHref>
