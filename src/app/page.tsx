@@ -5,7 +5,7 @@ import HomeContent from './HomeContent';
 
 // SEO-optimierte Metadata für die Homepage
 export const metadata: Metadata = {
-  title: "Design Tech - Preisgekröntes Maschinendesign für Marktführer | 210+ Awards",
+  title: "Design Tech - Preisgekröntes Maschinendesign für Marktführer",
   description: "International führendes Designunternehmen für Maschinendesign im Investitionsgüterbereich. Über 210 internationale Awards. Maßgeschneiderte Designlösungen für Liebherr, Arburg, WashTec und weitere Marktführer. Standort: Ammerbuch bei Tübingen.",
   keywords: [
     "Maschinendesign",
