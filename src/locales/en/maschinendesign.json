@@ -1,0 +1,147 @@
+{
+  "hero": {
+    "title": "MACHINE DESIGN\nFOR MARKET LEADERS",
+    "subtitle": "Award-winning"
+  },
+  "intro": {
+    "text": "For over 40 years, we have been developing <strong>machine design</strong> that turns market leaders into market leaders. With more than 210 international design awards and projects for companies like Liebherr, Arburg and WashTec, we are the specialist for capital goods that don't just work – they sell."
+  },
+  "problem": {
+    "title": "WHY MACHINE DESIGN MATTERS",
+    "subtitle": "First impressions count – even for machines.",
+    "paragraph1": "In the capital goods sector, buyers make decisions worth millions. Before technical data is compared, the design has already made its impact. A machine that radiates quality, conveys precision and inspires trust shortens sales cycles and justifies premium prices.",
+    "paragraph2": "Professional machine design is not cosmetics. It is a strategic tool that strengthens your market position, differentiates your brand and supports your sales."
+  },
+  "leistungen": {
+    "title": "OUR SERVICES",
+    "subtitle": "Holistic machine design from a single source",
+    "maschinenverkleidung": {
+      "title": "Machine Enclosures",
+      "text": "From the first sketch to production-ready design: We develop machine enclosures that combine protection, function and aesthetics. Our designs consider maintenance access, cable routing and thermal requirements – while creating a distinctive product identity."
+    },
+    "hmi": {
+      "title": "HMI Design",
+      "text": "The interface between human and machine determines productivity and satisfaction. We design user interfaces that work intuitively, prevent errors and empower your operators. From touchscreen interfaces to physical control panels."
+    },
+    "corporate": {
+      "title": "Corporate Industrial Design",
+      "text": "A machine is a brand ambassador. We develop design languages that run through your entire product portfolio – from small devices to large systems. Recognizable, consistent and unmistakably your brand."
+    },
+    "anlagen": {
+      "title": "Plant Design",
+      "text": "Complex production systems place special demands on design. We structure visual hierarchies, define color codes for safety and orientation and create order in chaos – without restricting technical function."
+    }
+  },
+  "referenzen": {
+    "title": "REFERENCES",
+    "subtitle": "Machine design for world market leaders",
+    "text": "Our clients are not startups experimenting with design. They are established market leaders who know that excellent machine design is a competitive advantage. Together we have won over 210 international design awards.",
+    "cta": "View success story"
+  },
+  "testimonials": {
+    "title": "WHAT OUR CLIENTS SAY",
+    "subtitle": "Voices from the industry",
+    "items": [
+      {
+        "quote": "Design Tech exceeded our expectations. The new machine design not only strengthened our brand perception but also reduced setup times by 40%.",
+        "name": "Project Manager",
+        "position": "Development Lead",
+        "company": "HELD Technology"
+      },
+      {
+        "quote": "Working with Design Tech has been a success factor for us for years. They understand the technical requirements and deliver design that works in the market.",
+        "name": "Contact Person",
+        "position": "Product Management",
+        "company": "Market Leader Machinery"
+      },
+      {
+        "quote": "What convinced us: Design Tech thinks from the business model. The result is design that supports our sales and justifies premium prices.",
+        "name": "Decision Maker",
+        "position": "Management",
+        "company": "Capital Goods Manufacturer"
+      }
+    ]
+  },
+  "faq": {
+    "title": "FREQUENTLY ASKED QUESTIONS",
+    "subtitle": "Answers to your questions about machine design",
+    "items": [
+      {
+        "question": "What does professional machine design cost?",
+        "answer": "The costs for machine design vary depending on project scope, complexity and desired services. A typical project starts at a mid five-figure amount. However, what matters is the ROI: Professional design shortens sales cycles, justifies premium prices and differentiates you from the competition. In a non-binding initial consultation, we clarify your specific needs."
+      },
+      {
+        "question": "How long does a machine design project take?",
+        "answer": "The project duration depends on the scope. A machine enclosure can be realized in 3-4 months, a complete corporate industrial design for a product family takes 6-12 months. We work with defined milestones and keep you continuously informed about progress."
+      },
+      {
+        "question": "When should design be involved in the development process?",
+        "answer": "As early as possible. The later design is involved, the more limited the possibilities and the more expensive changes become. Ideally, we start parallel to the technical concept phase. This way we can coordinate design and engineering from the beginning."
+      },
+      {
+        "question": "Does Design Tech also work with smaller companies?",
+        "answer": "Yes. Our clients range from medium-sized machine builders to global corporations. What matters is not company size, but ambition: If you want to become or remain a market leader, we are the right partner."
+      },
+      {
+        "question": "What sets Design Tech apart from other design agencies?",
+        "answer": "Three things: First, our 40-year specialization in machine design – no one in Germany has comparable experience in the capital goods sector. Second, over 210 international design awards as proof of quality. Third, our Design to Success® methodology that strategically links design with your business model."
+      },
+      {
+        "question": "Can we implement the design internally or do we need construction data?",
+        "answer": "We deliver exactly what you need. This can range from concept sketches to 3D data to production-ready construction documents. Many clients appreciate that we speak the language of engineering and develop designs that can be manufactured economically."
+      }
+    ]
+  },
+  "branchen": {
+    "title": "INDUSTRIES",
+    "subtitle": "Specialized in capital goods",
+    "text": "Our focus is on mechanical engineering and related industries. We understand the technical requirements, know the manufacturing processes and speak the language of your engineers.",
+    "list": {
+      "werkzeugmaschinen": "Machine Tools",
+      "kunststoff": "Plastics Processing",
+      "lebensmittel": "Food Technology",
+      "verpackung": "Packaging Machines",
+      "reinigung": "Cleaning Technology",
+      "baumaschinen": "Construction Machinery",
+      "medizin": "Medical Technology",
+      "automation": "Automation Technology"
+    }
+  },
+  "prozess": {
+    "title": "DESIGN TO SUCCESS®",
+    "subtitle": "Our proven methodology for measurable success",
+    "text": "We don't start with the product – we start with your business model. This is the only way to create machine design that works in sales, differentiates in the market and is accepted within the company. Our method has been proven for decades and has received multiple awards.",
+    "cta": "More about Design to Success®"
+  },
+  "warum": {
+    "title": "WHY DESIGN TECH",
+    "items": {
+      "erfahrung": {
+        "title": "40+ Years Experience",
+        "text": "Exclusively specialized in machine design since 1984. No other design company in Germany has comparable depth in the capital goods sector."
+      },
+      "awards": {
+        "title": "210+ Design Awards",
+        "text": "Red Dot, iF, German Design Award – our work is internationally recognized. Not as an end in itself, but as proof of design quality that convinces your customers."
+      },
+      "kunden": {
+        "title": "Market Leaders as Clients",
+        "text": "Liebherr, Arburg, WashTec, Waldmann – we work with companies that lead in their markets. And they know why."
+      },
+      "standort": {
+        "title": "Location Germany",
+        "text": "Ammerbuch near Tübingen – in the heart of German mechanical engineering. Short distances to your development departments, personal contact instead of offshore communication."
+      }
+    }
+  },
+  "cta": {
+    "title": "LET'S TALK ABOUT YOUR PROJECT",
+    "text": "Every successful machine design starts with a conversation. In a non-binding video call, we learn about your challenges and show how we can support you.",
+    "button": "SCHEDULE VIDEO CALL",
+    "phone": "+49 7073 91 89 0"
+  },
+  "meta": {
+    "title": "Machine Design - Design Tech | Award-winning since 1984",
+    "description": "Machine design for market leaders: 40+ years experience, 210+ awards, clients like Liebherr & Arburg. Specialist for capital goods in Germany."
+  }
+}

@@ -16,6 +16,8 @@ import legalDE from '@/locales/de/legal.json';
 import legalEN from '@/locales/en/legal.json';
 import cookiebannerDE from '@/locales/de/cookiebanner.json';
 import cookiebannerEN from '@/locales/en/cookiebanner.json';
+import maschinendesignDE from '@/locales/de/maschinendesign.json';
+import maschinendesignEN from '@/locales/en/maschinendesign.json';
 
 const resources = {
   de: {
@@ -24,7 +26,8 @@ const resources = {
     designtosuccess: designtosuccessDE,
     karriere: karriereDE,
     legal: legalDE,
-    cookiebanner: cookiebannerDE
+    cookiebanner: cookiebannerDE,
+    maschinendesign: maschinendesignDE
   },
   en: {
     common: commonEN,
@@ -32,7 +35,8 @@ const resources = {
     designtosuccess: designtosuccessEN,
     karriere: karriereEN,
     legal: legalEN,
-    cookiebanner: cookiebannerEN
+    cookiebanner: cookiebannerEN,
+    maschinendesign: maschinendesignEN
   }
 };
 
@@ -43,7 +47,7 @@ i18n
     resources,
     lng: 'de', // Standard-Sprache
     fallbackLng: 'de',
-    ns: ['common', 'designtech', 'designtosuccess', 'karriere', 'legal', 'cookiebanner'], // Alle verfügbaren Namespaces
+    ns: ['common', 'designtech', 'designtosuccess', 'karriere', 'legal', 'cookiebanner', 'maschinendesign'], // Alle verfügbaren Namespaces
     defaultNS: 'common', // Standard-Namespace
     
     interpolation: {

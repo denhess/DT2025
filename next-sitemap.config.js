@@ -53,6 +53,11 @@ module.exports = {
       priority = 1.0;
       changefreq = 'daily';
     }
+    // Maschinendesign = höchste Priorität (SEO-Fokusseite)
+    else if (normalizedPath === '/maschinendesign') {
+      priority = 1.0;
+      changefreq = 'weekly';
+    }
     // Hauptseiten = hohe Priorität
     else if (['/designtech', '/designtosuccess', '/karriere', '/erfolgsgeschichte'].includes(normalizedPath)) {
       priority = 0.9;
@@ -79,6 +84,14 @@ module.exports = {
           title: 'Design Tech Erfolgsprojekte',
           description: 'Erfolgreiche Maschinendesign-Projekte von Design Tech',
           contentLoc: 'https://designtech.eu/BodyVideo.mp4',
+        }
+      ],
+      '/maschinendesign/': [
+        {
+          thumbnailLoc: 'https://designtech.eu/HeaderVideo-thumbnail.webp',
+          title: 'Maschinendesign für Marktführer - Design Tech',
+          description: 'Preisgekröntes Maschinendesign seit 1984. Über 210 internationale Awards für Liebherr, Arburg, WashTec.',
+          contentLoc: 'https://designtech.eu/HeaderVideo.mp4',
         }
       ],
       '/designtech/': [

@@ -1,0 +1,11 @@
+export { HeroMaschinendesign } from './HeroMaschinendesign';
+export { IntroMaschinendesign } from './IntroMaschinendesign';
+export { ProblemMaschinendesign } from './ProblemMaschinendesign';
+export { LeistungenMaschinendesign } from './LeistungenMaschinendesign';
+export { ReferenzenMaschinendesign } from './ReferenzenMaschinendesign';
+export { TestimonialsMaschinendesign } from './TestimonialsMaschinendesign';
+export { FaqMaschinendesign } from './FaqMaschinendesign';
+export { BranchenMaschinendesign } from './BranchenMaschinendesign';
+export { ProzessMaschinendesign } from './ProzessMaschinendesign';
+export { WarumMaschinendesign } from './WarumMaschinendesign';
+export { CtaMaschinendesign } from './CtaMaschinendesign';

@@ -1,0 +1,147 @@
+{
+  "hero": {
+    "title": "MASCHINENDESIGN\nFÜR MARKTFÜHRER",
+    "subtitle": "Preisgekröntes"
+  },
+  "intro": {
+    "text": "Seit über 40 Jahren entwickeln wir <strong>Maschinendesign</strong>, das Marktführer zu Marktführern macht. Mit mehr als 210 internationalen Design Awards und Projekten für Unternehmen wie Liebherr, Arburg und WashTec sind wir der Spezialist für Investitionsgüter, die nicht nur funktionieren – sondern verkaufen."
+  },
+  "problem": {
+    "title": "WARUM MASCHINENDESIGN ENTSCHEIDEND IST",
+    "subtitle": "Der erste Eindruck entscheidet – auch bei Maschinen.",
+    "paragraph1": "Im Investitionsgüterbereich treffen Einkäufer Entscheidungen, die Millionen kosten. Bevor technische Daten verglichen werden, hat das Design bereits gewirkt. Eine Maschine, die Qualität ausstrahlt, Präzision vermittelt und Vertrauen weckt, verkürzt Vertriebszyklen und rechtfertigt Premium-Preise.",
+    "paragraph2": "Professionelles Maschinendesign ist keine Kosmetik. Es ist ein strategisches Werkzeug, das Ihre Marktposition stärkt, Ihre Marke differenziert und Ihren Vertrieb unterstützt."
+  },
+  "leistungen": {
+    "title": "UNSER LEISTUNGSSPEKTRUM",
+    "subtitle": "Ganzheitliches Maschinendesign aus einer Hand",
+    "maschinenverkleidung": {
+      "title": "Maschinenverkleidung",
+      "text": "Von der ersten Skizze bis zur fertigungsreifen Konstruktion: Wir entwickeln Maschinenverkleidungen, die Schutz, Funktion und Ästhetik vereinen. Unsere Designs berücksichtigen Wartungszugänge, Kabelführungen und thermische Anforderungen – und schaffen gleichzeitig eine unverwechselbare Produktidentität."
+    },
+    "hmi": {
+      "title": "HMI Design",
+      "text": "Die Schnittstelle zwischen Mensch und Maschine entscheidet über Produktivität und Zufriedenheit. Wir gestalten Bedienoberflächen, die intuitiv funktionieren, Fehler vermeiden und Ihre Anwender befähigen. Von der Touchscreen-Oberfläche bis zum physischen Bedienpanel."
+    },
+    "corporate": {
+      "title": "Corporate Industrial Design",
+      "text": "Eine Maschine ist ein Markenbotschafter. Wir entwickeln Designsprachen, die sich durch Ihr gesamtes Produktportfolio ziehen – vom Kleingerät bis zur Großanlage. Wiedererkennbar, konsistent und unverwechselbar Ihre Marke."
+    },
+    "anlagen": {
+      "title": "Anlagendesign",
+      "text": "Komplexe Fertigungsanlagen stellen besondere Anforderungen an das Design. Wir strukturieren visuelle Hierarchien, definieren Farbcodes für Sicherheit und Orientierung und schaffen Ordnung im Chaos – ohne die technische Funktion einzuschränken."
+    }
+  },
+  "referenzen": {
+    "title": "REFERENZEN",
+    "subtitle": "Maschinendesign für Weltmarktführer",
+    "text": "Unsere Kunden sind keine Startups, die Design ausprobieren. Es sind etablierte Marktführer, die wissen, dass exzellentes Maschinendesign ein Wettbewerbsvorteil ist. Gemeinsam haben wir über 210 internationale Design Awards gewonnen.",
+    "cta": "Erfolgsgeschichte ansehen"
+  },
+  "testimonials": {
+    "title": "DAS SAGEN UNSERE KUNDEN",
+    "subtitle": "Stimmen aus der Industrie",
+    "items": [
+      {
+        "quote": "Design Tech hat unsere Erwartungen übertroffen. Das neue Maschinendesign hat nicht nur unsere Markenwahrnehmung gestärkt, sondern auch die Rüstzeiten um 40% reduziert.",
+        "name": "Projektverantwortlicher",
+        "position": "Entwicklungsleitung",
+        "company": "HELD Technologie"
+      },
+      {
+        "quote": "Die Zusammenarbeit mit Design Tech ist seit Jahren ein Erfolgsfaktor für uns. Sie verstehen die technischen Anforderungen und liefern Design, das im Markt funktioniert.",
+        "name": "Ansprechpartner",
+        "position": "Produktmanagement",
+        "company": "Marktführer Maschinenbau"
+      },
+      {
+        "quote": "Was uns überzeugt hat: Design Tech denkt vom Geschäftsmodell her. Das Ergebnis ist Design, das unseren Vertrieb unterstützt und Premium-Preise rechtfertigt.",
+        "name": "Entscheider",
+        "position": "Geschäftsführung",
+        "company": "Investitionsgüterhersteller"
+      }
+    ]
+  },
+  "faq": {
+    "title": "HÄUFIGE FRAGEN",
+    "subtitle": "Antworten auf Ihre Fragen zum Maschinendesign",
+    "items": [
+      {
+        "question": "Was kostet professionelles Maschinendesign?",
+        "answer": "Die Kosten für Maschinendesign variieren je nach Projektumfang, Komplexität und gewünschten Leistungen. Ein typisches Projekt beginnt bei einem mittleren fünfstelligen Betrag. Entscheidend ist jedoch der ROI: Professionelles Design verkürzt Vertriebszyklen, rechtfertigt Premium-Preise und differenziert Sie vom Wettbewerb. In einem unverbindlichen Erstgespräch klären wir Ihren konkreten Bedarf."
+      },
+      {
+        "question": "Wie lange dauert ein Maschinendesign-Projekt?",
+        "answer": "Die Projektdauer hängt vom Umfang ab. Eine Maschinenverkleidung kann in 3-4 Monaten realisiert werden, ein komplettes Corporate Industrial Design für eine Produktfamilie dauert 6-12 Monate. Wir arbeiten mit definierten Meilensteinen und halten Sie kontinuierlich über den Fortschritt informiert."
+      },
+      {
+        "question": "Wann sollte Design in den Entwicklungsprozess einbezogen werden?",
+        "answer": "So früh wie möglich. Je später Design einbezogen wird, desto eingeschränkter sind die Möglichkeiten und desto teurer werden Änderungen. Idealerweise starten wir parallel zur technischen Konzeptphase. So können wir Design und Konstruktion von Anfang an aufeinander abstimmen."
+      },
+      {
+        "question": "Arbeitet Design Tech auch mit kleineren Unternehmen?",
+        "answer": "Ja. Unsere Kunden reichen vom mittelständischen Maschinenbauer bis zum Weltkonzern. Entscheidend ist nicht die Unternehmensgröße, sondern der Anspruch: Wenn Sie Marktführer werden oder bleiben wollen, sind wir der richtige Partner."
+      },
+      {
+        "question": "Was unterscheidet Design Tech von anderen Designagenturen?",
+        "answer": "Drei Dinge: Erstens, unsere 40-jährige Spezialisierung auf Maschinendesign – niemand in Deutschland hat vergleichbare Erfahrung im Investitionsgüterbereich. Zweitens, über 210 internationale Design Awards als Beleg für Qualität. Drittens, unsere Design to Success® Methodik, die Design strategisch mit Ihrem Geschäftsmodell verknüpft."
+      },
+      {
+        "question": "Können wir das Design intern umsetzen oder brauchen wir Konstruktionsdaten?",
+        "answer": "Wir liefern genau das, was Sie brauchen. Das kann von Konzeptskizzen über 3D-Daten bis hin zu fertigungsreifen Konstruktionsunterlagen reichen. Viele Kunden schätzen, dass wir die Sprache der Konstruktion sprechen und Designs entwickeln, die sich wirtschaftlich fertigen lassen."
+      }
+    ]
+  },
+  "branchen": {
+    "title": "BRANCHEN",
+    "subtitle": "Spezialisiert auf Investitionsgüter",
+    "text": "Unser Fokus liegt auf dem Maschinenbau und verwandten Industrien. Wir verstehen die technischen Anforderungen, kennen die Fertigungsprozesse und sprechen die Sprache Ihrer Ingenieure.",
+    "list": {
+      "werkzeugmaschinen": "Werkzeugmaschinen",
+      "kunststoff": "Kunststoffverarbeitung",
+      "lebensmittel": "Lebensmitteltechnik", 
+      "verpackung": "Verpackungsmaschinen",
+      "reinigung": "Reinigungstechnik",
+      "baumaschinen": "Baumaschinen",
+      "medizin": "Medizintechnik",
+      "automation": "Automatisierungstechnik"
+    }
+  },
+  "prozess": {
+    "title": "DESIGN TO SUCCESS®",
+    "subtitle": "Unsere bewährte Methodik für messbaren Erfolg",
+    "text": "Wir starten nicht beim Produkt – wir starten bei Ihrem Geschäftsmodell. Nur so entsteht Maschinendesign, das im Vertrieb wirkt, am Markt differenziert und im Unternehmen akzeptiert wird. Unsere Methode ist seit Jahrzehnten bewährt und mehrfach ausgezeichnet.",
+    "cta": "Mehr zu Design to Success®"
+  },
+  "warum": {
+    "title": "WARUM DESIGN TECH",
+    "items": {
+      "erfahrung": {
+        "title": "40+ Jahre Erfahrung",
+        "text": "Seit 1984 ausschließlich auf Maschinendesign spezialisiert. Kein anderes Designunternehmen in Deutschland hat vergleichbare Tiefe im Investitionsgüterbereich."
+      },
+      "awards": {
+        "title": "210+ Design Awards",
+        "text": "Red Dot, iF, German Design Award – unsere Arbeit wird international anerkannt. Nicht als Selbstzweck, sondern als Beleg für Designqualität, die Ihre Kunden überzeugt."
+      },
+      "kunden": {
+        "title": "Marktführer als Kunden",
+        "text": "Liebherr, Arburg, WashTec, Waldmann – wir arbeiten mit Unternehmen, die in ihren Märkten führend sind. Und die wissen, warum."
+      },
+      "standort": {
+        "title": "Standort Deutschland",
+        "text": "Ammerbuch bei Tübingen – im Herzen des deutschen Maschinenbaus. Kurze Wege zu Ihren Entwicklungsabteilungen, persönlicher Kontakt statt Offshore-Kommunikation."
+      }
+    }
+  },
+  "cta": {
+    "title": "LASSEN SIE UNS ÜBER IHR PROJEKT SPRECHEN",
+    "text": "Jedes erfolgreiche Maschinendesign beginnt mit einem Gespräch. In einem unverbindlichen Videocall lernen wir Ihre Herausforderungen kennen und zeigen, wie wir Sie unterstützen können.",
+    "button": "VIDEOCALL VEREINBAREN",
+    "phone": "+49 7073 91 89 0"
+  },
+  "meta": {
+    "title": "Maschinendesign - Design Tech | Preisgekrönt seit 1984",
+    "description": "Maschinendesign für Marktführer: 40+ Jahre Erfahrung, 210+ Awards, Kunden wie Liebherr & Arburg. Spezialist für Investitionsgüter in Deutschland."
+  }
+}
