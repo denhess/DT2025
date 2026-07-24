@@ -2,7 +2,7 @@ import React from 'react';
 import type { Metadata } from "next";
 import Script from 'next/script';
 
-import { HeroMaschinendesign } from "@/components/Maschinendesign/HeroMaschinendesign";
+import { HeroLanding } from "@/components/HeroLanding";
 import { IntroMaschinendesign } from "@/components/Maschinendesign/IntroMaschinendesign";
 import { ProblemMaschinendesign } from "@/components/Maschinendesign/ProblemMaschinendesign";
 import { LeistungenMaschinendesign } from "@/components/Maschinendesign/LeistungenMaschinendesign";
@@ -279,7 +279,10 @@ export default function MaschinendesignPage() {
         `}
       </Script>
           
-      <HeroMaschinendesign />
+      <HeroLanding
+        title="Maschinendesign für Technologieunternehmen"
+        description="Seit über 40 Jahren entwickelt Design Tech Maschinen, Anlagen und Technologieprodukte, die Innovation sichtbar machen und Marktpositionen stärken."
+      />
       <IntroMaschinendesign />
       <ProblemMaschinendesign />
       <LeistungenMaschinendesign />
