@@ -1,6 +1,5 @@
 import React from "react";
 import type { Metadata } from "next";
-import Script from 'next/script';
 import { YellowBackgroundTop } from "@/components/BG/YellowBackgroundTop";
 import { Footer } from "@/components/Footer";
 import { Job } from "@/components/Job";
@@ -36,7 +35,7 @@ export const metadata: Metadata = {
     siteName: "Design Tech",
     images: [
       {
-        url: "/og-image-karriere-senior.jpg",
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Senior Industrial Designer bei Design Tech",
@@ -50,15 +49,11 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Senior Industrial Designer (w/m/d) - Design Tech",
     description: "Preisgekrönte Maschinenprojekte für Marktführer gestalten. Unbefristete Festanstellung in Ammerbuch.",
-    images: ["/og-image-karriere-senior.jpg"],
+    images: ["/og-image.jpg"],
   },
   
   alternates: {
     canonical: "https://designtech.eu/karriere/senior-industrial-designer",
-    languages: {
-      'de': 'https://designtech.eu/karriere/senior-industrial-designer',
-      'en': 'https://designtech.eu/en/careers/senior-industrial-designer',
-    },
   },
   
   robots: {
@@ -80,12 +75,10 @@ export default function SeniorIndustrialDesignerPage() {
   return (
     <>
       {/* Structured Data für JobPosting */}
-      <Script 
-        id="senior-jobposting-schema" 
+      <script
+        id="senior-jobposting-schema"
         type="application/ld+json"
-        strategy="afterInteractive"
-      >
-        {`
+        dangerouslySetInnerHTML={{ __html: `
           {
             "@context": "https://schema.org",
             "@type": "JobPosting",
@@ -137,15 +130,13 @@ export default function SeniorIndustrialDesignerPage() {
               "telephone": "+49-7073-91-89-0"
             }
           }
-        `}
-      </Script>
+        ` }}
+      />
 
-      <Script 
-        id="senior-breadcrumb-schema" 
+      <script
+        id="senior-breadcrumb-schema"
         type="application/ld+json"
-        strategy="afterInteractive"
-      >
-        {`
+        dangerouslySetInnerHTML={{ __html: `
           {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
@@ -170,8 +161,8 @@ export default function SeniorIndustrialDesignerPage() {
               }
             ]
           }
-        `}
-      </Script>
+        ` }}
+      />
 
       <SeniorDesignerContent />
     </>

@@ -1,6 +1,5 @@
 import React from 'react';
 import type { Metadata } from "next";
-import Script from 'next/script';
 
 import { Hero } from '@/components/Landingpage/Held/Hero';
 import { TextOne } from '@/components/Landingpage/Held/TextOne';
@@ -44,7 +43,7 @@ export const metadata: Metadata = {
     siteName: "Design Tech",
     images: [
       {
-        url: "/og-image-hailey.jpg",
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "HAILEY Doppelbandpresse - Design Tech Case Study",
@@ -59,16 +58,12 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "HAILEY Case Study - 40% schnellere Rüstzeiten",
     description: "Erfolgsgeschichte: Optimiertes Maschinendesign für Held Technologie. Intuitive Bedienung, reduzierte Fehlerquote.",
-    images: ["/og-image-hailey.jpg"],
+    images: ["/og-image.jpg"],
   },
   
   // Canonical URL
   alternates: {
     canonical: "https://designtech.eu/erfolgsgeschichte",
-    languages: {
-      'de': 'https://designtech.eu/erfolgsgeschichte',
-      'en': 'https://designtech.eu/en/success-story',
-    },
   },
   
   // Robots
@@ -92,18 +87,16 @@ export default function ErfolgsgeschichtePage() {
   return (
     <>
       {/* Structured Data für Case Study / Article */}
-      <Script 
-        id="hailey-article-schema" 
+      <script
+        id="hailey-article-schema"
         type="application/ld+json"
-        strategy="afterInteractive"
-      >
-        {`
+        dangerouslySetInnerHTML={{ __html: `
           {
             "@context": "https://schema.org",
             "@type": "Article",
             "headline": "HAILEY Case Study - 40% schnellere Rüstzeiten durch optimiertes Maschinendesign",
             "description": "Erfolgsgeschichte der HAILEY Doppelbandpresse von Held Technologie. Optimiertes Design führt zu 40% schnelleren Rüstzeiten, reduzierter Fehlerquote und höherem Bedienkomfort.",
-            "image": "https://designtech.eu/og-image-hailey.jpg",
+            "image": "https://designtech.eu/og-image.jpg",
             "author": {
               "@type": "Organization",
               "name": "Design Tech",
@@ -133,15 +126,13 @@ export default function ErfolgsgeschichtePage() {
               "description": "Kontinuierliche Hochpräzisions- und Hochleistungsproduktion mit Doppelbandpressen"
             }
           }
-        `}
-      </Script>
+        ` }}
+      />
 
-      <Script 
-        id="hailey-casestudy-schema" 
+      <script
+        id="hailey-casestudy-schema"
         type="application/ld+json"
-        strategy="afterInteractive"
-      >
-        {`
+        dangerouslySetInnerHTML={{ __html: `
           {
             "@context": "https://schema.org",
             "@type": "CreativeWork",
@@ -186,15 +177,13 @@ export default function ErfolgsgeschichtePage() {
               }
             ]
           }
-        `}
-      </Script>
+        ` }}
+      />
 
-      <Script 
-        id="hailey-organization-schema" 
+      <script
+        id="hailey-organization-schema"
         type="application/ld+json"
-        strategy="afterInteractive"
-      >
-        {`
+        dangerouslySetInnerHTML={{ __html: `
           {
             "@context": "https://schema.org",
             "@type": "Organization",
@@ -214,15 +203,13 @@ export default function ErfolgsgeschichtePage() {
               }
             }
           }
-        `}
-      </Script>
+        ` }}
+      />
 
-      <Script 
-        id="hailey-breadcrumb-schema" 
+      <script
+        id="hailey-breadcrumb-schema"
         type="application/ld+json"
-        strategy="afterInteractive"
-      >
-        {`
+        dangerouslySetInnerHTML={{ __html: `
           {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
@@ -241,8 +228,8 @@ export default function ErfolgsgeschichtePage() {
               }
             ]
           }
-        `}
-      </Script>
+        ` }}
+      />
 
       <Hero />
       <TextOne />

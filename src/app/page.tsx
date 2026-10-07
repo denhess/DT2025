@@ -1,6 +1,5 @@
 import React from 'react';
 import type { Metadata } from "next";
-import Script from 'next/script';
 import HomeContent from './HomeContent';
 
 // SEO-optimierte Metadata für die Homepage
@@ -55,11 +54,6 @@ export const metadata: Metadata = {
   // Canonical URL
   alternates: {
     canonical: "https://designtech.eu",
-    languages: {
-      'de': 'https://designtech.eu',
-      'en': 'https://designtech.eu/en',
-      'x-default': 'https://designtech.eu',
-    },
   },
   
   // Robots
@@ -88,12 +82,10 @@ export default function Home() {
   return (
     <>
       {/* Enhanced Organization Schema */}
-      <Script 
-        id="organization-schema" 
+      <script
+        id="organization-schema"
         type="application/ld+json"
-        strategy="afterInteractive"
-      >
-        {`
+        dangerouslySetInnerHTML={{ __html: `
           {
             "@context": "https://schema.org",
             "@type": "Organization",
@@ -137,16 +129,14 @@ export default function Home() {
               "Corporate Industrial Design"
             ]
           }
-        `}
-      </Script>
+        ` }}
+      />
 
-      {/* WebSite Schema für Sitelinks Searchbox */}
-      <Script 
-        id="website-schema" 
+      {/* WebSite Schema */}
+      <script
+        id="website-schema"
         type="application/ld+json"
-        strategy="afterInteractive"
-      >
-        {`
+        dangerouslySetInnerHTML={{ __html: `
           {
             "@context": "https://schema.org",
             "@type": "WebSite",
@@ -158,26 +148,16 @@ export default function Home() {
               "name": "Design Tech",
               "logo": "https://designtech.eu/logo.png"
             },
-            "potentialAction": {
-              "@type": "SearchAction",
-              "target": {
-                "@type": "EntryPoint",
-                "urlTemplate": "https://designtech.eu/?s={search_term_string}"
-              },
-              "query-input": "required name=search_term_string"
-            },
-            "inLanguage": ["de-DE", "en-US"]
+            "inLanguage": "de-DE"
           }
-        `}
-      </Script>
+        ` }}
+      />
 
       {/* BreadcrumbList Schema */}
-      <Script 
-        id="breadcrumb-schema" 
+      <script
+        id="breadcrumb-schema"
         type="application/ld+json"
-        strategy="afterInteractive"
-      >
-        {`
+        dangerouslySetInnerHTML={{ __html: `
           {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
@@ -190,16 +170,14 @@ export default function Home() {
               }
             ]
           }
-        `}
-      </Script>
+        ` }}
+      />
 
       {/* ProfessionalService Schema */}
-      <Script 
-        id="service-schema" 
+      <script
+        id="service-schema"
         type="application/ld+json"
-        strategy="afterInteractive"
-      >
-        {`
+        dangerouslySetInnerHTML={{ __html: `
           {
             "@context": "https://schema.org",
             "@type": "ProfessionalService",
@@ -257,8 +235,8 @@ export default function Home() {
               ]
             }
           }
-        `}
-      </Script>
+        ` }}
+      />
 
       <HomeContent />
     </>

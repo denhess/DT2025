@@ -1,6 +1,5 @@
 import React from "react";
 import type { Metadata } from "next";
-import Script from "next/script";
 
 import { HeroLanding } from "@/components/HeroLanding";
 import { Footer } from "@/components/Footer";
@@ -54,10 +53,6 @@ export const metadata: Metadata = {
 
   alternates: {
     canonical: "https://designtech.eu/produktdesign-investitionsgueter",
-    languages: {
-      de: "https://designtech.eu/produktdesign-investitionsgueter",
-      en: "https://designtech.eu/en/produktdesign-investitionsgueter",
-    },
   },
 
   robots: {
@@ -79,12 +74,10 @@ export default function ProduktdesignInvestitionsgueterPage() {
   return (
     <>
       {/* Service Schema */}
-      <Script
+      <script
         id="produktdesign-service-schema"
         type="application/ld+json"
-        strategy="afterInteractive"
-      >
-        {`
+        dangerouslySetInnerHTML={{ __html: `
           {
             "@context": "https://schema.org",
             "@type": "Service",
@@ -120,16 +113,14 @@ export default function ProduktdesignInvestitionsgueterPage() {
               { "@type": "Country", "name": "Schweiz" }
             ]
           }
-        `}
-      </Script>
+        ` }}
+      />
 
       {/* Breadcrumb Schema */}
-      <Script
+      <script
         id="produktdesign-breadcrumb-schema"
         type="application/ld+json"
-        strategy="afterInteractive"
-      >
-        {`
+        dangerouslySetInnerHTML={{ __html: `
           {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
@@ -148,8 +139,8 @@ export default function ProduktdesignInvestitionsgueterPage() {
               }
             ]
           }
-        `}
-      </Script>
+        ` }}
+      />
 
       <HeroLanding title={"Produktdesign\nfür Investitionsgüter"} />
 

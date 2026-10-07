@@ -1,6 +1,5 @@
 import React from "react";
 import type { Metadata } from "next";
-import Script from "next/script";
 
 import { HeroLanding } from "@/components/HeroLanding";
 import { Footer } from "@/components/Footer";
@@ -54,10 +53,6 @@ export const metadata: Metadata = {
 
   alternates: {
     canonical: "https://designtech.eu/designstrategie",
-    languages: {
-      de: "https://designtech.eu/designstrategie",
-      en: "https://designtech.eu/en/designstrategie",
-    },
   },
 
   robots: {
@@ -79,12 +74,10 @@ export default function DesignstrategiePage() {
   return (
     <>
       {/* Service Schema */}
-      <Script
+      <script
         id="designstrategie-service-schema"
         type="application/ld+json"
-        strategy="afterInteractive"
-      >
-        {`
+        dangerouslySetInnerHTML={{ __html: `
           {
             "@context": "https://schema.org",
             "@type": "Service",
@@ -120,16 +113,14 @@ export default function DesignstrategiePage() {
               { "@type": "Country", "name": "Schweiz" }
             ]
           }
-        `}
-      </Script>
+        ` }}
+      />
 
       {/* Breadcrumb Schema */}
-      <Script
+      <script
         id="designstrategie-breadcrumb-schema"
         type="application/ld+json"
-        strategy="afterInteractive"
-      >
-        {`
+        dangerouslySetInnerHTML={{ __html: `
           {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
@@ -148,8 +139,8 @@ export default function DesignstrategiePage() {
               }
             ]
           }
-        `}
-      </Script>
+        ` }}
+      />
 
       <HeroLanding title="Designstrategie" />
 

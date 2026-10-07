@@ -1,6 +1,5 @@
 import React from 'react';
 import type { Metadata } from "next";
-import Script from 'next/script';
 
 import { HeroDesignTech } from "@/components/HeroDesignTech";
 import { Footer } from "@/components/Footer";
@@ -38,7 +37,7 @@ export const metadata: Metadata = {
     siteName: "Design Tech",
     images: [
       {
-        url: "/og-image-designtech.jpg",
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Design Tech - Maschinendesign Experten",
@@ -53,16 +52,12 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Design Tech - Preisgekröntes Maschinendesign",
     description: "Spezialist für Maschinendesign im Investitionsgüterbereich mit über 210 internationalen Awards.",
-    images: ["/og-image-designtech.jpg"],
+    images: ["/og-image.jpg"],
   },
   
   // Canonical URL
   alternates: {
     canonical: "https://designtech.eu/designtech",
-    languages: {
-      'de': 'https://designtech.eu/designtech',
-      'en': 'https://designtech.eu/en/designtech',
-    },
   },
   
   // Robots
@@ -86,12 +81,10 @@ export default function DesignTechPage() {
   return (
     <>
       {/* Structured Data für SEO */}
-      <Script 
-        id="designtech-service-schema" 
+      <script
+        id="designtech-service-schema"
         type="application/ld+json"
-        strategy="afterInteractive"
-      >
-        {`
+        dangerouslySetInnerHTML={{ __html: `
           {
             "@context": "https://schema.org",
             "@type": "Service",
@@ -144,15 +137,13 @@ export default function DesignTechPage() {
             },
             "award": "Über 210 internationale Design Awards"
           }
-        `}
-      </Script>
+        ` }}
+      />
 
-      <Script 
-        id="designtech-breadcrumb-schema" 
+      <script
+        id="designtech-breadcrumb-schema"
         type="application/ld+json"
-        strategy="afterInteractive"
-      >
-        {`
+        dangerouslySetInnerHTML={{ __html: `
           {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
@@ -171,8 +162,8 @@ export default function DesignTechPage() {
               }
             ]
           }
-        `}
-      </Script>
+        ` }}
+      />
           
       <HeroDesignTech />
       <AboutDesignTech />

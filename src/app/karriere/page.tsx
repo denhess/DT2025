@@ -1,6 +1,5 @@
 import React from 'react';
 import type { Metadata } from "next";
-import Script from 'next/script';
 
 import { HeroKarriere } from "@/components/HeroKarriere";
 import { AboutKarriere } from "@/components/AboutKarriere";
@@ -36,7 +35,7 @@ export const metadata: Metadata = {
     siteName: "Design Tech",
     images: [
       {
-        url: "/og-image-karriere.jpg",
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Karriere bei Design Tech - Industrial Design Jobs",
@@ -51,16 +50,12 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Karriere bei Design Tech - Industrial Design Jobs",
     description: "Offene Stellen im Industriedesign: Senior & Junior Designer, Praktikum. Standort Ammerbuch bei Tübingen.",
-    images: ["/og-image-karriere.jpg"],
+    images: ["/og-image.jpg"],
   },
   
   // Canonical URL
   alternates: {
     canonical: "https://designtech.eu/karriere",
-    languages: {
-      'de': 'https://designtech.eu/karriere',
-      'en': 'https://designtech.eu/en/careers',
-    },
   },
   
   // Robots
@@ -84,12 +79,10 @@ export default function KarrierePage() {
   return (
     <>
       {/* Structured Data für Job Postings Overview */}
-      <Script 
-        id="karriere-organization-schema" 
+      <script
+        id="karriere-organization-schema"
         type="application/ld+json"
-        strategy="afterInteractive"
-      >
-        {`
+        dangerouslySetInnerHTML={{ __html: `
           {
             "@context": "https://schema.org",
             "@type": "Organization",
@@ -123,15 +116,13 @@ export default function KarrierePage() {
               "jobTitle": "HR Contact"
             }
           }
-        `}
-      </Script>
+        ` }}
+      />
 
-      <Script 
-        id="karriere-breadcrumb-schema" 
+      <script
+        id="karriere-breadcrumb-schema"
         type="application/ld+json"
-        strategy="afterInteractive"
-      >
-        {`
+        dangerouslySetInnerHTML={{ __html: `
           {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
@@ -150,15 +141,13 @@ export default function KarrierePage() {
               }
             ]
           }
-        `}
-      </Script>
+        ` }}
+      />
 
-      <Script 
-        id="karriere-itemlist-schema" 
+      <script
+        id="karriere-itemlist-schema"
         type="application/ld+json"
-        strategy="afterInteractive"
-      >
-        {`
+        dangerouslySetInnerHTML={{ __html: `
           {
             "@context": "https://schema.org",
             "@type": "ItemList",
@@ -194,8 +183,8 @@ export default function KarrierePage() {
               }
             ]
           }
-        `}
-      </Script>
+        ` }}
+      />
 
       <HeroKarriere />
       <AboutKarriere />

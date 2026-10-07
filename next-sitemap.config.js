@@ -2,11 +2,16 @@ module.exports = {
   siteUrl: 'https://designtech.eu',
   generateRobotsTxt: true,
   generateIndexSitemap: false,
-  
+
+  // Static Export: Sitemap und robots.txt direkt in den Export-Ordner schreiben.
+  // (Standard wäre public/ – dort landen sie erst beim nächsten Build in out/.)
+  outDir: 'out',
+
   // WICHTIG für Static Export: trailing slash verwenden
   trailingSlash: true,
-  
+
   // Exclude-Patterns: Diese Seiten NICHT in Sitemap aufnehmen
+  // (Impressum/Datenschutz sind per noindex ausgeschlossen, nicht per robots.txt)
   exclude: [
     '/impres',
     '/impres/',
@@ -20,26 +25,24 @@ module.exports = {
     '/404/',
     '/500',
     '/500/',
-    '/api/*',
-    '/_next/*',
   ],
 
-  // Robots.txt Konfiguration
+  // Robots.txt: alles crawlbar. /_next/ enthält die Skripte und Styles,
+  // die Google zum Rendern braucht, und darf nicht gesperrt werden.
   robotsTxtOptions: {
     policies: [
       {
         userAgent: '*',
         allow: '/',
-        disallow: [
-          '/impres',
-          '/privacy-policy',
-          '/api/',
-          '/_next/',
-        ],
       },
     ],
+    // "Host:" wird von Google nicht unterstützt – Zeile weglassen
+    transformRobotsTxt: async (_, robotsTxt) =>
+      robotsTxt.replace(/\n# Host\nHost: .*\n/, '\n'),
   },
 
+  // Keine Video-Einträge: Die Videos sind stumme Hintergrund-Loops im Hero,
+  // nicht der Hauptinhalt der Seiten.
   transform: async (config, path) => {
     // Priority und Changefreq basierend auf Seiten-Typ
     let priority = 0.7;
@@ -49,7 +52,7 @@ module.exports = {
     const normalizedPath = path.replace(/\/$/, '') || '/';
 
     // Homepage = höchste Priorität
-    if (normalizedPath === '') {
+    if (normalizedPath === '/') {
       priority = 1.0;
       changefreq = 'daily';
     }
@@ -69,71 +72,11 @@ module.exports = {
       changefreq = 'monthly';
     }
 
-    // Liste mit Seiten und ihren zugehörigen Videos
-    // WICHTIG: Keys mit trailing slash für Static Export
-    const videoData = {
-      '/': [
-        {
-          thumbnailLoc: 'https://designtech.eu/HeaderVideo-thumbnail.webp',
-          title: 'Design Tech - Maschinendesign und Innovation',
-          description: 'Preisgekröntes Maschinendesign für Marktführer im Investitionsgüterbereich',
-          contentLoc: 'https://designtech.eu/HeaderVideo.mp4',
-        },
-        {
-          thumbnailLoc: 'https://designtech.eu/BodyVideo-thumbnail.webp',
-          title: 'Design Tech Erfolgsprojekte',
-          description: 'Erfolgreiche Maschinendesign-Projekte von Design Tech',
-          contentLoc: 'https://designtech.eu/BodyVideo.mp4',
-        }
-      ],
-      '/maschinendesign/': [
-        {
-          thumbnailLoc: 'https://designtech.eu/HeaderVideo-thumbnail.webp',
-          title: 'Maschinendesign für Marktführer - Design Tech',
-          description: 'Preisgekröntes Maschinendesign seit 1984. Über 210 internationale Awards für Liebherr, Arburg, WashTec.',
-          contentLoc: 'https://designtech.eu/HeaderVideo.mp4',
-        }
-      ],
-      '/designtech/': [
-        {
-          thumbnailLoc: 'https://designtech.eu/DesignTechVideo-thumbnail.webp',
-          title: 'Design Tech - Über 210 internationale Design Awards',
-          description: 'International führendes Designunternehmen für Maschinendesign',
-          contentLoc: 'https://designtech.eu/DesignTechVideo.mp4',
-        }
-      ],
-      '/karriere/': [
-        {
-          thumbnailLoc: 'https://designtech.eu/KarriereVideo-thumbnail.webp',
-          title: 'Karriere bei Design Tech',
-          description: 'Werde Teil unseres Teams - Jobs im Industriedesign',
-          contentLoc: 'https://designtech.eu/KarriereVideo.mp4',
-        }
-      ],
-      '/designtosuccess/': [
-        {
-          thumbnailLoc: 'https://designtech.eu/DesignToSuccessVideo-thumbnail.webp',
-          title: 'Design To Success® - Strategisches Industriedesign',
-          description: 'Unsere bewährte Innovationsstrategie für messbaren Erfolg',
-          contentLoc: 'https://designtech.eu/DesignToSuccessVideo.mp4',
-        }
-      ],
-      '/erfolgsgeschichte/': [
-        {
-          thumbnailLoc: 'https://designtech.eu/HeaderVideo-thumbnail.webp',
-          title: 'HAILEY Case Study - 40% schnellere Rüstzeiten',
-          description: 'Erfolgsgeschichte der HAILEY Doppelbandpresse von Held Technologie',
-          contentLoc: 'https://designtech.eu/landingpage/held/HeaderVideo_held_animation.mp4',
-        }
-      ]
-    };
-
     return {
       loc: path,
       changefreq: changefreq,
       priority: priority,
       lastmod: new Date().toISOString(),
-      videos: videoData[path] || [], // Videos basierend auf path mit trailing slash
     };
   }
 };

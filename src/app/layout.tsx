@@ -46,13 +46,10 @@ export default function RootLayout({
         {/* DNS Prefetch für Performance */}
         <link rel="dns-prefetch" href="//www.googletagmanager.com" />
         <link rel="dns-prefetch" href="//www.google-analytics.com" />
-        
-        {/* Hreflang-Links für mehrsprachige Unterstützung */}
-        <link rel="alternate" hrefLang="de" href="https://designtech.eu/" />
-        <link rel="alternate" hrefLang="en" href="https://designtech.eu/en/" />
-        <link rel="alternate" hrefLang="x-default" href="https://designtech.eu/" />
       </head>
-      <body>
+      {/* GSAP ScrollTrigger misst beim Registrieren über body.style und
+          hinterlässt ein leeres style="" vor der Hydration – harmlos. */}
+      <body suppressHydrationWarning>
         {/* Analytics Script bleibt gleich */}
         <Script
           id="optimized-analytics"
@@ -91,20 +88,32 @@ export default function RootLayout({
                   document.head.appendChild(ga4Script);
                 }
                 
+                // Analytics nur mit Einwilligung laden (gespeichert vom CookieBanner).
+                // Der CookieBanner ruft window.dtLoadAnalytics() auf, sobald
+                // Analyse-Cookies akzeptiert werden.
+                window.dtLoadAnalytics = loadAnalytics;
+
+                var hasConsent = false;
+                try {
+                  var prefs = JSON.parse(localStorage.getItem('cookiePreferences') || '{}');
+                  hasConsent = prefs.analyticsCookies === true;
+                } catch (e) {}
+                if (!hasConsent) return;
+
                 // Load on first user interaction
                 var events = ['mousedown', 'mousemove', 'keypress', 'scroll', 'touchstart', 'click'];
                 var autoLoad = function() {
                   events.forEach(function(event) {
-                    window.removeEventListener(event, loadAnalytics, {passive: true});
+                    window.removeEventListener(event, autoLoad);
                   });
                   loadAnalytics();
                 };
-                
+
                 // Add event listeners
                 events.forEach(function(event) {
                   window.addEventListener(event, autoLoad, {passive: true});
                 });
-                
+
                 // Fallback: load after 3 seconds
                 setTimeout(autoLoad, 3000);
               })();
@@ -112,16 +121,6 @@ export default function RootLayout({
           }}
         />
         
-        {/* Google Tag Manager noscript Code */}
-        <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-NHBLRBHH"
-            height="0"
-            width="0"
-            style={{ display: "none", visibility: "hidden" }}
-          />
-        </noscript>
-
         <I18nProvider>
           <HeaderProvider>
             <LoadingProvider>

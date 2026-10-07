@@ -1,37 +1,15 @@
-// src/components/I18nProvider.tsx - Optimiert ohne künstliche Verzögerung
+// src/components/I18nProvider.tsx
 'use client';
 
-import { useEffect, useState } from 'react';
-import i18n from '@/lib/i18n';
+// i18n wird synchron initialisiert (initImmediate: false), daher stehen die
+// Übersetzungen bereits beim statischen Export zur Verfügung. Die Kinder
+// werden immer gerendert, damit Inhalte im ausgelieferten HTML landen.
+import '@/lib/i18n';
 
 interface I18nProviderProps {
   children: React.ReactNode;
 }
 
 export function I18nProvider({ children }: I18nProviderProps) {
-  const [isReady, setIsReady] = useState(false);
-
-  useEffect(() => {
-    // Prüfe ob i18n bereits initialisiert ist
-    if (i18n.isInitialized) {
-      setIsReady(true);
-    } else {
-      // Warte auf Initialisierung
-      i18n.on('initialized', () => {
-        setIsReady(true);
-      });
-    }
-
-    // Cleanup
-    return () => {
-      i18n.off('initialized');
-    };
-  }, []);
-
-  // Zeige nichts während i18n lädt (verhindert Flash of Untranslated Content)
-  if (!isReady) {
-    return null;
-  }
-
   return <>{children}</>;
 }

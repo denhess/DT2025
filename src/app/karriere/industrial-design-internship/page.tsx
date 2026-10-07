@@ -1,6 +1,5 @@
 import React from 'react';
 import type { Metadata } from "next";
-import Script from 'next/script';
 import InternshipContent from './InternshipContent';
 
 // SEO-optimierte Metadata für Industrial Design Internship
@@ -30,7 +29,7 @@ export const metadata: Metadata = {
     siteName: "Design Tech",
     images: [
       {
-        url: "/og-image-karriere-internship.jpg",
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Industrial Design Praktikum bei Design Tech",
@@ -44,15 +43,11 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Industrial Design Praktikum - Design Tech",
     description: "Reale Maschinenprojekte für echte Kunden. Praxiserfahrung, die dein Portfolio bereichert. Ammerbuch.",
-    images: ["/og-image-karriere-internship.jpg"],
+    images: ["/og-image.jpg"],
   },
   
   alternates: {
     canonical: "https://designtech.eu/karriere/industrial-design-internship",
-    languages: {
-      'de': 'https://designtech.eu/karriere/industrial-design-internship',
-      'en': 'https://designtech.eu/en/careers/industrial-design-internship',
-    },
   },
   
   robots: {
@@ -74,12 +69,10 @@ export default function IndustrialDesignInternship() {
   return (
     <>
       {/* Structured Data für Internship JobPosting */}
-      <Script 
-        id="internship-jobposting-schema" 
+      <script
+        id="internship-jobposting-schema"
         type="application/ld+json"
-        strategy="afterInteractive"
-      >
-        {`
+        dangerouslySetInnerHTML={{ __html: `
           {
             "@context": "https://schema.org",
             "@type": "JobPosting",
@@ -132,15 +125,13 @@ export default function IndustrialDesignInternship() {
               "telephone": "+49-7073-91-89-0"
             }
           }
-        `}
-      </Script>
+        ` }}
+      />
 
-      <Script 
-        id="internship-educationaloccupationalprogram-schema" 
+      <script
+        id="internship-educationaloccupationalprogram-schema"
         type="application/ld+json"
-        strategy="afterInteractive"
-      >
-        {`
+        dangerouslySetInnerHTML={{ __html: `
           {
             "@context": "https://schema.org",
             "@type": "EducationalOccupationalProgram",
@@ -164,15 +155,13 @@ export default function IndustrialDesignInternship() {
               "category": "Pflichtpraktikum"
             }
           }
-        `}
-      </Script>
+        ` }}
+      />
 
-      <Script 
-        id="internship-breadcrumb-schema" 
+      <script
+        id="internship-breadcrumb-schema"
         type="application/ld+json"
-        strategy="afterInteractive"
-      >
-        {`
+        dangerouslySetInnerHTML={{ __html: `
           {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
@@ -197,8 +186,8 @@ export default function IndustrialDesignInternship() {
               }
             ]
           }
-        `}
-      </Script>
+        ` }}
+      />
 
       <InternshipContent />
     </>

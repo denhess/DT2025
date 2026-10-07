@@ -70,7 +70,7 @@ export function HeroLanding({
   const handleCtaClick = () => {
     const w = window as unknown as { gtag?: (...args: unknown[]) => void };
     if (typeof w.gtag === "function") {
-      w.gtag("event", "design_inquiry", {
+      w.gtag("event", "email_click", {
         event_category: "Contact",
         event_label: "Hero Erstgespräch Button",
         contact_method: "email_hero",

@@ -27,7 +27,7 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
   // TRACKING-FUNKTION - Menu Videocall
   const trackMenuVideocall = () => {
     if (typeof gtag !== 'undefined') {
-      gtag('event', 'design_inquiry', {
+      gtag('event', 'email_click', {
         'event_category': 'Contact',
         'event_label': 'Menu Videocall Button',
         'contact_method': 'email_menu',
@@ -40,7 +40,7 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
   // TRACKING-FUNKTION - Menu Phone
   const trackMenuPhone = () => {
     if (typeof gtag !== 'undefined') {
-      gtag('event', 'phone_contact', {
+      gtag('event', 'phone_click', {
         'event_category': 'Contact',
         'event_label': 'Menu Phone Button',
         'contact_method': 'phone_menu',

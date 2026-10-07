@@ -23,7 +23,7 @@ export function Footer() {
   // TRACKING-FUNKTION - Footer Videocall
   const trackFooterVideocall = () => {
     if (typeof gtag !== 'undefined') {
-      gtag('event', 'design_inquiry', {
+      gtag('event', 'email_click', {
         'event_category': 'Contact',
         'event_label': 'Footer Videocall Button',
         'contact_method': 'email_footer',
@@ -36,7 +36,7 @@ export function Footer() {
   // TRACKING-FUNKTION - Footer Phone
   const trackFooterPhone = () => {
     if (typeof gtag !== 'undefined') {
-      gtag('event', 'phone_contact', {
+      gtag('event', 'phone_click', {
         'event_category': 'Contact',
         'event_label': 'Footer Phone Button',
         'contact_method': 'phone_footer',

@@ -42,7 +42,7 @@ export function Contact() {
   // TRACKING-FUNKTION - Contact Section
   const trackVideocallInquiry = () => {
     if (typeof gtag !== 'undefined') {
-      gtag('event', 'design_inquiry', {
+      gtag('event', 'email_click', {
         'event_category': 'Contact',
         'event_label': 'Contact Section Videocall Button',
         'contact_method': 'email_contact_section',

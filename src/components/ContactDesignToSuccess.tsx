@@ -25,7 +25,7 @@ export function ContactDesignToSuccess() {
   // TRACKING-FUNKTION - DesignToSuccess Videocall
   const trackDesignToSuccessVideocall = () => {
     if (typeof gtag !== 'undefined') {
-      gtag('event', 'design_inquiry', {
+      gtag('event', 'email_click', {
         'event_category': 'Contact',
         'event_label': 'DesignToSuccess Videocall Button',
         'contact_method': 'email_designtosuccess',

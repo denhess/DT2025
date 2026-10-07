@@ -1,6 +1,5 @@
 import React from 'react';
 import type { Metadata } from "next";
-import Script from 'next/script';
 
 import { Footer } from "@/components/Footer";
 import { AboutDesignToSuccess } from '@/components/AboutDesignToSuccess';
@@ -39,7 +38,7 @@ export const metadata: Metadata = {
     siteName: "Design Tech",
     images: [
       {
-        url: "/og-image-designtosuccess.jpg",
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Design To Success - Strategisches Industriedesign",
@@ -54,16 +53,12 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Design To Success® - Strategisches Industriedesign",
     description: "Design, das messbare Ergebnisse liefert. 40 Jahre Erfahrung, über 210 Designpreise.",
-    images: ["/og-image-designtosuccess.jpg"],
+    images: ["/og-image.jpg"],
   },
   
   // Canonical URL
   alternates: {
     canonical: "https://designtech.eu/designtosuccess",
-    languages: {
-      'de': 'https://designtech.eu/designtosuccess',
-      'en': 'https://designtech.eu/en/designtosuccess',
-    },
   },
   
   // Robots
@@ -87,58 +82,36 @@ export default function DesignToSuccessPage() {
   return (
     <>
       {/* Structured Data für Design To Success Methode */}
-      <Script 
-        id="designtosuccess-product-schema" 
+      <script
+        id="designtosuccess-product-schema"
         type="application/ld+json"
-        strategy="afterInteractive"
-      >
-        {`
+        dangerouslySetInnerHTML={{ __html: `
           {
             "@context": "https://schema.org",
-            "@type": "Product",
+            "@type": "Service",
             "name": "Design To Success®",
             "description": "Strategische Innovationsmethode für messbaren Erfolg im Industriedesign. Verbindet Geschäftsmodell-Analyse mit exzellenter Design-Umsetzung.",
-            "brand": {
-              "@type": "Brand",
-              "name": "Design Tech"
-            },
             "provider": {
               "@type": "Organization",
               "name": "Design Tech",
               "url": "https://designtech.eu",
               "logo": "https://designtech.eu/logo.png"
             },
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "5",
-              "reviewCount": "210",
-              "bestRating": "5",
-              "worstRating": "1"
-            },
-            "award": "Über 210 internationale Design Awards",
-            "offers": {
-              "@type": "Offer",
-              "availability": "https://schema.org/InStock",
-              "price": "0",
-              "priceCurrency": "EUR",
-              "url": "https://designtech.eu/designtosuccess"
-            }
+            "award": "Über 210 internationale Design Awards"
           }
-        `}
-      </Script>
+        ` }}
+      />
 
-      <Script 
-        id="designtosuccess-howto-schema" 
+      <script
+        id="designtosuccess-howto-schema"
         type="application/ld+json"
-        strategy="afterInteractive"
-      >
-        {`
+        dangerouslySetInnerHTML={{ __html: `
           {
             "@context": "https://schema.org",
             "@type": "HowTo",
             "name": "Design To Success® Methode",
             "description": "Strategischer Ansatz für erfolgreiches Industriedesign - vom Geschäftsmodell zum Design",
-            "image": "https://designtech.eu/og-image-designtosuccess.jpg",
+            "image": "https://designtech.eu/og-image.jpg",
             "step": [
               {
                 "@type": "HowToStep",
@@ -170,28 +143,15 @@ export default function DesignToSuccessPage() {
                   "text": "Gezielt, messbar, wiederholbar - Design, das messbare Ergebnisse liefert"
                 }]
               }
-            ],
-            "totalTime": "PT40Y",
-            "supply": [
-              {
-                "@type": "HowToSupply",
-                "name": "40 Jahre Erfahrung"
-              },
-              {
-                "@type": "HowToSupply",
-                "name": "Über 210 Design Awards"
-              }
             ]
           }
-        `}
-      </Script>
+        ` }}
+      />
 
-      <Script 
-        id="designtosuccess-breadcrumb-schema" 
+      <script
+        id="designtosuccess-breadcrumb-schema"
         type="application/ld+json"
-        strategy="afterInteractive"
-      >
-        {`
+        dangerouslySetInnerHTML={{ __html: `
           {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
@@ -210,15 +170,13 @@ export default function DesignToSuccessPage() {
               }
             ]
           }
-        `}
-      </Script>
+        ` }}
+      />
 
-      <Script 
-        id="designtosuccess-faq-schema" 
+      <script
+        id="designtosuccess-faq-schema"
         type="application/ld+json"
-        strategy="afterInteractive"
-      >
-        {`
+        dangerouslySetInnerHTML={{ __html: `
           {
             "@context": "https://schema.org",
             "@type": "FAQPage",
@@ -249,8 +207,8 @@ export default function DesignToSuccessPage() {
               }
             ]
           }
-        `}
-      </Script>
+        ` }}
+      />
           
       <HeroDesignToSuccess />
       <AboutDesignToSuccess />

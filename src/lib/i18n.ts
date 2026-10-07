@@ -49,7 +49,10 @@ i18n
     fallbackLng: 'de',
     ns: ['common', 'designtech', 'designtosuccess', 'karriere', 'legal', 'cookiebanner', 'maschinendesign'], // Alle verfügbaren Namespaces
     defaultNS: 'common', // Standard-Namespace
-    
+
+    // Synchron initialisieren, damit Texte beim statischen Export im HTML stehen
+    initImmediate: false,
+
     interpolation: {
       escapeValue: false, // React escaped bereits
     },

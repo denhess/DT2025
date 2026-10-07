@@ -1,6 +1,5 @@
 import React from 'react';
 import type { Metadata } from "next";
-import Script from 'next/script';
 
 import { HeroLanding } from "@/components/HeroLanding";
 import { IntroMaschinendesign } from "@/components/Maschinendesign/IntroMaschinendesign";
@@ -48,7 +47,7 @@ export const metadata: Metadata = {
     siteName: "Design Tech",
     images: [
       {
-        url: "/og-image-maschinendesign.jpg",
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Design Tech - Maschinendesign für Marktführer",
@@ -63,16 +62,12 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Maschinendesign für Marktführer | Design Tech",
     description: "Preisgekröntes Maschinendesign seit 1984. Über 210 internationale Awards für Liebherr, Arburg, WashTec.",
-    images: ["/og-image-maschinendesign.jpg"],
+    images: ["/og-image.jpg"],
   },
   
   // Canonical URL
   alternates: {
     canonical: "https://designtech.eu/maschinendesign",
-    languages: {
-      'de': 'https://designtech.eu/maschinendesign',
-      'en': 'https://designtech.eu/en/maschinendesign',
-    },
   },
   
   // Robots
@@ -96,12 +91,10 @@ export default function MaschinendesignPage() {
   return (
     <>
       {/* Service Schema für Maschinendesign */}
-      <Script 
-        id="maschinendesign-service-schema" 
+      <script
+        id="maschinendesign-service-schema"
         type="application/ld+json"
-        strategy="afterInteractive"
-      >
-        {`
+        dangerouslySetInnerHTML={{ __html: `
           {
             "@context": "https://schema.org",
             "@type": "Service",
@@ -184,16 +177,14 @@ export default function MaschinendesignPage() {
               ]
             }
           }
-        `}
-      </Script>
+        ` }}
+      />
 
       {/* Breadcrumb Schema */}
-      <Script 
-        id="maschinendesign-breadcrumb-schema" 
+      <script
+        id="maschinendesign-breadcrumb-schema"
         type="application/ld+json"
-        strategy="afterInteractive"
-      >
-        {`
+        dangerouslySetInnerHTML={{ __html: `
           {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
@@ -212,16 +203,14 @@ export default function MaschinendesignPage() {
               }
             ]
           }
-        `}
-      </Script>
+        ` }}
+      />
 
       {/* FAQ Schema für zusätzliche SERP-Features */}
-      <Script 
-        id="maschinendesign-faq-schema" 
+      <script
+        id="maschinendesign-faq-schema"
         type="application/ld+json"
-        strategy="afterInteractive"
-      >
-        {`
+        dangerouslySetInnerHTML={{ __html: `
           {
             "@context": "https://schema.org",
             "@type": "FAQPage",
@@ -276,8 +265,8 @@ export default function MaschinendesignPage() {
               }
             ]
           }
-        `}
-      </Script>
+        ` }}
+      />
           
       <HeroLanding
         title="Maschinendesign für Technologieunternehmen"

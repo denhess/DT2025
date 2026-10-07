@@ -1,6 +1,5 @@
 import React from 'react';
 import type { Metadata } from "next";
-import Script from 'next/script';
 import JuniorDesignerContent from './JuniorDesignerContent';
 
 // SEO-optimierte Metadata für Junior Industrial Designer
@@ -30,7 +29,7 @@ export const metadata: Metadata = {
     siteName: "Design Tech",
     images: [
       {
-        url: "/og-image-karriere-junior.jpg",
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Junior Industrial Designer bei Design Tech",
@@ -44,15 +43,11 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Junior Industrial Designer (w/m/d) - Design Tech",
     description: "Karrierestart im Industriedesign. Preisgekrönte Maschinenprojekte gestalten. Ammerbuch bei Tübingen.",
-    images: ["/og-image-karriere-junior.jpg"],
+    images: ["/og-image.jpg"],
   },
   
   alternates: {
     canonical: "https://designtech.eu/karriere/junior-industrial-designer",
-    languages: {
-      'de': 'https://designtech.eu/karriere/junior-industrial-designer',
-      'en': 'https://designtech.eu/en/careers/junior-industrial-designer',
-    },
   },
   
   robots: {
@@ -74,12 +69,10 @@ export default function JuniorIndustrialDesignerPage() {
   return (
     <>
       {/* Structured Data für JobPosting */}
-      <Script 
-        id="junior-jobposting-schema" 
+      <script
+        id="junior-jobposting-schema"
         type="application/ld+json"
-        strategy="afterInteractive"
-      >
-        {`
+        dangerouslySetInnerHTML={{ __html: `
           {
             "@context": "https://schema.org",
             "@type": "JobPosting",
@@ -132,15 +125,13 @@ export default function JuniorIndustrialDesignerPage() {
               "telephone": "+49-7073-91-89-0"
             }
           }
-        `}
-      </Script>
+        ` }}
+      />
 
-      <Script 
-        id="junior-breadcrumb-schema" 
+      <script
+        id="junior-breadcrumb-schema"
         type="application/ld+json"
-        strategy="afterInteractive"
-      >
-        {`
+        dangerouslySetInnerHTML={{ __html: `
           {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
@@ -165,8 +156,8 @@ export default function JuniorIndustrialDesignerPage() {
               }
             ]
           }
-        `}
-      </Script>
+        ` }}
+      />
 
       <JuniorDesignerContent />
     </>

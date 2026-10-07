@@ -1,6 +1,5 @@
 import React from "react";
 import type { Metadata } from "next";
-import Script from "next/script";
 
 import { HeroLanding } from "@/components/HeroLanding";
 import { Footer } from "@/components/Footer";
@@ -56,10 +55,6 @@ export const metadata: Metadata = {
   alternates: {
     canonical:
       "https://designtech.eu/industrial-design-technologieunternehmen",
-    languages: {
-      de: "https://designtech.eu/industrial-design-technologieunternehmen",
-      en: "https://designtech.eu/en/industrial-design-technologieunternehmen",
-    },
   },
 
   robots: {
@@ -81,12 +76,10 @@ export default function IndustrialDesignTechnologieunternehmenPage() {
   return (
     <>
       {/* Service Schema */}
-      <Script
+      <script
         id="industrial-design-service-schema"
         type="application/ld+json"
-        strategy="afterInteractive"
-      >
-        {`
+        dangerouslySetInnerHTML={{ __html: `
           {
             "@context": "https://schema.org",
             "@type": "Service",
@@ -122,16 +115,14 @@ export default function IndustrialDesignTechnologieunternehmenPage() {
               { "@type": "Country", "name": "Schweiz" }
             ]
           }
-        `}
-      </Script>
+        ` }}
+      />
 
       {/* Breadcrumb Schema */}
-      <Script
+      <script
         id="industrial-design-breadcrumb-schema"
         type="application/ld+json"
-        strategy="afterInteractive"
-      >
-        {`
+        dangerouslySetInnerHTML={{ __html: `
           {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
@@ -150,8 +141,8 @@ export default function IndustrialDesignTechnologieunternehmenPage() {
               }
             ]
           }
-        `}
-      </Script>
+        ` }}
+      />
 
       <HeroLanding title={"Industrial Design\nfür Technologieunternehmen"} />
 

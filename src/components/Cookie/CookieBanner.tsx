@@ -63,6 +63,11 @@ const CookieBanner = forwardRef<CookieBannerRef, unknown>((_, ref) => {
         showBanner: false,
       })
     );
+
+    // Analytics erst nach Einwilligung laden (Loader in app/layout.tsx)
+    if (analytics) {
+      (window as unknown as { dtLoadAnalytics?: () => void }).dtLoadAnalytics?.();
+    }
   };
 
   // Banner nicht anzeigen, wenn der Nutzer es bereits geschlossen hat oder Präferenzen gespeichert wurden

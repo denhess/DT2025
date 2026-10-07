@@ -1,0 +1,6 @@
+# Hauptdomain ist https://designtech.eu (ohne www).
+# www und http dauerhaft (301) dorthin weiterleiten.
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.designtech\.eu$ [NC,OR]
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://designtech.eu/$1 [R=301,L]
