@@ -1,4 +1,4 @@
-// src/components/LoadingProvider.tsx - Optimiert mit echtem Loading-State
+// src/components/LoadingProvider.tsx - Kurzer Lade-Overlay bis zur Hydration
 "use client";
 
 import { useState, useEffect } from "react";
@@ -7,25 +7,14 @@ interface LoadingProviderProps {
   children: React.ReactNode;
 }
 
+// Der Inhalt steht bereits im statischen HTML. Der Overlay verdeckt ihn nur,
+// bis React übernommen hat – und verschwindet per CSS-Animation spätestens
+// nach 2,5 s auch dann, wenn JavaScript hängt oder fehlschlägt.
 export default function LoadingProvider({ children }: LoadingProviderProps) {
-  const [pageLoaded, setPageLoaded] = useState(false);
+  const [hydrated, setHydrated] = useState(false);
 
   useEffect(() => {
-    // Warte auf DOM-Ready und wichtige Ressourcen
-    const handleLoad = () => {
-      // Kurze Verzögerung für smoother Übergang
-      requestAnimationFrame(() => {
-        setPageLoaded(true);
-      });
-    };
-
-    // Prüfe ob Seite bereits geladen ist
-    if (document.readyState === 'complete') {
-      handleLoad();
-    } else {
-      window.addEventListener('load', handleLoad);
-      return () => window.removeEventListener('load', handleLoad);
-    }
+    setHydrated(true);
   }, []);
 
   const loaderStyle = {
@@ -38,27 +27,19 @@ export default function LoadingProvider({ children }: LoadingProviderProps) {
 
   return (
     <>
-      {!pageLoaded && (
-        <div 
-          className="fixed inset-0 z-[9999] flex items-center justify-center" 
+      {!hydrated && (
+        <div
+          className="dt-page-loader fixed inset-0 z-[9999] flex items-center justify-center"
           style={{ backgroundColor: 'rgb(24, 21, 28)' }}
+          aria-hidden="true"
         >
           <div style={loaderStyle} className="loader-animation"></div>
         </div>
       )}
       {children}
-      
-      <style jsx global>{`
-        @keyframes l5 {
-          0%   {background-position: 0 0, 100% 0, 100% 100%, 0 100%}
-          33%  {background-position: 0 0, 100% 0, 100% 100%, 0 100%; width: 60px; height: 60px}
-          66%  {background-position: 100% 0, 100% 100%, 0 100%, 0 0; width: 60px; height: 60px}
-          100% {background-position: 100% 0, 100% 100%, 0 100%, 0 0}
-        }
-        .loader-animation {
-          animation: l5 1.5s infinite cubic-bezier(0.3, 1, 0, 1);
-        }
-      `}</style>
+      {/* Styles (l5, dt-page-loader) liegen in globals.css, damit sie schon
+          im statischen HTML greifen – styled-jsx wird ohne Registry nicht
+          serverseitig ausgegeben. */}
     </>
   );
 }

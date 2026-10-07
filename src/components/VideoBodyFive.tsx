@@ -42,12 +42,11 @@ export function VideoBodyFive() {
       >
         <video
           ref={videoRef}
-          autoPlay
           muted
           loop
           playsInline
           className={`absolute inset-0 w-full h-[140%] object-cover transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
-          preload="metadata"
+          preload="none"
           style={{ 
             top: '-5%',
             height: '140%',
@@ -56,7 +55,6 @@ export function VideoBodyFive() {
             objectPosition: 'center'
           }}
         >
-          <source src="/Bodyvideo-Tcb.mp4" type="video/mp4" />
         </video>
         
         {/* Loading State - ohne Image, nur Spinner */}
@@ -80,7 +78,7 @@ export function VideoBodyFive() {
         </div>
         <div className="flex items-center self-start sm:self-auto">
           <Image
-            src="logos/logo-cultivated-b-white.svg"
+            src="/logos/logo-cultivated-b-white.svg"
             alt="Logo"
             width={120}
             height={40}

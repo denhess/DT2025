@@ -1,82 +1,68 @@
 import { useRef, useState, useEffect } from "react";
-import { VideoCache } from "@/lib/video-cache";
 
-export function useOptimizedVideo(src: string, autoplay = true) {
+// Hintergrundvideo erst laden, wenn es in die Nähe des Viewports kommt.
+// Das <video>-Element hat bewusst kein src/<source> im Markup: Die Quelle
+// wird hier genau einmal gesetzt (mobil ggf. die kleinere Variante).
+// Außerhalb des Viewports wird das Video pausiert.
+export function useOptimizedVideo(src: string, autoplay = true, mobileSrc?: string) {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const cache = VideoCache.getInstance();
-  
+
   useEffect(() => {
-    let isMounted = true;
-    
-    const loadVideo = async () => {
-      try {
-        // Versuche Video aus Cache zu laden
-        const cachedVideo = cache.getVideo(src);
-        
-        if (cachedVideo && videoRef.current) {
-          // Kopiere Eigenschaften vom gecachten Video
-          videoRef.current.src = cachedVideo.src;
-          videoRef.current.currentTime = 0;
-          
-          if (isMounted) {
-            setIsLoaded(true);
-            if (autoplay) {
-              await videoRef.current.play();
-              setIsPlaying(true);
-            }
-          }
-          return;
-        }
-        
-        // Preload Video wenn nicht im Cache
-        const video = await cache.preloadVideo(src);
-        
-        if (isMounted && videoRef.current) {
-          videoRef.current.src = video.src;
-          setIsLoaded(true);
-          
-          if (autoplay) {
-            await videoRef.current.play();
-            setIsPlaying(true);
-          }
-        }
-      } catch (err) {
-        if (isMounted) {
-          setError(err instanceof Error ? err.message : 'Unknown error');
-          console.error('Video loading error:', err);
-        }
-      }
+    const video = videoRef.current;
+    if (!video) return;
+
+    let started = false;
+    const handleLoaded = () => setIsLoaded(true);
+    const handleError = () => setError(`Failed to load video: ${video.currentSrc || src}`);
+    video.addEventListener('loadeddata', handleLoaded);
+    video.addEventListener('error', handleError);
+
+    const play = () => {
+      video.play().then(() => setIsPlaying(true)).catch(() => {
+        // Autoplay vom Browser verhindert (z. B. Energiesparmodus) – Video bleibt pausiert
+      });
     };
-    
-    loadVideo();
-    
+
+    const start = () => {
+      started = true;
+      const useMobile = mobileSrc && window.matchMedia('(max-width: 767px)').matches;
+      video.muted = true;
+      video.src = useMobile ? mobileSrc : src;
+      video.load();
+    };
+
+    // Fallback für Browser ohne IntersectionObserver: sofort laden
+    if (!('IntersectionObserver' in window)) {
+      start();
+      if (autoplay) play();
+      return () => {
+        video.removeEventListener('loadeddata', handleLoaded);
+        video.removeEventListener('error', handleError);
+      };
+    }
+
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        if (!started) start();
+        if (autoplay) play();
+      } else if (started && !video.paused) {
+        video.pause();
+        setIsPlaying(false);
+      }
+    }, { rootMargin: '200px 0px' });
+
+    observer.observe(video);
+
     return () => {
-      isMounted = false;
+      observer.disconnect();
+      video.removeEventListener('loadeddata', handleLoaded);
+      video.removeEventListener('error', handleError);
     };
-  }, [src, autoplay, cache]);
-  
-  // Visibility Change Handler optimiert
-  useEffect(() => {
-    const handleVisibilityChange = async () => {
-      if (document.visibilityState === 'visible' && videoRef.current && isLoaded) {
-        if (videoRef.current.paused && autoplay) {
-          try {
-            await videoRef.current.play();
-            setIsPlaying(true);
-          } catch {
-            console.log('Autoplay prevented after visibility change');
-          }
-        }
-      }
-    };
-    
-    document.addEventListener('visibilitychange', handleVisibilityChange);
-    return () => document.removeEventListener('visibilitychange', handleVisibilityChange);
-  }, [isLoaded, autoplay]);
-  
+  }, [src, mobileSrc, autoplay]);
+
   return {
     videoRef,
     isLoaded,

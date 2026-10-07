@@ -186,7 +186,7 @@ export function VideoBodySix() {
         {/* Logo - auf allen Geräten links */}
         <div className="flex items-center self-start sm:self-auto">
           <Image
-            src="logos/logo-cultivated-b-white.svg"
+            src="/logos/logo-cultivated-b-white.svg"
             alt="Logo"
             width={120}
             height={40}

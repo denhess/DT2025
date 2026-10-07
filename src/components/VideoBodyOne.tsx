@@ -44,12 +44,11 @@ export function VideoBodyOne() {
       >
         <video
           ref={videoRef}
-          autoPlay
           muted
           loop
           playsInline
           className={`absolute w-full object-cover transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
-          preload="metadata"
+          preload="none"
           style={{ 
             objectFit: 'cover',
             objectPosition: 'center',
@@ -60,7 +59,6 @@ export function VideoBodyOne() {
             minHeight: '110%'
           }}
         >
-          <source src="/Bodyvideo-Vhf.mp4" type="video/mp4" />
         </video>
         
         {/* Loading State - ohne Image, nur Spinner */}
@@ -89,8 +87,8 @@ export function VideoBodyOne() {
         {/* Logo - auf allen Geräten links */}
         <div className="flex items-center self-start sm:self-auto">
           <Image
-            src="logos/logo-vhf-white.svg"
-            alt="Logo"
+            src="/logos/logo-vhf-white.svg"
+            alt="VHF Logo"
             width={120}
             height={40}
             className="h-10 w-auto object-contain"

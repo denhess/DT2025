@@ -12,7 +12,7 @@ export function VideoBodyFour() {
   const { t } = useTranslation('common');
   const containerRef = useRef<HTMLElement>(null);
   
-  const { videoRef, isLoaded, error } = useOptimizedVideo('/Vecoplan_desktop.mp4', true);
+  const { videoRef, isLoaded, error } = useOptimizedVideo('/Vecoplan_desktop.mp4', true, '/Vecoplan_mobil.mp4');
 
   if (error) {
     return (
@@ -44,13 +44,11 @@ export function VideoBodyFour() {
       >
         <video
           ref={videoRef}
-          autoPlay
           muted
           loop
           playsInline
           className={`absolute inset-0 w-full h-[140%] object-cover transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
-          poster="/BodyVideo-thumbnail.webp"
-          preload="metadata"
+          preload="none"
           style={{ 
             top: '0%',
             height: '140%',
@@ -59,20 +57,11 @@ export function VideoBodyFour() {
             objectPosition: 'center'
           }}
         >
-          <source src="/Vecoplan_desktop.mp4" media="(min-width: 768px)" type="video/mp4" />
-          <source src="/Vecoplan_mobil.mp4" media="(max-width: 767px)" type="video/mp4" />
         </video>
         
         {/* Loading State */}
         {!isLoaded && (
           <div className="absolute inset-0 bg-gray-900">
-            <Image
-              src="/BodyVideo-thumbnail.webp" 
-              alt="Loading..." 
-              fill
-              className="w-full h-full object-cover opacity-50"
-              priority={false}
-            />
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-white"></div>
             </div>
@@ -91,8 +80,8 @@ export function VideoBodyFour() {
         </div>
         <div className="flex items-center self-start sm:self-auto">
           <Image
-            src="logos/logo-vecoplan-white.svg"
-            alt="Logo"
+            src="/logos/logo-vecoplan-white.svg"
+            alt="Vecoplan Logo"
             width={120}
             height={40}
             className="h-10 w-auto object-contain"

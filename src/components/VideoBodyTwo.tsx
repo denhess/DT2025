@@ -44,12 +44,11 @@ export function VideoBodyTwo() {
       >
         <video
           ref={videoRef}
-          autoPlay
           muted
           loop
           playsInline
           className={`absolute inset-0 w-full h-[140%] object-cover transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
-          preload="metadata"
+          preload="none"
           style={{ 
             top: '-5%',
             height: '140%',
@@ -58,7 +57,6 @@ export function VideoBodyTwo() {
             objectPosition: 'center'
           }}
         >
-          <source src="/Bodyvideo-Junker.mp4" type="video/mp4" />
         </video>
         
         {/* Loading State - ohne Image, nur Spinner */}
@@ -83,8 +81,8 @@ export function VideoBodyTwo() {
         </div>
         <div className="flex items-center self-start sm:self-auto">
           <Image
-            src="logos/logo-arburg-white.svg"
-            alt="Logo"
+            src="/logos/logo-junker-white.svg"
+            alt="Junker Logo"
             width={120}
             height={40}
             className="h-10 w-auto object-contain"

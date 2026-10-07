@@ -599,3 +599,21 @@ p {
 .project-slider .btn-gradient-noanimation:hover {
   background: rgba(255, 255, 255, 0.1);
 }
+/* Lade-Overlay (LoadingProvider) – hier statt styled-jsx, damit es schon
+   im statischen HTML greift */
+@keyframes l5 {
+  0%   {background-position: 0 0, 100% 0, 100% 100%, 0 100%}
+  33%  {background-position: 0 0, 100% 0, 100% 100%, 0 100%; width: 60px; height: 60px}
+  66%  {background-position: 100% 0, 100% 100%, 0 100%, 0 0; width: 60px; height: 60px}
+  100% {background-position: 100% 0, 100% 100%, 0 100%, 0 0}
+}
+.loader-animation {
+  animation: l5 1.5s infinite cubic-bezier(0.3, 1, 0, 1);
+}
+/* Fallback ohne JavaScript: Overlay nach 2,2 s ausblenden */
+@keyframes dt-loader-hide {
+  to { opacity: 0; visibility: hidden; }
+}
+.dt-page-loader {
+  animation: dt-loader-hide 0.3s ease 2.2s forwards;
+}

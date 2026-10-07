@@ -42,12 +42,12 @@ export function Ready() {
 
       <div className="absolute inset-0 flex items-center">
         <div className="w-full px-8 md:px-8 lg:px-8">
-          <h1 
+          <h2 
             ref={textRef}
-            className="uppercase leading-[1.1] tracking-[-0.03em]"
+            className="text-[clamp(2rem,8vw,12rem)] mb-0 [hyphens:auto] uppercase leading-[1.1] tracking-[-0.03em]"
           >
             {t('ready.title')}
-          </h1>
+          </h2>
         </div>
       </div>
     </section>
